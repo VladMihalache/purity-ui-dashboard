@@ -2,6 +2,7 @@ import Buttons from "views/Components/Buttons.js";
 import Calendar from "views/Calendar/Calendar.js";
 import Charts from "views/Charts/Charts.js";
 import Dashboard from "views/Dashboard/Dashboard.js";
+import DashboardChakra from "views/Dashboard/DashboardChakra.js";
 import ErrorPage from "views/Pages/ErrorPage.js";
 import ExtendedForms from "views/Forms/ExtendedForms.js";
 import ExtendedTables from "views/Tables/ExtendedTables.js";
@@ -45,6 +46,14 @@ var dashRoutes = [
     rtlName: "لوحة القيادة",
     icon: DashboardIcon,
     component: Dashboard,
+    layout: "/admin",
+  },
+  {
+    path: "/dashboardchakra",
+    name: "Dashboard Chakra",
+    rtlName: "لوحة القيادة",
+    icon: DashboardIcon,
+    component: DashboardChakra,
     layout: "/admin",
   },
   {
