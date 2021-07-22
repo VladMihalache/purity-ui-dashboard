@@ -4,9 +4,11 @@ import {ChakraProvider, Box, Button, Stack, HStack, VStack, SimpleGrid, useColor
 
 export default function CardChakra(props) {
 
+  const { toggleColorMode } = useColorMode();
+
   const cardBg = useColorModeValue("red.500", "red.200");
   return (
-    <Button bg={cardBg} size="sm" onClick={toggleColorMode}>
+    <Button bg={"red.900"} size="sm" onClick={toggleColorMode}>
       Toggle Mode
     </Button>
   );

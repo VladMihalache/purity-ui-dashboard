@@ -1,6 +1,8 @@
 import React from "react";
 import cx from "classnames";
 import { Switch, Route, Redirect } from "react-router-dom";
+// chakra imports
+import {ChakraProvider} from "@chakra-ui/react";
 // creates a beautiful scrollbar
 import PerfectScrollbar from "perfect-scrollbar";
 import "perfect-scrollbar/css/perfect-scrollbar.css";
@@ -145,7 +147,7 @@ export default function Dashboard(props) {
   };
 
   return (
-    <div className={classes.wrapper}>
+    <ChakraProvider resetCss={false}>
       <Sidebar
         routes={routes}
         logoText={"Creative Tim"}
@@ -198,6 +200,7 @@ export default function Dashboard(props) {
           miniActive={miniActive}
         />
       </div>
-    </div>
+    
+    </ChakraProvider>
   );
 }

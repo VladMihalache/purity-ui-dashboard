@@ -1,5 +1,7 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
+// chakra imports
+import {ChakraProvider} from "@chakra-ui/react";
 
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
@@ -83,6 +85,7 @@ export default function Pages(props) {
     return activeRoute;
   };
   return (
+    <ChakraProvider resetCss={false}>
     <div>
       <AuthNavbar brandText={getActiveRoute(routes)} {...rest} />
       <div className={classes.wrapper} ref={wrapper}>
@@ -98,5 +101,6 @@ export default function Pages(props) {
         </div>
       </div>
     </div>
+    </ChakraProvider>
   );
 }
