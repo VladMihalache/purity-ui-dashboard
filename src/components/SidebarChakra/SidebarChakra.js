@@ -2,7 +2,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 // chakra imports
-import {Button, ButtonGroup} from "@chakra-ui/react";
+import {Button, ButtonGroup, PhoneIcon, AddIcon, WarningIcon} from "@chakra-ui/react";
 // javascript plugin used to create scrollbars on windows
 import PerfectScrollbar from "perfect-scrollbar";
 import { NavLink, useLocation } from "react-router-dom";
@@ -163,17 +163,7 @@ function SidebarChakra(props) {
               { [classes.collapseItem]: prop.icon === undefined }
             )}
           >
-            <Button>
-              Hey
-            </Button>
-            <NavLink
-              to={"#"}
-              className={navLinkClasses}
-              onClick={(e) => {
-                e.preventDefault();
-                setState(st);
-              }}
-            >
+            <Button colorScheme={"red"}>
               {prop.icon !== undefined ? (
                 typeof prop.icon === "string" ? (
                   <Icon className={itemIcon}>{prop.icon}</Icon>
@@ -185,6 +175,15 @@ function SidebarChakra(props) {
                   {rtlActive ? prop.rtlMini : prop.mini}
                 </span>
               )}
+            </Button>
+            <NavLink
+              to={"#"}
+              className={navLinkClasses}
+              onClick={(e) => {
+                e.preventDefault();
+                setState(st);
+              }}
+            >
               <ListItemText
                 primary={rtlActive ? prop.rtlName : prop.name}
                 secondary={
