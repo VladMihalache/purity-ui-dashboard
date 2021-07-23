@@ -14,6 +14,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import AdminNavbar from "components/Navbars/AdminNavbar.js";
 import Footer from "components/Footer/Footer.js";
 import Sidebar from "components/Sidebar/Sidebar.js";
+import SidebarChakra from "components/SidebarChakra/SidebarChakra.js";
 import FixedPlugin from "components/FixedPlugin/FixedPlugin.js";
 
 import routes from "routes.js";
@@ -148,7 +149,7 @@ export default function Dashboard(props) {
 
   return (
     <ChakraProvider resetCss={false}>
-      <Sidebar
+      <SidebarChakra
         routes={routes}
         logoText={"Creative Tim"}
         logo={logo}
