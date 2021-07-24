@@ -41,14 +41,6 @@ import WidgetsIcon from "@material-ui/icons/Widgets";
 
 var dashRoutes = [
   {
-    path: "/billing",
-    name: "Billing",
-    rtlName: "لوحة القيادة",
-    icon: DashboardIcon,
-    component: Billing,
-    layout: "/admin",
-  },
-  {
     path: "/dashboard",
     name: "Dashboard",
     rtlName: "لوحة القيادة",
