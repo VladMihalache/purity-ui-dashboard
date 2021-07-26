@@ -38,7 +38,7 @@ export default function Dashboard(props) {
   // const [hasImage, setHasImage] = React.useState(true);
   const [fixedClasses, setFixedClasses] = React.useState("dropdown");
   const [logo, setLogo] = React.useState(
-    require("assets/img/logo-white.svg").default
+    require("assets/img/logo-chakra.png").default
   );
   // styles
   const classes = useStyles();
@@ -151,13 +151,10 @@ export default function Dashboard(props) {
     <ChakraProvider resetCss={false}>
       <SidebarChakra
         routes={routes}
-        logoText={"Creative Tim"}
+        logoText={"DASHBOARD"}
         logo={logo}
-        image={image}
         handleDrawerToggle={handleDrawerToggle}
         open={mobileOpen}
-        color={color}
-        bgColor={bgColor}
         miniActive={miniActive}
         {...rest}
       />

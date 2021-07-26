@@ -2,7 +2,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 // chakra imports
-import {Button, ButtonGroup, PhoneIcon, AddIcon, WarningIcon} from "@chakra-ui/react";
+import {Button, Flex, Text, Link, Image, Avatar, Stack, HStack, VStack, Box, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon, useColorModeValue,} from "@chakra-ui/react";
 // javascript plugin used to create scrollbars on windows
 import PerfectScrollbar from "perfect-scrollbar";
 import { NavLink, useLocation } from "react-router-dom";
@@ -33,7 +33,7 @@ var ps;
 // This was necessary so that we could initialize PerfectScrollbar on the links.
 // There might be something with the Hidden component from material-ui, and we didn't have access to
 // the links, and couldn't initialize the plugin.
-function SidebarWrapper({ className, user, headerLinks, links }) {
+function SidebarWrapper({ className, headerLinks, links }) {
   const sidebarWrapper = React.useRef();
   React.useEffect(() => {
     if (navigator.platform.indexOf("Win") > -1) {
@@ -49,21 +49,26 @@ function SidebarWrapper({ className, user, headerLinks, links }) {
     };
   });
   return (
-    <div className={className} ref={sidebarWrapper}>
-      {user}
+    <div className={className}>
       {headerLinks}
       {links}
     </div>
   );
 }
 
+
+
+
+
+
+
+// FUNCTIONS
+
 function SidebarChakra(props) {
   const classes = useStyles();
   const [miniActive, setMiniActive] = React.useState(true);
   // to check for active links and opened collapses
   let location = useLocation();
-  // this is for the user collapse
-  const [openAvatar, setOpenAvatar] = React.useState(false);
   // this is for the rest of the collapses
   const [state, setState] = React.useState({});
   React.useEffect(() => {
@@ -105,357 +110,114 @@ function SidebarChakra(props) {
   };
   // this function creates the links and collapses that appear in the sidebar (left menu)
   const createLinks = (routes) => {
-    const { color, rtlActive } = props;
+    const { rtlActive } = props;
     return routes.map((prop, key) => {
       if (prop.redirect) {
         return null;
       }
-      if (prop.collapse) {
-        var st = {};
-        st[prop["state"]] = !state[prop.state];
-        const navLinkClasses =
-          classes.itemLink +
-          " " +
-          cx({
-            [" " + classes.collapseActive]: getCollapseInitialState(prop.views),
-          });
-        const itemText =
-          classes.itemText +
-          " " +
-          cx({
-            [classes.itemTextMini]: props.miniActive && miniActive,
-            [classes.itemTextMiniRTL]:
-              rtlActive && props.miniActive && miniActive,
-            [classes.itemTextRTL]: rtlActive,
-          });
-        const collapseItemText =
-          classes.collapseItemText +
-          " " +
-          cx({
-            [classes.collapseItemTextMini]: props.miniActive && miniActive,
-            [classes.collapseItemTextMiniRTL]:
-              rtlActive && props.miniActive && miniActive,
-            [classes.collapseItemTextRTL]: rtlActive,
-          });
-        const itemIcon =
-          classes.itemIcon +
-          " " +
-          cx({
-            [classes.itemIconRTL]: rtlActive,
-          });
-        const caret =
-          classes.caret +
-          " " +
-          cx({
-            [classes.caretRTL]: rtlActive,
-          });
-        const collapseItemMini =
-          classes.collapseItemMini +
-          " " +
-          cx({
-            [classes.collapseItemMiniRTL]: rtlActive,
-          });
-        return (
-          <ListItem
-            key={key}
-            className={cx(
-              { [classes.item]: prop.icon !== undefined },
-              { [classes.collapseItem]: prop.icon === undefined }
-            )}
-          >
-            <Button colorScheme={"red"}>
+      // if (prop.collapse) {
+      //   var st = {};
+      //   st[prop["state"]] = !state[prop.state];
+      //   return (
+      //     <ListItem
+      //       key={key}
+      //     >
+      //       <NavLink
+      //         to={"#"}
+      //         onClick={(e) => {
+      //           e.preventDefault();
+      //           setState(st);
+      //         }}
+      //       >
+      //       <Button w={"100%"} colorScheme={"blue"} mb={"30px"}>
+      //         {prop.icon !== undefined ? (
+      //           typeof prop.icon === "string" ? (
+      //             <Icon>{prop.icon}</Icon>
+      //           ) : (
+      //             <prop.icon />
+      //           )
+      //         ) : (
+      //           <span>
+      //             {rtlActive ? prop.rtlMini : prop.mini}
+      //           </span>
+      //         )}
+      //         <Text>{rtlActive ? prop.rtlName : prop.name}</Text>
+      //       </Button>
+      //       </NavLink>
+      //       <Collapse in={state[prop.state]} unmountOnExit>
+      //         <List>
+      //           {createLinks(prop.views)}
+      //         </List>
+      //       </Collapse>
+      //     </ListItem>
+      //   );
+      // }
+      return (
+          <NavLink to={prop.layout + prop.path} >
+          <Button  w={"100%"} colorScheme={"red"} mb={"30px"} px={"16px"} py={"12px"}>
+            <Flex>
               {prop.icon !== undefined ? (
                 typeof prop.icon === "string" ? (
-                  <Icon className={itemIcon}>{prop.icon}</Icon>
+                  <Icon>{prop.icon}</Icon>
                 ) : (
-                  <prop.icon className={itemIcon} />
+                  <prop.icon />
                 )
               ) : (
-                <span className={collapseItemMini}>
+                <span>
                   {rtlActive ? prop.rtlMini : prop.mini}
                 </span>
               )}
-            </Button>
-            <NavLink
-              to={"#"}
-              className={navLinkClasses}
-              onClick={(e) => {
-                e.preventDefault();
-                setState(st);
-              }}
-            >
-              <ListItemText
-                primary={rtlActive ? prop.rtlName : prop.name}
-                secondary={
-                  <b
-                    className={
-                      caret +
-                      " " +
-                      (state[prop.state] ? classes.caretActive : "")
-                    }
-                  />
-                }
-                disableTypography={true}
-                className={cx(
-                  { [itemText]: prop.icon !== undefined },
-                  { [collapseItemText]: prop.icon === undefined }
-                )}
-              />
-            </NavLink>
-            <Collapse in={state[prop.state]} unmountOnExit>
-              <List className={classes.list + " " + classes.collapseList}>
-                {createLinks(prop.views)}
-              </List>
-            </Collapse>
-          </ListItem>
-        );
-      }
-      const innerNavLinkClasses =
-        classes.collapseItemLink +
-        " " +
-        cx({
-          [" " + classes[color]]: activeRoute(prop.layout + prop.path),
-        });
-      const collapseItemMini =
-        classes.collapseItemMini +
-        " " +
-        cx({
-          [classes.collapseItemMiniRTL]: rtlActive,
-        });
-      const navLinkClasses =
-        classes.itemLink +
-        " " +
-        cx({
-          [" " + classes[color]]: activeRoute(prop.layout + prop.path),
-        });
-      const itemText =
-        classes.itemText +
-        " " +
-        cx({
-          [classes.itemTextMini]: props.miniActive && miniActive,
-          [classes.itemTextMiniRTL]:
-            rtlActive && props.miniActive && miniActive,
-          [classes.itemTextRTL]: rtlActive,
-        });
-      const collapseItemText =
-        classes.collapseItemText +
-        " " +
-        cx({
-          [classes.collapseItemTextMini]: props.miniActive && miniActive,
-          [classes.collapseItemTextMiniRTL]:
-            rtlActive && props.miniActive && miniActive,
-          [classes.collapseItemTextRTL]: rtlActive,
-        });
-      const itemIcon =
-        classes.itemIcon +
-        " " +
-        cx({
-          [classes.itemIconRTL]: rtlActive,
-        });
-      return (
-        <ListItem
-          key={key}
-          className={cx(
-            { [classes.item]: prop.icon !== undefined },
-            { [classes.collapseItem]: prop.icon === undefined }
-          )}
-        >
-          <NavLink
-            to={prop.layout + prop.path}
-            className={cx(
-              { [navLinkClasses]: prop.icon !== undefined },
-              { [innerNavLinkClasses]: prop.icon === undefined }
-            )}
-          >
-            {prop.icon !== undefined ? (
-              typeof prop.icon === "string" ? (
-                <Icon className={itemIcon}>{prop.icon}</Icon>
-              ) : (
-                <prop.icon className={itemIcon} />
-              )
-            ) : (
-              <span className={collapseItemMini}>
-                {rtlActive ? prop.rtlMini : prop.mini}
-              </span>
-            )}
-            <ListItemText
-              primary={rtlActive ? prop.rtlName : prop.name}
-              disableTypography={true}
-              className={cx(
-                { [itemText]: prop.icon !== undefined },
-                { [collapseItemText]: prop.icon === undefined }
-              )}
-            />
+              <Text> {rtlActive ? prop.rtlName : prop.name} </Text>
+            </Flex>
+          </Button>
           </NavLink>
-        </ListItem>
       );
     });
   };
   const { logo, image, logoText, routes, bgColor, rtlActive } = props;
-  const itemText =
-    classes.itemText +
-    " " +
-    cx({
-      [classes.itemTextMini]: props.miniActive && miniActive,
-      [classes.itemTextMiniRTL]: rtlActive && props.miniActive && miniActive,
-      [classes.itemTextRTL]: rtlActive,
-    });
-  const collapseItemText =
-    classes.collapseItemText +
-    " " +
-    cx({
-      [classes.collapseItemTextMini]: props.miniActive && miniActive,
-      [classes.collapseItemTextMiniRTL]:
-        rtlActive && props.miniActive && miniActive,
-      [classes.collapseItemTextRTL]: rtlActive,
-    });
-  const userWrapperClass =
-    classes.user +
-    " " +
-    cx({
-      [classes.whiteAfter]: bgColor === "white",
-    });
-  const caret =
-    classes.caret +
-    " " +
-    cx({
-      [classes.caretRTL]: rtlActive,
-    });
-  const collapseItemMini =
-    classes.collapseItemMini +
-    " " +
-    cx({
-      [classes.collapseItemMiniRTL]: rtlActive,
-    });
-  const photo =
-    classes.photo +
-    " " +
-    cx({
-      [classes.photoRTL]: rtlActive,
-    });
-  var user = (
-    <div className={userWrapperClass}>
-      <div className={photo}>
-        <img src={avatar} className={classes.avatarImg} alt="..." />
-      </div>
-      <List className={classes.list}>
-        <ListItem className={classes.item + " " + classes.userItem}>
-          <NavLink
-            to={"#"}
-            className={classes.itemLink + " " + classes.userCollapseButton}
-            onClick={() => setOpenAvatar(!openAvatar)}
-          >
-            <ListItemText
-              primary={rtlActive ? "تانيا أندرو" : "Tania Andrew"}
-              secondary={
-                <b
-                  className={
-                    caret +
-                    " " +
-                    classes.userCaret +
-                    " " +
-                    (openAvatar ? classes.caretActive : "")
-                  }
-                />
-              }
-              disableTypography={true}
-              className={itemText + " " + classes.userItemText}
-            />
-          </NavLink>
-          <Collapse in={openAvatar} unmountOnExit>
-            <List className={classes.list + " " + classes.collapseList}>
-              <ListItem className={classes.collapseItem}>
-                <NavLink
-                  to="#"
-                  className={classes.itemLink + " " + classes.userCollapseLinks}
-                >
-                  <span className={collapseItemMini}>
-                    {rtlActive ? "مع" : "MP"}
-                  </span>
-                  <ListItemText
-                    primary={rtlActive ? "ملفي" : "My Profile"}
-                    disableTypography={true}
-                    className={collapseItemText}
-                  />
-                </NavLink>
-              </ListItem>
-              <ListItem className={classes.collapseItem}>
-                <NavLink
-                  to="#"
-                  className={classes.itemLink + " " + classes.userCollapseLinks}
-                >
-                  <span className={collapseItemMini}>
-                    {rtlActive ? "هوع" : "EP"}
-                  </span>
-                  <ListItemText
-                    primary={rtlActive ? "تعديل الملف الشخصي" : "Edit Profile"}
-                    disableTypography={true}
-                    className={collapseItemText}
-                  />
-                </NavLink>
-              </ListItem>
-              <ListItem className={classes.collapseItem}>
-                <NavLink
-                  to="#"
-                  className={classes.itemLink + " " + classes.userCollapseLinks}
-                >
-                  <span className={collapseItemMini}>
-                    {rtlActive ? "و" : "S"}
-                  </span>
-                  <ListItemText
-                    primary={rtlActive ? "إعدادات" : "Settings"}
-                    disableTypography={true}
-                    className={collapseItemText}
-                  />
-                </NavLink>
-              </ListItem>
-            </List>
-          </Collapse>
-        </ListItem>
-      </List>
-    </div>
-  );
+
+
+
+
+
+
+
+
+
   var links = <List className={classes.list}>{createLinks(routes)}</List>;
 
-  const logoNormal =
-    classes.logoNormal +
-    " " +
-    cx({
-      [classes.logoNormalSidebarMini]: props.miniActive && miniActive,
-      [classes.logoNormalSidebarMiniRTL]:
-        rtlActive && props.miniActive && miniActive,
-      [classes.logoNormalRTL]: rtlActive,
-    });
-  const logoMini =
-    classes.logoMini +
-    " " +
-    cx({
-      [classes.logoMiniRTL]: rtlActive,
-    });
-  const logoClasses =
-    classes.logo +
-    " " +
-    cx({
-      [classes.whiteAfter]: bgColor === "white",
-    });
+
+
+
+
+
+
+
+
+
+
+
+//  BRAND
+const logoColor= useColorModeValue("red.500", "red.200");
   var brand = (
-    <div className={logoClasses}>
-      <a
-        href="https://www.creative-tim.com?ref=mdpr-sidebar"
-        target="_blank"
-        className={logoMini}
-      >
-        <img src={logo} alt="logo" className={classes.img} />
-      </a>
-      <a
-        href="https://www.creative-tim.com?ref=mdpr-sidebar"
-        target="_blank"
-        className={logoNormal}
-      >
+    <HStack pt={"46px"}>
+      <Link w={"84px"} h={"22px"} href="https://chakra-ui.com/" target="_blank" >
+        <Image w={"81px"} h={"21.5px"} src={logo} alt="logo" />
+      </Link>
+      <Box w={"1px"} h={"12px"} backgroundColor={""}></Box>
+      <Link href="https://chakra-ui.com/" target="_blank" color={"gray.700"}>
         {logoText}
-      </a>
-    </div>
+      </Link>
+    </HStack>
   );
+
+
+
+
+
+
+// SIDEBAR
+
   const drawerPaper =
     classes.drawerPaper +
     " " +
@@ -489,7 +251,6 @@ function SidebarChakra(props) {
           {brand}
           <SidebarWrapper
             className={sidebarWrapper}
-            user={user}
             headerLinks={<AdminNavbarLinks rtlActive={rtlActive} />}
             links={links}
           />
@@ -515,24 +276,23 @@ function SidebarChakra(props) {
           {brand}
           <SidebarWrapper
             className={sidebarWrapper}
-            user={user}
             links={links}
           />
-          {image !== undefined ? (
-            <div
-              className={classes.background}
-              style={{ backgroundImage: "url(" + image + ")" }}
-            />
-          ) : null}
         </Drawer>
       </Hidden>
     </div>
   );
 }
 
-SidebarChakra.defaultProps = {
-  bgColor: "blue",
-};
+
+
+
+
+
+
+
+
+// PROPS
 
 SidebarChakra.propTypes = {
   bgColor: PropTypes.oneOf(["white", "black", "blue"]),
@@ -557,7 +317,6 @@ SidebarChakra.propTypes = {
 
 SidebarWrapper.propTypes = {
   className: PropTypes.string,
-  user: PropTypes.object,
   headerLinks: PropTypes.object,
   links: PropTypes.object,
 };
