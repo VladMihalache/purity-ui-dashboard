@@ -2,7 +2,10 @@ import React from "react";
 import cx from "classnames";
 import { Switch, Route, Redirect } from "react-router-dom";
 // chakra imports
-import {ChakraProvider, Button, ButtonGroup, PhoneIcon, AddIcon, WarningIcon} from "@chakra-ui/react";
+import {
+  ChakraProvider, extendTheme,
+} from "@chakra-ui/react";
+import theme from "../theme/theme";
 // creates a beautiful scrollbar
 import PerfectScrollbar from "perfect-scrollbar";
 import "perfect-scrollbar/css/perfect-scrollbar.css";
@@ -24,6 +27,7 @@ import styles from "assets/jss/material-dashboard-pro-react/layouts/adminStyle.j
 var ps;
 
 const useStyles = makeStyles(styles);
+
 
 export default function Dashboard(props) {
   const { ...rest } = props;
@@ -148,8 +152,8 @@ export default function Dashboard(props) {
   };
 
   return (
-    <ChakraProvider resetCss={false}>
-      <SidebarChakra
+    <ChakraProvider theme={theme} resetCss={false}>
+      <Sidebar
         routes={routes}
         logoText={"DASHBOARD"}
         logo={logo}

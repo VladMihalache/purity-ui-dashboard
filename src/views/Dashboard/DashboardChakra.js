@@ -3,6 +3,7 @@ import React from "react";
 import {
   ChakraProvider,
   Box,
+  Flex,
   Button,
   Stack,
   HStack,
@@ -12,17 +13,7 @@ import {
   useColorMode,
 } from "@chakra-ui/react";
 
-// core components
-import GridContainer from "components/Grid/GridContainer.js";
-import GridItem from "components/Grid/GridItem.js";
-import Table from "components/Table/Table.js";
-// import Button from "components/CustomButtons/Button.js";
-import Danger from "components/Typography/Danger.js";
-import Card from "components/Card/Card.js";
-import CardHeader from "components/Card/CardHeader.js";
-import CardIcon from "components/Card/CardIcon.js";
-import CardBody from "components/Card/CardBody.js";
-import CardFooter from "components/Card/CardFooter.js";
+
 import {
   BuildIcon,
   CreditIcon,
@@ -36,28 +27,57 @@ import {
   RocketIcon,
   StatsIcon,
   WalletIcon,
-} from "components/IconsChakra/IconsChakra.js";
-
+} from "components/IconsChakra/IconsChakra.js";;
+import IconBox from "components/IconsChakra/IconBox.js";
+import CardChakra from "components/CardChakra/CardChakra.js";
 export default function DashboardChakra() {
   const { colorMode, toggleColorMode } = useColorMode();
+  const iconTeal = useColorModeValue("teal.300", "teal.300");
+  const iconBoxInside = useColorModeValue("white", "white");
 
   return (
-    <HStack>
-      {/* <CreditIcon fill="white" />
-      <CartIcon fill="white" />
-      <DocumentIcon fill="white" />
-      <GlobeIcon fill="#fff" stroke="#4FD1C5"/>
-      <HelpIcon fill="white" />
-      <HomeIcon fill="white" />
-      <PayPalIcon fill="white" />
-      <PersonIcon fill="white" />
-      <RocketIcon fill="white" />
-      <StatsIcon fill="white" />
-      <WalletIcon fill="white" /> */}
-      <BuildIcon />
-      {/* <Button size="sm" colorScheme="blue" onClick={toggleColorMode}>
-        Toggle Mode
-      </Button> */}
-    </HStack>
+    <VStack>
+      <HStack>
+        <CreditIcon h={"32px"} w={"32px"} color={iconTeal} />
+        <CartIcon h={"32px"} w={"32px"} color={iconTeal} />
+        <DocumentIcon h={"32px"} w={"32px"} color={iconTeal} />
+        <GlobeIcon h={"32px"} w={"32px"} color={iconTeal}/>
+        <HelpIcon h={"32px"} w={"32px"} color={iconTeal} />
+        <HomeIcon h={"32px"} w={"32px"} color={iconTeal} />
+        <PayPalIcon h={"32px"} w={"32px"} color={iconTeal} />
+        <PersonIcon h={"32px"} w={"32px"} color={iconTeal} />
+        <RocketIcon h={"32px"} w={"32px"} color={iconTeal} />
+        <StatsIcon h={"32px"} w={"32px"} color={iconTeal} />
+        <WalletIcon h={"32px"} w={"32px"} color={iconTeal} />
+        <IconBox as="box" h={"45px"} w={"45px"} bg={iconTeal}>
+          <WalletIcon h={"24px"} w={"24px"} color={iconBoxInside} />
+        </IconBox>
+        <Button size="sm" colorScheme="blue" onClick={toggleColorMode}>
+          Toggle Mode
+        </Button>
+      </HStack> 
+      <SimpleGrid minChildWidth="120px" spacing="40px" width={"100%"}>
+        <Flex height="80px">
+          <CardChakra>
+            <WalletIcon h={"32px"} w={"32px"} color={iconTeal} />
+          </CardChakra>
+        </Flex>
+        <Flex height="80px">
+          <CardChakra>
+            <WalletIcon h={"32px"} w={"32px"} color={iconTeal} />
+          </CardChakra>
+        </Flex>
+        <Flex height="80px">
+          <CardChakra>
+            <WalletIcon h={"32px"} w={"32px"} color={iconTeal} />
+          </CardChakra>
+        </Flex>
+        <Flex height="80px">
+          <CardChakra>
+            <WalletIcon h={"32px"} w={"32px"} color={iconTeal} />
+          </CardChakra>
+        </Flex>
+      </SimpleGrid>
+    </VStack>
   );
 }
