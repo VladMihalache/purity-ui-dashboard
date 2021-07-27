@@ -11,6 +11,7 @@ import {
   SimpleGrid,
   useColorModeValue,
   useColorMode,
+  Text,
 } from "@chakra-ui/react";
 
 
@@ -52,7 +53,7 @@ export default function DashboardChakra() {
         <IconBox as="box" h={"45px"} w={"45px"} bg={iconTeal}>
           <WalletIcon h={"24px"} w={"24px"} color={iconBoxInside} />
         </IconBox>
-        <Button size="sm" colorScheme="blue" onClick={toggleColorMode}>
+        <Button size="sm" colorScheme="blue" variant="with-shadow" onClick={toggleColorMode}>
           Toggle Mode
         </Button>
       </HStack> 
