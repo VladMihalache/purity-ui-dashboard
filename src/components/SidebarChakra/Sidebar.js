@@ -1,11 +1,11 @@
 /*eslint-disable*/
 import React from "react";
+import { NavLink, useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 // chakra imports
 import {Button, Flex, Text, Link, Image, Avatar, Stack, HStack, VStack, Box, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon, useColorModeValue,} from "@chakra-ui/react";
 // javascript plugin used to create scrollbars on windows
 import PerfectScrollbar from "perfect-scrollbar";
-import { NavLink, useLocation } from "react-router-dom";
 import cx from "classnames";
 
 // @material-ui/core components
@@ -64,7 +64,7 @@ function SidebarWrapper({ className, headerLinks, links }) {
 
 // FUNCTIONS
 
-function SidebarChakra(props) {
+function Sidebar(props) {
   const classes = useStyles();
   const [miniActive, setMiniActive] = React.useState(true);
   // to check for active links and opened collapses
@@ -321,4 +321,4 @@ SidebarWrapper.propTypes = {
   links: PropTypes.object,
 };
 
-export default SidebarChakra;
+export default Sidebar;

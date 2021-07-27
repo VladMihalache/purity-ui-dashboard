@@ -1,10 +1,8 @@
 import React from "react";
-import cx from "classnames";
 import { Switch, Route, Redirect } from "react-router-dom";
-// chakra imports
-import {
-  ChakraProvider, extendTheme,
-} from "@chakra-ui/react";
+import cx from "classnames";
+// Chakra-UI imports
+import { ChakraProvider } from "@chakra-ui/react";
 import theme from "../theme/theme";
 // creates a beautiful scrollbar
 import PerfectScrollbar from "perfect-scrollbar";
@@ -17,8 +15,10 @@ import { makeStyles } from "@material-ui/core/styles";
 import AdminNavbar from "components/Navbars/AdminNavbar.js";
 import Footer from "components/Footer/Footer.js";
 import Sidebar from "components/Sidebar/Sidebar.js";
-import SidebarChakra from "components/SidebarChakra/SidebarChakra.js";
 import FixedPlugin from "components/FixedPlugin/FixedPlugin.js";
+
+
+import SidebarChakra from "components/SidebarChakra/Sidebar.js";
 
 import routes from "routes.js";
 

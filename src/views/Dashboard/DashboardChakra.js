@@ -28,9 +28,9 @@ import {
   RocketIcon,
   StatsIcon,
   WalletIcon,
-} from "components/IconsChakra/IconsChakra.js";;
-import IconBox from "components/IconsChakra/IconBox.js";
-import CardChakra from "components/CardChakra/CardChakra.js";
+} from "components/Icons/Icons.js";
+import IconBox from "components/Icons/IconBox.js";
+import CardChakra from "components/CardChakra/Card.js";
 export default function DashboardChakra() {
   const { colorMode, toggleColorMode } = useColorMode();
   const iconTeal = useColorModeValue("teal.300", "teal.300");
@@ -39,17 +39,6 @@ export default function DashboardChakra() {
   return (
     <VStack>
       <HStack>
-        <CreditIcon h={"32px"} w={"32px"} color={iconTeal} />
-        <CartIcon h={"32px"} w={"32px"} color={iconTeal} />
-        <DocumentIcon h={"32px"} w={"32px"} color={iconTeal} />
-        <GlobeIcon h={"32px"} w={"32px"} color={iconTeal}/>
-        <HelpIcon h={"32px"} w={"32px"} color={iconTeal} />
-        <HomeIcon h={"32px"} w={"32px"} color={iconTeal} />
-        <PayPalIcon h={"32px"} w={"32px"} color={iconTeal} />
-        <PersonIcon h={"32px"} w={"32px"} color={iconTeal} />
-        <RocketIcon h={"32px"} w={"32px"} color={iconTeal} />
-        <StatsIcon h={"32px"} w={"32px"} color={iconTeal} />
-        <WalletIcon h={"32px"} w={"32px"} color={iconTeal} />
         <IconBox as="box" h={"45px"} w={"45px"} bg={iconTeal}>
           <WalletIcon h={"24px"} w={"24px"} color={iconBoxInside} />
         </IconBox>

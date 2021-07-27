@@ -1,7 +1,8 @@
 import React from "react";
-import cx from "classnames";
-
 import { Switch, Route, Redirect } from "react-router-dom";
+import cx from "classnames";
+// Chakra-UI imports
+import { ChakraProvider } from "@chakra-ui/react";
 // creates a beautiful scrollbar
 import PerfectScrollbar from "perfect-scrollbar";
 import "perfect-scrollbar/css/perfect-scrollbar.css";
