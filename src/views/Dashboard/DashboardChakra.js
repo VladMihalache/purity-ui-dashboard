@@ -15,6 +15,13 @@ import {
 } from "@chakra-ui/react";
 
 
+import Card from "components/CardChakra/Card.js";
+import CardHeader from "components/CardChakra/CardHeader.js";
+import CardIcon from "components/CardChakra/CardIcon.js";
+import CardBody from "components/CardChakra/CardBody.js";
+import CardFooter from "components/CardChakra/CardFooter.js";
+
+
 import {
   BuildIcon,
   CreditIcon,
@@ -30,7 +37,6 @@ import {
   WalletIcon,
 } from "components/Icons/Icons.js";
 import IconBox from "components/Icons/IconBox.js";
-import CardChakra from "components/CardChakra/Card.js";
 export default function DashboardChakra() {
   const { colorMode, toggleColorMode } = useColorMode();
   const iconTeal = useColorModeValue("teal.300", "teal.300");
@@ -46,26 +52,26 @@ export default function DashboardChakra() {
           Toggle Mode
         </Button>
       </HStack> 
-      <SimpleGrid minChildWidth="120px" spacing="40px" width={"100%"}>
+      <SimpleGrid minChildWidth="120px" spacing="24px" width={"100%"}>
         <Flex height="80px">
-          <CardChakra>
+          <Card>
             <WalletIcon h={"32px"} w={"32px"} color={iconTeal} />
-          </CardChakra>
+          </Card>
         </Flex>
         <Flex height="80px">
-          <CardChakra>
+          <Card>
             <WalletIcon h={"32px"} w={"32px"} color={iconTeal} />
-          </CardChakra>
+          </Card>
         </Flex>
         <Flex height="80px">
-          <CardChakra>
+          <Card>
             <WalletIcon h={"32px"} w={"32px"} color={iconTeal} />
-          </CardChakra>
+          </Card>
         </Flex>
         <Flex height="80px">
-          <CardChakra>
+          <Card>
             <WalletIcon h={"32px"} w={"32px"} color={iconTeal} />
-          </CardChakra>
+          </Card>
         </Flex>
       </SimpleGrid>
     </VStack>

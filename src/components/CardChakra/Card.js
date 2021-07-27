@@ -2,7 +2,7 @@ import React from "react";
 // chakra imports
 import {Box, useColorModeValue, useColorMode, toggleColorMode  } from "@chakra-ui/react";
 
-export default function CardChakra(props) {
+export default function Card(props) {
   const cardBg = useColorModeValue("white", "gray.700");
   const {
     children,

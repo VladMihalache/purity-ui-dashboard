@@ -294,7 +294,7 @@ const logoColor= useColorModeValue("red.500", "red.200");
 
 // PROPS
 
-SidebarChakra.propTypes = {
+Sidebar.propTypes = {
   bgColor: PropTypes.oneOf(["white", "black", "blue"]),
   rtlActive: PropTypes.bool,
   color: PropTypes.oneOf([
