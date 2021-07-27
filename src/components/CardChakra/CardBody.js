@@ -1,60 +1,13 @@
-import React from "react";
-// nodejs library that concatenates classes
-import classNames from "classnames";
-// nodejs library to set properties for components
-import PropTypes from "prop-types";
-// @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
-// @material-ui/icons
-
-// core components
-import styles from "assets/jss/material-dashboard-pro-react/components/cardBodyStyle.js";
-
-const useStyles = makeStyles(styles);
-
-export default function CardBody(props) {
-  const classes = useStyles();
-  const {
-    className,
-    children,
-    background,
-    plain,
-    formHorizontal,
-    pricing,
-    signup,
-    color,
-    profile,
-    calendar,
-    ...rest
-  } = props;
-  const cardBodyClasses = classNames({
-    [classes.cardBody]: true,
-    [classes.cardBodyBackground]: background,
-    [classes.cardBodyPlain]: plain,
-    [classes.cardBodyFormHorizontal]: formHorizontal,
-    [classes.cardPricing]: pricing,
-    [classes.cardSignup]: signup,
-    [classes.cardBodyColor]: color,
-    [classes.cardBodyProfile]: profile,
-    [classes.cardBodyCalendar]: calendar,
-    [className]: className !== undefined,
-  });
+import { Box, useStyleConfig } from "@chakra-ui/react";
+function CardBody(props) {
+  const { variant, children, ...rest } = props;
+  const styles = useStyleConfig("CardBody", { variant });
+  // Pass the computed styles into the `__css` prop
   return (
-    <div className={cardBodyClasses} {...rest}>
+    <Box __css={styles} {...rest}>
       {children}
-    </div>
+    </Box>
   );
 }
 
-CardBody.propTypes = {
-  className: PropTypes.string,
-  background: PropTypes.bool,
-  plain: PropTypes.bool,
-  formHorizontal: PropTypes.bool,
-  pricing: PropTypes.bool,
-  signup: PropTypes.bool,
-  color: PropTypes.bool,
-  profile: PropTypes.bool,
-  calendar: PropTypes.bool,
-  children: PropTypes.node,
-};
+export default CardBody;

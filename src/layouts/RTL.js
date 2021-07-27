@@ -141,6 +141,7 @@ export default function RTL(props) {
     }
   };
   return (
+    <ChakraProvider>
     <div className={classes.wrapper}>
       <Sidebar
         routes={routes}
@@ -188,5 +189,6 @@ export default function RTL(props) {
         />
       </div>
     </div>
+    </ChakraProvider>
   );
 }

@@ -8,26 +8,26 @@ import { makeStyles } from "@material-ui/core/styles";
 // @material-ui/icons
 
 // core components
-import styles from "assets/jss/material-dashboard-pro-react/components/cardTextStyle.js";
+import styles from "assets/jss/material-dashboard-pro-react/components/cardIconStyle.js";
 
 const useStyles = makeStyles(styles);
 
-export default function CardText(props) {
+export default function CardIcon(props) {
   const classes = useStyles();
   const { className, children, color, ...rest } = props;
-  const cardTextClasses = classNames({
-    [classes.cardText]: true,
+  const cardIconClasses = classNames({
+    [classes.cardIcon]: true,
     [classes[color + "CardHeader"]]: color,
     [className]: className !== undefined,
   });
   return (
-    <div className={cardTextClasses} {...rest}>
+    <div className={cardIconClasses} {...rest}>
       {children}
     </div>
   );
 }
 
-CardText.propTypes = {
+CardIcon.propTypes = {
   className: PropTypes.string,
   color: PropTypes.oneOf([
     "warning",
