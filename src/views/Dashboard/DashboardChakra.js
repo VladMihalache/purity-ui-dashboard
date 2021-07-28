@@ -50,8 +50,12 @@ export default function DashboardChakra() {
       </HStack>
       <SimpleGrid minChildWidth="120px" spacing="24px" width={"100%"}>
         <Flex height="80px">
-          <Card display="flex" >
-            <CardBody justifyContent="space-between" alignItems="center" h="100%">
+          <Card display="flex">
+            <CardBody
+              justifyContent="space-between"
+              alignItems="center"
+              h="100%"
+            >
               <WalletIcon h={"32px"} w={"32px"} color={iconTeal} />
               <WalletIcon h={"32px"} w={"32px"} color={iconTeal} />
             </CardBody>

@@ -2,7 +2,7 @@ import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import cx from "classnames";
 // Chakra-UI imports
-import { ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider, Box } from "@chakra-ui/react";
 import theme from "../theme/theme";
 // creates a beautiful scrollbar
 import PerfectScrollbar from "perfect-scrollbar";
@@ -12,11 +12,10 @@ import "perfect-scrollbar/css/perfect-scrollbar.css";
 import { makeStyles } from "@material-ui/core/styles";
 
 // core components
-import AdminNavbar from "components/Navbars/AdminNavbar.js";
-import Footer from "components/Footer/Footer.js";
+import AdminNavbar from "components/NavbarsChakra/AdminNavbar.js";
+import Footer from "components/FooterChakra/Footer.js";
 // import Sidebar from "components/Sidebar/Sidebar.js";
 import FixedPlugin from "components/FixedPlugin/FixedPlugin.js";
-
 
 import Sidebar from "components/SidebarChakra/Sidebar.js";
 
@@ -27,7 +26,6 @@ import styles from "assets/jss/material-dashboard-pro-react/layouts/adminStyle.j
 var ps;
 
 const useStyles = makeStyles(styles);
-
 
 export default function Dashboard(props) {
   const { ...rest } = props;
@@ -162,7 +160,7 @@ export default function Dashboard(props) {
         miniActive={miniActive}
         {...rest}
       />
-      <div className={mainPanelClasses} ref={mainPanel}>
+      <Box className={mainPanelClasses}>
         <AdminNavbar
           sidebarMinimize={sidebarMinimize.bind(this)}
           miniActive={miniActive}
@@ -172,37 +170,24 @@ export default function Dashboard(props) {
         />
         {/* On the /maps/full-screen-maps route we want the map to be on full screen - this is not possible if the content and conatiner classes are present because they have some paddings which would make the map smaller */}
         {getRoute() ? (
-          <div className={classes.content}>
-            <div className={classes.container}>
+          <Box className={classes.content}>
+            <Box className={classes.container}>
               <Switch>
                 {getRoutes(routes)}
                 <Redirect from="/admin" to="/admin/dashboard" />
               </Switch>
-            </div>
-          </div>
+            </Box>
+          </Box>
         ) : (
-          <div className={classes.map}>
+          <Box className={classes.map}>
             <Switch>
               {getRoutes(routes)}
               <Redirect from="/admin" to="/admin/dashboard" />
             </Switch>
-          </div>
+          </Box>
         )}
-        {getRoute() ? <Footer fluid /> : null}
-        <FixedPlugin
-          handleImageClick={handleImageClick}
-          handleColorClick={handleColorClick}
-          handleBgColorClick={handleBgColorClick}
-          color={color}
-          bgColor={bgColor}
-          bgImage={image}
-          handleFixedClick={handleFixedClick}
-          fixedClasses={fixedClasses}
-          sidebarMinimize={sidebarMinimize.bind(this)}
-          miniActive={miniActive}
-        />
-      </div>
-    
+        <Footer />
+      </Box>
     </ChakraProvider>
   );
 }

@@ -1,14 +1,14 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 // chakra imports
-import {ChakraProvider} from "@chakra-ui/react";
+import { ChakraProvider } from "@chakra-ui/react";
 
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 
 // core components
 import AuthNavbar from "components/Navbars/AuthNavbar.js";
-import Footer from "components/Footer/Footer.js";
+import Footer from "components/FooterChakra/Footer.js";
 
 import routes from "routes.js";
 
@@ -86,21 +86,21 @@ export default function Pages(props) {
   };
   return (
     <ChakraProvider resetCss={false}>
-    <div>
-      <AuthNavbar brandText={getActiveRoute(routes)} {...rest} />
-      <div className={classes.wrapper} ref={wrapper}>
-        <div
-          className={classes.fullPage}
-          style={{ backgroundImage: "url(" + getBgImage() + ")" }}
-        >
-          <Switch>
-            {getRoutes(routes)}
-            <Redirect from="/auth" to="/auth/login-page" />
-          </Switch>
-          <Footer white />
+      <div>
+        <AuthNavbar brandText={getActiveRoute(routes)} {...rest} />
+        <div className={classes.wrapper} ref={wrapper}>
+          <div
+            className={classes.fullPage}
+            style={{ backgroundImage: "url(" + getBgImage() + ")" }}
+          >
+            <Switch>
+              {getRoutes(routes)}
+              <Redirect from="/auth" to="/auth/login-page" />
+            </Switch>
+            <Footer white />
+          </div>
         </div>
       </div>
-    </div>
     </ChakraProvider>
   );
 }

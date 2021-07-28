@@ -12,5 +12,5 @@ export default extendTheme(
   CardComponent, // Card component
   CardBodyComponent, // Card Body component
   CardFooterComponent, // Card Footer component
-  CardHeaderComponent, // Card Header component
+  CardHeaderComponent // Card Header component
 );
