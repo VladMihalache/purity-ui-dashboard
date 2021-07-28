@@ -1,8 +1,12 @@
 import React from "react";
 import Chart from "react-apexcharts";
 import { useState, useEffect } from "react";
+import { useColorModeValue } from "@chakra-ui/color-mode";
 
 export default function LineChart(props) {
+  const lineColor = useColorModeValue("#2D3748", "#FFFFFF");
+  const gridColor = useColorModeValue("#E2E8F0", "#6a778e");
+  const tooltipTheme = useColorModeValue("light", "dark");
   const [options, setOptions] = useState({
     chart: {
       background: "transparent",
@@ -27,14 +31,17 @@ export default function LineChart(props) {
         },
       },
     },
+    tooltip: {
+      theme: tooltipTheme,
+    },
     legend: {
       show: false,
     },
     grid: {
-      borderColor: "#E2E8F0",
+      borderColor: gridColor,
       strokeDashArray: 3,
     },
-    colors: ["#4FD1C5", "#2D3748"], // Line color
+    colors: ["#4FD1C5", lineColor], // Line color
     xaxis: {
       axisTicks: {
         show: false,
@@ -151,6 +158,21 @@ export default function LineChart(props) {
   useEffect(() => {
     setSeries(props.series);
   }, [props.series]);
+
+  useEffect(() => {
+    setOptions({
+      ...options,
+      colors: ["#4FD1C5", lineColor],
+      tooltip: {
+        ...options.tooltip,
+        theme: tooltipTheme,
+      },
+      grid: {
+        ...options.grid,
+        borderColor: gridColor,
+      },
+    });
+  }, [lineColor, gridColor, tooltipTheme]);
 
   useEffect(() => {
     const inc = calculateIncrease();

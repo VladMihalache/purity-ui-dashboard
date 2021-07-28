@@ -82,6 +82,7 @@ export default function BarChart(props) {
     <div
       style={{
         width: "fit-content",
+        height: "fit-content",
         overflow: "hidden",
         borderRadius: "15px",
         background: "linear-gradient(81.62deg, #313860 2.25%, #151928 79.87%)",
@@ -91,7 +92,7 @@ export default function BarChart(props) {
         options={options}
         series={series}
         type="rangeBar"
-        height="225"
+        height="222"
         width="620"
       />
     </div>

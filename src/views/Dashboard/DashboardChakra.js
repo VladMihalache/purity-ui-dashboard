@@ -11,7 +11,7 @@ import {
   SimpleGrid,
   useColorModeValue,
   useColorMode,
-  Text,
+  Heading,
 } from "@chakra-ui/react";
 
 import Card from "components/CardChakra/Card.js";
@@ -44,6 +44,8 @@ import {
 } from "components/Icons/Icons.js";
 import { useState } from "react";
 import IconBox from "components/Icons/IconBox";
+import Auth from "components/Auth/Auth";
+import { Bar } from "chartist";
 
 export default function DashboardChakra() {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -53,7 +55,7 @@ export default function DashboardChakra() {
     {
       type: "area",
       name: "Mobile apps",
-      data: [190, 220, 205, 350, 370, 450, 400, 360, 210, 250, 292, 190],
+      data: [190, 220, 205, 350, 370, 450, 400, 360, 210, 250, 292, 150],
     },
     {
       type: "area",
@@ -140,11 +142,14 @@ export default function DashboardChakra() {
         >
           Toggle Mode
         </Button>
+        <Auth></Auth>
       </HStack>
       <SimpleGrid minChildWidth="120px" spacing="24px" width={"100%"}>
         <Flex>
-          <Card height="800">
-            <LineChart series={series} />
+          <Card height="800" width="445">
+            <CardBody>
+              <LineChart series={series}></LineChart>
+            </CardBody>
           </Card>
         </Flex>
       </SimpleGrid>
