@@ -14,6 +14,8 @@ import { makeStyles } from "@material-ui/core/styles";
 // core components
 import AdminNavbar from "components/NavbarsChakra/AdminNavbar.js";
 import Footer from "components/FooterChakra/Footer.js";
+
+import MainPanel from "components/Layout/MainPanel";
 // import Sidebar from "components/Sidebar/Sidebar.js";
 import FixedPlugin from "components/FixedPlugin/FixedPlugin.js";
 
@@ -73,31 +75,6 @@ export default function Dashboard(props) {
       window.removeEventListener("resize", resizeFunction);
     };
   });
-  // functions for changeing the states from components
-  const handleImageClick = (image) => {
-    setImage(image);
-  };
-  const handleColorClick = (color) => {
-    setColor(color);
-  };
-  const handleBgColorClick = (bgColor) => {
-    switch (bgColor) {
-      case "white":
-        setLogo(require("assets/img/logo.svg").default);
-        break;
-      default:
-        setLogo(require("assets/img/logo-white.svg").default);
-        break;
-    }
-    setBgColor(bgColor);
-  };
-  const handleFixedClick = () => {
-    if (fixedClasses === "dropdown") {
-      setFixedClasses("dropdown show");
-    } else {
-      setFixedClasses("dropdown");
-    }
-  };
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
@@ -160,7 +137,11 @@ export default function Dashboard(props) {
         miniActive={miniActive}
         {...rest}
       />
-      <Box className={mainPanelClasses}>
+      <MainPanel
+        w={{
+          md: "calc(100% - 260px);",
+        }}
+      >
         <AdminNavbar
           sidebarMinimize={sidebarMinimize.bind(this)}
           miniActive={miniActive}
@@ -187,7 +168,7 @@ export default function Dashboard(props) {
           </Box>
         )}
         <Footer />
-      </Box>
+      </MainPanel>
     </ChakraProvider>
   );
 }

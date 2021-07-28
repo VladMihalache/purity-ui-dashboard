@@ -1,11 +1,9 @@
 const Card = {
-  // The styles all Cards have in common
   baseStyle: {
     display: "flex",
     flexDirection: "column",
     width: "100%",
   },
-  // Two variants: rounded and smooth
   variants: {
     panel: (props) => ({
       bg: props.colorMode === "dark" ? "gray.700" : "white",
@@ -14,7 +12,6 @@ const Card = {
       borderRadius: "15px",
     }),
   },
-  // The default variant value
   defaultProps: {
     variant: "panel",
   },
