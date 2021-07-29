@@ -8,26 +8,18 @@ import theme from "../theme/theme";
 import PerfectScrollbar from "perfect-scrollbar";
 import "perfect-scrollbar/css/perfect-scrollbar.css";
 
-// @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
-
 // core components
 import MainPanel from "../components/Layout/MainPanel";
 import PanelContent from "../components/Layout/PanelContent";
 import PanelContainer from "../components/Layout/PanelContainer";
 import AdminNavbar from "components/Navbars/AdminNavbar.js";
-import Footer from "components/Footer/Footer.js";
+import Footer from "components/FooterChakra/Footer.js";
 
 import Sidebar from "components/SidebarChakra/Sidebar.js";
 
 import routes from "routes.js";
 
-import styles from "assets/jss/material-dashboard-pro-react/layouts/adminStyle.js";
-
 var ps;
-
-const useStyles = makeStyles(styles);
-
 export default function Dashboard(props) {
   const { ...rest } = props;
   // states and functions
@@ -120,7 +112,11 @@ export default function Dashboard(props) {
         miniActive={miniActive}
         {...rest}
       />
-      <MainPanel>
+      <MainPanel
+        w={{
+          lg: "calc(100% - 260px)",
+        }}
+      >
         <AdminNavbar
           sidebarMinimize={sidebarMinimize.bind(this)}
           miniActive={miniActive}
