@@ -3,7 +3,6 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import cx from "classnames";
 // Chakra-UI imports
 import { ChakraProvider } from "@chakra-ui/react";
-import theme from "../theme/theme";
 // creates a beautiful scrollbar
 import PerfectScrollbar from "perfect-scrollbar";
 import "perfect-scrollbar/css/perfect-scrollbar.css";
@@ -13,21 +12,19 @@ import { makeStyles } from "@material-ui/core/styles";
 
 // core components
 import AdminNavbar from "components/Navbars/AdminNavbar.js";
-import Footer from "components/Footer/Footer.js";
-// import Sidebar from "components/Sidebar/Sidebar.js";
+import Footer from "components/FooterChakra/Footer.js";
+import Sidebar from "components/Sidebar/Sidebar.js";
 import FixedPlugin from "components/FixedPlugin/FixedPlugin.js";
-
-import Sidebar from "components/SidebarChakra/Sidebar.js";
 
 import routes from "routes.js";
 
-import styles from "assets/jss/material-dashboard-pro-react/layouts/adminStyle.js";
+import styles from "assets/jss/material-dashboard-pro-react/layouts/rtlStyle.js";
 
 var ps;
 
 const useStyles = makeStyles(styles);
 
-export default function Dashboard(props) {
+export default function RTL(props) {
   const { ...rest } = props;
   // states and functions
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -40,7 +37,7 @@ export default function Dashboard(props) {
   // const [hasImage, setHasImage] = React.useState(true);
   const [fixedClasses, setFixedClasses] = React.useState("dropdown");
   const [logo, setLogo] = React.useState(
-    require("assets/img/logo-chakra.png").default
+    require("assets/img/logo-white.svg").default
   );
   // styles
   const classes = useStyles();
@@ -49,8 +46,6 @@ export default function Dashboard(props) {
     " " +
     cx({
       [classes.mainPanelSidebarMini]: miniActive,
-      [classes.mainPanelWithPerfectScrollbar]:
-        navigator.platform.indexOf("Win") > -1,
     });
   // ref for main panel div
   const mainPanel = React.createRef();
@@ -101,9 +96,6 @@ export default function Dashboard(props) {
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
-  const getRoute = () => {
-    return window.location.pathname !== "/admin/full-screen-maps";
-  };
   const getActiveRoute = (routes) => {
     let activeRoute = "Default Brand Text";
     for (let i = 0; i < routes.length; i++) {
@@ -127,7 +119,7 @@ export default function Dashboard(props) {
       if (prop.collapse) {
         return getRoutes(prop.views);
       }
-      if (prop.layout === "/admin") {
+      if (prop.layout === "/rtl") {
         return (
           <Route
             path={prop.layout + prop.path}
@@ -148,57 +140,54 @@ export default function Dashboard(props) {
       setMobileOpen(false);
     }
   };
-
   return (
-    <ChakraProvider theme={theme} resetCss={false}>
-      <Sidebar
-        routes={routes}
-        logoText={"DASHBOARD"}
-        logo={logo}
-        handleDrawerToggle={handleDrawerToggle}
-        open={mobileOpen}
-        miniActive={miniActive}
-        {...rest}
-      />
-      <div className={mainPanelClasses} ref={mainPanel}>
-        <AdminNavbar
-          sidebarMinimize={sidebarMinimize.bind(this)}
-          miniActive={miniActive}
-          brandText={getActiveRoute(routes)}
+    <ChakraProvider>
+      <div className={classes.wrapper}>
+        <Sidebar
+          routes={routes}
+          logoText={"توقيت الإبداعية"}
+          logo={logo}
+          image={image}
           handleDrawerToggle={handleDrawerToggle}
+          open={mobileOpen}
+          color={color}
+          bgColor={bgColor}
+          miniActive={miniActive}
+          rtlActive
           {...rest}
         />
-        {/* On the /maps/full-screen-maps route we want the map to be on full screen - this is not possible if the content and conatiner classes are present because they have some paddings which would make the map smaller */}
-        {getRoute() ? (
+        <div className={mainPanelClasses} ref={mainPanel}>
+          <AdminNavbar
+            rtlActive
+            sidebarMinimize={sidebarMinimize.bind(this)}
+            miniActive={miniActive}
+            handleDrawerToggle={handleDrawerToggle}
+            brandText={getActiveRoute(routes)}
+            {...rest}
+          />
           <div className={classes.content}>
             <div className={classes.container}>
               <Switch>
                 {getRoutes(routes)}
-                <Redirect from="/admin" to="/admin/dashboard" />
+                <Redirect from="/rtl" to="/rtl/rtl-support-page" />
               </Switch>
             </div>
           </div>
-        ) : (
-          <div className={classes.map}>
-            <Switch>
-              {getRoutes(routes)}
-              <Redirect from="/admin" to="/admin/dashboard" />
-            </Switch>
-          </div>
-        )}
-        {getRoute() ? <Footer fluid /> : null}
-        <FixedPlugin
-          handleImageClick={handleImageClick}
-          handleColorClick={handleColorClick}
-          handleBgColorClick={handleBgColorClick}
-          color={color}
-          bgColor={bgColor}
-          bgImage={image}
-          handleFixedClick={handleFixedClick}
-          fixedClasses={fixedClasses}
-          sidebarMinimize={sidebarMinimize.bind(this)}
-          miniActive={miniActive}
-        />
+          <Footer fluid rtlActive />
+          <FixedPlugin
+            handleImageClick={handleImageClick}
+            handleColorClick={handleColorClick}
+            handleBgColorClick={handleBgColorClick}
+            color={color}
+            bgColor={bgColor}
+            bgImage={image}
+            handleFixedClick={handleFixedClick}
+            fixedClasses={fixedClasses}
+            sidebarMinimize={sidebarMinimize.bind(this)}
+            miniActive={miniActive}
+            rtlActive={true}
+          />
+        </div>
       </div>
     </ChakraProvider>
   );

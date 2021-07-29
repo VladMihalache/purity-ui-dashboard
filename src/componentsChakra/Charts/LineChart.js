@@ -208,5 +208,7 @@ export default function LineChart(props) {
     return Math.floor(Increase);
   };
 
-  return <Chart options={options} series={series} width="800" height="400px" />;
+  return (
+    <Chart options={options} series={series} width="400px" height="400px" />
+  );
 }
