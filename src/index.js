@@ -18,9 +18,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
-import AuthLayout from "layouts/Auth.js";
-import RtlLayout from "layouts/RTL.js";
-import AdminLayout from "layouts/Admin.js";
+import AuthLayout from "layoutsChakra/Auth.js";
+import RtlLayout from "layoutsChakra/RTL.js";
+import AdminLayout from "layoutsChakra/Admin.js";
 
 import "assets/scss/material-dashboard-pro-react.scss?v=1.10.0";
 

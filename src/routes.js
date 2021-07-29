@@ -1,8 +1,15 @@
+// Chakra import
+import DashboardChakra from "viewsChakra/Dashboard/Dashboard.js";
+import TablesChakra from "viewsChakra/Dashboard/Tables.js";
+import BillingChakra from "viewsChakra/Dashboard/Billing.js";
+import ProfileChakra from "viewsChakra/Dashboard/Profile.js";
+import SignInChakra from "viewsChakra/Pages/SignIn.js";
+import SignIUpChakra from "viewsChakraPages/SignInUp.js";
+
 import Buttons from "views/Components/Buttons.js";
 import Calendar from "views/Calendar/Calendar.js";
 import Charts from "views/Charts/Charts.js";
 import Dashboard from "views/Dashboard/Dashboard.js";
-import DashboardChakra from "views/Dashboard/DashboardChakra.js";
 import ErrorPage from "views/Pages/ErrorPage.js";
 import ExtendedForms from "views/Forms/ExtendedForms.js";
 import ExtendedTables from "views/Tables/ExtendedTables.js";
@@ -52,6 +59,46 @@ var dashRoutes = [
     icon: DashboardIcon,
     component: DashboardChakra,
     layout: "/admin",
+  },
+  {
+    path: "/tableschakra",
+    name: "Tables Chakra",
+    rtlName: "لوحة القيادة",
+    icon: DashboardIcon,
+    component: TablesChakra,
+    layout: "/admin",
+  },
+  {
+    path: "/billingchakra",
+    name: "Billing Chakra",
+    rtlName: "لوحة القيادة",
+    icon: DashboardIcon,
+    component: BillingChakra,
+    layout: "/admin",
+  },
+  {
+    path: "/profilechakra",
+    name: "Profile Chakra",
+    rtlName: "لوحة القيادة",
+    icon: DashboardIcon,
+    component: ProfileChakra,
+    layout: "/admin",
+  },
+  {
+    path: "/signinchakra",
+    name: "Sign In Chakra",
+    rtlName: "لوحة القيادة",
+    icon: DashboardIcon,
+    component: SignInChakra,
+    layout: "/auth",
+  },
+  {
+    path: "/signoutchakra",
+    name: "Sign Out Chakra",
+    rtlName: "لوحة القيادة",
+    icon: DashboardIcon,
+    component: SignOutChakra,
+    layout: "/auth",
   },
   {
     path: "/register-page",

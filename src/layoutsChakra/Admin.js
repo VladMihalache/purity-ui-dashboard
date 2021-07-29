@@ -9,9 +9,9 @@ import PerfectScrollbar from "perfect-scrollbar";
 import "perfect-scrollbar/css/perfect-scrollbar.css";
 
 // core components
-import MainPanel from "../components/Layout/MainPanelnPanelnPanelainPanel";
-import PanelContent from "../components/Layout/PanelContentontentontentlContent";
-import PanelContainer from "../components/Layout/PanelContainertainertainerontainer";
+import MainPanel from "../components/Layout/MainPanel";
+import PanelContent from "../components/Layout/PanelContent";
+import PanelContainer from "../components/Layout/PanelContainer";
 import AdminNavbar from "components/Navbars/AdminNavbar.js";
 import Footer from "components/FooterChakra/Footer.js";
 
