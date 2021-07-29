@@ -1,4 +1,4 @@
-export const  buttonStyles = {
+export const buttonStyles = {
   components: {
     Button: {
       // 3. We can add a new visual variant
@@ -9,4 +9,4 @@ export const  buttonStyles = {
       },
     },
   },
-}
+};

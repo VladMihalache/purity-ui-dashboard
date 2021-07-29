@@ -12,7 +12,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 // core components
 import AdminNavbar from "components/Navbars/AdminNavbar.js";
-import Footer from "components/Footer/Footer.js";
+import Footer from "components/FooterChakra/Footer.js";
 import Sidebar from "components/Sidebar/Sidebar.js";
 import FixedPlugin from "components/FixedPlugin/FixedPlugin.js";
 
@@ -142,53 +142,53 @@ export default function RTL(props) {
   };
   return (
     <ChakraProvider>
-    <div className={classes.wrapper}>
-      <Sidebar
-        routes={routes}
-        logoText={"توقيت الإبداعية"}
-        logo={logo}
-        image={image}
-        handleDrawerToggle={handleDrawerToggle}
-        open={mobileOpen}
-        color={color}
-        bgColor={bgColor}
-        miniActive={miniActive}
-        rtlActive
-        {...rest}
-      />
-      <div className={mainPanelClasses} ref={mainPanel}>
-        <AdminNavbar
-          rtlActive
-          sidebarMinimize={sidebarMinimize.bind(this)}
-          miniActive={miniActive}
+      <div className={classes.wrapper}>
+        <Sidebar
+          routes={routes}
+          logoText={"توقيت الإبداعية"}
+          logo={logo}
+          image={image}
           handleDrawerToggle={handleDrawerToggle}
-          brandText={getActiveRoute(routes)}
-          {...rest}
-        />
-        <div className={classes.content}>
-          <div className={classes.container}>
-            <Switch>
-              {getRoutes(routes)}
-              <Redirect from="/rtl" to="/rtl/rtl-support-page" />
-            </Switch>
-          </div>
-        </div>
-        <Footer fluid rtlActive />
-        <FixedPlugin
-          handleImageClick={handleImageClick}
-          handleColorClick={handleColorClick}
-          handleBgColorClick={handleBgColorClick}
+          open={mobileOpen}
           color={color}
           bgColor={bgColor}
-          bgImage={image}
-          handleFixedClick={handleFixedClick}
-          fixedClasses={fixedClasses}
-          sidebarMinimize={sidebarMinimize.bind(this)}
           miniActive={miniActive}
-          rtlActive={true}
+          rtlActive
+          {...rest}
         />
+        <div className={mainPanelClasses} ref={mainPanel}>
+          <AdminNavbar
+            rtlActive
+            sidebarMinimize={sidebarMinimize.bind(this)}
+            miniActive={miniActive}
+            handleDrawerToggle={handleDrawerToggle}
+            brandText={getActiveRoute(routes)}
+            {...rest}
+          />
+          <div className={classes.content}>
+            <div className={classes.container}>
+              <Switch>
+                {getRoutes(routes)}
+                <Redirect from="/rtl" to="/rtl/rtl-support-page" />
+              </Switch>
+            </div>
+          </div>
+          <Footer fluid rtlActive />
+          <FixedPlugin
+            handleImageClick={handleImageClick}
+            handleColorClick={handleColorClick}
+            handleBgColorClick={handleBgColorClick}
+            color={color}
+            bgColor={bgColor}
+            bgImage={image}
+            handleFixedClick={handleFixedClick}
+            fixedClasses={fixedClasses}
+            sidebarMinimize={sidebarMinimize.bind(this)}
+            miniActive={miniActive}
+            rtlActive={true}
+          />
+        </div>
       </div>
-    </div>
     </ChakraProvider>
   );
 }
