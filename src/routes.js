@@ -4,7 +4,7 @@ import TablesChakra from "viewsChakra/Dashboard/Tables.js";
 import BillingChakra from "viewsChakra/Dashboard/Billing.js";
 import ProfileChakra from "viewsChakra/Dashboard/Profile.js";
 import SignInChakra from "viewsChakra/Pages/SignIn.js";
-import SignIUpChakra from "viewsChakraPages/SignInUp.js";
+import SignUpChakra from "viewsChakra/Pages/SignUp.js";
 
 import Buttons from "views/Components/Buttons.js";
 import Calendar from "views/Calendar/Calendar.js";
@@ -93,11 +93,11 @@ var dashRoutes = [
     layout: "/auth",
   },
   {
-    path: "/signoutchakra",
-    name: "Sign Out Chakra",
+    path: "/signUpchakra",
+    name: "Sign Up Chakra",
     rtlName: "لوحة القيادة",
     icon: DashboardIcon,
-    component: SignOutChakra,
+    component: SignUpChakra,
     layout: "/auth",
   },
   {
