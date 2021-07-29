@@ -16,6 +16,7 @@ import CardBody from "components/CardChakra/CardBody.js";
 
 import { WalletIcon } from "components/Icons/Icons.js";
 import IconBox from "components/Icons/IconBox.js";
+
 export default function DashboardChakra() {
   const { colorMode, toggleColorMode } = useColorMode();
   const iconTeal = useColorModeValue("teal.300", "teal.300");
