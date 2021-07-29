@@ -1,7 +1,7 @@
 const MainPanel = {
   baseStyle: {
     float: "right",
-    width: "100%",
+    maxWidth: "100%",
     overflow: "auto",
     position: "relative",
     maxHeight: "100%",

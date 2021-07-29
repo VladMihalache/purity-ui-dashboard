@@ -2,7 +2,7 @@ import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import cx from "classnames";
 // Chakra-UI imports
-import { ChakraProvider, Box } from "@chakra-ui/react";
+import { ChakraProvider } from "@chakra-ui/react";
 import theme from "../theme/theme";
 // creates a beautiful scrollbar
 import PerfectScrollbar from "perfect-scrollbar";
@@ -12,12 +12,11 @@ import "perfect-scrollbar/css/perfect-scrollbar.css";
 import { makeStyles } from "@material-ui/core/styles";
 
 // core components
-import AdminNavbar from "components/NavbarsChakra/AdminNavbar.js";
-import Footer from "components/FooterChakra/Footer.js";
-
-import MainPanel from "components/Layout/MainPanel";
-// import Sidebar from "components/Sidebar/Sidebar.js";
-import FixedPlugin from "components/FixedPlugin/FixedPlugin.js";
+import MainPanel from "../components/Layout/MainPanel";
+import PanelContent from "../components/Layout/PanelContent";
+import PanelContainer from "../components/Layout/PanelContainer";
+import AdminNavbar from "components/Navbars/AdminNavbar.js";
+import Footer from "components/Footer/Footer.js";
 
 import Sidebar from "components/SidebarChakra/Sidebar.js";
 
@@ -34,26 +33,9 @@ export default function Dashboard(props) {
   // states and functions
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [miniActive, setMiniActive] = React.useState(false);
-  const [image, setImage] = React.useState(
-    require("assets/img/sidebar-2.jpg").default
-  );
-  const [color, setColor] = React.useState("blue");
-  const [bgColor, setBgColor] = React.useState("black");
-  // const [hasImage, setHasImage] = React.useState(true);
-  const [fixedClasses, setFixedClasses] = React.useState("dropdown");
   const [logo, setLogo] = React.useState(
     require("assets/img/logo-chakra.png").default
   );
-  // styles
-  const classes = useStyles();
-  const mainPanelClasses =
-    classes.mainPanel +
-    " " +
-    cx({
-      [classes.mainPanelSidebarMini]: miniActive,
-      [classes.mainPanelWithPerfectScrollbar]:
-        navigator.platform.indexOf("Win") > -1,
-    });
   // ref for main panel div
   const mainPanel = React.createRef();
   // effect instead of componentDidMount, componentDidUpdate and componentWillUnmount
@@ -75,6 +57,7 @@ export default function Dashboard(props) {
       window.removeEventListener("resize", resizeFunction);
     };
   });
+  // functions for changeing the states from components
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
@@ -137,11 +120,7 @@ export default function Dashboard(props) {
         miniActive={miniActive}
         {...rest}
       />
-      <MainPanel
-        w={{
-          md: "calc(100% - 260px);",
-        }}
-      >
+      <MainPanel>
         <AdminNavbar
           sidebarMinimize={sidebarMinimize.bind(this)}
           miniActive={miniActive}
@@ -149,24 +128,16 @@ export default function Dashboard(props) {
           handleDrawerToggle={handleDrawerToggle}
           {...rest}
         />
-        {/* On the /maps/full-screen-maps route we want the map to be on full screen - this is not possible if the content and conatiner classes are present because they have some paddings which would make the map smaller */}
         {getRoute() ? (
-          <Box className={classes.content}>
-            <Box className={classes.container}>
+          <PanelContent>
+            <PanelContainer>
               <Switch>
                 {getRoutes(routes)}
                 <Redirect from="/admin" to="/admin/dashboard" />
               </Switch>
-            </Box>
-          </Box>
-        ) : (
-          <Box className={classes.map}>
-            <Switch>
-              {getRoutes(routes)}
-              <Redirect from="/admin" to="/admin/dashboard" />
-            </Switch>
-          </Box>
-        )}
+            </PanelContainer>
+          </PanelContent>
+        ) : null}
         <Footer />
       </MainPanel>
     </ChakraProvider>

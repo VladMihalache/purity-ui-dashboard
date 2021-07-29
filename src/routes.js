@@ -6,8 +6,6 @@ import DashboardChakra from "views/Dashboard/DashboardChakra.js";
 import ErrorPage from "views/Pages/ErrorPage.js";
 import ExtendedForms from "views/Forms/ExtendedForms.js";
 import ExtendedTables from "views/Tables/ExtendedTables.js";
-import FullScreenMap from "views/Maps/FullScreenMap.js";
-import GoogleMaps from "views/Maps/GoogleMaps.js";
 import GridSystem from "views/Components/GridSystem.js";
 import Icons from "views/Components/Icons.js";
 import LockScreenPage from "views/Pages/LockScreenPage.js";
@@ -25,7 +23,6 @@ import TimelinePage from "views/Pages/Timeline.js";
 import Typography from "views/Components/Typography.js";
 import UserProfile from "views/Pages/UserProfile.js";
 import ValidationForms from "views/Forms/ValidationForms.js";
-import VectorMap from "views/Maps/VectorMap.js";
 import Widgets from "views/Widgets/Widgets.js";
 import Wizard from "views/Forms/Wizard.js";
 
@@ -56,27 +53,16 @@ var dashRoutes = [
     component: DashboardChakra,
     layout: "/admin",
   },
+  {
+    path: "/register-page",
+    name: "Register Page",
+    rtlName: "تسجيل",
+    mini: "R",
+    rtlMini: "صع",
+    component: RegisterPage,
+    layout: "/auth",
+  },
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
   {
     collapse: true,
     name: "Pages",
@@ -330,66 +316,6 @@ var dashRoutes = [
       },
     ],
   },
-  {
-    collapse: true,
-    name: "Maps",
-    rtlName: "خرائط",
-    icon: Place,
-    state: "mapsCollapse",
-    views: [
-      {
-        path: "/google-maps",
-        name: "Google Maps",
-        rtlName: "خرائط جوجل",
-        mini: "GM",
-        rtlMini: "زم",
-        component: GoogleMaps,
-        layout: "/admin",
-      },
-      {
-        path: "/full-screen-maps",
-        name: "Full Screen Map",
-        rtlName: "خريطة كاملة الشاشة",
-        mini: "FSM",
-        rtlMini: "ووم",
-        component: FullScreenMap,
-        layout: "/admin",
-      },
-      {
-        path: "/vector-maps",
-        name: "Vector Map",
-        rtlName: "خريطة المتجه",
-        mini: "VM",
-        rtlMini: "تم",
-        component: VectorMap,
-        layout: "/admin",
-      },
-    ],
-  },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   {
     path: "/widgets",
