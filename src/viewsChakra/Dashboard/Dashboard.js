@@ -157,8 +157,8 @@ export default function DashboardChakra() {
           <CardHeader>
             <Text>Sales Overview</Text>
           </CardHeader>
-          <CardBody height="445px">
-            <BarChart series={data} height="200px" />
+          <CardBody>
+            <BarChart series={data} height="100%" width="657"/>
           </CardBody>
         </Card>
       </SimpleGrid>
