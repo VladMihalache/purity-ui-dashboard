@@ -212,7 +212,7 @@ export default function LineChart(props) {
     <Chart
       options={options}
       series={series}
-      width="100%"
+      width={props.width}
       height={props.height}
     />
   );
