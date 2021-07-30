@@ -16,7 +16,12 @@ export default function Auth() {
   const titleColor = useColorModeValue("teal.500", "teal.200");
   const textColor = useColorModeValue("gray.400", "white");
   return (
-    <Flex height="100vh" alignItems="center" justifyContent="center">
+    <Flex
+      height="100vh"
+      alignItems="center"
+      justifyContent="center"
+      style={{ userSelect: "none" }}
+    >
       <Flex
         direction="column"
         width="445px"

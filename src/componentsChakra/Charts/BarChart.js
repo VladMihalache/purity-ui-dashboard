@@ -87,6 +87,7 @@ export default function BarChart(props) {
       },
     });
   }, [tooltipTheme]);
+
   useEffect(() => {
     setSeries(props.series);
   }, [props.series]);
