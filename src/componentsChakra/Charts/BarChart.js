@@ -1,7 +1,6 @@
 import React from "react";
 import Chart from "react-apexcharts";
 import { useState, useEffect } from "react";
-import { Flex } from "@chakra-ui/react";
 import { useColorModeValue } from "@chakra-ui/color-mode";
 
 export default function BarChart(props) {

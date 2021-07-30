@@ -209,6 +209,11 @@ export default function LineChart(props) {
   };
 
   return (
-    <Chart options={options} series={series} width="400px" height="400px" />
+    <Chart
+      options={options}
+      series={series}
+      width="100%"
+      height={props.height}
+    />
   );
 }
