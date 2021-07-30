@@ -1,11 +1,14 @@
 import React from "react";
 import Chart from "react-apexcharts";
 import { useState, useEffect } from "react";
+import { Flex } from "@chakra-ui/react";
+import { useColorModeValue } from "@chakra-ui/color-mode";
 
 export default function BarChart(props) {
+  const tooltipTheme = useColorModeValue("light", "dark");
   const [series, setSeries] = useState(props.series);
 
-  const [options] = useState({
+  const [options, setOptions] = useState({
     chart: {
       background: "transparent",
       foreColor: "#333",
@@ -27,7 +30,7 @@ export default function BarChart(props) {
         startingShape: "rounded",
         endingShape: "rounded",
         horizontal: false,
-        borderRadius: 7,
+        borderRadius: 5,
         columnWidth: "25%",
         barHeight: "70%",
       },
@@ -58,7 +61,8 @@ export default function BarChart(props) {
       },
     },
     fill: {
-      colors: ["#FFFFFF"],
+      colors: ["#fff"],
+      opacity: 1,
     },
     title: {
       text: undefined,
@@ -75,26 +79,29 @@ export default function BarChart(props) {
   });
 
   useEffect(() => {
+    setOptions({
+      ...options,
+      tooltip: {
+        ...options.tooltip,
+        theme: tooltipTheme,
+      },
+    });
+  }, [tooltipTheme]);
+  useEffect(() => {
     setSeries(props.series);
   }, [props.series]);
 
   return (
-    <div
+    <Chart
+      options={options}
+      series={series}
+      type="rangeBar"
+      width={props.width}
+      height={props.height}
       style={{
-        width: "fit-content",
-        height: "fit-content",
-        overflow: "hidden",
-        borderRadius: "15px",
         background: "linear-gradient(81.62deg, #313860 2.25%, #151928 79.87%)",
+        borderRadius: "15px",
       }}
-    >
-      <Chart
-        options={options}
-        series={series}
-        type="rangeBar"
-        height="222"
-        width="620"
-      />
-    </div>
+    />
   );
 }
