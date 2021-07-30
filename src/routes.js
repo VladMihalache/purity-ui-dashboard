@@ -2,6 +2,7 @@
 import DashboardChakra from "viewsChakra/Dashboard/Dashboard.js";
 import TablesChakra from "viewsChakra/Dashboard/Tables.js";
 import BillingChakra from "viewsChakra/Dashboard/Billing.js";
+import RTLChakra from "viewsChakra/RTL/RTL.js";
 import ProfileChakra from "viewsChakra/Dashboard/Profile.js";
 import SignInChakra from "viewsChakra/Pages/SignIn.js";
 import SignUpChakra from "viewsChakra/Pages/SignUp.js";
@@ -75,6 +76,15 @@ var dashRoutes = [
     icon: DashboardIcon,
     component: BillingChakra,
     layout: "/admin",
+  },
+  {
+    path: "/rtl-support-page-chakra",
+    name: "RTL Support Chakra",
+    rtlName: "صودعم رتل",
+    mini: "RS",
+    rtlMini: "صو",
+    component: RTLChakra,
+    layout: "/rtl",
   },
   {
     path: "/profilechakra",

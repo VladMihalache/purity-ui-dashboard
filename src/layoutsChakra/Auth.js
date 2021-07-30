@@ -7,8 +7,8 @@ import { ChakraProvider } from "@chakra-ui/react";
 import { makeStyles } from "@material-ui/core/styles";
 
 // core components
-import AuthNavbar from "components/Navbars/AuthNavbar.js";
-import Footer from "components/Footer/Footer.js";
+import AuthNavbar from "componentsChakra/Navbars/AuthNavbar.js";
+import Footer from "componentsChakra/Footer/Footer.js";
 
 import routes from "routes.js";
 
@@ -97,7 +97,7 @@ export default function Pages(props) {
               {getRoutes(routes)}
               <Redirect from="/auth" to="/auth/login-page" />
             </Switch>
-            <Footer white />
+            <Footer />
           </div>
         </div>
       </div>
