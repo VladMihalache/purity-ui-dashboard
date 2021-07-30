@@ -4,6 +4,27 @@ import PropTypes from "prop-types";
 // import { Manager, Target, Popper } from "react-popper";
 
 // @material-ui/core components
+import {
+  Flex,
+  Button,
+  IconButton,
+  HStack,
+  VStack,
+  SimpleGrid,
+  useColorModeValue,
+  useColorMode,
+  Heading,
+  Input,
+  InputGroup,
+  InputLeftElement,
+} from "@chakra-ui/react";
+
+import {
+  NotificationsIcon,
+  ProfileIcon,
+  SearchIcon,
+  SettingsIcon,
+} from "componentsChakra/Icons/Icons";
 import { makeStyles } from "@material-ui/core/styles";
 import MenuItem from "@material-ui/core/MenuItem";
 import MenuList from "@material-ui/core/MenuList";
@@ -20,12 +41,7 @@ import Notifications from "@material-ui/icons/Notifications";
 import Dashboard from "@material-ui/icons/Dashboard";
 import Search from "@material-ui/icons/Search";
 
-// core components
-import CustomInput from "components/CustomInput/CustomInput.js";
-import Button from "components/CustomButtons/Button.js";
-
 import styles from "assets/jss/material-dashboard-pro-react/components/adminNavbarLinksStyle.js";
-
 const useStyles = makeStyles(styles);
 
 export default function HeaderLinks(props) {
@@ -72,19 +88,12 @@ export default function HeaderLinks(props) {
   });
   return (
     <div className={wrapper}>
-      <CustomInput
-        rtlActive={rtlActive}
-        formControlProps={{
-          className: classes.top + " " + classes.search,
-        }}
-        inputProps={{
-          placeholder: rtlActive ? "بحث" : "Search",
-          inputProps: {
-            "aria-label": rtlActive ? "بحث" : "Search",
-            className: classes.searchInput,
-          },
-        }}
-      />
+      <InputGroup>
+        <InputLeftElement
+          children={<IconButton icon={<ProfileIcon w="24px" />}></IconButton>}
+        />
+        <Input placeholder="Type here..." />
+      </InputGroup>
       <Button
         color="white"
         aria-label="edit"

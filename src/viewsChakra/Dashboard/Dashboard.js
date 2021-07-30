@@ -37,9 +37,9 @@ import {
   SlackLogo,
   SpotifyLogo,
   InvisionLogo,
-} from "components/Icons/Icons.js";
+} from "componentsChakra/Icons/Icons";
 import { useState } from "react";
-import IconBox from "components/Icons/IconBox";
+import IconBox from "componentsChakra/Icons/IconBox";
 import Auth from "components/Auth/Auth";
 import { Bar } from "chartist";
 
