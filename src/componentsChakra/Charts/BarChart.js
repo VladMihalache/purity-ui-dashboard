@@ -96,7 +96,7 @@ export default function BarChart(props) {
       options={options}
       series={series}
       type="rangeBar"
-      width={props.width}
+      width="100%"
       height={props.height}
       style={{
         background: "linear-gradient(81.62deg, #313860 2.25%, #151928 79.87%)",

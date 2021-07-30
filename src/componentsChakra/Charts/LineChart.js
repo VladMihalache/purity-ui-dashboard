@@ -2,6 +2,7 @@ import React from "react";
 import Chart from "react-apexcharts";
 import { useState, useEffect } from "react";
 import { useColorModeValue } from "@chakra-ui/color-mode";
+import ReactApexChart from "react-apexcharts";
 
 export default function LineChart(props) {
   const lineColor = useColorModeValue("#2D3748", "#FFFFFF");
@@ -137,20 +138,6 @@ export default function LineChart(props) {
         color: "#2D3748",
       },
     },
-    subtitle: {
-      text: "in 2021",
-      align: "left",
-      margin: 30,
-      offsetX: 11,
-      offsetY: 37,
-      floating: false,
-      style: {
-        fontSize: "14px",
-        fontWeight: "500",
-        fontFamily: undefined,
-        color: "#CBD5E0",
-      },
-    },
   });
 
   const [series, setSeries] = useState(props.series);
@@ -174,46 +161,41 @@ export default function LineChart(props) {
     });
   }, [lineColor, gridColor, tooltipTheme]);
 
-  useEffect(() => {
-    const inc = calculateIncrease();
-    let col,
-      txt,
-      sInc = Math.abs(inc).toString();
-    if (inc === 0) {
-      col = "#A0AEC0";
-      txt = txt = "(+" + sInc + "%) more";
-    } else {
-      inc > 0 ? (col = "#48BB78") : (col = "#E53E3E");
-      inc > 0
-        ? (txt = "(+" + sInc + "%) more")
-        : (txt = "(-" + sInc + "%) less");
-    }
-    setOptions({
-      ...options,
-      title: {
-        ...options.title,
-        text: txt,
-        style: {
-          ...options.title.style,
-          color: col,
-        },
-      },
-    });
-  }, [series]);
+  // useEffect(() => {
+  //   const inc = calculateIncrease();
+  //   let col,
+  //     txt,
+  //     sInc = Math.abs(inc).toString();
+  //   if (inc === 0) {
+  //     col = "#A0AEC0";
+  //     txt = txt = "(+" + sInc + "%) more";
+  //   } else {
+  //     inc > 0 ? (col = "#48BB78") : (col = "#E53E3E");
+  //     inc > 0
+  //       ? (txt = "(+" + sInc + "%) more")
+  //       : (txt = "(-" + sInc + "%) less");
+  //   }
+  //   setOptions({
+  //     ...options,
+  //     title: {
+  //       ...options.title,
+  //       text: txt,
+  //       style: {
+  //         ...options.title.style,
+  //         color: col,
+  //       },
+  //     },
+  //   });
+  // }, [series]);
 
-  const calculateIncrease = () => {
-    const newNumber = series[0].data[series[0].data.length - 1];
-    const originalNumber = series[0].data[0];
-    const Increase = ((newNumber - originalNumber) / originalNumber) * 100;
-    return Math.floor(Increase);
-  };
+  // const calculateIncrease = () => {
+  //   const newNumber = series[0].data[series[0].data.length - 1];
+  //   const originalNumber = series[0].data[0];
+  //   const Increase = ((newNumber - originalNumber) / originalNumber) * 100;
+  //   return Math.floor(Increase);
+  // };
 
   return (
-    <Chart
-      options={options}
-      series={series}
-      width={props.width}
-      height={props.height}
-    />
+    <ReactApexChart options={options} series={series} height="445px" width="100%" />
   );
 }

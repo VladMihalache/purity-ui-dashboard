@@ -128,40 +128,21 @@ export default function DashboardChakra() {
     setSeries(newSeries);
   };
   return (
-    <VStack>
-      <HStack>
-        <IconBox as="box" h={"45px"} w={"45px"} bg={iconTeal}>
-          <WalletIcon h={"24px"} w={"24px"} color={iconBoxInside} />
-        </IconBox>
-        <Button
-          size="sm"
-          colorScheme="blue"
-          variant="with-shadow"
-          onClick={toggleColorMode}
-        >
-          Toggle Mode
-        </Button>
-        <Auth></Auth>
-      </HStack>
-
-      <SimpleGrid width={"100%"} columns={1} spacing={10}>
-        <Card>
-          <CardHeader>
-            <Text>Sales Overview</Text>
-          </CardHeader>
-          <CardBody height="455px" width="920px">
-            <LineChart series={series} height="400px" width="920px" />
-          </CardBody>
-        </Card>
-        <Card>
-          <CardHeader>
-            <Text>Sales Overview</Text>
-          </CardHeader>
-          <CardBody>
-            <BarChart series={data} height="100%" width="657"/>
-          </CardBody>
-        </Card>
-      </SimpleGrid>
-    </VStack>
+    <React.Fragment>
+      <IconBox as="box" h={"45px"} w={"45px"} bg={iconTeal}>
+        <WalletIcon h={"24px"} w={"24px"} color={iconBoxInside} />
+      </IconBox>
+      <Button
+        size="sm"
+        colorScheme="blue"
+        variant="with-shadow"
+        onClick={toggleColorMode}
+      >
+        Toggle Mode
+      </Button>
+      <Auth></Auth>
+      <LineChart series={series} />
+      <BarChart series={data} height="360px" />
+    </React.Fragment>
   );
 }
