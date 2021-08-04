@@ -8,7 +8,6 @@ import {
   DrawerCloseButton,
   useDisclosure,
   Button,
-  IconButton,
   Input,
   useColorModeValue,
 } from "@chakra-ui/react";
@@ -20,23 +19,13 @@ export function SettingsBar() {
   const settingsRef = React.useRef();
   return (
     <>
-      <IconButton
+      <SettingsIcon
         ref={settingsRef}
         onClick={onOpen}
-        bg="inherit"
-        color="gray"
-        borderRadius="inherit"
-        _hover="none"
-        _active={{
-          bg: "inherit",
-          transform: "none",
-          borderColor: "transparent",
-        }}
-        _focus={{
-          boxShadow: "none",
-        }}
-        icon={<SettingsIcon color={navbarIcon} width="18px" height="18px" />}
-      ></IconButton>
+        color={navbarIcon}
+        width="18px"
+        height="18px"
+      />
       <Drawer
         isOpen={isOpen}
         placement="right"

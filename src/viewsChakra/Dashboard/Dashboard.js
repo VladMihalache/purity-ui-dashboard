@@ -131,7 +131,7 @@ export default function DashboardChakra() {
         <Flex>
           <Card>
             <CardBody py="18px">
-              <HStack width="100%" justifyContent="space-between">
+              <HStack width="100%" justifyContent="space-between" mb="20px">
                 <VStack alignItems="flex-start">
                   <Text fontWeight="bold" colorScheme="gray" color="gray.400">
                     Today's money
