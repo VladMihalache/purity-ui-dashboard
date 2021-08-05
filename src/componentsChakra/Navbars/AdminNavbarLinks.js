@@ -36,6 +36,10 @@ import { SearchIcon, BellIcon } from "@chakra-ui/icons";
 import { ProfileIcon, SettingsIcon } from "componentsChakra/Icons/Icons";
 import { ItemContent } from "componentsChakra/Menu/ItemContent";
 
+import avatar1 from "assetsChakra/img/faces/avatars/avatar1.png";
+import avatar2 from "assetsChakra/img/faces/avatars/avatar2.png";
+import avatar3 from "assetsChakra/img/faces/avatars/avatar3.png";
+
 export default function HeaderLinks(props) {
   const { rtlActive } = props;
 
@@ -152,32 +156,33 @@ export default function HeaderLinks(props) {
         </MenuButton>
         <MenuList p="16px 8px">
           <Flex flexDirection="column">
-            <MenuItem borderRadius="8px">
-              <Flex>
-                <Avatar />
-                <Flex flexDirection="column">
-                  <Text>
-                    <Text>New Album</Text> by Travis Scott
-                  </Text>
-                  <Flex>
-                    <Button></Button>
-                    <Text></Text>
-                  </Flex>
-                </Flex>
-              </Flex>
+            <MenuItem borderRadius="8px" mb="10px">
+              <ItemContent
+                time="13 minutes ago"
+                info="from Alicia"
+                boldInfo="New Message"
+                aName="Alicia"
+                aSrc={avatar1}
+              />
+            </MenuItem>
+            <MenuItem borderRadius="8px" mb="10px">
+              <ItemContent
+                time="2 days ago"
+                info="by Josh Henry"
+                boldInfo="New Album"
+                aName="Josh Henry"
+                aSrc={avatar2}
+              />
             </MenuItem>
             <MenuItem borderRadius="8px">
               <ItemContent
-                time="12"
-                info="hey"
-                boldInfo="heyhey"
-                aName="Segun"
-                aSrc=""
+                time="3 days ago"
+                info="Payment succesfully completed!"
+                boldInfo=""
+                aName="Kara"
+                aSrc={avatar3}
               />
             </MenuItem>
-            <MenuItem borderRadius="8px">Mark as Draft</MenuItem>
-            <MenuItem borderRadius="8px">Delete</MenuItem>
-            <MenuItem borderRadius="8px">Attend a Workshop</MenuItem>
           </Flex>
         </MenuList>
       </Menu>
