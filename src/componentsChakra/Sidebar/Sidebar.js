@@ -3,14 +3,34 @@ import React from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 // chakra imports
-import {Button, Flex, Text, Link, Image, Avatar, Stack, HStack, VStack, Box, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon, useColorModeValue,} from "@chakra-ui/react";
+import {
+  Button,
+  Flex,
+  Text,
+  Link,
+  Image,
+  Avatar,
+  Stack,
+  HStack,
+  VStack,
+  Box,
+  useColorModeValue,
+  Drawer,
+  DrawerBody,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  useDisclosure,
+} from "@chakra-ui/react";
+import IconBox from "componentsChakra/Icons/IconBox";
 // javascript plugin used to create scrollbars on windows
 import PerfectScrollbar from "perfect-scrollbar";
 import cx from "classnames";
 
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
-import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
@@ -19,6 +39,7 @@ import Collapse from "@material-ui/core/Collapse";
 import Icon from "@material-ui/core/Icon";
 
 // core components
+import { Separator } from "componentsChakra/Separator/Separator";
 import AdminNavbarLinks from "components/Navbars/AdminNavbarLinks.js";
 
 import sidebarStyle from "assets/jss/material-dashboard-pro-react/components/sidebarStyle.js";
@@ -55,12 +76,6 @@ function SidebarWrapper({ className, headerLinks, links }) {
     </div>
   );
 }
-
-
-
-
-
-
 
 // FUNCTIONS
 
@@ -107,10 +122,12 @@ function Sidebar(props) {
   // verifies if routeName is the one active (in browser input)
   const activeRoute = (routeName) => {
     return location.pathname === routeName ? "active" : "";
+    console.log(routeName);
   };
   // this function creates the links and collapses that appear in the sidebar (left menu)
   const createLinks = (routes) => {
     const { rtlActive } = props;
+    const activeBg = useColorModeValue("white", "gray.700");
     return routes.map((prop, key) => {
       if (prop.redirect) {
         return null;
@@ -119,9 +136,7 @@ function Sidebar(props) {
       //   var st = {};
       //   st[prop["state"]] = !state[prop.state];
       //   return (
-      //     <ListItem
-      //       key={key}
-      //     >
+      //     <ListItem key={key}>
       //       <NavLink
       //         to={"#"}
       //         onClick={(e) => {
@@ -129,79 +144,93 @@ function Sidebar(props) {
       //           setState(st);
       //         }}
       //       >
-      //       <Button w={"100%"} colorScheme={"blue"} mb={"30px"}>
-      //         {prop.icon !== undefined ? (
-      //           typeof prop.icon === "string" ? (
-      //             <Icon>{prop.icon}</Icon>
+      //         <Button w={"100%"} colorScheme={"blue"} mb={"30px"}>
+      //           {prop.icon !== undefined ? (
+      //             typeof prop.icon === "string" ? (
+      //               <Icon>{prop.icon}</Icon>
+      //             ) : (
+      //               <prop.icon />
+      //             )
       //           ) : (
-      //             <prop.icon />
-      //           )
-      //         ) : (
-      //           <span>
-      //             {rtlActive ? prop.rtlMini : prop.mini}
-      //           </span>
-      //         )}
-      //         <Text>{rtlActive ? prop.rtlName : prop.name}</Text>
-      //       </Button>
+      //             <span>{rtlActive ? prop.rtlMini : prop.mini}</span>
+      //           )}
+      //           <Text>{rtlActive ? prop.rtlName : prop.name}</Text>
+      //         </Button>
       //       </NavLink>
       //       <Collapse in={state[prop.state]} unmountOnExit>
-      //         <List>
-      //           {createLinks(prop.views)}
-      //         </List>
+      //         <List>{createLinks(prop.views)}</List>
       //       </Collapse>
       //     </ListItem>
       //   );
       // }
       return (
-          <NavLink to={prop.layout + prop.path} >
-          <Button  w={"100%"} colorScheme={"red"} mb={"30px"} px={"16px"} py={"12px"}>
-            <Flex>
-              {prop.icon !== undefined ? (
-                typeof prop.icon === "string" ? (
+        <NavLink to={prop.layout + prop.path}>
+          {activeRoute(prop.layout + prop.path) === "active" ? (
+            <Button
+              boxSize="initial"
+              bg={activeBg}
+              mb="30px"
+              mx="auto"
+              px="16px"
+              py="12px"
+              _hover="none"
+              _active={{
+                bg: "inherit",
+                transform: "none",
+                borderColor: "transparent",
+              }}
+              _focus={{
+                boxShadow: "none",
+              }}
+            >
+              <Flex>
+                {typeof prop.icon === "string" ? (
                   <Icon>{prop.icon}</Icon>
                 ) : (
-                  <prop.icon />
-                )
-              ) : (
-                <span>
-                  {rtlActive ? prop.rtlMini : prop.mini}
-                </span>
-              )}
-              <Text> {rtlActive ? prop.rtlName : prop.name} </Text>
-            </Flex>
-          </Button>
-          </NavLink>
+                  <IconBox
+                    bg="teal.300"
+                    color="white"
+                    height="30px"
+                    width="30px"
+                  >
+                    {prop.icon}
+                  </IconBox>
+                )}
+                <Text> {rtlActive ? prop.rtlName : prop.name} </Text>
+              </Flex>
+            </Button>
+          ) : (
+            <Button
+              w={"100%"}
+              colorScheme={"teal"}
+              mb={"30px"}
+              px={"16px"}
+              py={"12px"}
+            >
+              <Flex>
+                {typeof prop.icon === "string" ? (
+                  <Icon>{prop.icon}</Icon>
+                ) : (
+                  <>{prop.icon}</>
+                )}
+                <Text> {rtlActive ? prop.rtlName : prop.name} </Text>
+                <Separator w="100%" mb="20px" />
+              </Flex>
+            </Button>
+          )}
+        </NavLink>
       );
     });
   };
   const { logo, image, logoText, routes, bgColor, rtlActive } = props;
 
-
-
-
-
-
-
-
-
   var links = <List className={classes.list}>{createLinks(routes)}</List>;
 
-
-
-
-
-
-
-
-
-
-
-
-//  BRAND
-const logoColor= useColorModeValue("red.500", "red.200");
+  //  BRAND
+  const logoColor = useColorModeValue("red.500", "red.200");
   var brand = (
     <HStack pt={"46px"}>
-      <Link w={"84px"} h={"22px"} href="https://chakra-ui.com/" target="_blank" >
+      <Link w={"84px"} h={"22px"} href="https://chakra-ui.com/" target="_blank">
         <Image w={"81px"} h={"21.5px"} src={logo} alt="logo" />
       </Link>
       <Box w={"1px"} h={"12px"} backgroundColor={""}></Box>
@@ -211,12 +240,7 @@ const logoColor= useColorModeValue("red.500", "red.200");
     </HStack>
   );
 
-
-
-
-
-
-// SIDEBAR
+  // SIDEBAR
 
   const drawerPaper =
     classes.drawerPaper +
@@ -233,8 +257,9 @@ const logoColor= useColorModeValue("red.500", "red.200");
       [classes.sidebarWrapperWithPerfectScrollbar]:
         navigator.platform.indexOf("Win") > -1,
     });
+  const { isOpen, onOpen, onClose } = useDisclosure();
   return (
-    <div ref={mainPanel}>
+    <Box ref={mainPanel}>
       <Hidden mdUp implementation="css">
         <Drawer
           variant="temporary"
@@ -249,48 +274,20 @@ const logoColor= useColorModeValue("red.500", "red.200");
           }}
         >
           {brand}
-          <SidebarWrapper
-            className={sidebarWrapper}
-            headerLinks={<AdminNavbarLinks rtlActive={rtlActive} />}
-            links={links}
-          />
-          {image !== undefined ? (
-            <div
-              className={classes.background}
-              style={{ backgroundImage: "url(" + image + ")" }}
-            />
-          ) : null}
+          <SidebarWrapper className={sidebarWrapper} links={links} />
         </Drawer>
       </Hidden>
-      <Hidden smDown implementation="css">
-        <Drawer
-          onMouseOver={() => setMiniActive(false)}
-          onMouseOut={() => setMiniActive(true)}
-          anchor={rtlActive ? "right" : "left"}
-          variant="permanent"
-          open
-          classes={{
-            paper: drawerPaper + " " + classes[bgColor + "Background"],
-          }}
-        >
-          {brand}
-          <SidebarWrapper
-            className={sidebarWrapper}
-            links={links}
-          />
-        </Drawer>
+      <Hidden smDown>
+        <Box maxW="260px" position="absolute" height="100vh" px="20px">
+          <Box borderBottomWidth="1px">{brand}</Box>
+          <Stack direction="column">
+            <Box>{links}</Box>
+          </Stack>
+        </Box>
       </Hidden>
-    </div>
+    </Box>
   );
 }
-
-
-
-
-
-
-
-
 
 // PROPS
 

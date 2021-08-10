@@ -34,7 +34,7 @@ export const AtlassianLogo = createIcon({
   ),
 });
 
-export const BuildIcon = createIcon({
+export const SupportIcon = createIcon({
   // Doesn't display the full icon without w and h being specified
   displayName: "BuildIcon",
   viewBox: "0 0 24 24",
@@ -268,17 +268,6 @@ export const SettingsIcon = createIcon({
   ),
 });
 
-// export const SettingsIcon = createIcon({
-//   displayName: "SettingsIcon",
-//   viewBox: "0 0 24 24",
-//   path: (
-//     <path
-//       d="M6.5 4.625a1.875 1.875 0 100 3.75 1.875 1.875 0 000-3.75zM10.548 6.5c0 .175-.014.35-.038.524l1.14.893a.272.272 0 01.063.347l-1.08 1.863a.272.272 0 01-.331.116l-1.342-.54c-.28.216-.585.395-.91.532l-.2 1.425a.28.28 0 01-.27.23H5.42a.281.281 0 01-.27-.223l-.2-1.424a3.97 3.97 0 01-.91-.532l-1.342.54a.273.273 0 01-.331-.116L1.287 8.27a.272.272 0 01.062-.346L2.49 7.03a4.09 4.09 0 01-.038-.53c0-.176.014-.351.038-.524l-1.14-.894a.272.272 0 01-.063-.346l1.08-1.864a.273.273 0 01.331-.116l1.342.54c.28-.216.585-.394.91-.532l.2-1.424a.28.28 0 01.27-.232h2.16a.281.281 0 01.27.224l.2 1.424c.326.136.632.315.91.532l1.341-.539a.273.273 0 01.332.115l1.08 1.864a.272.272 0 01-.062.347l-1.141.893c.024.176.037.353.038.531z"
-//       fill="currentColor"
-//     />
-//   ),
-// });
-
 export const SlackLogo = createIcon({
   displayName: "SlackLogo",
   viewBox: "0 0 24 24",
@@ -317,7 +306,7 @@ export const SpotifyLogo = createIcon({
   ),
 });
 
-export const StatsIcon = createIcon({
+export const ChartIcon = createIcon({
   displayName: "StatsIcon",
   viewBox: "0 0 24 24",
   path: (

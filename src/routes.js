@@ -34,22 +34,22 @@ import ValidationForms from "views/Forms/ValidationForms.js";
 import Widgets from "views/Widgets/Widgets.js";
 import Wizard from "views/Forms/Wizard.js";
 
-// @material-ui/icons
-import Apps from "@material-ui/icons/Apps";
-import DashboardIcon from "@material-ui/icons/Dashboard";
-import DateRange from "@material-ui/icons/DateRange";
-import GridOn from "@material-ui/icons/GridOn";
-import Image from "@material-ui/icons/Image";
-import Place from "@material-ui/icons/Place";
-import Timeline from "@material-ui/icons/Timeline";
-import WidgetsIcon from "@material-ui/icons/Widgets";
+import {
+  HomeIcon,
+  ChartIcon,
+  CreditIcon,
+  SupportIcon,
+  PersonIcon,
+  DocumentIcon,
+  RocketIcon,
+} from "componentsChakra/Icons/Icons";
 
 var dashRoutes = [
   {
     path: "/dashboard",
     name: "Dashboard",
     rtlName: "لوحة القيادة",
-    icon: DashboardIcon,
+    icon: <HomeIcon color="inherit" />,
     component: Dashboard,
     layout: "/admin",
   },
@@ -57,7 +57,7 @@ var dashRoutes = [
     path: "/dashboardchakra",
     name: "Dashboard Chakra",
     rtlName: "لوحة القيادة",
-    icon: DashboardIcon,
+    icon: <HomeIcon color="inherit" />,
     component: DashboardChakra,
     layout: "/admin",
   },
@@ -65,7 +65,7 @@ var dashRoutes = [
     path: "/tableschakra",
     name: "Tables Chakra",
     rtlName: "لوحة القيادة",
-    icon: DashboardIcon,
+    icon: <ChartIcon color="inherit" />,
     component: TablesChakra,
     layout: "/admin",
   },
@@ -73,7 +73,7 @@ var dashRoutes = [
     path: "/billingchakra",
     name: "Billing Chakra",
     rtlName: "لوحة القيادة",
-    icon: DashboardIcon,
+    icon: <CreditIcon color="inherit" />,
     component: BillingChakra,
     layout: "/admin",
   },
@@ -81,8 +81,7 @@ var dashRoutes = [
     path: "/rtl-support-page-chakra",
     name: "RTL Support Chakra",
     rtlName: "صودعم رتل",
-    mini: "RS",
-    rtlMini: "صو",
+    icon: <SupportIcon color="inherit" />,
     component: RTLChakra,
     layout: "/rtl",
   },
@@ -90,7 +89,7 @@ var dashRoutes = [
     path: "/profilechakra",
     name: "Profile Chakra",
     rtlName: "لوحة القيادة",
-    icon: DashboardIcon,
+    icon: <PersonIcon color="inherit" />,
     component: ProfileChakra,
     layout: "/admin",
   },
@@ -98,7 +97,7 @@ var dashRoutes = [
     path: "/signinchakra",
     name: "Sign In Chakra",
     rtlName: "لوحة القيادة",
-    icon: DashboardIcon,
+    icon: <DocumentIcon color="inherit" />,
     component: SignInChakra,
     layout: "/auth",
   },
@@ -106,10 +105,75 @@ var dashRoutes = [
     path: "/signUpchakra",
     name: "Sign Up Chakra",
     rtlName: "لوحة القيادة",
-    icon: DashboardIcon,
+    icon: <RocketIcon color="inherit" />,
     component: SignUpChakra,
     layout: "/auth",
   },
+  // {
+  //   path: "/dashboard",
+  //   name: "Dashboard",
+  //   rtlName: "لوحة القيادة",
+  //   icon: DashboardIcon,
+  //   component: Dashboard,
+  //   layout: "/admin",
+  // },
+  // {
+  //   path: "/dashboardchakra",
+  //   name: "Dashboard Chakra",
+  //   rtlName: "لوحة القيادة",
+  //   icon: DashboardIcon,
+  //   component: DashboardChakra,
+  //   layout: "/admin",
+  // },
+  // {
+  //   path: "/tableschakra",
+  //   name: "Tables Chakra",
+  //   rtlName: "لوحة القيادة",
+  //   icon: DashboardIcon,
+  //   component: TablesChakra,
+  //   layout: "/admin",
+  // },
+  // {
+  //   path: "/billingchakra",
+  //   name: "Billing Chakra",
+  //   rtlName: "لوحة القيادة",
+  //   icon: DashboardIcon,
+  //   component: BillingChakra,
+  //   layout: "/admin",
+  // },
+  // {
+  //   path: "/rtl-support-page-chakra",
+  //   name: "RTL Support Chakra",
+  //   rtlName: "صودعم رتل",
+  //   mini: "RS",
+  //   rtlMini: "صو",
+  //   component: RTLChakra,
+  //   layout: "/rtl",
+  // },
+  // {
+  //   path: "/profilechakra",
+  //   name: "Profile Chakra",
+  //   rtlName: "لوحة القيادة",
+  //   icon: DashboardIcon,
+  //   component: ProfileChakra,
+  //   layout: "/admin",
+  // },
+  // {
+  //   path: "/signinchakra",
+  //   name: "Sign In Chakra",
+  //   rtlName: "لوحة القيادة",
+  //   icon: DashboardIcon,
+  //   component: SignInChakra,
+  //   layout: "/auth",
+  // },
+  // {
+  //   path: "/signUpchakra",
+  //   name: "Sign Up Chakra",
+  //   rtlName: "لوحة القيادة",
+  //   icon: DashboardIcon,
+  //   component: SignUpChakra,
+  //   layout: "/auth",
+  // },
   // {
   //   path: "/register-page",
   //   name: "Register Page",
@@ -119,7 +183,6 @@ var dashRoutes = [
   //   component: RegisterPage,
   //   layout: "/auth",
   // },
-
   // {
   //   collapse: true,
   //   name: "Pages",
@@ -373,7 +436,6 @@ var dashRoutes = [
   //     },
   //   ],
   // },
-
   // {
   //   path: "/widgets",
   //   name: "Widgets",

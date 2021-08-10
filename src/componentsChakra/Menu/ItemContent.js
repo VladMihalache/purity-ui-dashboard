@@ -14,7 +14,6 @@ import {
 import { SettingsIcon, ClockIcon } from "componentsChakra/Icons/Icons";
 
 export function ItemContent(props) {
-  // const linkTeal = useColorModeValue("teal.400", "red.200");
   const navbarIcon = useColorModeValue("gray.500", "gray.200");
   const notificationColor = useColorModeValue("gray.700", "white");
   const { rtlActive } = props;
@@ -28,8 +27,8 @@ export function ItemContent(props) {
         mr="16px"
       />
       <Flex flexDirection="column">
-        <Text display="flex" fontSize="14px" mb="5px" color={notificationColor}>
-          <Text fontWeight="bold" fontSize="14px">
+        <Text fontSize="14px" mb="5px" color={notificationColor}>
+          <Text fontWeight="bold" fontSize="14px" as="span">
             {props.boldInfo}
             {spacing}
           </Text>

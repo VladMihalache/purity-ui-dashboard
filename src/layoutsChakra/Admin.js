@@ -8,14 +8,15 @@ import theme from "../theme/theme";
 import PerfectScrollbar from "perfect-scrollbar";
 import "perfect-scrollbar/css/perfect-scrollbar.css";
 
-// core components
+// Custom Components
+// Layout
 import MainPanel from "../componentsChakra/Layout/MainPanel";
 import PanelContent from "../componentsChakra/Layout/PanelContent";
 import PanelContainer from "../componentsChakra/Layout/PanelContainer";
 import AdminNavbar from "componentsChakra/Navbars/AdminNavbar.js";
 import Footer from "componentsChakra/Footer/Footer.js";
 
-import Sidebar from "components/SidebarChakra/Sidebar.js";
+import Sidebar from "componentsChakra/Sidebar/Sidebar.js";
 
 import routes from "routes.js";
 
@@ -100,7 +101,7 @@ export default function Dashboard(props) {
       setMobileOpen(false);
     }
   };
-
+  console.log(mobileOpen);
   return (
     <ChakraProvider theme={theme} resetCss={false}>
       <Sidebar
@@ -113,6 +114,7 @@ export default function Dashboard(props) {
         {...rest}
       />
       <MainPanel
+        id="mainPanel"
         w={{
           lg: "calc(100% - 260px)",
         }}

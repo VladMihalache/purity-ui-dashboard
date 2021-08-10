@@ -45,6 +45,7 @@ import {
 } from "componentsChakra/Icons/Icons";
 
 export default function DashboardChakra() {
+  const value = "$100.000";
   const { colorMode, toggleColorMode } = useColorMode();
   const iconTeal = useColorModeValue("teal.300", "teal.300");
   const iconBoxInside = useColorModeValue("white", "white");
@@ -127,7 +128,14 @@ export default function DashboardChakra() {
   // };
   return (
     <VStack>
-      <SimpleGrid width="100%" columns="4" spacing="20px">
+      <SimpleGrid
+        width="100%"
+        columns={{
+          sm: "1",
+          xl: "4",
+        }}
+        spacing="20px"
+      >
         <Flex>
           <Card>
             <CardBody py="18px">
@@ -222,7 +230,7 @@ export default function DashboardChakra() {
                   </Text>
                   <HStack>
                     <Text fontSize="lg" fontWeight="bold">
-                      $53,000
+                      {value}
                     </Text>
                     <Text color="green.400" fontSize="sm" fontWeight="bold">
                       +55%

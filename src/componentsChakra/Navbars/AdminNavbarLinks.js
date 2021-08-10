@@ -44,7 +44,7 @@ export default function HeaderLinks(props) {
   const { rtlActive } = props;
 
   const mainTeal = useColorModeValue("teal.300", "teal.300");
-  const searchIconColor = useColorModeValue("gray.700", "gray.200");
+  const mainTextGray = useColorModeValue("gray.700", "gray.200");
   const inputBg = useColorModeValue("white", "gray.800");
   const { variant, children, ...rest } = props;
 
@@ -81,11 +81,7 @@ export default function HeaderLinks(props) {
                 boxShadow: "none",
               }}
               icon={
-                <SearchIcon
-                  color={searchIconColor}
-                  width="15px"
-                  height="15px"
-                />
+                <SearchIcon color={mainTextGray} width="15px" height="15px" />
               }
             ></IconButton>
           }
