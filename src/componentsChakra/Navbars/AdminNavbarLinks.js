@@ -94,9 +94,9 @@ export default function HeaderLinks(props) {
         />
       </InputGroup>
       <Button
-        ml="0px"
+        ms="0px"
         px="0px"
-        mr="20px"
+        me="20px"
         bg="transparent"
         color={navbarIcon}
         fontWeight="bold"

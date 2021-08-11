@@ -9,12 +9,11 @@ import {
   Text,
   Link,
   Image,
-  Avatar,
   Stack,
   HStack,
-  VStack,
   Box,
   useColorModeValue,
+  useDisclosure,
   Drawer,
   DrawerBody,
   DrawerFooter,
@@ -22,9 +21,9 @@ import {
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
-  useDisclosure,
 } from "@chakra-ui/react";
 import IconBox from "componentsChakra/Icons/IconBox";
+import { Separator } from "componentsChakra/Separator/Separator";
 // javascript plugin used to create scrollbars on windows
 import PerfectScrollbar from "perfect-scrollbar";
 import cx from "classnames";
@@ -39,7 +38,6 @@ import Collapse from "@material-ui/core/Collapse";
 import Icon from "@material-ui/core/Icon";
 
 // core components
-import { Separator } from "componentsChakra/Separator/Separator";
 import AdminNavbarLinks from "components/Navbars/AdminNavbarLinks.js";
 
 import sidebarStyle from "assets/jss/material-dashboard-pro-react/components/sidebarStyle.js";
@@ -86,48 +84,50 @@ function Sidebar(props) {
   let location = useLocation();
   // this is for the rest of the collapses
   const [state, setState] = React.useState({});
-  React.useEffect(() => {
-    setState(getCollapseStates(props.routes));
-  }, []);
+  // React.useEffect(() => {
+  //   setState(getCollapseStates(props.routes));
+  // }, []);
   const mainPanel = React.useRef();
   // this creates the intial state of this component based on the collapse routes
   // that it gets through routes
-  const getCollapseStates = (routes) => {
-    let initialState = {};
-    routes.map((prop) => {
-      if (prop.collapse) {
-        initialState = {
-          [prop.state]: getCollapseInitialState(prop.views),
-          ...getCollapseStates(prop.views),
-          ...initialState,
-        };
-      }
-      return null;
-    });
-    return initialState;
-  };
+  // const getCollapseStates = (routes) => {
+  //   let initialState = {};
+  //   routes.map((prop) => {
+  //     if (prop.collapse) {
+  //       initialState = {
+  //         [prop.state]: getCollapseInitialState(prop.views),
+  //         ...getCollapseStates(prop.views),
+  //         ...initialState,
+  //       };
+  //     }
+  //     return null;
+  //   });
+  //   return initialState;
+  // };
   // this verifies if any of the collapses should be default opened on a rerender of this component
   // for example, on the refresh of the page,
   // while on the src/views/forms/RegularForms.jsx - route /admin/regular-forms
-  const getCollapseInitialState = (routes) => {
-    for (let i = 0; i < routes.length; i++) {
-      if (routes[i].collapse && getCollapseInitialState(routes[i].views)) {
-        return true;
-      } else if (location.pathname === routes[i].layout + routes[i].path) {
-        return true;
-      }
-    }
-    return false;
-  };
+  // const getCollapseInitialState = (routes) => {
+  //   for (let i = 0; i < routes.length; i++) {
+  //     if (routes[i].collapse && getCollapseInitialState(routes[i].views)) {
+  //       return true;
+  //     } else if (location.pathname === routes[i].layout + routes[i].path) {
+  //       return true;
+  //     }
+  //   }
+  //   return false;
+  // };
   // verifies if routeName is the one active (in browser input)
   const activeRoute = (routeName) => {
     return location.pathname === routeName ? "active" : "";
-    console.log(routeName);
   };
   // this function creates the links and collapses that appear in the sidebar (left menu)
   const createLinks = (routes) => {
     const { rtlActive } = props;
     const activeBg = useColorModeValue("white", "gray.700");
+    const inactiveBg = useColorModeValue("white", "gray.700");
+    const activeColor = useColorModeValue("gray.700", "white");
+    const inactiveColor = useColorModeValue("gray.400", "gray.400");
     return routes.map((prop, key) => {
       if (prop.redirect) {
         return null;
@@ -163,17 +163,52 @@ function Sidebar(props) {
       //     </ListItem>
       //   );
       // }
+      if (prop.category) {
+        var st = {};
+        st[prop["state"]] = !state[prop.state];
+        return (
+          <>
+            <Text
+              color={activeColor}
+              fontWeight="bold"
+              mb={{
+                xl: "12px",
+              }}
+              mx="auto"
+              ps={{
+                sm: "10px",
+                xl: "16px",
+              }}
+              py="12px"
+            >
+              {rtlActive ? prop.rtlName : prop.name}
+            </Text>
+            {createLinks(prop.views)}
+          </>
+        );
+      }
       return (
         <NavLink to={prop.layout + prop.path}>
           {activeRoute(prop.layout + prop.path) === "active" ? (
             <Button
               boxSize="initial"
+              justifyContent="flex-start"
+              alignItems="center"
               bg={activeBg}
-              mb="30px"
-              mx="auto"
-              px="16px"
+              mb={{
+                xl: "12px",
+              }}
+              mx={{
+                xl: "auto",
+              }}
+              ps={{
+                sm: "10px",
+                xl: "16px",
+              }}
               py="12px"
+              borderRadius="15px"
               _hover="none"
+              w="100%"
               _active={{
                 bg: "inherit",
                 transform: "none",
@@ -192,29 +227,62 @@ function Sidebar(props) {
                     color="white"
                     height="30px"
                     width="30px"
+                    me="12px"
                   >
                     {prop.icon}
                   </IconBox>
                 )}
-                <Text> {rtlActive ? prop.rtlName : prop.name} </Text>
+                <Text color={activeColor} my="auto" fontSize="sm">
+                  {rtlActive ? prop.rtlName : prop.name}
+                </Text>
               </Flex>
             </Button>
           ) : (
             <Button
-              w={"100%"}
-              colorScheme={"teal"}
-              mb={"30px"}
-              px={"16px"}
-              py={"12px"}
+              boxSize="initial"
+              justifyContent="flex-start"
+              alignItems="center"
+              bg="transparent"
+              mb={{
+                xl: "12px",
+              }}
+              mx={{
+                xl: "auto",
+              }}
+              py="12px"
+              ps={{
+                sm: "10px",
+                xl: "16px",
+              }}
+              borderRadius="15px"
+              _hover="none"
+              w="100%"
+              _active={{
+                bg: "inherit",
+                transform: "none",
+                borderColor: "transparent",
+              }}
+              _focus={{
+                boxShadow: "none",
+              }}
             >
               <Flex>
                 {typeof prop.icon === "string" ? (
                   <Icon>{prop.icon}</Icon>
                 ) : (
-                  <>{prop.icon}</>
+                  <IconBox
+                    bg={inactiveBg}
+                    color="teal.300"
+                    height="30px"
+                    width="30px"
+                    me="12px"
+                  >
+                    {prop.icon}
+                  </IconBox>
                 )}
-                <Text> {rtlActive ? prop.rtlName : prop.name} </Text>
-                <Separator w="100%" mb="20px" />
+                <Text color={inactiveColor} my="auto" fontSize="sm">
+                  {rtlActive ? prop.rtlName : prop.name}
+                </Text>
               </Flex>
             </Button>
           )}
@@ -224,20 +292,23 @@ function Sidebar(props) {
   };
   const { logo, image, logoText, routes, bgColor, rtlActive } = props;
 
-  var links = <List className={classes.list}>{createLinks(routes)}</List>;
+  var links = <>{createLinks(routes)}</>;
 
   //  BRAND
   const logoColor = useColorModeValue("red.500", "red.200");
   var brand = (
-    <HStack pt={"46px"}>
-      <Link w={"84px"} h={"22px"} href="https://chakra-ui.com/" target="_blank">
-        <Image w={"81px"} h={"21.5px"} src={logo} alt="logo" />
-      </Link>
-      <Box w={"1px"} h={"12px"} backgroundColor={""}></Box>
-      <Link href="https://chakra-ui.com/" target="_blank" color={"gray.700"}>
-        {logoText}
-      </Link>
-    </HStack>
+    <Box pt={"46px"}>
+      <Flex mb="30px">
+        <Link href="https://chakra-ui.com/" target="_blank">
+          <Image src={logo} alt="logo" />
+        </Link>
+        <Box w={"1px"} h={"12px"} backgroundColor={""}></Box>
+        {/* <Link href="https://chakra-ui.com/" target="_blank" color={"gray.700"}>
+          {logoText}
+        </Link> */}
+      </Flex>
+      <Separator></Separator>
+    </Box>
   );
 
   // SIDEBAR
@@ -258,10 +329,45 @@ function Sidebar(props) {
         navigator.platform.indexOf("Win") > -1,
     });
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const btnRef = React.useRef();
   return (
     <Box ref={mainPanel}>
-      <Hidden mdUp implementation="css">
-        <Drawer
+      <Box display={{ sm: "block", xl: "none" }}>
+        <>
+          <Button ref={btnRef} colorScheme="teal" onClick={onOpen}>
+            Open
+          </Button>
+          <Drawer
+            isOpen={isOpen}
+            placement="left"
+            onClose={onClose}
+            finalFocusRef={btnRef}
+          >
+            <DrawerOverlay />
+            <DrawerContent
+              w="250px"
+              maxW="250px"
+              ms={{
+                sm: "16px",
+              }}
+              my={{
+                sm: "16px",
+              }}
+              borderRadius="16px"
+            >
+              <DrawerCloseButton />
+              <DrawerBody maxW="250px" px="1rem">
+                <Box maxW="100%" height="100vh">
+                  <Box borderBottomWidth="1px">{brand}</Box>
+                  <Stack direction="column">
+                    <Box>{links}</Box>
+                  </Stack>
+                </Box>
+              </DrawerBody>
+            </DrawerContent>
+          </Drawer>
+        </>
+        {/* <Drawer
           variant="temporary"
           anchor={rtlActive ? "left" : "right"}
           open={props.open}
@@ -275,16 +381,16 @@ function Sidebar(props) {
         >
           {brand}
           <SidebarWrapper className={sidebarWrapper} links={links} />
-        </Drawer>
-      </Hidden>
-      <Hidden smDown>
+        </Drawer> */}
+      </Box>
+      <Box display={{ sm: "none", xl: "block" }}>
         <Box maxW="260px" position="absolute" height="100vh" px="20px">
           <Box borderBottomWidth="1px">{brand}</Box>
           <Stack direction="column">
             <Box>{links}</Box>
           </Stack>
         </Box>
-      </Hidden>
+      </Box>
     </Box>
   );
 }
@@ -294,15 +400,6 @@ function Sidebar(props) {
 Sidebar.propTypes = {
   bgColor: PropTypes.oneOf(["white", "black", "blue"]),
   rtlActive: PropTypes.bool,
-  color: PropTypes.oneOf([
-    "white",
-    "red",
-    "orange",
-    "green",
-    "blue",
-    "purple",
-    "rose",
-  ]),
   logo: PropTypes.string,
   logoText: PropTypes.string,
   image: PropTypes.string,

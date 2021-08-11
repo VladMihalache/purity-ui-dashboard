@@ -24,7 +24,7 @@ export function ItemContent(props) {
         name={props.aName}
         src={props.aSrc}
         borderRadius="12px"
-        mr="16px"
+        me="16px"
       />
       <Flex flexDirection="column">
         <Text fontSize="14px" mb="5px" color={notificationColor}>
@@ -35,7 +35,7 @@ export function ItemContent(props) {
           {props.info}
         </Text>
         <Flex alignItems="center">
-          <ClockIcon color={navbarIcon} w="13px" h="13px" mr="3px" />
+          <ClockIcon color={navbarIcon} w="13px" h="13px" me="3px" />
           <Text fontSize="xs" lineHeight="100%" color={navbarIcon}>
             {props.time}
           </Text>

@@ -1,6 +1,5 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
-import cx from "classnames";
 // Chakra-UI imports
 import { ChakraProvider } from "@chakra-ui/react";
 import theme from "../theme/theme";
@@ -27,7 +26,7 @@ export default function Dashboard(props) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [miniActive, setMiniActive] = React.useState(false);
   const [logo, setLogo] = React.useState(
-    require("assets/img/logo-chakra.png").default
+    require("assetsChakra/img/Logo.png").default
   );
   // ref for main panel div
   const mainPanel = React.createRef();
@@ -116,7 +115,8 @@ export default function Dashboard(props) {
       <MainPanel
         id="mainPanel"
         w={{
-          lg: "calc(100% - 260px)",
+          base: "100%",
+          xl: "calc(100% - 260px)",
         }}
       >
         <AdminNavbar
