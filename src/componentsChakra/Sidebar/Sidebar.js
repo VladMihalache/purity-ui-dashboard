@@ -35,19 +35,19 @@ var ps;
 // the links, and couldn't initialize the plugin.
 function SidebarWrapper({ className, headerLinks, links }) {
   const sidebarWrapper = React.useRef();
-  React.useEffect(() => {
-    if (navigator.platform.indexOf("Win") > -1) {
-      ps = new PerfectScrollbar(sidebarWrapper.current, {
-        suppressScrollX: true,
-        suppressScrollY: false,
-      });
-    }
-    return function cleanup() {
-      if (navigator.platform.indexOf("Win") > -1) {
-        ps.destroy();
-      }
-    };
-  });
+  // React.useEffect(() => {
+  //   if (navigator.platform.indexOf("Win") > -1) {
+  //     ps = new PerfectScrollbar(sidebarWrapper.current, {
+  //       suppressScrollX: true,
+  //       suppressScrollY: false,
+  //     });
+  //   }
+  //   return function cleanup() {
+  //     if (navigator.platform.indexOf("Win") > -1) {
+  //       ps.destroy();
+  //     }
+  //   };
+  // });
   return (
     <div className={className}>
       {headerLinks}
