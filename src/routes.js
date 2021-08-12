@@ -1,4 +1,4 @@
-// Chakra import
+// import
 import DashboardChakra from "viewsChakra/Dashboard/Dashboard.js";
 import TablesChakra from "viewsChakra/Dashboard/Tables.js";
 import BillingChakra from "viewsChakra/Dashboard/Billing.js";
@@ -46,7 +46,7 @@ import WidgetsIcon from "@material-ui/icons/Widgets";
 
 var dashRoutes = [
   {
-    path: "/dashboard",
+    path: "/dashboardMaterial",
     name: "Dashboard",
     rtlName: "لوحة القيادة",
     icon: DashboardIcon,
@@ -54,32 +54,32 @@ var dashRoutes = [
     layout: "/admin",
   },
   {
-    path: "/dashboardchakra",
-    name: "Dashboard Chakra",
+    path: "/dashboard",
+    name: "Dashboard",
     rtlName: "لوحة القيادة",
     icon: DashboardIcon,
     component: DashboardChakra,
     layout: "/admin",
   },
   {
-    path: "/tableschakra",
-    name: "Tables Chakra",
+    path: "/tables",
+    name: "Tables",
     rtlName: "لوحة القيادة",
     icon: DashboardIcon,
     component: TablesChakra,
     layout: "/admin",
   },
   {
-    path: "/billingchakra",
-    name: "Billing Chakra",
+    path: "/billing",
+    name: "Billing",
     rtlName: "لوحة القيادة",
     icon: DashboardIcon,
     component: BillingChakra,
     layout: "/admin",
   },
   {
-    path: "/rtl-support-page-chakra",
-    name: "RTL Support Chakra",
+    path: "/rtl-support-page-",
+    name: "RTL Support",
     rtlName: "صودعم رتل",
     mini: "RS",
     rtlMini: "صو",
@@ -87,24 +87,24 @@ var dashRoutes = [
     layout: "/rtl",
   },
   {
-    path: "/profilechakra",
-    name: "Profile Chakra",
+    path: "/profile",
+    name: "Profile",
     rtlName: "لوحة القيادة",
     icon: DashboardIcon,
     component: ProfileChakra,
     layout: "/admin",
   },
   {
-    path: "/signinchakra",
-    name: "Sign In Chakra",
+    path: "/signin",
+    name: "Sign In",
     rtlName: "لوحة القيادة",
     icon: DashboardIcon,
     component: SignInChakra,
     layout: "/auth",
   },
   {
-    path: "/signUpchakra",
-    name: "Sign Up Chakra",
+    path: "/signUp",
+    name: "Sign Up",
     rtlName: "لوحة القيادة",
     icon: DashboardIcon,
     component: SignUpChakra,

@@ -24,12 +24,17 @@ import {
   useColorModeValue,
   useColorMode,
 } from "@chakra-ui/react";
+import {
+  CartIcon,
+  DocumentIcon,
+  GlobeIcon,
+  WalletIcon,
+  BoxTriIcon,
+  KeyIcon,
+} from "componentsChakra/Icons/Icons.js";
 import { makeStyles } from "@material-ui/core/styles";
 import Hidden from "@material-ui/core/Hidden";
 import Drawer from "@material-ui/core/Drawer";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
 
 // @material-ui/icons
 import Dashboard from "@material-ui/icons/Dashboard";
@@ -55,13 +60,18 @@ export default function AuthNavbar(props) {
   const classes = useStyles();
   const { color, brandText } = props;
   var list = (
-    <List>
-      <NavLink to={"/admin/dashboard"}></NavLink>
-      <NavLink to={"/auth/pricing-page"}></NavLink>
-      <NavLink to={"/auth/register-page"}></NavLink>
-      <NavLink to={"/auth/login-page"}></NavLink>
-      <NavLink to={"/auth/lock-screen-page"}></NavLink>
-    </List>
+    <Flex>
+      <NavLink to={"/admin/dashboard"}>
+        <Button>
+          <BoxTriIcon color="red" w="11px" h="11px" />
+        </Button>
+      </NavLink>
+      <NavLink to={"/auth/profile"}>
+        <KeyIcon color="red" w="11px" h="11px" />
+      </NavLink>
+      <NavLink to={"/auth/signIn"}></NavLink>
+      <NavLink to={"/auth/signUp"}></NavLink>
+    </Flex>
   );
   const { colorMode, toggleColorMode } = useColorMode();
   const navbarBg = useColorModeValue(
@@ -82,7 +92,7 @@ export default function AuthNavbar(props) {
   );
   const ref = React.useRef();
   return (
-    <Box
+    <Flex
       position="fixed"
       top="16px"
       left="50%"
@@ -96,8 +106,10 @@ export default function AuthNavbar(props) {
       px="16px"
       py="8px"
       mx="auto"
+      width="1044px"
+      maxW="100%"
     >
-      <Box className={classes.container}>
+      <Flex className={classes.container}>
         <Button onClick={toggleColorMode}>
           Toggle {colorMode === "light" ? "Dark" : "Light"}
         </Button>
@@ -143,8 +155,8 @@ export default function AuthNavbar(props) {
             ></Drawer>
           </Hidden>
         </Hidden>
-      </Box>
-    </Box>
+      </Flex>
+    </Flex>
   );
 }
 

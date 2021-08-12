@@ -22,31 +22,22 @@ import {
   Portal,
 } from "@chakra-ui/react";
 
-// @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
-
 // core components
 import AuthNavbar from "componentsChakra/Navbars/AuthNavbar.js";
 import Footer from "componentsChakra/Footer/Footer.js";
 
 import routes from "routes.js";
 
-import styles from "assets/jss/material-dashboard-pro-react/layouts/authStyle.js";
-
-import register from "assets/img/register.jpeg";
-import login from "assets/img/login.jpeg";
-import lock from "assets/img/lock.jpeg";
-import error from "assets/img/clint-mckoy.jpg";
-import pricing from "assets/img/bg-pricing.jpeg";
-
-const useStyles = makeStyles(styles);
+// import register from "assets/img/register.jpeg";
+// import login from "assets/img/login.jpeg";
+// import lock from "assets/img/lock.jpeg";
+// import error from "assets/img/clint-mckoy.jpg";
+// import pricing from "assets/img/bg-pricing.jpeg";
 
 export default function Pages(props) {
   const { ...rest } = props;
   // ref for the wrapper div
   const wrapper = React.createRef();
-  // styles
-  const classes = useStyles();
   React.useEffect(() => {
     document.body.style.overflow = "unset";
     // Specify how to clean up after this effect:
@@ -70,39 +61,39 @@ export default function Pages(props) {
       }
     });
   };
-  const getBgImage = () => {
-    if (window.location.pathname.indexOf("/auth/register-page") !== -1) {
-      return register;
-    } else if (window.location.pathname.indexOf("/auth/login-page") !== -1) {
-      return login;
-    } else if (window.location.pathname.indexOf("/auth/pricing-page") !== -1) {
-      return pricing;
-    } else if (
-      window.location.pathname.indexOf("/auth/lock-screen-page") !== -1
-    ) {
-      return lock;
-    } else if (window.location.pathname.indexOf("/auth/error-page") !== -1) {
-      return error;
-    }
-  };
-  const getActiveRoute = (routes) => {
-    let activeRoute = "Default Brand Text";
-    for (let i = 0; i < routes.length; i++) {
-      if (routes[i].collapse) {
-        let collapseActiveRoute = getActiveRoute(routes[i].views);
-        if (collapseActiveRoute !== activeRoute) {
-          return collapseActiveRoute;
-        }
-      } else {
-        if (
-          window.location.href.indexOf(routes[i].layout + routes[i].path) !== -1
-        ) {
-          return routes[i].name;
-        }
-      }
-    }
-    return activeRoute;
-  };
+  // const getBgImage = () => {
+  //   if (window.location.pathname.indexOf("/auth/register-page") !== -1) {
+  //     return register;
+  //   } else if (window.location.pathname.indexOf("/auth/login-page") !== -1) {
+  //     return login;
+  //   } else if (window.location.pathname.indexOf("/auth/pricing-page") !== -1) {
+  //     return pricing;
+  //   } else if (
+  //     window.location.pathname.indexOf("/auth/lock-screen-page") !== -1
+  //   ) {
+  //     return lock;
+  //   } else if (window.location.pathname.indexOf("/auth/error-page") !== -1) {
+  //     return error;
+  //   }
+  // };
+  // const getActiveRoute = (routes) => {
+  //   let activeRoute = "Default Brand Text";
+  //   for (let i = 0; i < routes.length; i++) {
+  //     if (routes[i].collapse) {
+  //       let collapseActiveRoute = getActiveRoute(routes[i].views);
+  //       if (collapseActiveRoute !== activeRoute) {
+  //         return collapseActiveRoute;
+  //       }
+  //     } else {
+  //       if (
+  //         window.location.href.indexOf(routes[i].layout + routes[i].path) !== -1
+  //       ) {
+  //         return routes[i].name;
+  //       }
+  //     }
+  //   }
+  //   return activeRoute;
+  // };
   const navRef = React.useRef();
   return (
     <ChakraProvider resetCss={false}>
@@ -112,7 +103,7 @@ export default function Pages(props) {
         </Portal>
         <Box>
           <Box ref={wrapper}>
-            <Box>
+            <Box mx="auto" width="1044px" maxW="100%">
               <Switch>
                 {getRoutes(routes)}
                 <Redirect from="/auth" to="/auth/login-page" />
@@ -120,8 +111,7 @@ export default function Pages(props) {
             </Box>
           </Box>
         </Box>
-        <AuthNavbar />
-        <Box width="1044px" maxW="100%" px="24px" mx="auto">
+        <Box px="24px" mx="auto" width="1044px" maxW="100%">
           <Footer />
         </Box>
       </Box>
