@@ -1,16 +1,46 @@
 // chakra imports
-import { Button, useColorMode, useColorModeValue } from "@chakra-ui/react";
-import Auth from "componentsChakra/Auth/Auth";
-import BarChart from "componentsChakra/Charts/BarChart";
-import LineChart from "componentsChakra/Charts/LineChart";
+import {
+  Box,
+  Button,
+  Flex,
+  Grid,
+  Icon,
+  Image,
+  SimpleGrid,
+  Spacer,
+  Table,
+  Tbody,
+  Text,
+  Th,
+  Thead,
+  Tr,
+  useColorMode,
+  useColorModeValue,
+} from "@chakra-ui/react";
+import peopleImage from "assetsChakra/img/people-image.png";
+import logoChakra from "assetsChakra/svg/logo-white.svg";
+import Card from "components/CardChakra/Card.js";
+import CardBody from "components/CardChakra/CardBody.js";
+import CardHeader from "components/CardChakra/CardHeader.js";
 import IconBox from "componentsChakra/Icons/IconBox";
-import { WalletIcon } from "componentsChakra/Icons/Icons.js";
+import {
+  CartIcon,
+  DocumentIcon,
+  GlobeIcon,
+  WalletIcon,
+} from "componentsChakra/Icons/Icons.js";
+import DashboardTableRow from "componentsChakra/Table/DashboardTableRow";
+import TimelineRow from "componentsChakra/Table/TimelineRow";
 import React, { useState } from "react";
+import { BsArrowRight } from "react-icons/bs";
+import { IoCheckmarkDoneCircleSharp } from "react-icons/io5";
+import { dashboardTableData, timelineData } from "variablesChakra/general";
 
 export default function DashboardChakra() {
   const { colorMode, toggleColorMode } = useColorMode();
   const iconTeal = useColorModeValue("teal.300", "teal.300");
   const iconBoxInside = useColorModeValue("white", "white");
+  const textColor = useColorModeValue("gray.700", "white");
   const [series, setSeries] = useState([
     {
       type: "area",
@@ -89,10 +119,352 @@ export default function DashboardChakra() {
     setSeries(newSeries);
   };
   return (
-    <React.Fragment>
-      <IconBox as="box" h={"45px"} w={"45px"} bg={iconTeal}>
-        <WalletIcon h={"24px"} w={"24px"} color={iconBoxInside} />
-      </IconBox>
+    <Flex flexDirection="column">
+      <SimpleGrid columns={{ sm: 1, md: 2, xl: 4 }} spacing="24px">
+        <Card h="83px" py=".3rem" px="1.3rem">
+          <Flex
+            flexDirection="row"
+            align="center"
+            justify="center"
+            height="100%"
+          >
+            <Flex flexDirection="column">
+              <Text fontSize="sm" color="gray.400" fontWeight="bold" pb=".1rem">
+                Today's Money
+              </Text>
+              <Flex flexDirection="row" align="flex-end" mt={0}>
+                <Text fontSize="lg" color={textColor} fontWeight="bold">
+                  $53,000
+                </Text>
+                <Text
+                  fontSize="md"
+                  color="green.400"
+                  fontWeight="bold"
+                  ps=".2rem"
+                >
+                  +55%
+                </Text>
+              </Flex>
+            </Flex>
+            <Spacer />
+            <IconBox as="box" h={"45px"} w={"45px"} bg={iconTeal}>
+              <WalletIcon h={"24px"} w={"24px"} color={iconBoxInside} />
+            </IconBox>
+          </Flex>
+        </Card>
+        <Card h="83px" py=".3rem" px="1.3rem">
+          <Flex
+            flexDirection="row"
+            align="center"
+            justify="center"
+            height="100%"
+          >
+            <Flex flexDirection="column">
+              <Text fontSize="sm" color="gray.400" fontWeight="bold" pb=".1rem">
+                Today's Users
+              </Text>
+              <Flex flexDirection="row" align="flex-end" mt={0}>
+                <Text fontSize="lg" color={textColor} fontWeight="bold">
+                  $2,300
+                </Text>
+                <Text
+                  fontSize="md"
+                  color="green.400"
+                  fontWeight="bold"
+                  ps=".2rem"
+                >
+                  +5%
+                </Text>
+              </Flex>
+            </Flex>
+            <Spacer />
+            <IconBox as="box" h={"45px"} w={"45px"} bg={iconTeal}>
+              <GlobeIcon h={"24px"} w={"24px"} color={iconBoxInside} />
+            </IconBox>
+          </Flex>
+        </Card>
+        <Card h="83px" py=".3rem" px="1.3rem">
+          <Flex
+            flexDirection="row"
+            align="center"
+            justify="center"
+            height="100%"
+          >
+            <Flex flexDirection="column">
+              <Text fontSize="sm" color="gray.400" fontWeight="bold" pb=".1rem">
+                New Clients
+              </Text>
+              <Flex flexDirection="row" align="flex-end">
+                <Text fontSize="lg" color={textColor} fontWeight="bold">
+                  $3,052
+                </Text>
+                <Text
+                  fontSize="md"
+                  color="red.400"
+                  fontWeight="bold"
+                  ps=".2rem"
+                >
+                  -14%
+                </Text>
+              </Flex>
+            </Flex>
+            <Spacer />
+            <IconBox as="box" h={"45px"} w={"45px"} bg={iconTeal}>
+              <DocumentIcon h={"24px"} w={"24px"} color={iconBoxInside} />
+            </IconBox>
+          </Flex>
+        </Card>
+        <Card h="83px" py=".3rem" px="1.3rem">
+          <Flex
+            flexDirection="row"
+            align="center"
+            justify="center"
+            height="100%"
+          >
+            <Flex flexDirection="column">
+              <Text fontSize="sm" color="gray.400" fontWeight="bold" pb=".1rem">
+                Total Sales
+              </Text>
+              <Flex flexDirection="row" align="flex-end" mt={0}>
+                <Text fontSize="lg" color={textColor} fontWeight="bold">
+                  $173,000
+                </Text>
+                <Text
+                  fontSize="md"
+                  color="green.400"
+                  fontWeight="bold"
+                  ps=".2rem"
+                >
+                  +8%
+                </Text>
+              </Flex>
+            </Flex>
+            <Spacer />
+            <IconBox as="box" h={"45px"} w={"45px"} bg={iconTeal}>
+              <CartIcon h={"24px"} w={"24px"} color={iconBoxInside} />
+            </IconBox>
+          </Flex>
+        </Card>
+      </SimpleGrid>
+      <Grid
+        templateColumns={{ md: "1fr", lg: "1.8fr 1.2fr" }}
+        templateRows={{ md: "1fr auto", lg: "1fr" }}
+        my="26px"
+        gap="24px"
+      >
+        <Card minHeight="290.5px" p="1.2rem">
+          <Flex flexDirection={{ sm: "column", lg: "row" }} h="100%">
+            <Flex
+              flexDirection="column"
+              h="100%"
+              lineHeight="1.6"
+              width={{ lg: "45%" }}
+            >
+              <Text fontSize="sm" color="gray.400" fontWeight="bold">
+                Built by developers
+              </Text>
+              <Text
+                fontSize="lg"
+                color={textColor}
+                fontWeight="bold"
+                pb=".5rem"
+              >
+                Chakra UI Soft Dashboard
+              </Text>
+              <Text fontSize="sm" color="gray.400" fontWeight="normal">
+                From colors, cards, typography to complex elements, you will
+                find the full documentation.
+              </Text>
+              <Spacer />
+              <Flex align="center">
+                <Text
+                  fontSize="sm"
+                  color={textColor}
+                  fontWeight="bold"
+                  cursor="pointer"
+                  my={{ sm: "1.5rem" }}
+                >
+                  Read more
+                </Text>
+                <Icon
+                  as={BsArrowRight}
+                  w="20px"
+                  h="20px"
+                  fontSize="xl"
+                  transition="all .5s ease"
+                  mx=".5rem"
+                  cursor="pointer"
+                  _hover={{ transform: "translateX(20%)" }}
+                />
+              </Flex>
+            </Flex>
+            <Spacer />
+            <Flex
+              bg="teal.300"
+              align="center"
+              justify="center"
+              borderRadius="15px"
+              width={{ lg: "40%" }}
+              minHeight={{ sm: "250px" }}
+            >
+              <Image
+                src={logoChakra}
+                alt="chakra image"
+                minWidth={{ md: "300px", lg: "auto" }}
+              />
+            </Flex>
+          </Flex>
+        </Card>
+        <Card maxHeight="290.5px" p="1rem">
+          <CardBody
+            p="0px"
+            backgroundImage={peopleImage}
+            bgPosition="center"
+            bgRepeat="no-repeat"
+            w="100%"
+            h="100%"
+            bgSize="cover"
+            position="relative"
+            borderRadius="15px"
+          >
+            <Box
+              bg="linear-gradient(360deg, rgba(49, 56, 96, 0.16) 0%, rgba(21, 25, 40, 0.88) 100%)"
+              w="100%"
+              position="absolute"
+              h="inherit"
+              borderRadius="inherit"
+            ></Box>
+            <Flex
+              flexDirection="column"
+              color="white"
+              p="1.5rem 1.2rem"
+              zIndex="3"
+              lineHeight="1.6"
+            >
+              <Text fontSize="xl" fontWeight="bold" pb=".3rem">
+                Work with the rockets
+              </Text>
+              <Text fontSize="sm" fontWeight="normal" w={{ lg: "67%" }}>
+                Wealth creation is a revolutionary recent positive-sum game. It
+                is all about who takes the opportunity first.
+              </Text>
+              <Spacer />
+              <Flex align="center">
+                <Text fontSize="sm" fontWeight="bold">
+                  Read more
+                </Text>
+                <Icon
+                  as={BsArrowRight}
+                  w="20px"
+                  h="20px"
+                  fontSize="xl"
+                  transition="all .5s ease"
+                  mx=".5rem"
+                  cursor="pointer"
+                  _hover={{ transform: "translateX(20%)" }}
+                />
+              </Flex>
+            </Flex>
+          </CardBody>
+        </Card>
+      </Grid>
+      <Grid
+        templateColumns={{ sm: "1fr", md: "1fr 1fr", lg: "2fr 1fr" }}
+        templateRows={{ sm: "1fr auto", md: "1fr", lg: "1fr" }}
+        gap="24px"
+      >
+        <Card p="1rem" overflowX={{ sm: "scroll", xl: "hidden" }}>
+          <CardHeader p="12px 0px 28px 0px">
+            <Flex direction="column">
+              <Text
+                fontSize="lg"
+                color={textColor}
+                fontWeight="bold"
+                pb=".5rem"
+              >
+                Projects
+              </Text>
+              <Flex align="center">
+                <Icon
+                  as={IoCheckmarkDoneCircleSharp}
+                  color="teal.300"
+                  w={4}
+                  h={4}
+                  pr="3px"
+                />
+                <Text fontSize="sm" color="gray.400" fontWeight="normal">
+                  <Text fontWeight="bold" as="span">
+                    30 done
+                  </Text>{" "}
+                  this month.
+                </Text>
+              </Flex>
+            </Flex>
+          </CardHeader>
+          <Table variant="simple" color={textColor}>
+            <Thead>
+              <Tr my=".8rem" pl="0px">
+                <Th pl="0px" color="gray.400">
+                  Companies
+                </Th>
+                <Th color="gray.400">Members</Th>
+                <Th color="gray.400">Budget</Th>
+                <Th color="gray.400">Completion</Th>
+              </Tr>
+            </Thead>
+            <Tbody>
+              {dashboardTableData.map((row) => {
+                return (
+                  <DashboardTableRow
+                    name={row.name}
+                    logo={row.logo}
+                    members={row.members}
+                    budget={row.budget}
+                    progression={row.progression}
+                  />
+                );
+              })}
+            </Tbody>
+          </Table>
+        </Card>
+        <Card p="1rem" maxHeight="100%">
+          <CardHeader pt="0px" p="28px 0px 35px 21px">
+            <Flex direction="column">
+              <Text
+                fontSize="lg"
+                color={textColor}
+                fontWeight="bold"
+                pb=".5rem"
+              >
+                Orders overview
+              </Text>
+              <Text fontSize="sm" color="gray.400" fontWeight="normal">
+                <Text fontWeight="bold" as="span" color="teal.300">
+                  +30%
+                </Text>{" "}
+                this month.
+              </Text>
+            </Flex>
+          </CardHeader>
+          <CardBody pl="26px" pr="0px" mb="31px" position="relative">
+            <Flex direction="column">
+              {timelineData.map((row, index, arr) => {
+                return (
+                  <TimelineRow
+                    logo={row.logo}
+                    title={row.title}
+                    date={row.date}
+                    color={row.color}
+                    index={index}
+                    arrLength={arr.length}
+                  />
+                );
+              })}
+            </Flex>
+          </CardBody>
+        </Card>
+      </Grid>
+
       <Button
         size="sm"
         colorScheme="blue"
@@ -101,9 +473,6 @@ export default function DashboardChakra() {
       >
         Toggle Mode
       </Button>
-      <Auth></Auth>
-      <LineChart series={series} />
-      <BarChart series={data} height="360px" />
-    </React.Fragment>
+    </Flex>
   );
 }

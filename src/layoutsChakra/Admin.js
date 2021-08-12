@@ -31,24 +31,24 @@ export default function Dashboard(props) {
   // ref for main panel div
   const mainPanel = React.createRef();
   // effect instead of componentDidMount, componentDidUpdate and componentWillUnmount
-  React.useEffect(() => {
-    if (navigator.platform.indexOf("Win") > -1) {
-      ps = new PerfectScrollbar(mainPanel.current, {
-        suppressScrollX: true,
-        suppressScrollY: false,
-      });
-      document.body.style.overflow = "hidden";
-    }
-    window.addEventListener("resize", resizeFunction);
+  // React.useEffect(() => {
+  //   if (navigator.platform.indexOf("Win") > -1) {
+  //     ps = new PerfectScrollbar(mainPanel.current, {
+  //       suppressScrollX: true,
+  //       suppressScrollY: false,
+  //     });
+  //     document.body.style.overflow = "hidden";
+  //   }
+  //   window.addEventListener("resize", resizeFunction);
 
-    // Specify how to clean up after this effect:
-    return function cleanup() {
-      if (navigator.platform.indexOf("Win") > -1) {
-        ps.destroy();
-      }
-      window.removeEventListener("resize", resizeFunction);
-    };
-  });
+  //   // Specify how to clean up after this effect:
+  //   return function cleanup() {
+  //     if (navigator.platform.indexOf("Win") > -1) {
+  //       ps.destroy();
+  //     }
+  //     window.removeEventListener("resize", resizeFunction);
+  //   };
+  // });
   // functions for changeing the states from components
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -110,11 +110,13 @@ export default function Dashboard(props) {
         handleDrawerToggle={handleDrawerToggle}
         open={mobileOpen}
         miniActive={miniActive}
+        display="none"
         {...rest}
       />
       <MainPanel
         w={{
-          lg: "calc(100% - 260px)",
+          sm: "100%",
+          xl: "calc(100% - 260px)"
         }}
       >
         <AdminNavbar
