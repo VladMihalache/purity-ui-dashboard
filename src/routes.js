@@ -110,15 +110,15 @@ var dashRoutes = [
     component: SignUpChakra,
     layout: "/auth",
   },
-  // {
-  //   path: "/register-page",
-  //   name: "Register Page",
-  //   rtlName: "تسجيل",
-  //   mini: "R",
-  //   rtlMini: "صع",
-  //   component: RegisterPage,
-  //   layout: "/auth",
-  // },
+  {
+    path: "/register-page",
+    name: "Register Page",
+    rtlName: "تسجيل",
+    mini: "R",
+    rtlMini: "صع",
+    component: RegisterPage,
+    layout: "/auth",
+  },
 
   // {
   //   collapse: true,

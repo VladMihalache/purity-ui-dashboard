@@ -3,7 +3,24 @@ import React from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 // chakra imports
-import {Button, Flex, Text, Link, Image, Avatar, Stack, HStack, VStack, Box, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon, useColorModeValue,} from "@chakra-ui/react";
+import {
+  Button,
+  Flex,
+  Text,
+  Link,
+  Image,
+  Avatar,
+  Stack,
+  HStack,
+  VStack,
+  Box,
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+  AccordionIcon,
+  useColorModeValue,
+} from "@chakra-ui/react";
 // javascript plugin used to create scrollbars on windows
 import PerfectScrollbar from "perfect-scrollbar";
 import cx from "classnames";
@@ -55,12 +72,6 @@ function SidebarWrapper({ className, headerLinks, links }) {
     </div>
   );
 }
-
-
-
-
-
-
 
 // FUNCTIONS
 
@@ -153,8 +164,14 @@ function Sidebar(props) {
       //   );
       // }
       return (
-          <NavLink to={prop.layout + prop.path} >
-          <Button  w={"100%"} colorScheme={"red"} mb={"30px"} px={"16px"} py={"12px"}>
+        <NavLink to={prop.layout + prop.path}>
+          <Button
+            w={"100%"}
+            colorScheme={"red"}
+            mb={"30px"}
+            px={"16px"}
+            py={"12px"}
+          >
             <Flex>
               {prop.icon !== undefined ? (
                 typeof prop.icon === "string" ? (
@@ -163,45 +180,24 @@ function Sidebar(props) {
                   <prop.icon />
                 )
               ) : (
-                <span>
-                  {rtlActive ? prop.rtlMini : prop.mini}
-                </span>
+                <span>{rtlActive ? prop.rtlMini : prop.mini}</span>
               )}
               <Text> {rtlActive ? prop.rtlName : prop.name} </Text>
             </Flex>
           </Button>
-          </NavLink>
+        </NavLink>
       );
     });
   };
   const { logo, image, logoText, routes, bgColor, rtlActive } = props;
 
-
-
-
-
-
-
-
-
   var links = <List className={classes.list}>{createLinks(routes)}</List>;
 
-
-
-
-
-
-
-
-
-
-
-
-//  BRAND
-const logoColor= useColorModeValue("red.500", "red.200");
+  //  BRAND
+  const logoColor = useColorModeValue("red.500", "red.200");
   var brand = (
     <HStack pt={"46px"}>
-      <Link w={"84px"} h={"22px"} href="https://chakra-ui.com/" target="_blank" >
+      <Link w={"84px"} h={"22px"} href="https://chakra-ui.com/" target="_blank">
         <Image w={"81px"} h={"21.5px"} src={logo} alt="logo" />
       </Link>
       <Box w={"1px"} h={"12px"} backgroundColor={""}></Box>
@@ -211,12 +207,7 @@ const logoColor= useColorModeValue("red.500", "red.200");
     </HStack>
   );
 
-
-
-
-
-
-// SIDEBAR
+  // SIDEBAR
 
   const drawerPaper =
     classes.drawerPaper +
@@ -274,23 +265,12 @@ const logoColor= useColorModeValue("red.500", "red.200");
           }}
         >
           {brand}
-          <SidebarWrapper
-            className={sidebarWrapper}
-            links={links}
-          />
+          <SidebarWrapper className={sidebarWrapper} links={links} />
         </Drawer>
       </Hidden>
     </div>
   );
 }
-
-
-
-
-
-
-
-
 
 // PROPS
 

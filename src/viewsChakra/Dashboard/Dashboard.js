@@ -1,50 +1,11 @@
-import React from "react";
 // chakra imports
-import {
-  ChakraProvider,
-  Box,
-  Flex,
-  Button,
-  Stack,
-  HStack,
-  VStack,
-  SimpleGrid,
-  useColorModeValue,
-  useColorMode,
-  Heading,
-  Text,
-} from "@chakra-ui/react";
-
-import Card from "components/CardChakra/Card.js";
-import CardHeader from "components/CardChakra/CardHeader.js";
-import CardBody from "components/CardChakra/CardBody.js";
-import CardFooter from "components/CardChakra/CardFooter.js";
+import { Button, useColorMode, useColorModeValue } from "@chakra-ui/react";
+import Auth from "componentsChakra/Auth/Auth";
 import BarChart from "componentsChakra/Charts/BarChart";
 import LineChart from "componentsChakra/Charts/LineChart";
-
-import {
-  BuildIcon,
-  CreditIcon,
-  CartIcon,
-  DocumentIcon,
-  GlobeIcon,
-  HelpIcon,
-  HomeIcon,
-  PayPalIcon,
-  PersonIcon,
-  RocketIcon,
-  StatsIcon,
-  WalletIcon,
-  AtlassianLogo,
-  AdobexdLogo,
-  JiraLogo,
-  SlackLogo,
-  SpotifyLogo,
-  InvisionLogo,
-} from "componentsChakra/Icons/Icons.js";
-import { useState } from "react";
 import IconBox from "componentsChakra/Icons/IconBox";
-import Auth from "componentsChakra/Auth/Auth";
+import { WalletIcon } from "componentsChakra/Icons/Icons.js";
+import React, { useState } from "react";
 
 export default function DashboardChakra() {
   const { colorMode, toggleColorMode } = useColorMode();

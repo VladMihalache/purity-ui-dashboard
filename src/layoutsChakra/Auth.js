@@ -1,7 +1,26 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 // chakra imports
-import { ChakraProvider } from "@chakra-ui/react";
+import {
+  ChakraProvider,
+  Button,
+  Flex,
+  Text,
+  Link,
+  Image,
+  Avatar,
+  Stack,
+  HStack,
+  VStack,
+  Box,
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+  AccordionIcon,
+  useColorModeValue,
+  Portal,
+} from "@chakra-ui/react";
 
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
@@ -84,23 +103,28 @@ export default function Pages(props) {
     }
     return activeRoute;
   };
+  const navRef = React.useRef();
   return (
     <ChakraProvider resetCss={false}>
-      <div>
-        <AuthNavbar brandText={getActiveRoute(routes)} {...rest} />
-        <div className={classes.wrapper} ref={wrapper}>
-          <div
-            className={classes.fullPage}
-            style={{ backgroundImage: "url(" + getBgImage() + ")" }}
-          >
-            <Switch>
-              {getRoutes(routes)}
-              <Redirect from="/auth" to="/auth/login-page" />
-            </Switch>
-            <Footer />
-          </div>
-        </div>
-      </div>
+      <Box ref={navRef}>
+        <Portal containerRef={navRef}>
+          <AuthNavbar />
+        </Portal>
+        <Box>
+          <Box ref={wrapper}>
+            <Box>
+              <Switch>
+                {getRoutes(routes)}
+                <Redirect from="/auth" to="/auth/login-page" />
+              </Switch>
+            </Box>
+          </Box>
+        </Box>
+        <AuthNavbar />
+        <Box width="1044px" maxW="100%" px="24px" mx="auto">
+          <Footer />
+        </Box>
+      </Box>
     </ChakraProvider>
   );
 }

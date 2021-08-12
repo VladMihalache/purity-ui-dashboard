@@ -4,9 +4,27 @@ import cx from "classnames";
 import PropTypes from "prop-types";
 
 // @material-ui/core components
+import {
+  ChakraProvider,
+  Button,
+  Flex,
+  Text,
+  Link,
+  Image,
+  Avatar,
+  Stack,
+  HStack,
+  VStack,
+  Box,
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+  AccordionIcon,
+  useColorModeValue,
+  useColorMode,
+} from "@chakra-ui/react";
 import { makeStyles } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
 import Hidden from "@material-ui/core/Hidden";
 import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List";
@@ -20,9 +38,6 @@ import PersonAdd from "@material-ui/icons/PersonAdd";
 import Fingerprint from "@material-ui/icons/Fingerprint";
 import LockOpen from "@material-ui/icons/LockOpen";
 import MonetizationOn from "@material-ui/icons/MonetizationOn";
-
-// core components
-import Button from "components/CustomButtons/Button";
 
 import styles from "assets/jss/material-dashboard-pro-react/components/authNavbarStyle.js";
 
@@ -39,86 +54,53 @@ export default function AuthNavbar(props) {
   };
   const classes = useStyles();
   const { color, brandText } = props;
-  const appBarClasses = cx({
-    [" " + classes[color]]: color,
-  });
   var list = (
-    <List className={classes.list}>
-      <ListItem className={classes.listItem}>
-        <NavLink to={"/admin/dashboard"} className={classes.navLink}>
-          <Dashboard className={classes.listItemIcon} />
-          <ListItemText
-            primary={"Dashboard"}
-            disableTypography={true}
-            className={classes.listItemText}
-          />
-        </NavLink>
-      </ListItem>
-      <ListItem className={classes.listItem}>
-        <NavLink
-          to={"/auth/pricing-page"}
-          className={cx(classes.navLink, {
-            [classes.navLinkActive]: activeRoute("/auth/pricing-page"),
-          })}
-        >
-          <MonetizationOn className={classes.listItemIcon} />
-          <ListItemText
-            primary={"Pricing"}
-            disableTypography={true}
-            className={classes.listItemText}
-          />
-        </NavLink>
-      </ListItem>
-      <ListItem className={classes.listItem}>
-        <NavLink
-          to={"/auth/register-page"}
-          className={cx(classes.navLink, {
-            [classes.navLinkActive]: activeRoute("/auth/register-page"),
-          })}
-        >
-          <PersonAdd className={classes.listItemIcon} />
-          <ListItemText
-            primary={"Register"}
-            disableTypography={true}
-            className={classes.listItemText}
-          />
-        </NavLink>
-      </ListItem>
-      <ListItem className={classes.listItem}>
-        <NavLink
-          to={"/auth/login-page"}
-          className={cx(classes.navLink, {
-            [classes.navLinkActive]: activeRoute("/auth/login-page"),
-          })}
-        >
-          <Fingerprint className={classes.listItemIcon} />
-          <ListItemText
-            primary={"Login"}
-            disableTypography={true}
-            className={classes.listItemText}
-          />
-        </NavLink>
-      </ListItem>
-      <ListItem className={classes.listItem}>
-        <NavLink
-          to={"/auth/lock-screen-page"}
-          className={cx(classes.navLink, {
-            [classes.navLinkActive]: activeRoute("/auth/lock-screen-page"),
-          })}
-        >
-          <LockOpen className={classes.listItemIcon} />
-          <ListItemText
-            primary={"Lock"}
-            disableTypography={true}
-            className={classes.listItemText}
-          />
-        </NavLink>
-      </ListItem>
+    <List>
+      <NavLink to={"/admin/dashboard"}></NavLink>
+      <NavLink to={"/auth/pricing-page"}></NavLink>
+      <NavLink to={"/auth/register-page"}></NavLink>
+      <NavLink to={"/auth/login-page"}></NavLink>
+      <NavLink to={"/auth/lock-screen-page"}></NavLink>
     </List>
   );
+  const { colorMode, toggleColorMode } = useColorMode();
+  const navbarBg = useColorModeValue(
+    "linear-gradient(112.83deg, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0.8) 110.84%)",
+    "linear-gradient(112.83deg, rgba(255, 255, 255, 0.21) 0%, rgba(255, 255, 255, 0) 110.84%)"
+  );
+  const navbarBorder = useColorModeValue(
+    "1.5px solid #FFFFFF",
+    "1.5px solid rgba(255, 255, 255, 0.31)"
+  );
+  const navbarShadow = useColorModeValue(
+    "0px 7px 23px rgba(0, 0, 0, 0.05)",
+    "none"
+  );
+  const navbarFilter = useColorModeValue(
+    "none",
+    "drop-shadow(0px 7px 23px rgba(0, 0, 0, 0.05))"
+  );
+  const ref = React.useRef();
   return (
-    <AppBar position="static" className={classes.appBar + appBarClasses}>
-      <Toolbar className={classes.container}>
+    <Box
+      position="fixed"
+      top="16px"
+      left="50%"
+      transform="translate(-50%, 0px)"
+      background={navbarBg}
+      border={navbarBorder}
+      boxShadow={navbarShadow}
+      filter={navbarFilter}
+      backdropFilter="blur(21px)"
+      borderRadius="70px"
+      px="16px"
+      py="8px"
+      mx="auto"
+    >
+      <Box className={classes.container}>
+        <Button onClick={toggleColorMode}>
+          Toggle {colorMode === "light" ? "Dark" : "Light"}
+        </Button>
         <Hidden smDown>
           <div className={classes.flex}>
             <Button href="#" className={classes.title} color="transparent">
@@ -158,13 +140,11 @@ export default function AuthNavbar(props) {
               ModalProps={{
                 keepMounted: true, // Better open performance on mobile.
               }}
-            >
-              {list}
-            </Drawer>
+            ></Drawer>
           </Hidden>
         </Hidden>
-      </Toolbar>
-    </AppBar>
+      </Box>
+    </Box>
   );
 }
 

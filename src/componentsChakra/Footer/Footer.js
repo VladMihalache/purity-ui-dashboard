@@ -30,7 +30,9 @@ export default function Footer(props) {
         mb={{ sm: "20px", xl: "0px" }}
       >
         &copy; {1900 + new Date().getYear()},{" "}
-        {rtlActive ? " مصنوع من ❤️ بواسطة" : "Made with ❤️ by "}
+        <Text as="span">
+          {rtlActive ? " مصنوع من ❤️ بواسطة" : "Made with ❤️ by "}
+        </Text>
         <Link
           // color={linkTeal}
           color="teal.400"
