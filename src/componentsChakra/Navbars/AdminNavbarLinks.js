@@ -1,55 +1,46 @@
-import React from "react";
-import PropTypes from "prop-types";
+// Chakra Icons
+import { BellIcon, SearchIcon } from "@chakra-ui/icons";
 // Chakra Imports
 import {
-  Avatar,
-  Flex,
   Button,
-  IconButton,
-  Input,
-  HStack,
-  useColorModeValue,
   Drawer,
   DrawerBody,
+  DrawerCloseButton,
+  DrawerContent,
   DrawerFooter,
   DrawerHeader,
-  DrawerContent,
-  DrawerCloseButton,
-  useDisclosure,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  MenuItemOption,
-  MenuGroup,
-  MenuOptionGroup,
-  MenuIcon,
-  MenuCommand,
-  MenuDivider,
+  Flex,
+  IconButton,
+  Input,
   InputGroup,
   InputLeftElement,
-  Text,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuList,
+  useColorModeValue,
+  useDisclosure,
 } from "@chakra-ui/react";
-// Chakra Icons
-import { SearchIcon, BellIcon } from "@chakra-ui/icons";
-// Custom Icons
-import { ProfileIcon, SettingsIcon } from "componentsChakra/Icons/Icons";
-import { ItemContent } from "componentsChakra/Menu/ItemContent";
-
 import avatar1 from "assetsChakra/img/faces/avatars/avatar1.png";
 import avatar2 from "assetsChakra/img/faces/avatars/avatar2.png";
 import avatar3 from "assetsChakra/img/faces/avatars/avatar3.png";
+// Custom Icons
+import { ProfileIcon, SettingsIcon } from "componentsChakra/Icons/Icons";
+import { ItemContent } from "componentsChakra/Menu/ItemContent";
+import PropTypes from "prop-types";
+import React from "react";
 
 export default function HeaderLinks(props) {
   const { rtlActive } = props;
-
-  const mainTeal = useColorModeValue("teal.300", "teal.300");
-  const mainTextGray = useColorModeValue("gray.700", "gray.200");
-  const inputBg = useColorModeValue("white", "gray.800");
   const { variant, children, ...rest } = props;
 
   const { isOpen, onOpen, onClose } = useDisclosure();
+  // Chakra Color Mode
+  const mainTeal = useColorModeValue("teal.300", "teal.300");
+  const mainTextGray = useColorModeValue("gray.700", "gray.200");
+  const inputBg = useColorModeValue("white", "gray.800");
   const navbarIcon = useColorModeValue("gray.500", "gray.200");
+
   const settingsRef = React.useRef();
   return (
     <Flex pr="25px" alignItems="center">

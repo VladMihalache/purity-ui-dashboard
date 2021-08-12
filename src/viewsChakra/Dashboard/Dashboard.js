@@ -46,6 +46,7 @@ import {
 
 export default function DashboardChakra() {
   const value = "$100.000";
+  // Chakra Color Mode
   const { colorMode, toggleColorMode } = useColorMode();
   const iconTeal = useColorModeValue("teal.300", "teal.300");
   const iconBoxInside = useColorModeValue("white", "white");

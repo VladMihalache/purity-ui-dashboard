@@ -1,13 +1,14 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 // Chakra-UI imports
-import { ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider, useColorModeValue } from "@chakra-ui/react";
 import theme from "../theme/theme";
 // creates a beautiful scrollbar
 import PerfectScrollbar from "perfect-scrollbar";
 import "perfect-scrollbar/css/perfect-scrollbar.css";
 
 // Custom Components
+import { DashboardLogo } from "../componentsChakra/Icons/Icons";
 // Layout
 import MainPanel from "../componentsChakra/Layout/MainPanel";
 import PanelContent from "../componentsChakra/Layout/PanelContent";
@@ -25,9 +26,6 @@ export default function Dashboard(props) {
   // states and functions
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [miniActive, setMiniActive] = React.useState(false);
-  const [logo, setLogo] = React.useState(
-    require("assetsChakra/img/Logo.png").default
-  );
   // ref for main panel div
   const mainPanel = React.createRef();
   // effect instead of componentDidMount, componentDidUpdate and componentWillUnmount
@@ -101,6 +99,10 @@ export default function Dashboard(props) {
     }
   };
   console.log(mobileOpen);
+
+  // Chakra Color Mode
+  const mainText = useColorModeValue("gray.700", "gray.200");
+  const logo = <DashboardLogo color={mainText} />;
   return (
     <ChakraProvider theme={theme} resetCss={false}>
       <Sidebar

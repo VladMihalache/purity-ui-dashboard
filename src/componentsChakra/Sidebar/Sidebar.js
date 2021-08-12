@@ -23,6 +23,7 @@ import {
   DrawerCloseButton,
 } from "@chakra-ui/react";
 import IconBox from "componentsChakra/Icons/IconBox";
+import { DashboardLogo } from "componentsChakra/Icons/Icons";
 import { Separator } from "componentsChakra/Separator/Separator";
 // javascript plugin used to create scrollbars on windows
 import PerfectScrollbar from "perfect-scrollbar";
@@ -124,6 +125,7 @@ function Sidebar(props) {
   // this function creates the links and collapses that appear in the sidebar (left menu)
   const createLinks = (routes) => {
     const { rtlActive } = props;
+    // Chakra Color Mode
     const activeBg = useColorModeValue("white", "gray.700");
     const inactiveBg = useColorModeValue("white", "gray.700");
     const activeColor = useColorModeValue("gray.700", "white");
@@ -295,17 +297,16 @@ function Sidebar(props) {
   var links = <>{createLinks(routes)}</>;
 
   //  BRAND
-  const logoColor = useColorModeValue("red.500", "red.200");
+  //  Chakra Color Mode
+  const mainText = useColorModeValue("gray.700", "gray.200");
   var brand = (
     <Box pt={"46px"}>
       <Flex mb="30px">
-        <Link href="https://chakra-ui.com/" target="_blank">
-          <Image src={logo} alt="logo" />
-        </Link>
+        <DashboardLogo width="204px" height="60px" />
         <Box w={"1px"} h={"12px"} backgroundColor={""}></Box>
-        {/* <Link href="https://chakra-ui.com/" target="_blank" color={"gray.700"}>
+        <Link href="https://chakra-ui.com/" target="_blank" color={mainText}>
           {logoText}
-        </Link> */}
+        </Link>
       </Flex>
       <Separator></Separator>
     </Box>

@@ -15,6 +15,7 @@ import { SettingsIcon } from "componentsChakra/Icons/Icons";
 
 export function SettingsBar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  // Chakra Color Mode
   const navbarIcon = useColorModeValue("gray.500", "gray.200");
   const settingsRef = React.useRef();
   return (
