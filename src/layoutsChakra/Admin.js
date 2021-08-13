@@ -1,7 +1,7 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 // Chakra-UI imports
-import { ChakraProvider, useColorModeValue } from "@chakra-ui/react";
+import { ChakraProvider, useColorModeValue, Portal } from "@chakra-ui/react";
 import theme from "../theme/theme";
 // creates a beautiful scrollbar
 import PerfectScrollbar from "perfect-scrollbar";
@@ -99,7 +99,8 @@ export default function Dashboard(props) {
     }
   };
   console.log(mobileOpen);
-
+  const sidebarRef = React.useRef();
+  const navbarRef = React.useRef();
   // Chakra Color Mode
   const mainText = useColorModeValue("gray.700", "gray.200");
   const logo = <DashboardLogo color={mainText} />;
@@ -112,13 +113,14 @@ export default function Dashboard(props) {
         handleDrawerToggle={handleDrawerToggle}
         open={mobileOpen}
         miniActive={miniActive}
+        responsiveRef={sidebarRef}
         {...rest}
       />
       <MainPanel
         id="mainPanel"
         w={{
           base: "100%",
-          xl: "calc(100% - 260px)",
+          xl: "calc(100% - 275px)",
         }}
       >
         <AdminNavbar
@@ -126,6 +128,7 @@ export default function Dashboard(props) {
           miniActive={miniActive}
           brandText={getActiveRoute(routes)}
           handleDrawerToggle={handleDrawerToggle}
+          sidebarRef={sidebarRef}
           {...rest}
         />
         {getRoute() ? (

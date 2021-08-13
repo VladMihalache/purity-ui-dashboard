@@ -3,7 +3,18 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 // Chakra Imports
-import { Button, Link, useColorModeValue, Box, Flex } from "@chakra-ui/react";
+import {
+  Button,
+  Link,
+  useColorModeValue,
+  Box,
+  Flex,
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbSeparator,
+  useDisclosure,
+} from "@chakra-ui/react";
 
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
@@ -53,7 +64,8 @@ export default function AdminNavbar(props) {
     cx({
       [classes.sidebarMinimizeRTL]: rtlActive,
     });
-  const mainTextGray = useColorModeValue("gray.700", "gray.200");
+  const mainText = useColorModeValue("gray.700", "gray.200");
+  const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <Flex
       alignItems="center"
@@ -68,7 +80,6 @@ export default function AdminNavbar(props) {
       paddingLeft="30px"
       paddingRight="30px"
       paddingTop="8px"
-      position="sticky"
       top="8px"
       transitionDelay="0s, 0s"
       transitionDuration="0.25s, 0.25s"
@@ -77,36 +88,27 @@ export default function AdminNavbar(props) {
       width="calc(100% - 60px)"
     >
       <Flex width="100%">
-        <Hidden>
-          <div className={sidebarMinimize}>
-            {props.miniActive ? (
-              <Button
-                justIcon
-                round
-                color="white"
-                onClick={props.sidebarMinimize}
-              >
-                <ViewList className={classes.sidebarMiniIcon} />
-              </Button>
-            ) : (
-              <Button
-                justIcon
-                round
-                color="white"
-                onClick={props.sidebarMinimize}
-              >
-                <MoreVert className={classes.sidebarMiniIcon} />
-              </Button>
-            )}
-          </div>
-        </Hidden>
         <Box>
+          <Breadcrumb>
+            <BreadcrumbItem>
+              <BreadcrumbLink href="#" color="gray.400">
+                Pages
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+
+            <BreadcrumbItem>
+              <BreadcrumbLink href="#" color={mainText}>
+                {brandText}
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+          </Breadcrumb>
           {/* Here we create navbar brand, based on route name */}
           <Link
             href="#"
             bg="inherit"
             borderRadius="inherit"
-            _hover={{ color: { mainTextGray } }}
+            fontWeight="bold"
+            _hover={{ color: { mainText } }}
             _active={{
               bg: "inherit",
               transform: "none",
@@ -120,15 +122,11 @@ export default function AdminNavbar(props) {
           </Link>
         </Box>
         <Hidden>
-          <AdminNavbarLinks rtlActive={rtlActive} />
-          <Button
-            className={classes.appResponsive}
-            color="transparent"
-            justIcon
-            aria-label="open drawer"
-            onClick={props.handleDrawerToggle}
-          >
-            <Menu />
+          <Box ms="auto">
+            <AdminNavbarLinks rtlActive={rtlActive} />
+          </Box>
+          <Button ref={props.sidebarRef} colorScheme="teal" onClick={onOpen}>
+            Open
           </Button>
         </Hidden>
       </Flex>

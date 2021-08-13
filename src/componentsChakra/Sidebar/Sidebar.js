@@ -300,11 +300,19 @@ function Sidebar(props) {
   //  Chakra Color Mode
   const mainText = useColorModeValue("gray.700", "gray.200");
   var brand = (
-    <Box pt={"46px"}>
-      <Flex mb="30px">
-        <DashboardLogo width="204px" height="60px" />
-        <Box w={"1px"} h={"12px"} backgroundColor={""}></Box>
-        <Link href="https://chakra-ui.com/" target="_blank" color={mainText}>
+    <Box pt={"46px"} mb="12px">
+      <Flex mb="30px" justifyContent="center" alignItems="center">
+        <DashboardLogo width="83.5px" height="21.5px" />
+        <Box w="1px" h="18px" mx="10px" backgroundColor={mainText}></Box>
+        <Link
+          href="https://chakra-ui.com/"
+          target="_blank"
+          color={mainText}
+          lineHeight="100%"
+          mt="2px"
+          fontWeight="bold"
+          fontSize="11px"
+        >
           {logoText}
         </Link>
       </Flex>
@@ -335,14 +343,14 @@ function Sidebar(props) {
     <Box ref={mainPanel}>
       <Box display={{ sm: "block", xl: "none" }}>
         <>
-          <Button ref={btnRef} colorScheme="teal" onClick={onOpen}>
+          <Button ref={props.sidebarRef} colorScheme="teal" onClick={onOpen}>
             Open
           </Button>
           <Drawer
             isOpen={isOpen}
             placement="left"
             onClose={onClose}
-            finalFocusRef={btnRef}
+            finalFocusRef={props.sidebarRef}
           >
             <DrawerOverlay />
             <DrawerContent
@@ -359,7 +367,7 @@ function Sidebar(props) {
               <DrawerCloseButton />
               <DrawerBody maxW="250px" px="1rem">
                 <Box maxW="100%" height="100vh">
-                  <Box borderBottomWidth="1px">{brand}</Box>
+                  <Box>{brand}</Box>
                   <Stack direction="column">
                     <Box>{links}</Box>
                   </Stack>
@@ -385,8 +393,15 @@ function Sidebar(props) {
         </Drawer> */}
       </Box>
       <Box display={{ sm: "none", xl: "block" }}>
-        <Box maxW="260px" position="absolute" height="100vh" px="20px">
-          <Box borderBottomWidth="1px">{brand}</Box>
+        <Box
+          w="275px"
+          maxW="275px"
+          position="absolute"
+          height="100vh"
+          ps="32px"
+          pe="20px"
+        >
+          <Box>{brand}</Box>
           <Stack direction="column">
             <Box>{links}</Box>
           </Stack>

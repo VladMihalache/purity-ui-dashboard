@@ -55,7 +55,7 @@ var dashRoutes = [
   },
   {
     path: "/dashboardchakra",
-    name: "Dashboard Chakra",
+    name: "Dashboard",
     rtlName: "لوحة القيادة",
     icon: <HomeIcon color="inherit" />,
     component: DashboardChakra,
@@ -63,7 +63,7 @@ var dashRoutes = [
   },
   {
     path: "/tableschakra",
-    name: "Tables Chakra",
+    name: "Tables",
     rtlName: "لوحة القيادة",
     icon: <ChartIcon color="inherit" />,
     component: TablesChakra,
@@ -71,7 +71,7 @@ var dashRoutes = [
   },
   {
     path: "/billingchakra",
-    name: "Billing Chakra",
+    name: "Billing",
     rtlName: "لوحة القيادة",
     icon: <CreditIcon color="inherit" />,
     component: BillingChakra,
@@ -79,14 +79,13 @@ var dashRoutes = [
   },
   {
     path: "/rtl-support-page-chakra",
-    name: "RTL Support Chakra",
+    name: "RTL Support",
     rtlName: "صودعم رتل",
     icon: <SupportIcon color="inherit" />,
     component: RTLChakra,
     layout: "/rtl",
   },
   {
-    collapse: true,
     name: "ACCOUNT PAGES",
     category: "account",
     rtlName: "صفحات",
@@ -94,7 +93,7 @@ var dashRoutes = [
     views: [
       {
         path: "/profilechakra",
-        name: "Profile Chakra",
+        name: "Profile",
         rtlName: "لوحة القيادة",
         icon: <PersonIcon color="inherit" />,
         component: ProfileChakra,
@@ -102,7 +101,7 @@ var dashRoutes = [
       },
       {
         path: "/signinchakra",
-        name: "Sign In Chakra",
+        name: "Sign In",
         rtlName: "لوحة القيادة",
         icon: <DocumentIcon color="inherit" />,
         component: SignInChakra,
@@ -110,7 +109,7 @@ var dashRoutes = [
       },
       {
         path: "/signUpchakra",
-        name: "Sign Up Chakra",
+        name: "Sign Up",
         rtlName: "لوحة القيادة",
         icon: <RocketIcon color="inherit" />,
         component: SignUpChakra,
