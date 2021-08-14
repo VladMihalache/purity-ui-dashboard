@@ -17,7 +17,6 @@ export default function Auth() {
   const textColor = useColorModeValue("gray.400", "white");
   return (
     <Flex
-      height="100vh"
       alignItems="center"
       justifyContent="center"
       style={{ userSelect: "none" }}
