@@ -24,8 +24,8 @@ export function SettingsBar() {
         ref={settingsRef}
         onClick={onOpen}
         color={navbarIcon}
-        width="18px"
-        height="18px"
+        w="18px"
+        h="18px"
       />
       <Drawer
         isOpen={isOpen}

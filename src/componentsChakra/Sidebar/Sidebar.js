@@ -8,44 +8,24 @@ import {
   Flex,
   Text,
   Link,
-  Image,
   Stack,
-  HStack,
   Box,
   useColorModeValue,
   useDisclosure,
   Drawer,
   DrawerBody,
-  DrawerFooter,
-  DrawerHeader,
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
 } from "@chakra-ui/react";
+import { HamburgerIcon } from "@chakra-ui/icons";
 import IconBox from "componentsChakra/Icons/IconBox";
 import { DashboardLogo } from "componentsChakra/Icons/Icons";
 import { Separator } from "componentsChakra/Separator/Separator";
 // javascript plugin used to create scrollbars on windows
 import PerfectScrollbar from "perfect-scrollbar";
-import cx from "classnames";
-
-// @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
-import Hidden from "@material-ui/core/Hidden";
-import Collapse from "@material-ui/core/Collapse";
-import Icon from "@material-ui/core/Icon";
 
 // core components
-import AdminNavbarLinks from "components/Navbars/AdminNavbarLinks.js";
-
-import sidebarStyle from "assets/jss/material-dashboard-pro-react/components/sidebarStyle.js";
-
-import avatar from "assets/img/faces/avatar.jpg";
-
-const useStyles = makeStyles(sidebarStyle);
 
 var ps;
 
@@ -79,7 +59,6 @@ function SidebarWrapper({ className, headerLinks, links }) {
 // FUNCTIONS
 
 function Sidebar(props) {
-  const classes = useStyles();
   const [miniActive, setMiniActive] = React.useState(true);
   // to check for active links and opened collapses
   let location = useLocation();
@@ -123,13 +102,26 @@ function Sidebar(props) {
     return location.pathname === routeName ? "active" : "";
   };
   // this function creates the links and collapses that appear in the sidebar (left menu)
-  const createLinks = (routes) => {
+  const createLinks = (route) => {
     const { rtlActive } = props;
     // Chakra Color Mode
-    const activeBg = useColorModeValue("white", "gray.700");
-    const inactiveBg = useColorModeValue("white", "gray.700");
-    const activeColor = useColorModeValue("gray.700", "white");
-    const inactiveColor = useColorModeValue("gray.400", "gray.400");
+    let activeBg = useColorModeValue("white", "gray.700");
+    let inactiveBg = useColorModeValue("white", "gray.700");
+    let activeColor = useColorModeValue("gray.700", "white");
+    let inactiveColor = useColorModeValue("gray.400", "gray.400");
+    let buttonShadow = "0px 7px 11px rgba(0, 0, 0, 0.04)";
+    // let activeBg;
+    // let inactiveBg;
+    // let activeColor;
+    // let inactiveColor;
+    // let buttonShadow;
+    // if (props.sidebarVariant == "transparent") {
+    //   activeBg = useColorModeValue("white", "gray.700");
+    //   inactiveBg = useColorModeValue("white", "gray.700");
+    //   activeColor = useColorModeValue("gray.700", "white");
+    //   inactiveColor = useColorModeValue("gray.400", "gray.400");
+    //   buttonShadow = "0px 7px 11px rgba(0, 0, 0, 0.04)";
+    // }
     return routes.map((prop, key) => {
       if (prop.redirect) {
         return null;
@@ -196,6 +188,7 @@ function Sidebar(props) {
               boxSize="initial"
               justifyContent="flex-start"
               alignItems="center"
+              boxShadow={buttonShadow}
               bg={activeBg}
               mb={{
                 xl: "12px",
@@ -217,7 +210,7 @@ function Sidebar(props) {
                 borderColor: "transparent",
               }}
               _focus={{
-                boxShadow: "none",
+                boxShadow: { buttonShadow },
               }}
             >
               <Flex>
@@ -227,8 +220,8 @@ function Sidebar(props) {
                   <IconBox
                     bg="teal.300"
                     color="white"
-                    height="30px"
-                    width="30px"
+                    h="30px"
+                    w="30px"
                     me="12px"
                   >
                     {prop.icon}
@@ -275,8 +268,8 @@ function Sidebar(props) {
                   <IconBox
                     bg={inactiveBg}
                     color="teal.300"
-                    height="30px"
-                    width="30px"
+                    h="30px"
+                    w="30px"
                     me="12px"
                   >
                     {prop.icon}
@@ -292,17 +285,218 @@ function Sidebar(props) {
       );
     });
   };
-  const { logo, image, logoText, routes, bgColor, rtlActive } = props;
+  const { logo, logoText, routes, rtlActive } = props;
 
   var links = <>{createLinks(routes)}</>;
-
   //  BRAND
   //  Chakra Color Mode
   const mainText = useColorModeValue("gray.700", "gray.200");
   var brand = (
     <Box pt={"46px"} mb="12px">
       <Flex mb="30px" justifyContent="center" alignItems="center">
-        <DashboardLogo width="83.5px" height="21.5px" />
+        <DashboardLogo w="83.5px" h="21.5px" />
+        <Box w="1px" h="18px" mx="10px" backgroundColor={mainText}></Box>
+        <Link
+          href="https://chakra-ui.com/"
+          target="_blank"
+          color={"red"}
+          // color={mainText}
+          lineHeight="100%"
+          mt="2px"
+          fontWeight="bold"
+          fontSize="11px"
+        >
+          {logoText}
+        </Link>
+      </Flex>
+      <Separator></Separator>
+    </Box>
+  );
+
+  // SIDEBAR
+  return (
+    <Box ref={mainPanel}>
+      <Box display={{ sm: "none", xl: "block" }}>
+        <Box
+          w="275px"
+          maxW="275px"
+          position="absolute"
+          h="100vh"
+          ps="32px"
+          pe="20px"
+        >
+          <Box>{brand}</Box>
+          <Stack direction="column">
+            <Box>{links}</Box>
+          </Stack>
+        </Box>
+      </Box>
+    </Box>
+  );
+}
+
+// FUNCTIONS
+
+export function SidebarResponsive(props) {
+  // to check for active links and opened collapses
+  let location = useLocation();
+  // this is for the rest of the collapses
+  const [state, setState] = React.useState({});
+  const mainPanel = React.useRef();
+  // verifies if routeName is the one active (in browser input)
+  const activeRoute = (routeName) => {
+    return location.pathname === routeName ? "active" : "";
+  };
+  // this function creates the links and collapses that appear in the sidebar (left menu)
+  const createLinks = (routes) => {
+    const { rtlActive } = props;
+    // Chakra Color Mode
+    const activeBg = useColorModeValue("white", "gray.700");
+    const inactiveBg = useColorModeValue("white", "gray.700");
+    const activeColor = useColorModeValue("gray.700", "white");
+    const inactiveColor = useColorModeValue("gray.400", "gray.400");
+    return routes.map((prop, key) => {
+      if (prop.redirect) {
+        return null;
+      }
+      if (prop.category) {
+        var st = {};
+        st[prop["state"]] = !state[prop.state];
+        return (
+          <>
+            <Text
+              color={activeColor}
+              fontWeight="bold"
+              mb={{
+                xl: "12px",
+              }}
+              mx="auto"
+              ps={{
+                sm: "10px",
+                xl: "16px",
+              }}
+              py="12px"
+            >
+              {rtlActive ? prop.rtlName : prop.name}
+            </Text>
+            {createLinks(prop.views)}
+          </>
+        );
+      }
+      return (
+        <NavLink to={prop.layout + prop.path}>
+          {activeRoute(prop.layout + prop.path) === "active" ? (
+            <Button
+              boxSize="initial"
+              justifyContent="flex-start"
+              alignItems="center"
+              bg={activeBg}
+              mb={{
+                xl: "12px",
+              }}
+              mx={{
+                xl: "auto",
+              }}
+              ps={{
+                sm: "10px",
+                xl: "16px",
+              }}
+              py="12px"
+              borderRadius="15px"
+              _hover="none"
+              w="100%"
+              _active={{
+                bg: "inherit",
+                transform: "none",
+                borderColor: "transparent",
+              }}
+              _focus={{
+                boxShadow: "none",
+              }}
+            >
+              <Flex>
+                {typeof prop.icon === "string" ? (
+                  <Icon>{prop.icon}</Icon>
+                ) : (
+                  <IconBox
+                    bg="teal.300"
+                    color="white"
+                    h="30px"
+                    w="30px"
+                    me="12px"
+                  >
+                    {prop.icon}
+                  </IconBox>
+                )}
+                <Text color={activeColor} my="auto" fontSize="sm">
+                  {rtlActive ? prop.rtlName : prop.name}
+                </Text>
+              </Flex>
+            </Button>
+          ) : (
+            <Button
+              boxSize="initial"
+              justifyContent="flex-start"
+              alignItems="center"
+              bg="transparent"
+              mb={{
+                xl: "12px",
+              }}
+              mx={{
+                xl: "auto",
+              }}
+              py="12px"
+              ps={{
+                sm: "10px",
+                xl: "16px",
+              }}
+              borderRadius="15px"
+              _hover="none"
+              w="100%"
+              _active={{
+                bg: "inherit",
+                transform: "none",
+                borderColor: "transparent",
+              }}
+              _focus={{
+                boxShadow: "none",
+              }}
+            >
+              <Flex>
+                {typeof prop.icon === "string" ? (
+                  <Icon>{prop.icon}</Icon>
+                ) : (
+                  <IconBox
+                    bg={inactiveBg}
+                    color="teal.300"
+                    h="30px"
+                    w="30px"
+                    me="12px"
+                  >
+                    {prop.icon}
+                  </IconBox>
+                )}
+                <Text color={inactiveColor} my="auto" fontSize="sm">
+                  {rtlActive ? prop.rtlName : prop.name}
+                </Text>
+              </Flex>
+            </Button>
+          )}
+        </NavLink>
+      );
+    });
+  };
+  const { logo, logoText, routes, rtlActive } = props;
+
+  var links = <>{createLinks(routes)}</>;
+  //  BRAND
+  //  Chakra Color Mode
+  const mainText = useColorModeValue("gray.700", "gray.200");
+  const navbarIcon = useColorModeValue("gray.500", "gray.200");
+  var brand = (
+    <Box pt={"46px"} mb="12px">
+      <Flex mb="30px" justifyContent="center" alignItems="center">
+        <DashboardLogo w="83.5px" h="21.5px" />
         <Box w="1px" h="18px" mx="10px" backgroundColor={mainText}></Box>
         <Link
           href="https://chakra-ui.com/"
@@ -321,36 +515,27 @@ function Sidebar(props) {
   );
 
   // SIDEBAR
-
-  const drawerPaper =
-    classes.drawerPaper +
-    " " +
-    cx({
-      [classes.drawerPaperMini]: props.miniActive && miniActive,
-      [classes.drawerPaperRTL]: rtlActive,
-    });
-  const sidebarWrapper =
-    classes.sidebarWrapper +
-    " " +
-    cx({
-      [classes.drawerPaperMini]: props.miniActive && miniActive,
-      [classes.sidebarWrapperWithPerfectScrollbar]:
-        navigator.platform.indexOf("Win") > -1,
-    });
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
+  // Color variables
   return (
     <Box ref={mainPanel}>
       <Box display={{ sm: "block", xl: "none" }}>
         <>
-          <Button ref={props.sidebarRef} colorScheme="teal" onClick={onOpen}>
-            Open
-          </Button>
+          <HamburgerIcon
+            color={navbarIcon}
+            w="18px"
+            h="18px"
+            me="16px"
+            ref={btnRef}
+            colorScheme="teal"
+            onClick={onOpen}
+          />
           <Drawer
             isOpen={isOpen}
-            placement="left"
             onClose={onClose}
-            finalFocusRef={props.sidebarRef}
+            placement="left"
+            finalFocusRef={btnRef}
           >
             <DrawerOverlay />
             <DrawerContent
@@ -366,7 +551,7 @@ function Sidebar(props) {
             >
               <DrawerCloseButton />
               <DrawerBody maxW="250px" px="1rem">
-                <Box maxW="100%" height="100vh">
+                <Box maxW="100%" h="100vh">
                   <Box>{brand}</Box>
                   <Stack direction="column">
                     <Box>{links}</Box>
@@ -376,41 +561,10 @@ function Sidebar(props) {
             </DrawerContent>
           </Drawer>
         </>
-        {/* <Drawer
-          variant="temporary"
-          anchor={rtlActive ? "left" : "right"}
-          open={props.open}
-          classes={{
-            paper: drawerPaper + " " + classes[bgColor + "Background"],
-          }}
-          onClose={props.handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
-          }}
-        >
-          {brand}
-          <SidebarWrapper className={sidebarWrapper} links={links} />
-        </Drawer> */}
-      </Box>
-      <Box display={{ sm: "none", xl: "block" }}>
-        <Box
-          w="275px"
-          maxW="275px"
-          position="absolute"
-          height="100vh"
-          ps="32px"
-          pe="20px"
-        >
-          <Box>{brand}</Box>
-          <Stack direction="column">
-            <Box>{links}</Box>
-          </Stack>
-        </Box>
       </Box>
     </Box>
   );
 }
-
 // PROPS
 
 Sidebar.propTypes = {

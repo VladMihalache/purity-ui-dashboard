@@ -1,5 +1,7 @@
 // Chakra Icons
 import { BellIcon, SearchIcon } from "@chakra-ui/icons";
+import { NavLink, useLocation } from "react-router-dom";
+import routes from "routes.js";
 // Chakra Imports
 import {
   Button,
@@ -20,7 +22,10 @@ import {
   MenuList,
   useColorModeValue,
   useDisclosure,
+  Text,
+  Switch,
 } from "@chakra-ui/react";
+import { SidebarResponsive } from "componentsChakra/Sidebar/Sidebar";
 import avatar1 from "assetsChakra/img/faces/avatars/avatar1.png";
 import avatar2 from "assetsChakra/img/faces/avatars/avatar2.png";
 import avatar3 from "assetsChakra/img/faces/avatars/avatar3.png";
@@ -29,10 +34,10 @@ import { ProfileIcon, SettingsIcon } from "componentsChakra/Icons/Icons";
 import { ItemContent } from "componentsChakra/Menu/ItemContent";
 import PropTypes from "prop-types";
 import React from "react";
+import { MicNone } from "@material-ui/icons";
 
 export default function HeaderLinks(props) {
-  const { rtlActive } = props;
-  const { variant, children, ...rest } = props;
+  const { rtlActive, disclosureFunc, variant, children, ...rest } = props;
 
   const { isOpen, onOpen, onClose } = useDisclosure();
   // Chakra Color Mode
@@ -43,13 +48,20 @@ export default function HeaderLinks(props) {
 
   const settingsRef = React.useRef();
   return (
-    <Flex pr="25px" alignItems="center">
+    <Flex
+      pe={{ sm: "0px", md: "16px" }}
+      w={{ sm: "100%", md: "auto" }}
+      alignItems="center"
+    >
       <InputGroup
         cursor="pointer"
         bg={inputBg}
         borderRadius="15px"
-        width="200px"
-        mr="20px"
+        w={{
+          sm: "128px",
+          md: "200px",
+        }}
+        me={{ sm: "auto", md: "20px" }}
         _focus={{
           borderColor: { mainTeal },
         }}
@@ -71,9 +83,7 @@ export default function HeaderLinks(props) {
               _focus={{
                 boxShadow: "none",
               }}
-              icon={
-                <SearchIcon color={mainTextGray} width="15px" height="15px" />
-              }
+              icon={<SearchIcon color={mainTextGray} w="15px" h="15px" />}
             ></IconButton>
           }
         />
@@ -87,7 +97,7 @@ export default function HeaderLinks(props) {
       <Button
         ms="0px"
         px="0px"
-        me="20px"
+        me={{ sm: "2px", md: "16px" }}
         bg="transparent"
         color={navbarIcon}
         fontWeight="bold"
@@ -102,18 +112,24 @@ export default function HeaderLinks(props) {
         _focus={{
           boxShadow: "none",
         }}
-        leftIcon={<ProfileIcon color={navbarIcon} width="22px" height="22px" />}
+        leftIcon={<ProfileIcon color={navbarIcon} w="22px" h="22px" me="0px" />}
       >
-        Sign In
+        <Text display={{ sm: "none", md: "flex" }}>Sign In</Text>
       </Button>
+      <SidebarResponsive
+        routes={routes}
+        logoText={props.logoText}
+        // logo={logo}
+        {...rest}
+      />
       <SettingsIcon
-        mr="20px"
+        me="16px"
         ref={settingsRef}
         onClick={onOpen}
         color={navbarIcon}
         qqa
-        width="18px"
-        height="18px"
+        w="18px"
+        h="18px"
       />
       <Drawer
         isOpen={isOpen}
@@ -127,10 +143,16 @@ export default function HeaderLinks(props) {
 
           <DrawerBody>
             <Input placeholder="Type here..." />
+            <Switch
+              id="email-alerts"
+              onChange={(event) => {
+                props.onChange("red");
+              }}
+            />
           </DrawerBody>
 
           <DrawerFooter>
-            <Button variant="outline" mr={3} onClick={onClose}>
+            <Button variant="outline" me={3} onClick={onClose}>
               Cancel
             </Button>
             <Button colorScheme="blue">Save</Button>
@@ -139,7 +161,7 @@ export default function HeaderLinks(props) {
       </Drawer>
       <Menu>
         <MenuButton>
-          <BellIcon color={navbarIcon} width="18px" height="18px" />
+          <BellIcon color={navbarIcon} w="18px" h="18px" />
         </MenuButton>
         <MenuList p="16px 8px">
           <Flex flexDirection="column">

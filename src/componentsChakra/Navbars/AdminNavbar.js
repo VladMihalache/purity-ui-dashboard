@@ -14,6 +14,7 @@ import {
   BreadcrumbLink,
   BreadcrumbSeparator,
   useDisclosure,
+  Input,
 } from "@chakra-ui/react";
 
 // @material-ui/core components
@@ -54,10 +55,7 @@ export default function AdminNavbar(props) {
   //   window.addEventListener("scroll", (e) => handleNavigation(e));
   // }, []);
   const classes = useStyles();
-  const { color, rtlActive, brandText } = props;
-  const appBarClasses = cx({
-    [" " + classes[color]]: color,
-  });
+  const { rtlActive, brandText } = props;
   const sidebarMinimize =
     classes.sidebarMinimize +
     " " +
@@ -66,29 +64,42 @@ export default function AdminNavbar(props) {
     });
   const mainText = useColorModeValue("gray.700", "gray.200");
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [transmitted, setTransmitted] = useState();
   return (
     <Flex
       alignItems="center"
       borderRadius="16px"
       display="flex"
-      height="75px"
+      minHeight="75px"
       justifyContent="center"
       lineHeight="25.6px"
       marginTop="24px"
       mx="auto"
       padding-Bottom="8px"
-      paddingLeft="30px"
-      paddingRight="30px"
+      paddingLeft={{
+        sm: "15px",
+        md: "30px",
+      }}
+      paddingRight={{
+        sm: "15px",
+        md: "30px",
+      }}
       paddingTop="8px"
       top="8px"
       transitionDelay="0s, 0s"
       transitionDuration="0.25s, 0.25s"
       transitionProperty="box-shadow, background-color"
       transitionTimingFunction="ease-in, ease-in"
-      width="calc(100% - 60px)"
+      w="calc(100% - 60px)"
     >
-      <Flex width="100%">
-        <Box>
+      <Flex
+        w="100%"
+        flexDirection={{
+          sm: "column",
+          md: "row",
+        }}
+      >
+        <Box mb={{ sm: "8px", md: "0px" }}>
           <Breadcrumb>
             <BreadcrumbItem>
               <BreadcrumbLink href="#" color="gray.400">
@@ -122,12 +133,24 @@ export default function AdminNavbar(props) {
           </Link>
         </Box>
         <Hidden>
-          <Box ms="auto">
-            <AdminNavbarLinks rtlActive={rtlActive} />
+          <Box ms="auto" w={{ sm: "100%", md: "unset" }}>
+            {/* <Input
+              onChange={(event) => {
+                props.onChange("red");
+              }}
+            /> */}
+            <AdminNavbarLinks
+              rtlActive={rtlActive}
+              logoText={props.logoText}
+              disclosureFunc={props.disclosureFunc}
+              onChange={
+                ((value) => setTransmitted(value),
+                (event) => {
+                  props.onChange("red");
+                })
+              }
+            />
           </Box>
-          <Button ref={props.sidebarRef} colorScheme="teal" onClick={onOpen}>
-            Open
-          </Button>
         </Hidden>
       </Flex>
     </Flex>

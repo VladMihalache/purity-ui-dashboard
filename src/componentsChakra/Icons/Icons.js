@@ -16,7 +16,6 @@ export const AdobexdLogo = createIcon({
     </g>
   ),
 });
-
 export const AtlassianLogo = createIcon({
   displayName: "AtlassianLogo",
   viewBox: "0 0 24 24",

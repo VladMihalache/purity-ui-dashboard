@@ -20,7 +20,7 @@ export function SearchBar(props) {
     <InputGroup
       bg={inputBg}
       borderRadius="15px"
-      width="200px"
+      w="200px"
       _focus={{
         borderColor: { mainTeal },
       }}
@@ -42,9 +42,7 @@ export function SearchBar(props) {
             _focus={{
               boxShadow: "none",
             }}
-            icon={
-              <SearchIcon color={searchIconColor} width="15px" height="15px" />
-            }
+            icon={<SearchIcon color={searchIconColor} w="15px" h="15px" />}
           ></IconButton>
         }
       />
