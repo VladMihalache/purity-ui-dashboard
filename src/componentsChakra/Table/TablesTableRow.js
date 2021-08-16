@@ -25,7 +25,9 @@ function TablesTableRow(props) {
                 </Flex>
             </Td>
             <Td>
-                <Button colorScheme={status === "Online" ? "green" : "gray"} cursor="default">{status}</Button>
+                <Flex bg={status === "Online" ? "green.400" : "gray.300"} w="66px" h="26px" align="center" justify="center" borderRadius="8px">
+                    <Text color="white" fontWeight="bold" fontSize="md">{status}</Text>
+                </Flex>
             </Td>
             <Td>
                 <Text fontSize="md" color={textColor} fontWeight="bold" pb=".5rem">{date}</Text>
