@@ -1,5 +1,17 @@
 import {
-    Avatar, AvatarGroup, Box, Button, Flex, Grid, Icon, Image, Link, Switch, Text, useColorMode, useColorModeValue
+  Avatar,
+  AvatarGroup,
+  Box,
+  Button,
+  Flex,
+  Grid,
+  Icon,
+  Image,
+  Link,
+  Switch,
+  Text,
+  useColorMode,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import avatar1 from "assetsChakra/avatars/avatar1.png";
 import avatar2 from "assetsChakra/avatars/avatar2.png";
@@ -7,27 +19,38 @@ import avatar3 from "assetsChakra/avatars/avatar3.png";
 import avatar4 from "assetsChakra/avatars/avatar4.png";
 import avatar5 from "assetsChakra/avatars/avatar5.png";
 import avatar6 from "assetsChakra/avatars/avatar6.png";
-import ArchitectImage1 from "assetsChakra/img/ArchitectImage1.png";
-import ArchitectImage2 from "assetsChakra/img/ArchitectImage2.png";
+import ImageArchitect1 from "assetsChakra/img/ImageArchitect1.png";
+import ImageArchitect2 from "assetsChakra/img/ImageArchitect2.png";
+import ImageArchitect3 from "assetsChakra/img/ImageArchitect3.png";
 import ProfileBgImage from "assetsChakra/img/ProfileBackground.png";
-// import ArchitectImage1 from "assetsChakra/img/ArchitectImage1.png";
 import Card from "components/CardChakra/Card.js";
 import CardBody from "components/CardChakra/CardBody.js";
 import CardHeader from "components/CardChakra/CardHeader.js";
 import React from "react";
 import {
-    FaCube, FaFacebook, FaInstagram, FaPenFancy, FaPlus, FaTwitter
+  FaCube,
+  FaFacebook,
+  FaInstagram,
+  FaPenFancy,
+  FaPlus,
+  FaTwitter,
 } from "react-icons/fa";
 import { IoDocumentsSharp } from "react-icons/io5";
 
-
-
 function Profile() {
-
   const { colorMode, toggleColorMode } = useColorMode();
   const iconTeal = useColorModeValue("teal.300", "teal.300");
   const iconBoxInside = useColorModeValue("white", "white");
   const textColor = useColorModeValue("gray.700", "white");
+  const bgProfile = useColorModeValue(
+    "hsla(0,0%,100%,.8)",
+    "linear-gradient(112.83deg, rgba(255, 255, 255, 0.21) 0%, rgba(255, 255, 255, 0) 110.84%)"
+  );
+  const borderProfileColor = useColorModeValue(
+    "white",
+    "rgba(255, 255, 255, 0.31)"
+  );
+  const emailColor = useColorModeValue("gray.400", "gray.300");
 
   return (
     <Flex direction="column">
@@ -55,43 +78,51 @@ function Profile() {
           <Flex
             direction={{ sm: "column", md: "row" }}
             mx="1.5rem"
-            maxH="250px"
+            maxH="330px"
             w={{ sm: "90%", xl: "95%" }}
             justifyContent={{ sm: "center", md: "space-between" }}
             alignItems="center"
-            backdropFilter="saturate(200%) blur(30px)"
+            backdropFilter="saturate(200%) blur(50px)"
             position="absolute"
-            bg="hsla(0,0%,100%,.8)"
-            p="1.5rem 1rem"
-            borderRadius="15px"
+            boxShadow="0px 2px 5.5px rgba(0, 0, 0, 0.02)"
+            border="2px solid"
+            borderColor={borderProfileColor}
+            bg={bgProfile}
+            p="24px"
+            borderRadius="20px"
             transform={{
-              sm: "translateY(90%)",
-              md: "translateY(130%)",
+              sm: "translateY(35%)",
+              md: "translateY(110%)",
               lg: "translateY(160%)",
             }}
           >
-            <Flex alignItems="center" mb="10px">
+            <Flex
+              alignItems="center"
+              mb={{ sm: "10px", md: "0px" }}
+              direction={{ sm: "column", md: "row" }}
+              w={{ sm: "100%" }}
+              textAlign={{ sm: "center", md: "start" }}
+            >
               <Image
-                mr="22px"
-                src={avatar1}
+                mr={{ md: "22px" }}
+                src={avatar4}
                 w="80px"
                 h="80px"
                 borderRadius="15px"
               />
-              <Flex direction="column" maxWidth="100%">
+              <Flex direction="column" maxWidth="100%" my={{ sm: "14px" }}>
                 <Text
                   fontSize={{ sm: "lg", lg: "xl" }}
                   color={textColor}
                   fontWeight="bold"
-                  maxWidth={{ sm: "150px", md: "auto" }}
+                  ml={{ sm: "8px", md: "0px" }}
                 >
                   Esthera Jackson
                 </Text>
                 <Text
                   fontSize={{ sm: "sm", md: "md" }}
-                  color="gray.500"
+                  color={emailColor}
                   fontWeight="semibold"
-                  maxWidth={{ sm: "130px", md: "1000px" }}
                 >
                   esthera@simmmple.com
                 </Text>
@@ -101,49 +132,55 @@ function Profile() {
               direction={{ sm: "column", lg: "row" }}
               w={{ sm: "100%", md: "50%", lg: "auto" }}
             >
-              <Flex
-                alignItems="center"
-                w={{ sm: "100%", lg: "135px" }}
-                bg="hsla(0,0%,100%,.8)"
-                borderRadius="15px"
-                justifyContent="center"
-                py="10px"
-                boxShadow="inset 0 0 1px 1px hsl(0deg 0% 100% / 90%), 0 20px 27px 0 rgb(0 0 0 / 5%)"
-                border="1px solid gray.200"
-                cursor="pointer"
-              >
-                <Icon as={FaCube} mr="6px" />
-                <Text fontSize="xs" color={textColor} fontWeight="bold">
-                  OVERVIEW
-                </Text>
-              </Flex>
-              <Flex
-                alignItems="center"
-                w={{ lg: "135px" }}
-                borderRadius="15px"
-                justifyContent="center"
-                py="10px"
-                mx={{ lg: "1rem" }}
-                cursor="pointer"
-              >
-                <Icon as={IoDocumentsSharp} mr="6px" />
-                <Text fontSize="xs" color={textColor} fontWeight="bold">
-                  TEAMS
-                </Text>
-              </Flex>
-              <Flex
-                alignItems="center"
-                w={{ lg: "135px" }}
-                borderRadius="15px"
-                justifyContent="center"
-                py="10px"
-                cursor="pointer"
-              >
-                <Icon as={FaPenFancy} mr="6px" />
-                <Text fontSize="xs" color={textColor} fontWeight="bold">
-                  PROJECTS
-                </Text>
-              </Flex>
+              <Button p="0px" bg="transparent" _hover={{ bg: "none" }}>
+                <Flex
+                  alignItems="center"
+                  w={{ sm: "100%", lg: "135px" }}
+                  bg="hsla(0,0%,100%,.3)"
+                  borderRadius="15px"
+                  justifyContent="center"
+                  py="10px"
+                  boxShadow="inset 0 0 1px 1px hsl(0deg 0% 100% / 90%), 0 20px 27px 0 rgb(0 0 0 / 5%)"
+                  border="1px solid gray.200"
+                  cursor="pointer"
+                >
+                  <Icon as={FaCube} mr="6px" />
+                  <Text fontSize="xs" color={textColor} fontWeight="bold">
+                    OVERVIEW
+                  </Text>
+                </Flex>
+              </Button>
+              <Button p="0px" bg="transparent" _hover={{ bg: "none" }}>
+                <Flex
+                  alignItems="center"
+                  w={{ lg: "135px" }}
+                  borderRadius="15px"
+                  justifyContent="center"
+                  py="10px"
+                  mx={{ lg: "1rem" }}
+                  cursor="pointer"
+                >
+                  <Icon as={IoDocumentsSharp} mr="6px" />
+                  <Text fontSize="xs" color={textColor} fontWeight="bold">
+                    TEAMS
+                  </Text>
+                </Flex>
+              </Button>
+              <Button p="0px" bg="transparent" _hover={{ bg: "none" }}>
+                <Flex
+                  alignItems="center"
+                  w={{ lg: "135px" }}
+                  borderRadius="15px"
+                  justifyContent="center"
+                  py="10px"
+                  cursor="pointer"
+                >
+                  <Icon as={FaPenFancy} mr="6px" />
+                  <Text fontSize="xs" color={textColor} fontWeight="bold">
+                    PROJECTS
+                  </Text>
+                </Flex>
+              </Button>
             </Flex>
           </Flex>
         </Box>
@@ -161,7 +198,7 @@ function Profile() {
                 ACCOUNT
               </Text>
               <Flex alignItems="center" mb="20px">
-              <Switch colorScheme="teal" mr="10px" isChecked/>
+                <Switch colorScheme="teal" mr="10px" />
                 <Text
                   noOfLines={1}
                   fontSize="md"
@@ -172,7 +209,7 @@ function Profile() {
                 </Text>
               </Flex>
               <Flex alignItems="center" mb="20px">
-              <Switch colorScheme="teal" mr="10px"/>
+                <Switch colorScheme="teal" mr="10px" />
                 <Text
                   noOfLines={1}
                   fontSize="md"
@@ -183,7 +220,7 @@ function Profile() {
                 </Text>
               </Flex>
               <Flex alignItems="center" mb="20px">
-              <Switch colorScheme="teal" mr="10px" isChecked/>
+                <Switch colorScheme="teal" mr="10px" />
                 <Text
                   noOfLines={1}
                   fontSize="md"
@@ -202,7 +239,7 @@ function Profile() {
                 APPLICATION
               </Text>
               <Flex alignItems="center" mb="20px">
-              <Switch colorScheme="teal" mr="10px"/>
+                <Switch colorScheme="teal" mr="10px" />
                 <Text
                   noOfLines={1}
                   fontSize="md"
@@ -213,7 +250,7 @@ function Profile() {
                 </Text>
               </Flex>
               <Flex alignItems="center" mb="20px">
-              <Switch colorScheme="teal" mr="10px"/>
+                <Switch colorScheme="teal" mr="10px" />
                 <Text
                   noOfLines={1}
                   fontSize="md"
@@ -224,7 +261,7 @@ function Profile() {
                 </Text>
               </Flex>
               <Flex alignItems="center" mb="20px">
-                <Switch colorScheme="teal" mr="10px" isChecked/>
+                <Switch colorScheme="teal" mr="10px" />
                 <Text
                   noOfLines={1}
                   fontSize="md"
@@ -313,13 +350,31 @@ function Profile() {
                   Social Media:{" "}
                 </Text>
                 <Flex>
-                  <Link href="#" color="teal.300" fontSize="lg" mr="10px">
+                  <Link
+                    href="#"
+                    color="teal.300"
+                    fontSize="lg"
+                    mr="10px"
+                    _hover={{ color: "teal.300" }}
+                  >
                     <Icon as={FaFacebook} />
                   </Link>
-                  <Link href="#" color="teal.300" fontSize="lg" mr="10px">
+                  <Link
+                    href="#"
+                    color="teal.300"
+                    fontSize="lg"
+                    mr="10px"
+                    _hover={{ color: "teal.300" }}
+                  >
                     <Icon as={FaInstagram} />
                   </Link>
-                  <Link href="#" color="teal.300" fontSize="lg" mr="10px">
+                  <Link
+                    href="#"
+                    color="teal.300"
+                    fontSize="lg"
+                    mr="10px"
+                    _hover={{ color: "teal.300" }}
+                  >
                     <Icon as={FaTwitter} />
                   </Link>
                 </Flex>
@@ -353,14 +408,16 @@ function Profile() {
                     </Text>
                   </Flex>
                 </Flex>
-                <Text
-                  fontSize="sm"
-                  fontWeight="600"
-                  color="teal.300"
-                  alignSelf="center"
-                >
-                  REPLY
-                </Text>
+                <Button p="0px" bg="transparent" _hover={{ bg: "none" }}>
+                  <Text
+                    fontSize="sm"
+                    fontWeight="600"
+                    color="teal.300"
+                    alignSelf="center"
+                  >
+                    REPLY
+                  </Text>
+                </Button>
               </Flex>
               <Flex justifyContent="space-between" mb="21px">
                 <Flex alignItems="center">
@@ -380,14 +437,16 @@ function Profile() {
                     </Text>
                   </Flex>
                 </Flex>
-                <Text
-                  fontSize="sm"
-                  fontWeight="600"
-                  color="teal.300"
-                  alignSelf="center"
-                >
-                  REPLY
-                </Text>
+                <Button p="0px" bg="transparent" _hover={{ bg: "none" }}>
+                  <Text
+                    fontSize="sm"
+                    fontWeight="600"
+                    color="teal.300"
+                    alignSelf="center"
+                  >
+                    REPLY
+                  </Text>
+                </Button>
               </Flex>
               <Flex justifyContent="space-between" mb="21px">
                 <Flex alignItems="center">
@@ -407,14 +466,16 @@ function Profile() {
                     </Text>
                   </Flex>
                 </Flex>
-                <Text
-                  fontSize="sm"
-                  fontWeight="600"
-                  color="teal.300"
-                  alignSelf="center"
-                >
-                  REPLY
-                </Text>
+                <Button p="0px" bg="transparent" _hover={{ bg: "none" }}>
+                  <Text
+                    fontSize="sm"
+                    fontWeight="600"
+                    color="teal.300"
+                    alignSelf="center"
+                  >
+                    REPLY
+                  </Text>
+                </Button>
               </Flex>
               <Flex justifyContent="space-between" mb="21px">
                 <Flex alignItems="center">
@@ -434,14 +495,16 @@ function Profile() {
                     </Text>
                   </Flex>
                 </Flex>
-                <Text
-                  fontSize="sm"
-                  fontWeight="600"
-                  color="teal.300"
-                  alignSelf="center"
-                >
-                  REPLY
-                </Text>
+                <Button p="0px" bg="transparent" _hover={{ bg: "none" }}>
+                  <Text
+                    fontSize="sm"
+                    fontWeight="600"
+                    color="teal.300"
+                    alignSelf="center"
+                  >
+                    REPLY
+                  </Text>
+                </Button>
               </Flex>
               <Flex justifyContent="space-between" mb="21px">
                 <Flex alignItems="center">
@@ -461,14 +524,16 @@ function Profile() {
                     </Text>
                   </Flex>
                 </Flex>
-                <Text
-                  fontSize="sm"
-                  fontWeight="600"
-                  color="teal.300"
-                  alignSelf="center"
-                >
-                  REPLY
-                </Text>
+                <Button p="0px" bg="transparent" _hover={{ bg: "none" }}>
+                  <Text
+                    fontSize="sm"
+                    fontWeight="600"
+                    color="teal.300"
+                    alignSelf="center"
+                  >
+                    REPLY
+                  </Text>
+                </Button>
               </Flex>
             </Flex>
           </CardBody>
@@ -492,9 +557,16 @@ function Profile() {
             gap="24px"
           >
             <Flex direction="column">
-              <Box mb="20px" position="relative">
-                <Image src={ArchitectImage1} />
-                <Box w="100%" h="100%" position="absolute" bg="linear-gradient(360deg, rgba(49, 56, 96, 0.16) 0%, rgba(21, 25, 40, 0.88) 100%)`" top="0"></Box>
+              <Box mb="20px" position="relative" borderRadius="15px">
+                <Image src={ImageArchitect1} borderRadius="15px" />
+                <Box
+                  w="100%"
+                  h="100%"
+                  position="absolute"
+                  top="0"
+                  borderRadius="15px"
+                  bg="linear-gradient(360deg, rgba(49, 56, 96, 0.16) 0%, rgba(21, 25, 40, 0.88) 100%)"
+                ></Box>
               </Box>
               <Flex direction="column">
                 <Text fontSize="md" color="gray.500" fontWeight="600" mb="10px">
@@ -533,8 +605,16 @@ function Profile() {
               </Flex>
             </Flex>
             <Flex direction="column">
-              <Box mb="20px">
-                <Image src={ArchitectImage2} />
+              <Box mb="20px" position="relative" borderRadius="15px">
+                <Image src={ImageArchitect2} borderRadius="15px" />
+                <Box
+                  w="100%"
+                  h="100%"
+                  position="absolute"
+                  top="0"
+                  borderRadius="15px"
+                  bg="linear-gradient(360deg, rgba(49, 56, 96, 0.16) 0%, rgba(21, 25, 40, 0.88) 100%)"
+                ></Box>
               </Box>
               <Flex direction="column">
                 <Text fontSize="md" color="gray.500" fontWeight="600" mb="10px">
@@ -573,9 +653,16 @@ function Profile() {
               </Flex>
             </Flex>
             <Flex direction="column">
-              <Box mb="20px" position="relative">
-                <Image src={ArchitectImage1}/>
-                <Box position="absolute" w="100%" h="inherit" bg="rgba(0,0,0,0.5)" top='0'></Box>
+              <Box mb="20px" position="relative" borderRadius="15px">
+                <Image src={ImageArchitect3} borderRadius="15px" />
+                <Box
+                  w="100%"
+                  h="100%"
+                  position="absolute"
+                  top="0"
+                  borderRadius="15px"
+                  bg="linear-gradient(360deg, rgba(49, 56, 96, 0.16) 0%, rgba(21, 25, 40, 0.88) 100%)"
+                ></Box>
               </Box>
               <Flex direction="column">
                 <Text fontSize="md" color="gray.500" fontWeight="600" mb="10px">
@@ -613,20 +700,25 @@ function Profile() {
                 </Flex>
               </Flex>
             </Flex>
-            <Flex
-              direction="column"
-              justifyContent="center"
-              alignItems="center"
+            <Button
+              p="0px"
+              bg="transparent"
               color="gray.500"
               border="1px solid lightgray"
               borderRadius="15px"
-              minHeight={{ sm: "200px" }}
+              minHeight={{ sm: "200px", md: "100%" }}
             >
-              <Icon as={FaPlus} fontSize="lg" mb="12px" />
-              <Text fontSize="lg" fontWeight="bold">
-                Create a New Project
-              </Text>
-            </Flex>
+              <Flex
+                direction="column"
+                justifyContent="center"
+                alignItems="center"
+              >
+                <Icon as={FaPlus} fontSize="lg" mb="12px" />
+                <Text fontSize="lg" fontWeight="bold">
+                  Create a New Project
+                </Text>
+              </Flex>
+            </Button>
           </Grid>
         </CardBody>
       </Card>

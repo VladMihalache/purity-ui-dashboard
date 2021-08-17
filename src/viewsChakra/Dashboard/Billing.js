@@ -29,6 +29,8 @@ function Billing() {
   const iconTeal = useColorModeValue("teal.300", "teal.300");
   const iconBoxInside = useColorModeValue("white", "white");
   const textColor = useColorModeValue("gray.700", "white");
+  const borderColor = useColorModeValue("#dee2e6", "gray.500");
+  const bgButton = useColorModeValue("linear-gradient(81.62deg, #313860 2.25%, #151928 79.87%)", "gray.800");
 
   return (
     <Flex direction="column">
@@ -40,7 +42,7 @@ function Billing() {
               md: "1fr 1fr",
               xl: "1fr 1fr 1fr 1fr",
             }}
-            templateRows={{ sm: "1fr 1fr 1fr", md: "1fr 1fr", xl: "1fr" }}
+            templateRows={{ sm: "auto auto auto", md: "1fr auto", xl: "1fr" }}
             gap="26px"
           >
             <Card
@@ -103,7 +105,7 @@ function Billing() {
               justifyContent="center"
             >
               <CardBody p="0px">
-                <Flex direction="column" alignItems="center" w="100%">
+                <Flex direction="column" alignItems="center" w="100%" py="20px">
                   <IconBox as="box" h={"60px"} w={"60px"} bg={iconTeal}>
                     <Icon h={"24px"} w={"24px"} color="white" as={FaWallet} />
                   </IconBox>
@@ -121,7 +123,7 @@ function Billing() {
                     <Text fontSize="xs" color="gray.400" fontWeight="semibold">
                       Belong Interactive
                     </Text>
-                    <Box h="1px" bg="gray.200" w="70%" my="12px"></Box>
+                    <Box h="1px" bg="gray.600" w="70%" mb="12px" mt="24px"></Box>
                   </Flex>
                   <Text fontSize="lg" color={textColor} fontWeight="bold">
                     +$2000
@@ -159,7 +161,7 @@ function Billing() {
                     <Text fontSize="xs" color="gray.400" fontWeight="semibold">
                       Freelance Payment
                     </Text>
-                    <Box h="1px" bg="gray.200" w="70%" my="12px"></Box>
+                    <Box h="1px" bg="gray.600" w="70%" mb="12px" mt="24px"></Box>
                   </Flex>
                   <Text fontSize="lg" color={textColor} fontWeight="bold">
                     $455.00
@@ -174,7 +176,7 @@ function Billing() {
                 Payment Method
               </Text>
               <Button
-                bg="linear-gradient(81.62deg, #313860 2.25%, #151928 79.87%)"
+                bg={bgButton}
                 color="white"
                 fontSize="xs"
               >
@@ -192,7 +194,8 @@ function Billing() {
                 bg="transparent"
                 borderRadius="15px"
                 width="100%"
-                border="1px solid #dee2e6"
+                border="1px solid"
+                borderColor={borderColor}
                 alignItems="center"
                 mb={{ sm: "24px", md: "0px" }}
                 mr={{ sm: "0px", md: "24px" }}
@@ -202,14 +205,17 @@ function Billing() {
                   7812 2139 0823 XXXX
                 </Text>
                 <Spacer />
-                <Icon as={FaPencilAlt} />
+                <Button p="0px" bg="transparent" w="16px" h="16px">
+                  <Icon as={FaPencilAlt} />
+                </Button>
               </Flex>
               <Flex
                 p="1rem"
                 bg="transparent"
                 borderRadius="15px"
                 width="100%"
-                border="1px solid #dee2e6"
+                border="1px solid"
+                borderColor={borderColor}
                 alignItems="center"
               >
                 <Image src={VisaIcon} w="20px" h="auto" mr="16px" />
@@ -217,13 +223,15 @@ function Billing() {
                   7812 2139 0823 XXXX
                 </Text>
                 <Spacer />
-                <Icon as={FaPencilAlt} />
+                <Button p="0px" bg="transparent" w="16px" h="16px">
+                  <Icon as={FaPencilAlt} />
+                </Button>
               </Flex>
             </Flex>
           </Card>
         </Box>
         <Card
-          p="1rem"
+          p="22px"
           my={{ sm: "24px", lg: "0px" }}
           ml={{ sm: "0px", lg: "24px" }}
         >
@@ -233,6 +241,8 @@ function Billing() {
             </Text>
             <Button
               colorScheme="teal"
+              borderColor="teal.300"
+              color="teal.300"
               variant="outline"
               fontSize="xs"
               p="8px 32px"
@@ -256,7 +266,7 @@ function Billing() {
         </Card>
       </Grid>
       <Grid templateColumns={{ sm: "1fr", lg: "1.6fr 1.2fr" }}>
-        <Card p="1rem" my={{ lg: "24px" }} mr={{ lg: "24px" }}>
+        <Card p="22px" my={{ lg: "24px" }} mr={{ lg: "24px" }}>
           <Flex direction="column">
             <CardHeader px="0px" py="12px">
               <Text color={textColor} fontSize="lg" fontWeight="bold">
@@ -277,7 +287,7 @@ function Billing() {
             </Flex>
           </Flex>
         </Card>
-        <Card p="1rem" my="24px" ml={{ lg: "24px" }}>
+        <Card p="22px" my="24px" ml={{ lg: "24px" }}>
           <CardHeader p="0px" py="12px">
             <Flex direction="column" w="100%">
               <Flex

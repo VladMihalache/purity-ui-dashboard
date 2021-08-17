@@ -1,5 +1,5 @@
 import React from 'react';
-import {Tr, Td, Flex, Text, Progress, Icon, useColorModeValue} from "@chakra-ui/react";
+import {Tr, Td, Flex, Text, Progress, Icon, Button, useColorModeValue} from "@chakra-ui/react";
 import {FaEllipsisV} from 'react-icons/fa';
 
 function DashboardTableRow(props) {
@@ -26,7 +26,9 @@ function DashboardTableRow(props) {
                 </Flex>
             </Td>
             <Td>
-                <Icon as={FaEllipsisV} color="gray.400" cursor="pointer"/>
+                <Button p="0px" bg="transparent">
+                    <Icon as={FaEllipsisV} color="gray.400" cursor="pointer"/>
+                </Button>
             </Td>
         </Tr>
     )

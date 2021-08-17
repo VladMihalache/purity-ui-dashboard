@@ -1,5 +1,5 @@
 import React from 'react';
-import {Flex, Text, Icon, useColorModeValue, Box, useColorMode, Spacer} from '@chakra-ui/react';
+import {Flex, Text, Icon, useColorModeValue, Box, useColorMode, Spacer, Button} from '@chakra-ui/react';
 
 function InvoicesRow(props) {
 
@@ -19,10 +19,12 @@ function InvoicesRow(props) {
             <Box mr="24px">
                 <Text fontSize="md" color="gray.400" fontWeight="semibold">{price}</Text>
             </Box>
-            <Flex alignItems="center">
-                <Icon as={logo} w="20px" h="auto" mr="5px"/>
-                <Text fontSize="md" color={textColor} fontWeight="bold">{format}</Text>
-            </Flex>
+            <Button p="0px" bg="transparent">
+                <Flex alignItems="center">
+                    <Icon as={logo} w="20px" h="auto" mr="5px"/>
+                    <Text fontSize="md" color={textColor} fontWeight="bold">{format}</Text>
+                </Flex>
+            </Button>
         </Flex>
     )
 }

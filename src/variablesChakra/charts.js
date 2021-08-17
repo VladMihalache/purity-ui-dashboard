@@ -6,6 +6,26 @@ export const barChartData = [
 ]
 
 export const barChartOptions = {
+    chart: {
+        toolbar: {
+            show: false
+        }
+    },
+    tooltip: {
+        style: {
+            backgroundColor: 'red',
+            fontSize: '12px',
+            fontFamily: undefined
+        },
+        onDatasetHover: {
+            style: {
+                backgroundColor: 'red',
+                fontSize: '12px',
+                fontFamily: undefined
+            }
+        },
+        theme: 'dark'
+    },
     xaxis: {
         categories: ['Apr', 'May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
         show: false,
@@ -31,7 +51,6 @@ export const barChartOptions = {
             style: {
                 colors: '#fff',
                 fontSize: '14px',
-                fontFamily: 'Open Sans'
             }
         }
     },
@@ -73,6 +92,14 @@ export const lineChartData = [{
 }];
 
 export const lineChartOptions = {
+    chart: {
+        toolbar: {
+            show: false
+        }
+    },
+    tooltip: {
+        theme: 'dark'
+    },
     dataLabels: {
       enabled: false
     },
@@ -86,7 +113,6 @@ export const lineChartOptions = {
           style: {
             colors: '#c8cfca',
             fontSize: '12px',
-            fontFamily: 'Open Sans'
           }
       }
     },
@@ -95,7 +121,6 @@ export const lineChartOptions = {
             style: {
                 colors: '#c8cfca',
                 fontSize: '12px',
-                fontFamily: 'Open Sans'
             }
         }
     },
