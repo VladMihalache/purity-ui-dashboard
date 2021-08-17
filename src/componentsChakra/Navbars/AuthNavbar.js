@@ -29,8 +29,6 @@ import {
   DocumentIcon,
   GlobeIcon,
   WalletIcon,
-  BoxTriIcon,
-  KeyIcon,
 } from "componentsChakra/Icons/Icons.js";
 import { makeStyles } from "@material-ui/core/styles";
 import Hidden from "@material-ui/core/Hidden";
@@ -62,13 +60,9 @@ export default function AuthNavbar(props) {
   var list = (
     <Flex>
       <NavLink to={"/admin/dashboard"}>
-        <Button>
-          <BoxTriIcon color="red" w="11px" h="11px" />
-        </Button>
+        <Button></Button>
       </NavLink>
-      <NavLink to={"/auth/profile"}>
-        <KeyIcon color="red" w="11px" h="11px" />
-      </NavLink>
+      <NavLink to={"/auth/profile"}></NavLink>
       <NavLink to={"/auth/signIn"}></NavLink>
       <NavLink to={"/auth/signUp"}></NavLink>
     </Flex>

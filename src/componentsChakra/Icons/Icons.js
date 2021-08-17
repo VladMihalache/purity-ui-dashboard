@@ -360,7 +360,7 @@ export const SpotifyLogo = createIcon({
   ),
 });
 
-export const ChartIcon = createIcon({
+export const StatsIcon = createIcon({
   displayName: "StatsIcon",
   viewBox: "0 0 24 24",
   path: (

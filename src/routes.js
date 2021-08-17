@@ -36,7 +36,7 @@ import Wizard from "views/Forms/Wizard.js";
 
 import {
   HomeIcon,
-  ChartIcon,
+  StatsIcon,
   CreditIcon,
   SupportIcon,
   PersonIcon,
@@ -65,7 +65,7 @@ var dashRoutes = [
     path: "/tableschakra",
     name: "Tables",
     rtlName: "لوحة القيادة",
-    icon: <ChartIcon color="inherit" />,
+    icon: <StatsIcon color="inherit" />,
     component: TablesChakra,
     layout: "/admin",
   },

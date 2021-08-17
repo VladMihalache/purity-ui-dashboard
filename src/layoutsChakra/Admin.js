@@ -145,7 +145,7 @@ export default function Dashboard(props) {
           />
         </Portal>
         {getRoute() ? (
-          <PanelContent pt="900px">
+          <PanelContent pt="75px">
             <PanelContainer>
               <Switch>
                 {getRoutes(routes)}
