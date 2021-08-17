@@ -46,6 +46,7 @@ export default function HeaderLinks(props) {
     ...rest
   } = props;
   const [fixedLinks, setFixedLinks] = useState(props.fixedNavbar);
+  const [switched, setSwitched] = useState(false);
 
   const { isOpen, onOpen, onClose } = useDisclosure();
   // Chakra Color Mode
@@ -166,13 +167,16 @@ export default function HeaderLinks(props) {
               Opaque
             </Button>
             <Switch
+              isChecked={switched}
               onChange={(event) => {
                 if (fixedLinks === true) {
                   props.onSwitch(false);
                   setFixedLinks(false);
+                  setSwitched(false);
                 } else {
                   props.onSwitch(true);
                   setFixedLinks(true);
+                  setSwitched(true);
                 }
               }}
             />

@@ -142,7 +142,7 @@ export default function Dashboard(props) {
           {...rest}
         />
         {getRoute() ? (
-          <PanelContent pt="100px">
+          <PanelContent pt="900px">
             <PanelContainer>
               <Switch>
                 {getRoutes(routes)}

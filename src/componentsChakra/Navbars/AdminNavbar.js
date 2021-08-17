@@ -66,44 +66,61 @@ export default function AdminNavbar(props) {
       [classes.sidebarMinimizeRTL]: rtlActive,
     });
   const mainText = useColorModeValue("gray.700", "gray.200");
-  const { isOpen, onOpen, onClose } = useDisclosure();
   let navbarPosition = "absolute";
+  let navbarFilter = "none";
   let navbarShadow = "none";
   let navbarBg = "none";
-  let navbarBorder = "red";
-  if (fixed === true) {
-    navbarPosition = "fixed";
-    navbarShadow =
-      "rgba(255, 255, 255, 0.9) 0px 0px 1px 1px inset, rgba(0, 0, 0, 0.05) 0px 20px 27px 0px";
-    navbarBg = "red";
-    navbarBorder = "red";
-  }
+  let navbarBorder = "transparent";
+  // let navbarWidth= "calc(100vw - 60px - 275px)";
+  if (fixed === true)
+    if (scrolled === true) {
+      navbarPosition = "fixed";
+      navbarShadow = useColorModeValue(
+        "0px 7px 23px rgba(0, 0, 0, 0.05)",
+        "none"
+      );
+      navbarBg = useColorModeValue(
+        "linear-gradient(112.83deg, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0.8) 110.84%)",
+        "linear-gradient(112.83deg, rgba(255, 255, 255, 0.21) 0%, rgba(255, 255, 255, 0) 110.84%)"
+      );
+      navbarBorder = useColorModeValue("#FFFFFF", "rgba(255, 255, 255, 0.31)");
+      navbarFilter = useColorModeValue(
+        "none",
+        "drop-shadow(0px 7px 23px rgba(0, 0, 0, 0.05))"
+      );
+      // navbarWidth= "calc(100vw - 60px";
+    }
   const changeNavbar = () => {
-    if (window.scrollY > 75) {
+    if (window.scrollY > 1) {
       setScrolled(true);
     } else {
       setScrolled(false);
     }
-
-    console.log(window.scrollY);
   };
   window.addEventListener("scroll", changeNavbar);
   return (
     <Flex
+      // position="fixed"
       position={navbarPosition}
       boxShadow={navbarShadow}
       bg={navbarBg}
-      border={navbarBorder}
+      borderWidth="1.5px"
+      borderStyle="solid"
+      borderColor={navbarBorder}
+      filter={navbarFilter}
+      transitionDelay="0s, 0s, 0s, 0s"
+      transitionDuration=" 0.25s, 0.25s, 0.25s, 0s"
+      transition-property="box-shadow, background-color, filter, border"
+      transitionTimingFunction="linear, linear, linear, linear"
       alignItems="center"
       borderRadius="16px"
       display="flex"
-      minHeight="75px"
+      minH="75px"
       justifyContent="center"
       lineHeight="25.6px"
-      marginTop="24px"
       mx="auto"
-      padding-Bottom="8px"
-      top="8px"
+      pb="8px"
+      right="30px"
       paddingLeft={{
         sm: "15px",
         md: "30px",
@@ -113,12 +130,8 @@ export default function AdminNavbar(props) {
         md: "30px",
       }}
       paddingTop="8px"
-      top="8px"
-      transitionDelay="0s, 0s"
-      transitionDuration="0.25s, 0.25s"
-      transitionProperty="box-shadow, background-color"
-      transitionTimingFunction="ease-in, ease-in"
-      w="calc(100% - 60px)"
+      top="18px"
+      w="calc(100vw - 60px - 275px)"
     >
       <Flex
         w="100%"
@@ -126,6 +139,7 @@ export default function AdminNavbar(props) {
           sm: "column",
           md: "row",
         }}
+        alignItems="center"
       >
         <Box mb={{ sm: "8px", md: "0px" }}>
           <Breadcrumb>
@@ -179,6 +193,7 @@ export default function AdminNavbar(props) {
                 })
               }
               onSwitch={(value) => {
+                setFixed(value);
                 console.log(value);
               }}
             />

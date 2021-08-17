@@ -281,7 +281,7 @@ function Sidebar(props) {
     sidebarMargins = "16px 0px 16px 16px";
   }
   var brand = (
-    <Box pt={"46px"} mb="12px">
+    <Box pt={"25px"} mb="12px">
       <Flex mb="30px" justifyContent="center" alignItems="center">
         <DashboardLogo w="83.5px" h="21.5px" />
         <Box w="1px" h="18px" mx="10px" backgroundColor={mainText}></Box>
@@ -492,7 +492,7 @@ export function SidebarResponsive(props) {
   const mainText = useColorModeValue("gray.700", "gray.200");
   const navbarIcon = useColorModeValue("gray.500", "gray.200");
   var brand = (
-    <Box pt={"46px"} mb="12px">
+    <Box pt={"25px"} mb="12px">
       <Flex mb="30px" justifyContent="center" alignItems="center">
         <DashboardLogo w="83.5px" h="21.5px" />
         <Box w="1px" h="18px" mx="10px" backgroundColor={mainText}></Box>
