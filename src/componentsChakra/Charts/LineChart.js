@@ -196,6 +196,6 @@ export default function LineChart(props) {
   // };
 
   return (
-    <ReactApexChart options={options} series={series} height="445px" width="100%" />
+    <ReactApexChart options={options} series={series} />
   );
 }

@@ -33,7 +33,8 @@ export default function SignUpAuth() {
         width="445px"
         background="transparent"
         borderRadius="15px"
-        p="2.5rem 3rem"
+        p="2.5rem 2.5rem"
+        mx={{base: "100px"}}
         bg={bgColor}
         boxShadow="0 20px 27px 0 rgb(0 0 0 / 5%)"
       >
