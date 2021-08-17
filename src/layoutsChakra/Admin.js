@@ -131,16 +131,18 @@ export default function Dashboard(props) {
           xl: "calc(100% - 275px)",
         }}
       >
-        <AdminNavbar
-          sidebarMinimize={sidebarMinimize.bind(this)}
-          miniActive={miniActive}
-          logoText={"DASHBOARD"}
-          brandText={getActiveRoute(routes)}
-          handleDrawerToggle={handleDrawerToggle}
-          disclosureFunc={onOpen}
-          onChange={(value) => setSidebarVariant(value)}
-          {...rest}
-        />
+        <Portal>
+          <AdminNavbar
+            sidebarMinimize={sidebarMinimize.bind(this)}
+            miniActive={miniActive}
+            logoText={"DASHBOARD"}
+            brandText={getActiveRoute(routes)}
+            handleDrawerToggle={handleDrawerToggle}
+            disclosureFunc={onOpen}
+            onChange={(value) => setSidebarVariant(value)}
+            {...rest}
+          />
+        </Portal>
         {getRoute() ? (
           <PanelContent pt="900px">
             <PanelContainer>
