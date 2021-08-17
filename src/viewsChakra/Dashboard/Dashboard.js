@@ -43,6 +43,8 @@ import BarChart from "componentsChakra/Chart/BarChart";
 import LineChart from "componentsChakra/Chart/LineChart";
 
 export default function DashboardChakra() {
+  const value = "$100.000";
+  // Chakra Color Mode
   const { colorMode, toggleColorMode } = useColorMode();
   const iconTeal = useColorModeValue("teal.300", "teal.300");
   const iconBoxInside = useColorModeValue("white", "white");
@@ -60,70 +62,70 @@ export default function DashboardChakra() {
     },
   ]);
 
-  const [data, setData] = useState([
-    {
-      data: [
-        {
-          x: "Jan",
-          y: [0, 75],
-        },
-        {
-          x: "Feb",
-          y: [0, 96],
-        },
-        {
-          x: "Mar",
-          y: [0, 200],
-        },
-        {
-          x: "Apr",
-          y: [0, 112],
-        },
-        {
-          x: "May",
-          y: [0, 53],
-        },
-        {
-          x: "Jun",
-          y: [0, 67],
-        },
-        {
-          x: "Jul",
-          y: [0, 108],
-        },
-        {
-          x: "Aug",
-          y: [0, 122],
-        },
-        {
-          x: "Sep",
-          y: [0, 74],
-        },
-        {
-          x: "Oct",
-          y: [0, 60],
-        },
-        {
-          x: "Nov",
-          y: [0, 81],
-        },
-        {
-          x: "Dec",
-          y: [0, 225],
-        },
-      ],
-    },
-  ]);
-  const GenerateSeries = () => {
-    const newSeries = [];
-    series.map((s) => {
-      const data = s.data.map(() => {
-        return Math.round(Math.random() * (180 - Math.exp(Math.random())));
-      });
-      newSeries.push({ data, name: s.name });
-    });
-    setSeries(newSeries);
-  };
+  // const [data, setData] = useState([
+  //   {
+  //     data: [
+  //       {
+  //         x: "Jan",
+  //         y: [0, 75],
+  //       },
+  //       {
+  //         x: "Feb",
+  //         y: [0, 96],
+  //       },
+  //       {
+  //         x: "Mar",
+  //         y: [0, 200],
+  //       },
+  //       {
+  //         x: "Apr",
+  //         y: [0, 112],
+  //       },
+  //       {
+  //         x: "May",
+  //         y: [0, 53],
+  //       },
+  //       {
+  //         x: "Jun",
+  //         y: [0, 67],
+  //       },
+  //       {
+  //         x: "Jul",
+  //         y: [0, 108],
+  //       },
+  //       {
+  //         x: "Aug",
+  //         y: [0, 122],
+  //       },
+  //       {
+  //         x: "Sep",
+  //         y: [0, 74],
+  //       },
+  //       {
+  //         x: "Oct",
+  //         y: [0, 60],
+  //       },
+  //       {
+  //         x: "Nov",
+  //         y: [0, 81],
+  //       },
+  //       {
+  //         x: "Dec",
+  //         y: [0, 225],
+  //       },
+  //     ],
+  //   },
+  // ]);
+  // const GenerateSeries = () => {
+  //   const newSeries = [];
+  //   series.map((s) => {
+  //     const data = s.data.map(() => {
+  //       return Math.round(Math.random() * (180 - Math.exp(Math.random())));
+  //     });
+  //     newSeries.push({ data, name: s.name });
+  //   });
+  //   setSeries(newSeries);
+  // };
   return (
     <Flex flexDirection="column">
       <SimpleGrid columns={{ sm: 1, md: 2, xl: 4 }} spacing="24px">
@@ -293,17 +295,17 @@ export default function DashboardChakra() {
                   >
                     Read more
                   </Text>
-                <Icon
-                  as={BsArrowRight}
-                  w="20px"
-                  h="20px"
-                  fontSize="xl"
-                  transition="all .5s ease"
-                  mx=".5rem"
-                  cursor="pointer"
-                  _hover={{ transform: "translateX(20%)" }}
-                  transform="translateY(10%)"
-                />
+                  <Icon
+                    as={BsArrowRight}
+                    w="20px"
+                    h="20px"
+                    fontSize="xl"
+                    transition="all .5s ease"
+                    mx=".5rem"
+                    cursor="pointer"
+                    _hover={{ transform: "translateX(20%)" }}
+                    transform="translateY(10%)"
+                  />
                 </Button>
               </Flex>
             </Flex>

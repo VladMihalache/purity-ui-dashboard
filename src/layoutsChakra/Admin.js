@@ -1,21 +1,29 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
-import cx from "classnames";
 // Chakra-UI imports
-import { ChakraProvider } from "@chakra-ui/react";
+import {
+  ChakraProvider,
+  useColorModeValue,
+  Portal,
+  Button,
+  Input,
+  useDisclosure,
+} from "@chakra-ui/react";
 import theme from "../theme/theme";
 // creates a beautiful scrollbar
 import PerfectScrollbar from "perfect-scrollbar";
 import "perfect-scrollbar/css/perfect-scrollbar.css";
 
-// core components
+// Custom Components
+import { DashboardLogo } from "../componentsChakra/Icons/Icons";
+// Layout
 import MainPanel from "../componentsChakra/Layout/MainPanel";
 import PanelContent from "../componentsChakra/Layout/PanelContent";
 import PanelContainer from "../componentsChakra/Layout/PanelContainer";
 import AdminNavbar from "componentsChakra/Navbars/AdminNavbar.js";
 import Footer from "componentsChakra/Footer/Footer.js";
 
-import Sidebar from "components/SidebarChakra/Sidebar.js";
+import Sidebar from "componentsChakra/Sidebar/Sidebar.js";
 
 import routes from "routes.js";
 
@@ -25,9 +33,7 @@ export default function Dashboard(props) {
   // states and functions
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [miniActive, setMiniActive] = React.useState(false);
-  const [logo, setLogo] = React.useState(
-    require("assets/img/logo-chakra.png").default
-  );
+  const [sidebarVariant, setSidebarVariant] = useState("transparent");
   // ref for main panel div
   const mainPanel = React.createRef();
   // effect instead of componentDidMount, componentDidUpdate and componentWillUnmount
@@ -100,7 +106,10 @@ export default function Dashboard(props) {
       setMobileOpen(false);
     }
   };
-
+  // Chakra Color Mode
+  const mainText = useColorModeValue("gray.700", "gray.200");
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const logo = <DashboardLogo color={mainText} />;
   return (
     <ChakraProvider theme={theme} resetCss={false}>
       <Sidebar
@@ -112,22 +121,31 @@ export default function Dashboard(props) {
         miniActive={miniActive}
         display="none"
         {...rest}
+        opening={isOpen}
+        closing={onClose}
+        sidebarVariant={sidebarVariant}
       />
       <MainPanel
+        id="mainPanel"
         w={{
-          sm: "100%",
-          xl: "calc(100% - 260px)"
+          base: "100%",
+          xl: "calc(100% - 275px)",
         }}
       >
-        <AdminNavbar
-          sidebarMinimize={sidebarMinimize.bind(this)}
-          miniActive={miniActive}
-          brandText={getActiveRoute(routes)}
-          handleDrawerToggle={handleDrawerToggle}
-          {...rest}
-        />
+        <Portal>
+          <AdminNavbar
+            sidebarMinimize={sidebarMinimize.bind(this)}
+            miniActive={miniActive}
+            logoText={"DASHBOARD"}
+            brandText={getActiveRoute(routes)}
+            handleDrawerToggle={handleDrawerToggle}
+            disclosureFunc={onOpen}
+            onChange={(value) => setSidebarVariant(value)}
+            {...rest}
+          />
+        </Portal>
         {getRoute() ? (
-          <PanelContent>
+          <PanelContent pt="900px">
             <PanelContainer>
               <Switch>
                 {getRoutes(routes)}

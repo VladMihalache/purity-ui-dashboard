@@ -22,8 +22,6 @@ import AuthLayout from "layoutsChakra/Auth.js";
 import RtlLayout from "layoutsChakra/RTL.js";
 import AdminLayout from "layoutsChakra/Admin.js";
 
-import "assets/scss/material-dashboard-pro-react.scss?v=1.10.0";
-
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
