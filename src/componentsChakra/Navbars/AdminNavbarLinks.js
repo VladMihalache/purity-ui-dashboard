@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 // Chakra Icons
 import { BellIcon, SearchIcon } from "@chakra-ui/icons";
 import { NavLink, useLocation } from "react-router-dom";
@@ -33,18 +34,25 @@ import avatar3 from "assetsChakra/img/faces/avatars/avatar3.png";
 import { ProfileIcon, SettingsIcon } from "componentsChakra/Icons/Icons";
 import { ItemContent } from "componentsChakra/Menu/ItemContent";
 import PropTypes from "prop-types";
-import React from "react";
 import { MicNone } from "@material-ui/icons";
 
 export default function HeaderLinks(props) {
-  const { rtlActive, disclosureFunc, variant, children, ...rest } = props;
+  const {
+    rtlActive,
+    disclosureFunc,
+    variant,
+    children,
+    fixed,
+    ...rest
+  } = props;
+  const [fixedLinks, setFixedLinks] = useState(props.fixedNavbar);
 
   const { isOpen, onOpen, onClose } = useDisclosure();
   // Chakra Color Mode
   const mainTeal = useColorModeValue("teal.300", "teal.300");
-  const mainTextGray = useColorModeValue("gray.700", "gray.200");
   const inputBg = useColorModeValue("white", "gray.800");
   const navbarIcon = useColorModeValue("gray.500", "gray.200");
+  let mainTextGray = useColorModeValue("gray.700", "gray.200");
 
   const settingsRef = React.useRef();
   return (
@@ -123,6 +131,7 @@ export default function HeaderLinks(props) {
         {...rest}
       />
       <SettingsIcon
+        cursor="pointer"
         me="16px"
         ref={settingsRef}
         onClick={onOpen}
@@ -139,24 +148,35 @@ export default function HeaderLinks(props) {
       >
         <DrawerContent>
           <DrawerCloseButton />
-          <DrawerHeader>Create your account</DrawerHeader>
+          <Text fontSize="xl">Chakra Dashboard Configurator</Text>
 
-          <DrawerBody>
-            <Input placeholder="Type here..." />
+          <DrawerBody w="340px">
+            <Button
+              onClick={(event) => {
+                props.onChange("transparent");
+              }}
+            >
+              Transparent
+            </Button>
+            <Button
+              onClick={(event) => {
+                props.onChange("opaque");
+              }}
+            >
+              Opaque
+            </Button>
             <Switch
-              id="email-alerts"
               onChange={(event) => {
-                props.onChange("red");
+                if (fixedLinks === true) {
+                  props.onSwitch(false);
+                  setFixedLinks(false);
+                } else {
+                  props.onSwitch(true);
+                  setFixedLinks(true);
+                }
               }}
             />
           </DrawerBody>
-
-          <DrawerFooter>
-            <Button variant="outline" me={3} onClick={onClose}>
-              Cancel
-            </Button>
-            <Button colorScheme="blue">Save</Button>
-          </DrawerFooter>
         </DrawerContent>
       </Drawer>
       <Menu>

@@ -54,6 +54,9 @@ export default function AdminNavbar(props) {
 
   //   window.addEventListener("scroll", (e) => handleNavigation(e));
   // }, []);
+  const [sidebarVariant, setSidebarVariant] = useState();
+  const [fixed, setFixed] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const classes = useStyles();
   const { rtlActive, brandText } = props;
   const sidebarMinimize =
@@ -64,9 +67,33 @@ export default function AdminNavbar(props) {
     });
   const mainText = useColorModeValue("gray.700", "gray.200");
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [transmitted, setTransmitted] = useState();
+  let navbarPosition = "absolute";
+  let navbarShadow = "none";
+  let navbarBg = "none";
+  let navbarBorder = "red";
+  if (fixed === true) {
+    navbarPosition = "fixed";
+    navbarShadow =
+      "rgba(255, 255, 255, 0.9) 0px 0px 1px 1px inset, rgba(0, 0, 0, 0.05) 0px 20px 27px 0px";
+    navbarBg = "red";
+    navbarBorder = "red";
+  }
+  const changeNavbar = () => {
+    if (window.scrollY > 75) {
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+    }
+
+    console.log(window.scrollY);
+  };
+  window.addEventListener("scroll", changeNavbar);
   return (
     <Flex
+      position={navbarPosition}
+      boxShadow={navbarShadow}
+      bg={navbarBg}
+      border={navbarBorder}
       alignItems="center"
       borderRadius="16px"
       display="flex"
@@ -76,6 +103,7 @@ export default function AdminNavbar(props) {
       marginTop="24px"
       mx="auto"
       padding-Bottom="8px"
+      top="8px"
       paddingLeft={{
         sm: "15px",
         md: "30px",
@@ -143,12 +171,16 @@ export default function AdminNavbar(props) {
               rtlActive={rtlActive}
               logoText={props.logoText}
               disclosureFunc={props.disclosureFunc}
+              fixed={fixed}
               onChange={
-                ((value) => setTransmitted(value),
-                (event) => {
-                  props.onChange("red");
+                ((value) => setSidebarVariant(value),
+                (value) => {
+                  props.onChange(value);
                 })
               }
+              onSwitch={(value) => {
+                console.log(value);
+              }}
             />
           </Box>
         </Hidden>

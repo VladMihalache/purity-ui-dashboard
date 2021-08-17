@@ -25,6 +25,9 @@ import { Separator } from "componentsChakra/Separator/Separator";
 // javascript plugin used to create scrollbars on windows
 import PerfectScrollbar from "perfect-scrollbar";
 
+// @material-ui/core components
+import Icon from "@material-ui/core/Icon";
+
 // core components
 
 var ps;
@@ -59,7 +62,6 @@ function SidebarWrapper({ className, headerLinks, links }) {
 // FUNCTIONS
 
 function Sidebar(props) {
-  const [miniActive, setMiniActive] = React.useState(true);
   // to check for active links and opened collapses
   let location = useLocation();
   // this is for the rest of the collapses
@@ -68,60 +70,36 @@ function Sidebar(props) {
   //   setState(getCollapseStates(props.routes));
   // }, []);
   const mainPanel = React.useRef();
-  // this creates the intial state of this component based on the collapse routes
-  // that it gets through routes
-  // const getCollapseStates = (routes) => {
-  //   let initialState = {};
-  //   routes.map((prop) => {
-  //     if (prop.collapse) {
-  //       initialState = {
-  //         [prop.state]: getCollapseInitialState(prop.views),
-  //         ...getCollapseStates(prop.views),
-  //         ...initialState,
-  //       };
-  //     }
-  //     return null;
-  //   });
-  //   return initialState;
-  // };
-  // this verifies if any of the collapses should be default opened on a rerender of this component
-  // for example, on the refresh of the page,
-  // while on the src/views/forms/RegularForms.jsx - route /admin/regular-forms
-  // const getCollapseInitialState = (routes) => {
-  //   for (let i = 0; i < routes.length; i++) {
-  //     if (routes[i].collapse && getCollapseInitialState(routes[i].views)) {
-  //       return true;
-  //     } else if (location.pathname === routes[i].layout + routes[i].path) {
-  //       return true;
-  //     }
-  //   }
-  //   return false;
-  // };
+  let variantChange = "0.2s linear";
   // verifies if routeName is the one active (in browser input)
   const activeRoute = (routeName) => {
     return location.pathname === routeName ? "active" : "";
   };
   // this function creates the links and collapses that appear in the sidebar (left menu)
-  const createLinks = (route) => {
-    const { rtlActive } = props;
+  const createLinks = (routes) => {
+    const { sidebarVariant, rtlActive } = props;
     // Chakra Color Mode
+    // const activeBg = useColorModeValue("white", "gray.700");
+    // const inactiveBg = useColorModeValue("white", "gray.700");
+    // const activeColor = useColorModeValue("gray.700", "white");
+    // const inactiveColor = useColorModeValue("gray.400", "gray.400");
     let activeBg = useColorModeValue("white", "gray.700");
     let inactiveBg = useColorModeValue("white", "gray.700");
     let activeColor = useColorModeValue("gray.700", "white");
     let inactiveColor = useColorModeValue("gray.400", "gray.400");
-    let buttonShadow = "0px 7px 11px rgba(0, 0, 0, 0.04)";
+    let sidebarActiveShadow = "0px 7px 11px rgba(0, 0, 0, 0.04)";
     // let activeBg;
     // let inactiveBg;
     // let activeColor;
     // let inactiveColor;
-    // let buttonShadow;
-    // if (props.sidebarVariant == "transparent") {
-    //   activeBg = useColorModeValue("white", "gray.700");
-    //   inactiveBg = useColorModeValue("white", "gray.700");
-    //   activeColor = useColorModeValue("gray.700", "white");
-    //   inactiveColor = useColorModeValue("gray.400", "gray.400");
-    //   buttonShadow = "0px 7px 11px rgba(0, 0, 0, 0.04)";
-    // }
+    if (sidebarVariant === "opaque") {
+      activeBg = "transparent";
+      inactiveBg = useColorModeValue("gray.100", "gray.600");
+      activeColor = useColorModeValue("gray.700", "white");
+      inactiveColor = useColorModeValue("gray.400", "gray.400");
+      sidebarActiveShadow = "none";
+    }
+
     return routes.map((prop, key) => {
       if (prop.redirect) {
         return null;
@@ -188,8 +166,9 @@ function Sidebar(props) {
               boxSize="initial"
               justifyContent="flex-start"
               alignItems="center"
-              boxShadow={buttonShadow}
+              boxShadow={sidebarActiveShadow}
               bg={activeBg}
+              transition={variantChange}
               mb={{
                 xl: "12px",
               }}
@@ -210,7 +189,7 @@ function Sidebar(props) {
                 borderColor: "transparent",
               }}
               _focus={{
-                boxShadow: { buttonShadow },
+                boxShadow: "0px 7px 11px rgba(0, 0, 0, 0.04)",
               }}
             >
               <Flex>
@@ -223,6 +202,7 @@ function Sidebar(props) {
                     h="30px"
                     w="30px"
                     me="12px"
+                    transition={variantChange}
                   >
                     {prop.icon}
                   </IconBox>
@@ -271,6 +251,7 @@ function Sidebar(props) {
                     h="30px"
                     w="30px"
                     me="12px"
+                    transition={variantChange}
                   >
                     {prop.icon}
                   </IconBox>
@@ -285,12 +266,20 @@ function Sidebar(props) {
       );
     });
   };
-  const { logo, logoText, routes, rtlActive } = props;
+  const { logo, logoText, routes, rtlActive, sidebarVariant } = props;
 
   var links = <>{createLinks(routes)}</>;
   //  BRAND
   //  Chakra Color Mode
   const mainText = useColorModeValue("gray.700", "gray.200");
+  let sidebarBg = "none";
+  let sidebarRadius = "0px";
+  let sidebarMargins = "0px";
+  if (sidebarVariant === "opaque") {
+    sidebarBg = useColorModeValue("white", "gray.700");
+    sidebarRadius = "16px";
+    sidebarMargins = "16px 0px 16px 16px";
+  }
   var brand = (
     <Box pt={"46px"} mb="12px">
       <Flex mb="30px" justifyContent="center" alignItems="center">
@@ -299,7 +288,6 @@ function Sidebar(props) {
         <Link
           href="https://chakra-ui.com/"
           target="_blank"
-          color={"red"}
           // color={mainText}
           lineHeight="100%"
           mt="2px"
@@ -318,12 +306,22 @@ function Sidebar(props) {
     <Box ref={mainPanel}>
       <Box display={{ sm: "none", xl: "block" }}>
         <Box
-          w="275px"
-          maxW="275px"
-          position="absolute"
-          h="100vh"
-          ps="32px"
+          bg={sidebarBg}
+          transition={variantChange}
+          w="260px"
+          maxW="260px"
+          ms={{
+            sm: "16px",
+          }}
+          my={{
+            sm: "16px",
+          }}
+          position="fixed"
+          h="calc(100vh - 32px)"
+          ps="20px"
           pe="20px"
+          m={sidebarMargins}
+          borderRadius={sidebarRadius}
         >
           <Box>{brand}</Box>
           <Stack direction="column">
