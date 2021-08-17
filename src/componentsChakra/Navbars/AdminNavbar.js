@@ -112,15 +112,15 @@ export default function AdminNavbar(props) {
       transitionDuration=" 0.25s, 0.25s, 0.25s, 0s"
       transition-property="box-shadow, background-color, filter, border"
       transitionTimingFunction="linear, linear, linear, linear"
-      alignItems="center"
+      alignItems={{ xl: "center" }}
       borderRadius="16px"
       display="flex"
       minH="75px"
-      justifyContent="center"
+      justifyContent={{ xl: "center" }}
       lineHeight="25.6px"
       mx="auto"
       pb="8px"
-      right="30px"
+      right={{ sm: "15px", xl: "30px" }}
       paddingLeft={{
         sm: "15px",
         md: "30px",
@@ -131,7 +131,7 @@ export default function AdminNavbar(props) {
       }}
       paddingTop="8px"
       top="18px"
-      w="calc(100vw - 60px - 275px)"
+      w={{ sm: "calc(100vw - 30px)", xl: "calc(100vw - 75px - 275px)" }}
     >
       <Flex
         w="100%"
@@ -139,7 +139,7 @@ export default function AdminNavbar(props) {
           sm: "column",
           md: "row",
         }}
-        alignItems="center"
+        alignItems={{ xl: "center" }}
       >
         <Box mb={{ sm: "8px", md: "0px" }}>
           <Breadcrumb>

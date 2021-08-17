@@ -22,6 +22,7 @@ import { HamburgerIcon } from "@chakra-ui/icons";
 import IconBox from "componentsChakra/Icons/IconBox";
 import { DashboardLogo } from "componentsChakra/Icons/Icons";
 import { Separator } from "componentsChakra/Separator/Separator";
+import { SidebarHelp } from "componentsChakra/Sidebar/SidebarHelp";
 // javascript plugin used to create scrollbars on windows
 import PerfectScrollbar from "perfect-scrollbar";
 
@@ -304,7 +305,7 @@ function Sidebar(props) {
   // SIDEBAR
   return (
     <Box ref={mainPanel}>
-      <Box display={{ sm: "none", xl: "block" }}>
+      <Box display={{ sm: "none", xl: "block" }} position="fixed">
         <Box
           bg={sidebarBg}
           transition={variantChange}
@@ -316,7 +317,6 @@ function Sidebar(props) {
           my={{
             sm: "16px",
           }}
-          position="fixed"
           h="calc(100vh - 32px)"
           ps="20px"
           pe="20px"
@@ -324,9 +324,10 @@ function Sidebar(props) {
           borderRadius={sidebarRadius}
         >
           <Box>{brand}</Box>
-          <Stack direction="column">
+          <Stack direction="column" mb="40px">
             <Box>{links}</Box>
           </Stack>
+          <SidebarHelp></SidebarHelp>
         </Box>
       </Box>
     </Box>
@@ -551,9 +552,10 @@ export function SidebarResponsive(props) {
               <DrawerBody maxW="250px" px="1rem">
                 <Box maxW="100%" h="100vh">
                   <Box>{brand}</Box>
-                  <Stack direction="column">
+                  <Stack direction="column" mb="40px">
                     <Box>{links}</Box>
                   </Stack>
+                  <SidebarHelp></SidebarHelp>
                 </Box>
               </DrawerBody>
             </DrawerContent>

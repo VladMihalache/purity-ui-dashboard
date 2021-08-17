@@ -25,6 +25,7 @@ import {
   useDisclosure,
   Text,
   Switch,
+  Box,
 } from "@chakra-ui/react";
 import { SidebarResponsive } from "componentsChakra/Sidebar/Sidebar";
 import avatar1 from "assetsChakra/img/faces/avatars/avatar1.png";
@@ -35,6 +36,7 @@ import { ProfileIcon, SettingsIcon } from "componentsChakra/Icons/Icons";
 import { ItemContent } from "componentsChakra/Menu/ItemContent";
 import PropTypes from "prop-types";
 import { MicNone } from "@material-ui/icons";
+import { Separator } from "componentsChakra/Separator/Separator";
 
 export default function HeaderLinks(props) {
   const {
@@ -148,38 +150,79 @@ export default function HeaderLinks(props) {
         finalFocusRef={settingsRef}
       >
         <DrawerContent>
-          <DrawerCloseButton />
-          <Text fontSize="xl">Chakra Dashboard Configurator</Text>
-
-          <DrawerBody w="340px">
-            <Button
-              onClick={(event) => {
-                props.onChange("transparent");
-              }}
-            >
-              Transparent
-            </Button>
-            <Button
-              onClick={(event) => {
-                props.onChange("opaque");
-              }}
-            >
-              Opaque
-            </Button>
-            <Switch
-              isChecked={switched}
-              onChange={(event) => {
-                if (fixedLinks === true) {
-                  props.onSwitch(false);
-                  setFixedLinks(false);
-                  setSwitched(false);
-                } else {
-                  props.onSwitch(true);
-                  setFixedLinks(true);
-                  setSwitched(true);
-                }
-              }}
-            />
+          <DrawerHeader pt="24px" px="24px">
+            <DrawerCloseButton />
+            <Text fontSize="xl" fontWeight="bold" mt="16px">
+              Chakra UI Configurator
+            </Text>
+            <Text fontSize="md" mb="16px">
+              See your dashboard options.
+            </Text>
+            <Separator />
+          </DrawerHeader>
+          <DrawerBody w="340px" ps="24px" pe="40px">
+            <Flex flexDirection="column">
+              <Box>
+                <Text fontSize="md" fontWeight="600">
+                  Sidenav Type
+                </Text>
+                <Text fontSize="sm" mb="16px">
+                  Choose between 2 different sidenav types.
+                </Text>
+                <Flex>
+                  <Button
+                    w="50%"
+                    p="8px 32px"
+                    me="8px"
+                    colorScheme="teal"
+                    borderColor="teal.300"
+                    color="teal.300"
+                    variant="outline"
+                    fontSize="xs"
+                    onClick={(event) => {
+                      props.onChange("transparent");
+                    }}
+                  >
+                    Transparent
+                  </Button>
+                  <Button
+                    type="submit"
+                    bg="teal.300"
+                    w="50%"
+                    p="8px 32px"
+                    mb={5}
+                    _hover="teal.300"
+                    color="white"
+                    fontSize="xs"
+                    onClick={(event) => {
+                      props.onChange("opaque");
+                    }}
+                  >
+                    Opaque
+                  </Button>
+                </Flex>
+              </Box>
+              <Box>
+                <Text fontSize="md" fontWeight="600" mb="4px">
+                  Navbar Fixed
+                </Text>
+                <Switch
+                  colorScheme="teal"
+                  isChecked={switched}
+                  onChange={(event) => {
+                    if (fixedLinks === true) {
+                      props.onSwitch(false);
+                      setFixedLinks(false);
+                      setSwitched(false);
+                    } else {
+                      props.onSwitch(true);
+                      setFixedLinks(true);
+                      setSwitched(true);
+                    }
+                  }}
+                />
+              </Box>
+            </Flex>
           </DrawerBody>
         </DrawerContent>
       </Drawer>
