@@ -10,24 +10,24 @@ export default function Footer(props) {
   return (
     <Flex
       flexDirection={{
-        sm: "column",
+        base: "column",
         xl: "row",
       }}
       alignItems={{
-        sm: "center",
+        base: "center",
         xl: "start",
       }}
       justifyContent="space-between"
-      px="40px"
+      px="30px"
       pb="20px"
     >
       <Text
         color="gray.400"
         textAlign={{
-          sm: "center",
+          base: "center",
           xl: "start",
         }}
-        mb={{ sm: "20px", xl: "0px" }}
+        mb={{ base: "20px", xl: "0px" }}
       >
         &copy; {1900 + new Date().getYear()},{" "}
         <Text as="span">
@@ -55,7 +55,7 @@ export default function Footer(props) {
       <List display="flex">
         <ListItem
           me={{
-            sm: "20px",
+            base: "20px",
             md: "44px",
           }}
         >
@@ -65,7 +65,7 @@ export default function Footer(props) {
         </ListItem>
         <ListItem
           me={{
-            sm: "20px",
+            base: "20px",
             md: "44px",
           }}
         >
@@ -75,7 +75,7 @@ export default function Footer(props) {
         </ListItem>
         <ListItem
           me={{
-            sm: "20px",
+            base: "20px",
             md: "44px",
           }}
         >

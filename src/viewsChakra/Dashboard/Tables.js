@@ -14,10 +14,11 @@ function Tables() {
     const iconTeal = useColorModeValue("teal.300", "teal.300");
     const iconBoxInside = useColorModeValue("white", "white");
     const textColor = useColorModeValue("gray.700", "white");
+    
 
     return (
         <Flex direction="column">
-            <Card p="1rem" overflowX={{sm: "scroll", xl: "hidden"}}>
+            <Card p="1rem" px="22px" overflowX={{sm: "scroll", xl: "hidden"}}>
                 <CardHeader p="12px 0px 22px 0px">
                     <Text fontSize="xl" color={textColor} fontWeight="bold">Authors Table</Text>
                 </CardHeader>
@@ -50,7 +51,7 @@ function Tables() {
                     </Tbody>
                 </Table>
             </Card>
-            <Card p="1rem" my="22px" overflowX={{sm: "scroll", xl: "hidden"}}>
+            <Card p="1rem" px="22px" my="22px" overflowX={{sm: "scroll", xl: "hidden"}}>
                 <CardHeader  p="12px 0px 28px 0px">
                     <Flex direction="column">
                     <Text fontSize="lg" color={textColor} fontWeight="bold" pb=".5rem">Projects Table</Text>

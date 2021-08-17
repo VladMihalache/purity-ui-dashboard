@@ -96,19 +96,19 @@ export default function Pages(props) {
   // };
   const navRef = React.useRef();
   return (
-    <ChakraProvider resetCss={false}>
-      <Box ref={navRef}>
+    <ChakraProvider resetCss={false} overflowX="hidden" w="100%">
+      <Box ref={navRef} overflowX="hidden" w="100%">
         <Portal containerRef={navRef}>
           <AuthNavbar />
         </Portal>
-        <Box>
-          <Box ref={wrapper}>
-            <Box mx="auto" width="1044px" maxW="100%">
+        <Box overflowX="hidden" w="100%">
+          <Box ref={wrapper} overflowX="hidden" w="100%">
+            
               <Switch>
                 {getRoutes(routes)}
                 <Redirect from="/auth" to="/auth/login-page" />
               </Switch>
-            </Box>
+            
           </Box>
         </Box>
         <Box px="24px" mx="auto" width="1044px" maxW="100%">

@@ -5,6 +5,8 @@ function TablesTableRow(props) {
 
     const {logo, name, email, subdomain, domain, status, date} = props;
     const textColor = useColorModeValue("gray.700", "white");
+    const bgStatus = useColorModeValue("gray.400", "#1a202c");
+    const colorStatus = useColorModeValue("white", "gray.400")
 
     return (
         <Tr>
@@ -25,13 +27,17 @@ function TablesTableRow(props) {
                 </Flex>
             </Td>
             <Td>
-                <Button colorScheme={status === "Online" ? "green" : "gray"} cursor="default">{status}</Button>
+                <Flex bg={status === "Online" ? "green.400" : bgStatus} w="66px" h="26px" align="center" justify="center" borderRadius="8px">
+                    <Text color={status === "Online" ? "white" : colorStatus} fontWeight="bold" fontSize="md">{status}</Text>
+                </Flex>
             </Td>
             <Td>
                 <Text fontSize="md" color={textColor} fontWeight="bold" pb=".5rem">{date}</Text>
             </Td>
             <Td>
-            <Text fontSize="md" color="gray.400" fontWeight="bold" cursor="pointer">Edit</Text>
+                <Button p="0px" bg="transparent">
+                    <Text fontSize="md" color="gray.400" fontWeight="bold" cursor="pointer">Edit</Text>
+                </Button>
             </Td>
         </Tr>
     )

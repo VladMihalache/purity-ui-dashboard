@@ -1,5 +1,6 @@
 import { extendTheme } from "@chakra-ui/react";
 import { globalStyles } from "./styles";
+import { font } from "./foundations/fonts";
 import { breakpoints } from "./foundations/breakpoints";
 import { buttonStyles } from "./components/button";
 import { CardComponent } from "./additions/card/Card";
@@ -12,7 +13,8 @@ import { PanelContainerComponent } from "./additions/layout/PanelContainer";
 // import { mode } from "@chakra-ui/theme-tools";
 export default extendTheme(
   { breakpoints }, // Breakpoints
-  globalStyles, // Global styles
+  globalStyles,
+  font, // Global styles
   buttonStyles, // Button styles
   CardComponent, // Card component
   CardBodyComponent, // Card Body component
