@@ -408,7 +408,7 @@ function Profile() {
                     </Text>
                   </Flex>
                 </Flex>
-                <Button p="0px" bg="transparent" _hover={{ bg: "none" }}>
+                <Button p="0px" bg="transparent" variant="no-hover">
                   <Text
                     fontSize="sm"
                     fontWeight="600"
@@ -437,7 +437,7 @@ function Profile() {
                     </Text>
                   </Flex>
                 </Flex>
-                <Button p="0px" bg="transparent" _hover={{ bg: "none" }}>
+                <Button p="0px" bg="transparent" variant="no-hover">
                   <Text
                     fontSize="sm"
                     fontWeight="600"
@@ -466,7 +466,7 @@ function Profile() {
                     </Text>
                   </Flex>
                 </Flex>
-                <Button p="0px" bg="transparent" _hover={{ bg: "none" }}>
+                <Button p="0px" bg="transparent" variant="no-hover">
                   <Text
                     fontSize="sm"
                     fontWeight="600"
@@ -495,7 +495,7 @@ function Profile() {
                     </Text>
                   </Flex>
                 </Flex>
-                <Button p="0px" bg="transparent" _hover={{ bg: "none" }}>
+                <Button p="0px" bg="transparent" variant="no-hover">
                   <Text
                     fontSize="sm"
                     fontWeight="600"
@@ -524,7 +524,7 @@ function Profile() {
                     </Text>
                   </Flex>
                 </Flex>
-                <Button p="0px" bg="transparent" _hover={{ bg: "none" }}>
+                <Button p="0px" bg="transparent" variant="no-hover">
                   <Text
                     fontSize="sm"
                     fontWeight="600"

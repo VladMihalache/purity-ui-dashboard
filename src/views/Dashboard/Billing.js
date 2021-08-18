@@ -10,9 +10,8 @@ import {
   useColorMode,
   useColorModeValue,
 } from "@chakra-ui/react";
+import { MastercardIcon, VisaIcon } from "components/Icons/Icons";
 import BackgroundCard1 from "assets/img/BackgroundCard1.png";
-import MasterCardIcon from "assets/img/Mastercard Icon.png";
-import VisaIcon from "assets/img/Visa Icon.png";
 import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
 import CardHeader from "components/Card/CardHeader.js";
@@ -64,7 +63,7 @@ function Billing() {
               backgroundRepeat="no-repeat"
               background="cover"
               bgPosition="10%"
-              h="220px"
+              h={{sm: "220px", xl: "100%"}}
               p="1rem"
               gridArea={{ md: "1 / 1 / 2 / 3", xl: "1 / 1 / 2 / 3" }}
             >
@@ -119,7 +118,7 @@ function Billing() {
               justifyContent="center"
             >
               <CardBody p="0px">
-                <Flex direction="column" alignItems="center" w="100%" py="20px">
+                <Flex direction="column" alignItems="center" w="100%" py="14px">
                   <IconBox as="box" h={"60px"} w={"60px"} bg={iconTeal}>
                     <Icon h={"24px"} w={"24px"} color="white" as={FaWallet} />
                   </IconBox>
@@ -201,7 +200,7 @@ function Billing() {
               <Text fontSize="lg" color={textColor} fontWeight="bold">
                 Payment Method
               </Text>
-              <Button bg={bgButton} color="white" fontSize="xs">
+              <Button bg={bgButton} color="white" fontSize="xs" variant="no-hover">
                 ADD NEW CARD
               </Button>
             </Flex>
@@ -222,12 +221,14 @@ function Billing() {
                 mb={{ sm: "24px", md: "0px" }}
                 me={{ sm: "0px", md: "24px" }}
               >
-                <Image src={MasterCardIcon} w="20px" h="auto" me="16px" />
+                <IconBox me="10px" w="25px" h="22px">
+                  <MastercardIcon w="100%" h="100%"/>
+                </IconBox>
                 <Text color="gray.400" fontSize="md" fontWeight="semibold">
                   7812 2139 0823 XXXX
                 </Text>
                 <Spacer />
-                <Button p="0px" bg="transparent" w="16px" h="16px">
+                <Button p="0px" bg="transparent" w="16px" h="16px" variant="no-hover">
                   <Icon as={FaPencilAlt} />
                 </Button>
               </Flex>
@@ -240,12 +241,14 @@ function Billing() {
                 borderColor={borderColor}
                 alignItems="center"
               >
-                <Image src={VisaIcon} w="20px" h="auto" me="16px" />
+                <IconBox me="10px" w="25px" h="25px">
+                  <VisaIcon w="100%" h="100%"/>
+                </IconBox>
                 <Text color="gray.400" fontSize="md" fontWeight="semibold">
                   7812 2139 0823 XXXX
                 </Text>
                 <Spacer />
-                <Button p="0px" bg="transparent" w="16px" h="16px">
+                <Button p="0px" bg="transparent" w="16px" h="16px" variant="no-hover">
                   <Icon as={FaPencilAlt} />
                 </Button>
               </Flex>

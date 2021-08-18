@@ -59,9 +59,9 @@ function BillingRow(props) {
               p="0px"
               bg="transparent"
               mb={{ sm: "10px", md: "0px" }}
-              mr={{ md: "24px" }}
+              mr={{ md: "12px" }}
             >
-              <Flex color="red.500" cursor="pointer" alignItems="center">
+              <Flex color="red.500" cursor="pointer" alignItems="center" p="12px">
                 <Icon as={FaTrashAlt} mr="4px" />
                 <Text fontSize="sm" fontWeight="semibold">
                   DELETE
@@ -69,7 +69,7 @@ function BillingRow(props) {
               </Flex>
             </Button>
             <Button p="0px" bg="transparent">
-              <Flex color={textColor} cursor="pointer" alignItems="center">
+              <Flex color={textColor} cursor="pointer" alignItems="center" p="12px">
                 <Icon as={FaPencilAlt} mr="4px" />
                 <Text fontSize="sm" fontWeight="semibold">
                   EDIT

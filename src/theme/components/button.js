@@ -7,11 +7,15 @@ export const buttonStyles = {
           boxShadow: "0 0 2px 2px #efdfde",
           bgColor: "red",
         },
+        "no-hover": {
+          _hover: {
+            boxShadow: "none",
+          }
+        }
       },
       baseStyle: {
         borderRadius: "12px",
         _focus: {
-          border: "none",
           boxShadow: "none"
         }
       },
