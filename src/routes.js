@@ -1,11 +1,11 @@
 // import
-import DashboardChakra from "viewsChakra/Dashboard/Dashboard.js";
-import TablesChakra from "viewsChakra/Dashboard/Tables.js";
-import BillingChakra from "viewsChakra/Dashboard/Billing.js";
-import RTLChakra from "viewsChakra/RTL/RTL.js";
-import ProfileChakra from "viewsChakra/Dashboard/Profile.js";
-import SignInChakra from "viewsChakra/Pages/SignIn.js";
-import SignUpChakra from "viewsChakra/Pages/SignUp.js";
+import DashboardChakra from "views/Dashboard/Dashboard.js";
+import TablesChakra from "views/Dashboard/Tables.js";
+import BillingChakra from "views/Dashboard/Billing.js";
+import RTLChakra from "views/RTL/RTL.js";
+import ProfileChakra from "views/Dashboard/Profile.js";
+import SignInChakra from "views/Pages/SignIn.js";
+import SignUpChakra from "views/Pages/SignUp.js";
 
 // import Dashboard from "viewsMaterial/Dashboard/Dashboard.js";
 
@@ -17,7 +17,7 @@ import {
   PersonIcon,
   DocumentIcon,
   RocketIcon,
-} from "componentsChakra/Icons/Icons";
+} from "components/Icons/Icons";
 
 var dashRoutes = [
   // {

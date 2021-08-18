@@ -1,0 +1,115 @@
+import React from "react";
+import { Switch, Route, Redirect } from "react-router-dom";
+// chakra imports
+import {
+  ChakraProvider,
+  Button,
+  Flex,
+  Text,
+  Link,
+  Image,
+  Avatar,
+  Stack,
+  HStack,
+  VStack,
+  Box,
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+  AccordionIcon,
+  useColorModeValue,
+  Portal,
+} from "@chakra-ui/react";
+
+// core components
+import AuthNavbar from "components/Navbars/AuthNavbar.js";
+import Footer from "components/Footer/Footer.js";
+
+import routes from "routes.js";
+
+export default function Pages(props) {
+  const { ...rest } = props;
+  // ref for the wrapper div
+  const wrapper = React.createRef();
+  React.useEffect(() => {
+    document.body.style.overflow = "unset";
+    // Specify how to clean up after this effect:
+    return function cleanup() {};
+  });
+  const getRoutes = (routes) => {
+    return routes.map((prop, key) => {
+      if (prop.collapse) {
+        return getRoutes(prop.views);
+      }
+      if (prop.category === "account") {
+        return getRoutes(prop.views);
+      }
+      if (prop.layout === "/auth") {
+        return (
+          <Route
+            path={prop.layout + prop.path}
+            component={prop.component}
+            key={key}
+          />
+        );
+      } else {
+        return null;
+      }
+    });
+  };
+  // const getBgImage = () => {
+  //   if (window.location.pathname.indexOf("/auth/register-page") !== -1) {
+  //     return register;
+  //   } else if (window.location.pathname.indexOf("/auth/login-page") !== -1) {
+  //     return login;
+  //   } else if (window.location.pathname.indexOf("/auth/pricing-page") !== -1) {
+  //     return pricing;
+  //   } else if (
+  //     window.location.pathname.indexOf("/auth/lock-screen-page") !== -1
+  //   ) {
+  //     return lock;
+  //   } else if (window.location.pathname.indexOf("/auth/error-page") !== -1) {
+  //     return error;
+  //   }
+  // };
+  // const getActiveRoute = (routes) => {
+  //   let activeRoute = "Default Brand Text";
+  //   for (let i = 0; i < routes.length; i++) {
+  //     if (routes[i].collapse) {
+  //       let collapseActiveRoute = getActiveRoute(routes[i].views);
+  //       if (collapseActiveRoute !== activeRoute) {
+  //         return collapseActiveRoute;
+  //       }
+  //     } else {
+  //       if (
+  //         window.location.href.indexOf(routes[i].layout + routes[i].path) !== -1
+  //       ) {
+  //         return routes[i].name;
+  //       }
+  //     }
+  //   }
+  //   return activeRoute;
+  // };
+  const navRef = React.useRef();
+  return (
+    <ChakraProvider resetCss={false} overflowX="hidden" w="100%">
+      <Box ref={navRef} overflowX="hidden" w="100%">
+        <Portal containerRef={navRef}>
+          <AuthNavbar />
+        </Portal>
+        <Box overflowX="hidden" w="100%">
+          <Box ref={wrapper} overflowX="hidden" w="100%">
+            <Switch>
+              {getRoutes(routes)}
+              <Redirect from="/auth" to="/auth/login-page" />
+            </Switch>
+          </Box>
+        </Box>
+        <Box px="24px" mx="auto" width="1044px" maxW="100%">
+          <Footer />
+        </Box>
+      </Box>
+    </ChakraProvider>
+  );
+}
