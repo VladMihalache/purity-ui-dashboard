@@ -127,7 +127,7 @@ export default function DashboardChakra() {
   //   setSeries(newSeries);
   // };
   return (
-    <Flex flexDirection="column">
+    <Flex flexDirection="column" pt={{ base: "120px", md: "75px" }}>
       <SimpleGrid columns={{ sm: 1, md: 2, xl: 4 }} spacing="24px">
         <Card h="83px" py=".3rem" px="1.3rem">
           <Flex
@@ -421,7 +421,7 @@ export default function DashboardChakra() {
                       h={"30px"}
                       w={"30px"}
                       bg={iconTeal}
-                      mr="6px"
+                      me="6px"
                     >
                       <WalletIcon h={"15px"} w={"15px"} color={iconBoxInside} />
                     </IconBox>
@@ -452,7 +452,7 @@ export default function DashboardChakra() {
                       h={"30px"}
                       w={"30px"}
                       bg={iconTeal}
-                      mr="6px"
+                      me="6px"
                     >
                       <RocketIcon h={"15px"} w={"15px"} color={iconBoxInside} />
                     </IconBox>
@@ -483,7 +483,7 @@ export default function DashboardChakra() {
                       h={"30px"}
                       w={"30px"}
                       bg={iconTeal}
-                      mr="6px"
+                      me="6px"
                     >
                       <CartIcon h={"15px"} w={"15px"} color={iconBoxInside} />
                     </IconBox>
@@ -514,7 +514,7 @@ export default function DashboardChakra() {
                       h={"30px"}
                       w={"30px"}
                       bg={iconTeal}
-                      mr="6px"
+                      me="6px"
                     >
                       <StatsIcon h={"15px"} w={"15px"} color={iconBoxInside} />
                     </IconBox>
@@ -543,7 +543,7 @@ export default function DashboardChakra() {
           </CardBody>
         </Card>
         <Card p="28px 10px 16px 0px" mb={{ sm: "26px", lg: "0px" }}>
-          <CardHeader p="0px" mb="20px" pl="22px">
+          <CardHeader p="0px" mb="20px" ps="22px">
             <Flex direction="column" alignSelf="flex-start">
               <Text fontSize="lg" color={textColor} fontWeight="bold" mb="6px">
                 Sales Overview
@@ -556,7 +556,7 @@ export default function DashboardChakra() {
               </Text>
             </Flex>
           </CardHeader>
-          <Box w="100%" h={{ sm: "300px" }} pl="8px">
+          <Box w="100%" h={{ sm: "300px" }} ps="8px">
             <LineChart />
           </Box>
         </Card>
@@ -583,7 +583,7 @@ export default function DashboardChakra() {
                   color="teal.300"
                   w={4}
                   h={4}
-                  pr="3px"
+                  pe="3px"
                 />
                 <Text fontSize="sm" color="gray.400" fontWeight="normal">
                   <Text fontWeight="bold" as="span">
@@ -596,8 +596,8 @@ export default function DashboardChakra() {
           </CardHeader>
           <Table variant="simple" color={textColor}>
             <Thead>
-              <Tr my=".8rem" pl="0px">
-                <Th pl="0px" color="gray.400">
+              <Tr my=".8rem" ps="0px">
+                <Th ps="0px" color="gray.400">
                   Companies
                 </Th>
                 <Th color="gray.400">Members</Th>
@@ -639,7 +639,7 @@ export default function DashboardChakra() {
               </Text>
             </Flex>
           </CardHeader>
-          <CardBody pl="26px" pr="0px" mb="31px" position="relative">
+          <CardBody ps="26px" pe="0px" mb="31px" position="relative">
             <Flex direction="column">
               {timelineData.map((row, index, arr) => {
                 return (

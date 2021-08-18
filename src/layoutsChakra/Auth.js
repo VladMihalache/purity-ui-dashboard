@@ -48,6 +48,9 @@ export default function Pages(props) {
       if (prop.collapse) {
         return getRoutes(prop.views);
       }
+      if (prop.category === "account") {
+        return getRoutes(prop.views);
+      }
       if (prop.layout === "/auth") {
         return (
           <Route
@@ -103,12 +106,10 @@ export default function Pages(props) {
         </Portal>
         <Box overflowX="hidden" w="100%">
           <Box ref={wrapper} overflowX="hidden" w="100%">
-            
-              <Switch>
-                {getRoutes(routes)}
-                <Redirect from="/auth" to="/auth/login-page" />
-              </Switch>
-            
+            <Switch>
+              {getRoutes(routes)}
+              <Redirect from="/auth" to="/auth/login-page" />
+            </Switch>
           </Box>
         </Box>
         <Box px="24px" mx="auto" width="1044px" maxW="100%">

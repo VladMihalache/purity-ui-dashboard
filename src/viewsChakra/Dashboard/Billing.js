@@ -1,5 +1,14 @@
 import {
-    Box, Button, Flex, Grid, Icon, Image, Spacer, Text, useColorMode, useColorModeValue
+  Box,
+  Button,
+  Flex,
+  Grid,
+  Icon,
+  Image,
+  Spacer,
+  Text,
+  useColorMode,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import BackgroundCard1 from "assetsChakra/img/BackgroundCard1.png";
 import MasterCardIcon from "assetsChakra/img/Mastercard Icon.png";
@@ -13,16 +22,18 @@ import InvoicesRow from "componentsChakra/Other/InvoicesRow";
 import TranzactionRow from "componentsChakra/Other/TranzactionRow";
 import React from "react";
 import {
-    FaPaypal,
-    FaPencilAlt,
-    FaRegCalendarAlt, FaWallet
+  FaPaypal,
+  FaPencilAlt,
+  FaRegCalendarAlt,
+  FaWallet,
 } from "react-icons/fa";
 import { RiMastercardFill } from "react-icons/ri";
-import { billingData, invoicesData, newestTranzactions, olderTranzactions } from "variablesChakra/general";
-
-
-
-
+import {
+  billingData,
+  invoicesData,
+  newestTranzactions,
+  olderTranzactions,
+} from "variablesChakra/general";
 
 function Billing() {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -30,10 +41,13 @@ function Billing() {
   const iconBoxInside = useColorModeValue("white", "white");
   const textColor = useColorModeValue("gray.700", "white");
   const borderColor = useColorModeValue("#dee2e6", "gray.500");
-  const bgButton = useColorModeValue("linear-gradient(81.62deg, #313860 2.25%, #151928 79.87%)", "gray.800");
+  const bgButton = useColorModeValue(
+    "linear-gradient(81.62deg, #313860 2.25%, #151928 79.87%)",
+    "gray.800"
+  );
 
   return (
-    <Flex direction="column">
+    <Flex direction="column" pt={{ base: "120px", md: "75px" }}>
       <Grid templateColumns={{ sm: "1fr", lg: "2fr 1.2fr" }} templateRows="1fr">
         <Box>
           <Grid
@@ -81,7 +95,7 @@ function Billing() {
                       </Text>
                     </Box>
                     <Flex mt="14px">
-                      <Flex direction="column" mr="34px">
+                      <Flex direction="column" me="34px">
                         <Text fontSize="xs">VALID THRU</Text>
                         <Text fontSize="xs" fontWeight="bold">
                           05/24
@@ -123,7 +137,13 @@ function Billing() {
                     <Text fontSize="xs" color="gray.400" fontWeight="semibold">
                       Belong Interactive
                     </Text>
-                    <Box h="1px" bg="gray.600" w="70%" mb="12px" mt="24px"></Box>
+                    <Box
+                      h="1px"
+                      bg="gray.600"
+                      w="70%"
+                      mb="12px"
+                      mt="24px"
+                    ></Box>
                   </Flex>
                   <Text fontSize="lg" color={textColor} fontWeight="bold">
                     +$2000
@@ -161,7 +181,13 @@ function Billing() {
                     <Text fontSize="xs" color="gray.400" fontWeight="semibold">
                       Freelance Payment
                     </Text>
-                    <Box h="1px" bg="gray.600" w="70%" mb="12px" mt="24px"></Box>
+                    <Box
+                      h="1px"
+                      bg="gray.600"
+                      w="70%"
+                      mb="12px"
+                      mt="24px"
+                    ></Box>
                   </Flex>
                   <Text fontSize="lg" color={textColor} fontWeight="bold">
                     $455.00
@@ -175,11 +201,7 @@ function Billing() {
               <Text fontSize="lg" color={textColor} fontWeight="bold">
                 Payment Method
               </Text>
-              <Button
-                bg={bgButton}
-                color="white"
-                fontSize="xs"
-              >
+              <Button bg={bgButton} color="white" fontSize="xs">
                 ADD NEW CARD
               </Button>
             </Flex>
@@ -198,9 +220,9 @@ function Billing() {
                 borderColor={borderColor}
                 alignItems="center"
                 mb={{ sm: "24px", md: "0px" }}
-                mr={{ sm: "0px", md: "24px" }}
+                me={{ sm: "0px", md: "24px" }}
               >
-                <Image src={MasterCardIcon} w="20px" h="auto" mr="16px" />
+                <Image src={MasterCardIcon} w="20px" h="auto" me="16px" />
                 <Text color="gray.400" fontSize="md" fontWeight="semibold">
                   7812 2139 0823 XXXX
                 </Text>
@@ -218,7 +240,7 @@ function Billing() {
                 borderColor={borderColor}
                 alignItems="center"
               >
-                <Image src={VisaIcon} w="20px" h="auto" mr="16px" />
+                <Image src={VisaIcon} w="20px" h="auto" me="16px" />
                 <Text color="gray.400" fontSize="md" fontWeight="semibold">
                   7812 2139 0823 XXXX
                 </Text>
@@ -233,7 +255,7 @@ function Billing() {
         <Card
           p="22px"
           my={{ sm: "24px", lg: "0px" }}
-          ml={{ sm: "0px", lg: "24px" }}
+          ms={{ sm: "0px", lg: "24px" }}
         >
           <Flex justifyContent="space-between" alignItems="center" mb="1rem">
             <Text fontSize="lg" color={textColor} fontWeight="bold">
@@ -266,7 +288,7 @@ function Billing() {
         </Card>
       </Grid>
       <Grid templateColumns={{ sm: "1fr", lg: "1.6fr 1.2fr" }}>
-        <Card p="22px" my={{ lg: "24px" }} mr={{ lg: "24px" }}>
+        <Card p="22px" my={{ lg: "24px" }} me={{ lg: "24px" }}>
           <Flex direction="column">
             <CardHeader px="0px" py="12px">
               <Text color={textColor} fontSize="lg" fontWeight="bold">
@@ -287,7 +309,7 @@ function Billing() {
             </Flex>
           </Flex>
         </Card>
-        <Card p="22px" my="24px" ml={{ lg: "24px" }}>
+        <Card p="22px" my="24px" ms={{ lg: "24px" }}>
           <CardHeader p="0px" py="12px">
             <Flex direction="column" w="100%">
               <Flex
@@ -309,7 +331,7 @@ function Billing() {
                     as={FaRegCalendarAlt}
                     color="gray.400"
                     fontSize="md"
-                    mr="6px"
+                    me="6px"
                   ></Icon>
                   <Text color="gray.400" fontSize="sm" fontWeight="semibold">
                     23 - 30 March 2021

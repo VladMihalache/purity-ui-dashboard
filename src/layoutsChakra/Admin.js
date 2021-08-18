@@ -70,6 +70,11 @@ export default function Dashboard(props) {
         if (collapseActiveRoute !== activeRoute) {
           return collapseActiveRoute;
         }
+      } else if (routes[i].category) {
+        let categoryActiveRoute = getActiveRoute(routes[i].views);
+        if (categoryActiveRoute !== activeRoute) {
+          return categoryActiveRoute;
+        }
       } else {
         if (
           window.location.href.indexOf(routes[i].layout + routes[i].path) !== -1
@@ -83,6 +88,9 @@ export default function Dashboard(props) {
   const getRoutes = (routes) => {
     return routes.map((prop, key) => {
       if (prop.collapse) {
+        return getRoutes(prop.views);
+      }
+      if (prop.category === "account") {
         return getRoutes(prop.views);
       }
       if (prop.layout === "/admin") {
@@ -126,7 +134,6 @@ export default function Dashboard(props) {
         sidebarVariant={sidebarVariant}
       />
       <MainPanel
-        id="mainPanel"
         w={{
           base: "100%",
           xl: "calc(100% - 275px)",
@@ -145,7 +152,7 @@ export default function Dashboard(props) {
           />
         </Portal>
         {getRoute() ? (
-          <PanelContent pt="75px">
+          <PanelContent>
             <PanelContainer>
               <Switch>
                 {getRoutes(routes)}

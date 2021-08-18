@@ -104,7 +104,7 @@ function Profile() {
               textAlign={{ sm: "center", md: "start" }}
             >
               <Image
-                mr={{ md: "22px" }}
+                me={{ md: "22px" }}
                 src={avatar4}
                 w="80px"
                 h="80px"
@@ -115,7 +115,7 @@ function Profile() {
                   fontSize={{ sm: "lg", lg: "xl" }}
                   color={textColor}
                   fontWeight="bold"
-                  ml={{ sm: "8px", md: "0px" }}
+                  ms={{ sm: "8px", md: "0px" }}
                 >
                   Esthera Jackson
                 </Text>
@@ -144,7 +144,7 @@ function Profile() {
                   border="1px solid gray.200"
                   cursor="pointer"
                 >
-                  <Icon as={FaCube} mr="6px" />
+                  <Icon as={FaCube} me="6px" />
                   <Text fontSize="xs" color={textColor} fontWeight="bold">
                     OVERVIEW
                   </Text>
@@ -160,7 +160,7 @@ function Profile() {
                   mx={{ lg: "1rem" }}
                   cursor="pointer"
                 >
-                  <Icon as={IoDocumentsSharp} mr="6px" />
+                  <Icon as={IoDocumentsSharp} me="6px" />
                   <Text fontSize="xs" color={textColor} fontWeight="bold">
                     TEAMS
                   </Text>
@@ -175,7 +175,7 @@ function Profile() {
                   py="10px"
                   cursor="pointer"
                 >
-                  <Icon as={FaPenFancy} mr="6px" />
+                  <Icon as={FaPenFancy} me="6px" />
                   <Text fontSize="xs" color={textColor} fontWeight="bold">
                     PROJECTS
                   </Text>
@@ -198,7 +198,7 @@ function Profile() {
                 ACCOUNT
               </Text>
               <Flex alignItems="center" mb="20px">
-                <Switch colorScheme="teal" mr="10px" />
+                <Switch colorScheme="teal" me="10px" />
                 <Text
                   noOfLines={1}
                   fontSize="md"
@@ -209,7 +209,7 @@ function Profile() {
                 </Text>
               </Flex>
               <Flex alignItems="center" mb="20px">
-                <Switch colorScheme="teal" mr="10px" />
+                <Switch colorScheme="teal" me="10px" />
                 <Text
                   noOfLines={1}
                   fontSize="md"
@@ -220,7 +220,7 @@ function Profile() {
                 </Text>
               </Flex>
               <Flex alignItems="center" mb="20px">
-                <Switch colorScheme="teal" mr="10px" />
+                <Switch colorScheme="teal" me="10px" />
                 <Text
                   noOfLines={1}
                   fontSize="md"
@@ -239,7 +239,7 @@ function Profile() {
                 APPLICATION
               </Text>
               <Flex alignItems="center" mb="20px">
-                <Switch colorScheme="teal" mr="10px" />
+                <Switch colorScheme="teal" me="10px" />
                 <Text
                   noOfLines={1}
                   fontSize="md"
@@ -250,7 +250,7 @@ function Profile() {
                 </Text>
               </Flex>
               <Flex alignItems="center" mb="20px">
-                <Switch colorScheme="teal" mr="10px" />
+                <Switch colorScheme="teal" me="10px" />
                 <Text
                   noOfLines={1}
                   fontSize="md"
@@ -261,7 +261,7 @@ function Profile() {
                 </Text>
               </Flex>
               <Flex alignItems="center" mb="20px">
-                <Switch colorScheme="teal" mr="10px" />
+                <Switch colorScheme="teal" me="10px" />
                 <Text
                   noOfLines={1}
                   fontSize="md"
@@ -293,7 +293,7 @@ function Profile() {
                   fontSize="md"
                   color={textColor}
                   fontWeight="bold"
-                  mr="10px"
+                  me="10px"
                 >
                   Full Name:{" "}
                 </Text>
@@ -306,7 +306,7 @@ function Profile() {
                   fontSize="md"
                   color={textColor}
                   fontWeight="bold"
-                  mr="10px"
+                  me="10px"
                 >
                   Mobile:{" "}
                 </Text>
@@ -319,7 +319,7 @@ function Profile() {
                   fontSize="md"
                   color={textColor}
                   fontWeight="bold"
-                  mr="10px"
+                  me="10px"
                 >
                   Email:{" "}
                 </Text>
@@ -332,7 +332,7 @@ function Profile() {
                   fontSize="md"
                   color={textColor}
                   fontWeight="bold"
-                  mr="10px"
+                  me="10px"
                 >
                   Location:{" "}
                 </Text>
@@ -345,7 +345,7 @@ function Profile() {
                   fontSize="md"
                   color={textColor}
                   fontWeight="bold"
-                  mr="10px"
+                  me="10px"
                 >
                   Social Media:{" "}
                 </Text>
@@ -354,7 +354,7 @@ function Profile() {
                     href="#"
                     color="teal.300"
                     fontSize="lg"
-                    mr="10px"
+                    me="10px"
                     _hover={{ color: "teal.300" }}
                   >
                     <Icon as={FaFacebook} />
@@ -363,7 +363,7 @@ function Profile() {
                     href="#"
                     color="teal.300"
                     fontSize="lg"
-                    mr="10px"
+                    me="10px"
                     _hover={{ color: "teal.300" }}
                   >
                     <Icon as={FaInstagram} />
@@ -372,7 +372,7 @@ function Profile() {
                     href="#"
                     color="teal.300"
                     fontSize="lg"
-                    mr="10px"
+                    me="10px"
                     _hover={{ color: "teal.300" }}
                   >
                     <Icon as={FaTwitter} />
@@ -397,7 +397,7 @@ function Profile() {
                     w="50px"
                     h="50px"
                     borderRadius="15px"
-                    mr="10px"
+                    me="10px"
                   />
                   <Flex direction="column">
                     <Text fontSize="sm" color={textColor} fontWeight="bold">
@@ -426,7 +426,7 @@ function Profile() {
                     w="50px"
                     h="50px"
                     borderRadius="15px"
-                    mr="10px"
+                    me="10px"
                   />
                   <Flex direction="column">
                     <Text fontSize="sm" color={textColor} fontWeight="bold">
@@ -455,7 +455,7 @@ function Profile() {
                     w="50px"
                     h="50px"
                     borderRadius="15px"
-                    mr="10px"
+                    me="10px"
                   />
                   <Flex direction="column">
                     <Text fontSize="sm" color={textColor} fontWeight="bold">
@@ -484,7 +484,7 @@ function Profile() {
                     w="50px"
                     h="50px"
                     borderRadius="15px"
-                    mr="10px"
+                    me="10px"
                   />
                   <Flex direction="column">
                     <Text fontSize="sm" color={textColor} fontWeight="bold">
@@ -513,7 +513,7 @@ function Profile() {
                     w="50px"
                     h="50px"
                     borderRadius="15px"
-                    mr="10px"
+                    me="10px"
                   />
                   <Flex direction="column">
                     <Text fontSize="sm" color={textColor} fontWeight="bold">
