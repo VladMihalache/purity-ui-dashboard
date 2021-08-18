@@ -28,12 +28,6 @@ import Footer from "componentsChakra/Footer/Footer.js";
 
 import routes from "routes.js";
 
-// import register from "assets/img/register.jpeg";
-// import login from "assets/img/login.jpeg";
-// import lock from "assets/img/lock.jpeg";
-// import error from "assets/img/clint-mckoy.jpg";
-// import pricing from "assets/img/bg-pricing.jpeg";
-
 export default function Pages(props) {
   const { ...rest } = props;
   // ref for the wrapper div

@@ -7,32 +7,7 @@ import ProfileChakra from "viewsChakra/Dashboard/Profile.js";
 import SignInChakra from "viewsChakra/Pages/SignIn.js";
 import SignUpChakra from "viewsChakra/Pages/SignUp.js";
 
-import Buttons from "views/Components/Buttons.js";
-import Calendar from "views/Calendar/Calendar.js";
-import Charts from "views/Charts/Charts.js";
-import Dashboard from "views/Dashboard/Dashboard.js";
-import ErrorPage from "views/Pages/ErrorPage.js";
-import ExtendedForms from "views/Forms/ExtendedForms.js";
-import ExtendedTables from "views/Tables/ExtendedTables.js";
-import GridSystem from "views/Components/GridSystem.js";
-import Icons from "views/Components/Icons.js";
-import LockScreenPage from "views/Pages/LockScreenPage.js";
-import LoginPage from "views/Pages/LoginPage.js";
-import Notifications from "views/Components/Notifications.js";
-import Panels from "views/Components/Panels.js";
-import PricingPage from "views/Pages/PricingPage.js";
-import RTLSupport from "views/Pages/RTLSupport.js";
-import ReactTables from "views/Tables/ReactTables.js";
-import RegisterPage from "views/Pages/RegisterPage.js";
-import RegularForms from "views/Forms/RegularForms.js";
-import RegularTables from "views/Tables/RegularTables.js";
-import SweetAlert from "views/Components/SweetAlert.js";
-import TimelinePage from "views/Pages/Timeline.js";
-import Typography from "views/Components/Typography.js";
-import UserProfile from "views/Pages/UserProfile.js";
-import ValidationForms from "views/Forms/ValidationForms.js";
-import Widgets from "views/Widgets/Widgets.js";
-import Wizard from "views/Forms/Wizard.js";
+// import Dashboard from "viewsMaterial/Dashboard/Dashboard.js";
 
 import {
   HomeIcon,
@@ -45,14 +20,14 @@ import {
 } from "componentsChakra/Icons/Icons";
 
 var dashRoutes = [
-  {
-    path: "/dashboardMaterial",
-    name: "Dashboard",
-    rtlName: "لوحة القيادة",
-    icon: <HomeIcon color="inherit" />,
-    component: Dashboard,
-    layout: "/admin",
-  },
+  // {
+  //   path: "/dashboardMaterial",
+  //   name: "Dashboard",
+  //   rtlName: "لوحة القيادة",
+  //   icon: <HomeIcon color="inherit" />,
+  //   component: Dashboard,
+  //   layout: "/admin",
+  // },
   {
     path: "/dashboardchakra",
     name: "Dashboard",

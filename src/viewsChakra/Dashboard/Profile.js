@@ -23,9 +23,9 @@ import ImageArchitect1 from "assetsChakra/img/ImageArchitect1.png";
 import ImageArchitect2 from "assetsChakra/img/ImageArchitect2.png";
 import ImageArchitect3 from "assetsChakra/img/ImageArchitect3.png";
 import ProfileBgImage from "assetsChakra/img/ProfileBackground.png";
-import Card from "components/CardChakra/Card.js";
-import CardBody from "components/CardChakra/CardBody.js";
-import CardHeader from "components/CardChakra/CardHeader.js";
+import Card from "componentsChakra/Card/Card";
+import CardBody from "componentsChakra/Card/CardBody";
+import CardHeader from "componentsChakra/Card/CardHeader";
 import React from "react";
 import {
   FaCube,
