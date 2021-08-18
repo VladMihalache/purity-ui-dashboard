@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 // chakra imports
 import {
   Box,
@@ -6,6 +7,7 @@ import {
   Grid,
   Icon,
   Image,
+  Progress,
   SimpleGrid,
   Spacer,
   Table,
@@ -14,33 +16,34 @@ import {
   Th,
   Thead,
   Tr,
-  HStack,
-  Progress,
   useColorMode,
   useColorModeValue,
 } from "@chakra-ui/react";
-import peopleImage from "assets/img/people-image.png";
-import logoChakra from "assets/svg/logo-white.svg";
+// custom components
 import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
 import CardHeader from "components/Card/CardHeader.js";
+import BarChart from "components/Chart/BarChart";
+import LineChart from "components/Chart/LineChart";
 import IconBox from "components/Icons/IconBox";
+import DashboardTableRow from "components/Table/DashboardTableRow";
+import TimelineRow from "components/Table/TimelineRow";
+// custom icons
 import {
   CartIcon,
   DocumentIcon,
   GlobeIcon,
-  WalletIcon,
   RocketIcon,
   StatsIcon,
+  WalletIcon,
 } from "components/Icons/Icons.js";
-import DashboardTableRow from "components/Table/DashboardTableRow";
-import TimelineRow from "components/Table/TimelineRow";
-import React, { useState } from "react";
+// react icons
 import { BsArrowRight } from "react-icons/bs";
-import { IoCheckmarkDoneCircleSharp, IoRocket } from "react-icons/io5";
+import { IoCheckmarkDoneCircleSharp } from "react-icons/io5";
 import { dashboardTableData, timelineData } from "variables/general";
-import BarChart from "components/Chart/BarChart";
-import LineChart from "components/Chart/LineChart";
+// assets
+import peopleImage from "assets/img/people-image.png";
+import logoChakra from "assets/svg/logo-white.svg";
 
 export default function DashboardChakra() {
   const value = "$100.000";
