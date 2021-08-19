@@ -1,17 +1,17 @@
-import React from "react";
 import {
+  Button,
   Drawer,
   DrawerBody,
+  DrawerCloseButton,
+  DrawerContent,
   DrawerFooter,
   DrawerHeader,
-  DrawerContent,
-  DrawerCloseButton,
-  useDisclosure,
-  Button,
   Input,
   useColorModeValue,
+  useDisclosure,
 } from "@chakra-ui/react";
 import { SettingsIcon } from "components/Icons/Icons";
+import React from "react";
 
 export function SettingsBar() {
   const { isOpen, onOpen, onClose } = useDisclosure();

@@ -4,18 +4,16 @@ import {
   Flex,
   Grid,
   Icon,
-  Image,
   Spacer,
   Text,
-  useColorMode,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { MastercardIcon, VisaIcon } from "components/Icons/Icons";
 import BackgroundCard1 from "assets/img/BackgroundCard1.png";
 import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
 import CardHeader from "components/Card/CardHeader.js";
 import IconBox from "components/Icons/IconBox";
+import { MastercardIcon, VisaIcon } from "components/Icons/Icons";
 import BillingRow from "components/Other/BillingRow";
 import InvoicesRow from "components/Other/InvoicesRow";
 import TranzactionRow from "components/Other/TranzactionRow";
@@ -35,9 +33,7 @@ import {
 } from "variables/general";
 
 function Billing() {
-  const { colorMode, toggleColorMode } = useColorMode();
   const iconTeal = useColorModeValue("teal.300", "teal.300");
-  const iconBoxInside = useColorModeValue("white", "white");
   const textColor = useColorModeValue("gray.700", "white");
   const borderColor = useColorModeValue("#dee2e6", "gray.500");
   const bgButton = useColorModeValue(
@@ -63,7 +59,7 @@ function Billing() {
               backgroundRepeat="no-repeat"
               background="cover"
               bgPosition="10%"
-              h={{sm: "220px", xl: "100%"}}
+              h={{ sm: "220px", xl: "100%" }}
               p="1rem"
               gridArea={{ md: "1 / 1 / 2 / 3", xl: "1 / 1 / 2 / 3" }}
             >
@@ -200,7 +196,12 @@ function Billing() {
               <Text fontSize="lg" color={textColor} fontWeight="bold">
                 Payment Method
               </Text>
-              <Button bg={bgButton} color="white" fontSize="xs" variant="no-hover">
+              <Button
+                bg={bgButton}
+                color="white"
+                fontSize="xs"
+                variant="no-hover"
+              >
                 ADD NEW CARD
               </Button>
             </Flex>
@@ -222,13 +223,19 @@ function Billing() {
                 me={{ sm: "0px", md: "24px" }}
               >
                 <IconBox me="10px" w="25px" h="22px">
-                  <MastercardIcon w="100%" h="100%"/>
+                  <MastercardIcon w="100%" h="100%" />
                 </IconBox>
                 <Text color="gray.400" fontSize="md" fontWeight="semibold">
                   7812 2139 0823 XXXX
                 </Text>
                 <Spacer />
-                <Button p="0px" bg="transparent" w="16px" h="16px" variant="no-hover">
+                <Button
+                  p="0px"
+                  bg="transparent"
+                  w="16px"
+                  h="16px"
+                  variant="no-hover"
+                >
                   <Icon as={FaPencilAlt} />
                 </Button>
               </Flex>
@@ -242,13 +249,19 @@ function Billing() {
                 alignItems="center"
               >
                 <IconBox me="10px" w="25px" h="25px">
-                  <VisaIcon w="100%" h="100%"/>
+                  <VisaIcon w="100%" h="100%" />
                 </IconBox>
                 <Text color="gray.400" fontSize="md" fontWeight="semibold">
                   7812 2139 0823 XXXX
                 </Text>
                 <Spacer />
-                <Button p="0px" bg="transparent" w="16px" h="16px" variant="no-hover">
+                <Button
+                  p="0px"
+                  bg="transparent"
+                  w="16px"
+                  h="16px"
+                  variant="no-hover"
+                >
                   <Icon as={FaPencilAlt} />
                 </Button>
               </Flex>

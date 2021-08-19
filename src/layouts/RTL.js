@@ -1,22 +1,16 @@
-import React from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
-import cx from "classnames";
 // Chakra-UI imports
 import { ChakraProvider } from "@chakra-ui/react";
-// creates a beautiful scrollbar
-import PerfectScrollbar from "perfect-scrollbar";
-import "perfect-scrollbar/css/perfect-scrollbar.css";
-
+import Footer from "components/Footer/Footer.js";
+import MainPanel from "components/Layout/MainPanel";
+import PanelContainer from "components/Layout/PanelContainer";
+import PanelContent from "components/Layout/PanelContent";
 // @material-ui/core components
-
 // core components
 import AdminNavbar from "components/Navbars/AdminNavbar.js";
-import MainPanel from "components/Layout/MainPanel";
-import PanelContent from "components/Layout/PanelContent";
-import PanelContainer from "components/Layout/PanelContainer";
-import Footer from "components/Footer/Footer.js";
 import Sidebar from "components/Sidebar/Sidebar.js";
-
+import "perfect-scrollbar/css/perfect-scrollbar.css";
+import React from "react";
+import { Redirect, Route, Switch } from "react-router-dom";
 import routes from "routes.js";
 
 var ps;

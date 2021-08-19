@@ -1,13 +1,12 @@
-import React from "react";
-
+import { SearchIcon } from "@chakra-ui/icons";
 import {
   IconButton,
-  useColorModeValue,
   Input,
   InputGroup,
   InputLeftElement,
+  useColorModeValue,
 } from "@chakra-ui/react";
-import { SearchIcon } from "@chakra-ui/icons";
+import React from "react";
 
 export function SearchBar(props) {
   // Pass the computed styles into the `__css` prop

@@ -1,8 +1,8 @@
 /*eslint-disable*/
-import React from "react";
-import PropTypes from "prop-types";
 // chakra imports
-import { Flex, Link, Text, List, ListItem } from "@chakra-ui/react";
+import { Flex, Link, List, ListItem, Text } from "@chakra-ui/react";
+import PropTypes from "prop-types";
+import React from "react";
 
 export default function Footer(props) {
   // const linkTeal = useColorModeValue("teal.400", "red.200");

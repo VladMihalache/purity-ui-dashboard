@@ -85,6 +85,24 @@ export default function Dashboard(props) {
     }
     return activeRoute;
   };
+  const getActiveNavbar = (routes) => {
+    let activeRoute = "Default Brand Text";
+    for (let i = 0; i < routes.length; i++) {
+      if (routes[i].category) {
+        let categoryActiveRoute = getActiveRoute(routes[i].views);
+        if (categoryActiveRoute !== activeRoute) {
+          return categoryActiveRoute;
+        }
+      } else {
+        if (
+          window.location.href.indexOf(routes[i].layout + routes[i].path) !== -1
+        ) {
+          return routes[i].name;
+        }
+      }
+    }
+    return activeRoute;
+  };
   const getRoutes = (routes) => {
     return routes.map((prop, key) => {
       if (prop.collapse) {

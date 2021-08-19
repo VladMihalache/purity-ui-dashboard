@@ -1,31 +1,10 @@
-import React from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
 // chakra imports
-import {
-  ChakraProvider,
-  Button,
-  Flex,
-  Text,
-  Link,
-  Image,
-  Avatar,
-  Stack,
-  HStack,
-  VStack,
-  Box,
-  Accordion,
-  AccordionItem,
-  AccordionButton,
-  AccordionPanel,
-  AccordionIcon,
-  useColorModeValue,
-  Portal,
-} from "@chakra-ui/react";
-
+import { Box, ChakraProvider, Portal } from "@chakra-ui/react";
+import Footer from "components/Footer/Footer.js";
 // core components
 import AuthNavbar from "components/Navbars/AuthNavbar.js";
-import Footer from "components/Footer/Footer.js";
-
+import React from "react";
+import { Redirect, Route, Switch } from "react-router-dom";
 import routes from "routes.js";
 
 export default function Pages(props) {
@@ -58,39 +37,6 @@ export default function Pages(props) {
       }
     });
   };
-  // const getBgImage = () => {
-  //   if (window.location.pathname.indexOf("/auth/register-page") !== -1) {
-  //     return register;
-  //   } else if (window.location.pathname.indexOf("/auth/login-page") !== -1) {
-  //     return login;
-  //   } else if (window.location.pathname.indexOf("/auth/pricing-page") !== -1) {
-  //     return pricing;
-  //   } else if (
-  //     window.location.pathname.indexOf("/auth/lock-screen-page") !== -1
-  //   ) {
-  //     return lock;
-  //   } else if (window.location.pathname.indexOf("/auth/error-page") !== -1) {
-  //     return error;
-  //   }
-  // };
-  // const getActiveRoute = (routes) => {
-  //   let activeRoute = "Default Brand Text";
-  //   for (let i = 0; i < routes.length; i++) {
-  //     if (routes[i].collapse) {
-  //       let collapseActiveRoute = getActiveRoute(routes[i].views);
-  //       if (collapseActiveRoute !== activeRoute) {
-  //         return collapseActiveRoute;
-  //       }
-  //     } else {
-  //       if (
-  //         window.location.href.indexOf(routes[i].layout + routes[i].path) !== -1
-  //       ) {
-  //         return routes[i].name;
-  //       }
-  //     }
-  //   }
-  //   return activeRoute;
-  // };
   const navRef = React.useRef();
   return (
     <ChakraProvider resetCss={false} w="100%">

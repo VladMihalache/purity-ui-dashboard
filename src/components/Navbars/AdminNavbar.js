@@ -1,54 +1,23 @@
-import React, { useState, useEffect } from "react";
-// nodejs library to set properties for components
-import PropTypes from "prop-types";
-import cx from "classnames";
 // Chakra Imports
 import {
-  Button,
-  Link,
-  useColorModeValue,
   Box,
-  Flex,
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
-  BreadcrumbSeparator,
-  useDisclosure,
-  Input,
+  Flex,
+  Link,
+  useColorModeValue,
 } from "@chakra-ui/react";
-
-// @material-ui/core components
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
 import Hidden from "@material-ui/core/Hidden";
-
-// material-ui icons
-import Menu from "@material-ui/icons/Menu";
-import MoreVert from "@material-ui/icons/MoreVert";
-import ViewList from "@material-ui/icons/ViewList";
-
+// nodejs library to set properties for components
+import PropTypes from "prop-types";
+import React, { useState } from "react";
 // core components
 import AdminNavbarLinks from "./AdminNavbarLinks";
+
 // import Button from "components/CustomButtons/Button.js";
 
 export default function AdminNavbar(props) {
-  // const [y, setY] = useState(0);
-
-  // const handleNavigation = (e) => {
-  //   const window = e.currentTarget;
-  //   if (y > window.scrollY) {
-  //     console.log("scrolling up");
-  //   } else if (y < window.scrollY) {
-  //     console.log("scrolling down");
-  //   }
-  //   setY(window.scrollY);
-  // };
-
-  // useEffect(() => {
-  //   setY(window.scrollY);
-
-  //   window.addEventListener("scroll", (e) => handleNavigation(e));
-  // }, []);
   const [sidebarVariant, setSidebarVariant] = useState();
   const [fixed, setFixed] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -182,7 +151,6 @@ export default function AdminNavbar(props) {
               }
               onSwitch={(value) => {
                 setFixed(value);
-                console.log(value);
               }}
             />
           </Box>

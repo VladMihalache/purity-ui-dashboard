@@ -10,10 +10,8 @@ import {
   Link,
   Switch,
   Text,
-  useColorMode,
   useColorModeValue,
 } from "@chakra-ui/react";
-import avatar1 from "assets/avatars/avatar1.png";
 import avatar2 from "assets/avatars/avatar2.png";
 import avatar3 from "assets/avatars/avatar3.png";
 import avatar4 from "assets/avatars/avatar4.png";
@@ -38,9 +36,6 @@ import {
 import { IoDocumentsSharp } from "react-icons/io5";
 
 function Profile() {
-  const { colorMode, toggleColorMode } = useColorMode();
-  const iconTeal = useColorModeValue("teal.300", "teal.300");
-  const iconBoxInside = useColorModeValue("white", "white");
   const textColor = useColorModeValue("gray.700", "white");
   const bgProfile = useColorModeValue(
     "hsla(0,0%,100%,.8)",

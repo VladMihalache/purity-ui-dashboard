@@ -1,26 +1,16 @@
-import React from "react";
 import {
-  Flex,
-  Text,
-  Icon,
-  useColorModeValue,
   Box,
+  Flex,
+  Icon,
+  Text,
   useColorMode,
-  Spacer,
+  useColorModeValue,
 } from "@chakra-ui/react";
-import { FaTrashAlt, FaPencilAlt } from "react-icons/fa";
-import Card from "components/Card/Card.js";
-import CardHeader from "components/Card/CardHeader.js";
-import CardBody from "components/Card/CardBody.js";
+import React from "react";
 
 function TranzactionRow(props) {
-  const { colorMode, toggleColorMode } = useColorMode();
-  const iconTeal = useColorModeValue("teal.300", "teal.300");
-  const iconBoxInside = useColorModeValue("white", "white");
   const textColor = useColorModeValue("gray.700", "white");
   const { name, date, logo, price } = props;
-
-  console.log(logo.toString(), typeof logo);
 
   return (
     <Flex my="1rem" justifyContent="space-between">

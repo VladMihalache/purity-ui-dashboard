@@ -1,45 +1,16 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import cx from "classnames";
-import PropTypes from "prop-types";
-
 // @material-ui/core components
 import {
-  ChakraProvider,
   Button,
   Flex,
-  Text,
-  Link,
-  Image,
-  Avatar,
-  Stack,
-  HStack,
-  VStack,
-  Box,
-  Accordion,
-  AccordionItem,
-  AccordionButton,
-  AccordionPanel,
-  AccordionIcon,
-  useColorModeValue,
   useColorMode,
+  useColorModeValue,
 } from "@chakra-ui/react";
-import {
-  CartIcon,
-  DocumentIcon,
-  GlobeIcon,
-  WalletIcon,
-} from "components/Icons/Icons.js";
-import Hidden from "@material-ui/core/Hidden";
 import Drawer from "@material-ui/core/Drawer";
-
-// @material-ui/icons
-import Dashboard from "@material-ui/icons/Dashboard";
+import Hidden from "@material-ui/core/Hidden";
 import Menu from "@material-ui/icons/Menu";
-import PersonAdd from "@material-ui/icons/PersonAdd";
-import Fingerprint from "@material-ui/icons/Fingerprint";
-import LockOpen from "@material-ui/icons/LockOpen";
-import MonetizationOn from "@material-ui/icons/MonetizationOn";
+import PropTypes from "prop-types";
+import React from "react";
+import { NavLink } from "react-router-dom";
 
 export default function AuthNavbar(props) {
   const [open, setOpen] = React.useState(false);
@@ -78,7 +49,6 @@ export default function AuthNavbar(props) {
     "none",
     "drop-shadow(0px 7px 23px rgba(0, 0, 0, 0.05))"
   );
-  const ref = React.useRef();
   return (
     <Flex
       position="fixed"

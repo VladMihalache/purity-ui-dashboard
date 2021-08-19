@@ -1,16 +1,16 @@
-import React from "react";
 import {
   Button,
   Flex,
-  Heading,
-  Input,
-  useColorModeValue,
-  Text,
   FormControl,
   FormLabel,
+  Heading,
+  Input,
   Link,
   Switch,
+  Text,
+  useColorModeValue,
 } from "@chakra-ui/react";
+import React from "react";
 
 export default function Auth() {
   const titleColor = useColorModeValue("teal.500", "teal.200");

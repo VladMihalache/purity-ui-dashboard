@@ -6,7 +6,6 @@ import {
   Th,
   Thead,
   Tr,
-  useColorMode,
   useColorModeValue,
 } from "@chakra-ui/react";
 import Card from "components/Card/Card.js";
@@ -17,9 +16,6 @@ import React from "react";
 import { tablesProjectData, tablesTableData } from "variables/general";
 
 function Tables() {
-  const { colorMode, toggleColorMode } = useColorMode();
-  const iconTeal = useColorModeValue("teal.300", "teal.300");
-  const iconBoxInside = useColorModeValue("white", "white");
   const textColor = useColorModeValue("gray.700", "white");
 
   return (

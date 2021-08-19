@@ -65,70 +65,6 @@ export default function DashboardChakra() {
     },
   ]);
 
-  // const [data, setData] = useState([
-  //   {
-  //     data: [
-  //       {
-  //         x: "Jan",
-  //         y: [0, 75],
-  //       },
-  //       {
-  //         x: "Feb",
-  //         y: [0, 96],
-  //       },
-  //       {
-  //         x: "Mar",
-  //         y: [0, 200],
-  //       },
-  //       {
-  //         x: "Apr",
-  //         y: [0, 112],
-  //       },
-  //       {
-  //         x: "May",
-  //         y: [0, 53],
-  //       },
-  //       {
-  //         x: "Jun",
-  //         y: [0, 67],
-  //       },
-  //       {
-  //         x: "Jul",
-  //         y: [0, 108],
-  //       },
-  //       {
-  //         x: "Aug",
-  //         y: [0, 122],
-  //       },
-  //       {
-  //         x: "Sep",
-  //         y: [0, 74],
-  //       },
-  //       {
-  //         x: "Oct",
-  //         y: [0, 60],
-  //       },
-  //       {
-  //         x: "Nov",
-  //         y: [0, 81],
-  //       },
-  //       {
-  //         x: "Dec",
-  //         y: [0, 225],
-  //       },
-  //     ],
-  //   },
-  // ]);
-  // const GenerateSeries = () => {
-  //   const newSeries = [];
-  //   series.map((s) => {
-  //     const data = s.data.map(() => {
-  //       return Math.round(Math.random() * (180 - Math.exp(Math.random())));
-  //     });
-  //     newSeries.push({ data, name: s.name });
-  //   });
-  //   setSeries(newSeries);
-  // };
   return (
     <Flex flexDirection="column" pt={{ base: "120px", md: "75px" }}>
       <SimpleGrid columns={{ sm: 1, md: 2, xl: 4 }} spacing="24px">
@@ -288,7 +224,12 @@ export default function DashboardChakra() {
               </Text>
               <Spacer />
               <Flex align="center">
-                <Button p="0px" variant="no-hover" bg="transparent" my={{ sm: "1.5rem" }}>
+                <Button
+                  p="0px"
+                  variant="no-hover"
+                  bg="transparent"
+                  my={{ sm: "1.5rem" }}
+                >
                   <Text
                     fontSize="sm"
                     color={textColor}
@@ -296,7 +237,7 @@ export default function DashboardChakra() {
                     cursor="pointer"
                     transition="all .5s ease"
                     my={{ sm: "1.5rem" }}
-                    _hover={{ mr: "4px"}}
+                    _hover={{ mr: "4px" }}
                   >
                     Read more
                   </Text>
@@ -310,7 +251,6 @@ export default function DashboardChakra() {
                     cursor="pointer"
                     pt="4px"
                     _hover={{ transform: "translateX(20%)" }}
-                    
                   />
                 </Button>
               </Flex>
@@ -368,7 +308,12 @@ export default function DashboardChakra() {
               <Spacer />
               <Flex align="center">
                 <Button p="0px" variant="no-hover" bg="transparent" mt="12px">
-                  <Text fontSize="sm" fontWeight="bold" _hover={{mr: "4px"}} transition="all .5s ease">
+                  <Text
+                    fontSize="sm"
+                    fontWeight="bold"
+                    _hover={{ mr: "4px" }}
+                    transition="all .5s ease"
+                  >
                     Read more
                   </Text>
                   <Icon

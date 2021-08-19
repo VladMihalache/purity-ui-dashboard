@@ -1,16 +1,13 @@
-import React, { useState } from "react";
 // Chakra Icons
 import { BellIcon, SearchIcon } from "@chakra-ui/icons";
-import { NavLink, useLocation } from "react-router-dom";
-import routes from "routes.js";
 // Chakra Imports
 import {
+  Box,
   Button,
   Drawer,
   DrawerBody,
   DrawerCloseButton,
   DrawerContent,
-  DrawerFooter,
   DrawerHeader,
   Flex,
   IconButton,
@@ -21,22 +18,22 @@ import {
   MenuButton,
   MenuItem,
   MenuList,
+  Switch,
+  Text,
   useColorModeValue,
   useDisclosure,
-  Text,
-  Switch,
-  Box,
 } from "@chakra-ui/react";
-import { SidebarResponsive } from "components/Sidebar/Sidebar";
 import avatar1 from "assets/img/faces/avatars/avatar1.png";
 import avatar2 from "assets/img/faces/avatars/avatar2.png";
 import avatar3 from "assets/img/faces/avatars/avatar3.png";
 // Custom Icons
 import { ProfileIcon, SettingsIcon } from "components/Icons/Icons";
 import { ItemContent } from "components/Menu/ItemContent";
-import PropTypes from "prop-types";
-import { MicNone } from "@material-ui/icons";
 import { Separator } from "components/Separator/Separator";
+import { SidebarResponsive } from "components/Sidebar/Sidebar";
+import PropTypes from "prop-types";
+import React, { useState } from "react";
+import routes from "routes.js";
 
 export default function HeaderLinks(props) {
   const {
