@@ -288,13 +288,15 @@ export default function DashboardChakra() {
               </Text>
               <Spacer />
               <Flex align="center">
-                <Button p="0px" bg="transparent" my={{ sm: "1.5rem" }}>
+                <Button p="0px" variant="no-hover" bg="transparent" my={{ sm: "1.5rem" }}>
                   <Text
                     fontSize="sm"
                     color={textColor}
                     fontWeight="bold"
                     cursor="pointer"
+                    transition="all .5s ease"
                     my={{ sm: "1.5rem" }}
+                    _hover={{ mr: "4px"}}
                   >
                     Read more
                   </Text>
@@ -302,12 +304,13 @@ export default function DashboardChakra() {
                     as={BsArrowRight}
                     w="20px"
                     h="20px"
-                    fontSize="xl"
+                    fontSize="2xl"
                     transition="all .5s ease"
-                    mx=".5rem"
+                    mx=".3rem"
                     cursor="pointer"
+                    pt="4px"
                     _hover={{ transform: "translateX(20%)" }}
-                    transform="translateY(10%)"
+                    
                   />
                 </Button>
               </Flex>
@@ -364,8 +367,8 @@ export default function DashboardChakra() {
               </Text>
               <Spacer />
               <Flex align="center">
-                <Button p="0px" bg="transparent" mt="12px">
-                  <Text fontSize="sm" fontWeight="bold">
+                <Button p="0px" variant="no-hover" bg="transparent" mt="12px">
+                  <Text fontSize="sm" fontWeight="bold" _hover={{mr: "4px"}} transition="all .5s ease">
                     Read more
                   </Text>
                   <Icon
@@ -374,10 +377,10 @@ export default function DashboardChakra() {
                     h="20px"
                     fontSize="xl"
                     transition="all .5s ease"
-                    mx=".5rem"
+                    mx=".3rem"
                     cursor="pointer"
                     _hover={{ transform: "translateX(20%)" }}
-                    transform="translateY(10%)"
+                    pt="4px"
                   />
                 </Button>
               </Flex>
@@ -546,7 +549,7 @@ export default function DashboardChakra() {
           </CardBody>
         </Card>
         <Card p="28px 10px 16px 0px" mb={{ sm: "26px", lg: "0px" }}>
-          <CardHeader p="0px" mb="20px" ps="22px">
+          <CardHeader p="0px" mb="20px" pl="22px">
             <Flex direction="column" alignSelf="flex-start">
               <Text fontSize="lg" color={textColor} fontWeight="bold" mb="6px">
                 Sales Overview

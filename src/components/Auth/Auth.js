@@ -20,10 +20,13 @@ export default function Auth() {
       alignItems="center"
       justifyContent="center"
       style={{ userSelect: "none" }}
+      w="1044px"
+      mx="auto"
     >
       <Flex
         direction="column"
-        width="445px"
+        w="445px"
+        maxW="100%"
         background="transparent"
         p={12}
         rounded={6}
