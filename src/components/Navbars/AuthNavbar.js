@@ -36,6 +36,7 @@ export default function AuthNavbar(props) {
       <NavLink to={"/auth/signUp"}></NavLink>
     </Flex>
   );
+  const navbarIcon = useColorModeValue("gray.700", "gray.200");
   const { colorMode, toggleColorMode } = useColorMode();
   const mainText = useColorModeValue("gray.700", "gray.200");
   const navbarBg = useColorModeValue(
