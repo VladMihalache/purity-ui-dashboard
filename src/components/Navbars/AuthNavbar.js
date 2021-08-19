@@ -2,8 +2,10 @@
 import {
   Button,
   Flex,
+  Box,
   useColorMode,
   useColorModeValue,
+  Link,
 } from "@chakra-ui/react";
 import Drawer from "@material-ui/core/Drawer";
 import Hidden from "@material-ui/core/Hidden";
@@ -11,12 +13,14 @@ import Menu from "@material-ui/icons/Menu";
 import PropTypes from "prop-types";
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { DashboardLogo } from "components/Icons/Icons";
 
 export default function AuthNavbar(props) {
   const [open, setOpen] = React.useState(false);
   const handleDrawerToggle = () => {
     setOpen(!open);
   };
+  const { logo, logoText, routes, rtlActive, sidebarVariant } = props;
   // verifies if routeName is the one active (in browser input)
   const activeRoute = (routeName) => {
     return window.location.href.indexOf(routeName) > -1 ? true : false;
@@ -33,6 +37,7 @@ export default function AuthNavbar(props) {
     </Flex>
   );
   const { colorMode, toggleColorMode } = useColorMode();
+  const mainText = useColorModeValue("gray.700", "gray.200");
   const navbarBg = useColorModeValue(
     "linear-gradient(112.83deg, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0.8) 110.84%)",
     "linear-gradient(112.83deg, rgba(255, 255, 255, 0.21) 0%, rgba(255, 255, 255, 0) 110.84%)"
@@ -66,8 +71,24 @@ export default function AuthNavbar(props) {
       mx="auto"
       width="1044px"
       maxW="100%"
+      alignItems="center"
     >
       <Flex>
+        <Flex justifyContent="center" alignItems="center">
+          <DashboardLogo w="83.5px" h="21.5px" />
+          <Box w="1px" h="18px" mx="10px" backgroundColor={mainText}></Box>
+          <Link
+            href="https://chakra-ui.com/"
+            target="_blank"
+            color={mainText}
+            lineHeight="100%"
+            mt="2px"
+            fontWeight="bold"
+            fontSize="11px"
+          >
+            {logoText}
+          </Link>
+        </Flex>
         <Button onClick={toggleColorMode}>
           Toggle {colorMode === "light" ? "Dark" : "Light"}
         </Button>
