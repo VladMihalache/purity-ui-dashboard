@@ -19,7 +19,7 @@ import {
 
 var dashRoutes = [
   {
-    path: "/dashboardchakra",
+    path: "/dashboard",
     name: "Dashboard",
     rtlName: "لوحة القيادة",
     icon: <HomeIcon color="inherit" />,
@@ -27,7 +27,7 @@ var dashRoutes = [
     layout: "/admin",
   },
   {
-    path: "/tableschakra",
+    path: "/tables",
     name: "Tables",
     rtlName: "لوحة القيادة",
     icon: <StatsIcon color="inherit" />,
@@ -35,7 +35,7 @@ var dashRoutes = [
     layout: "/admin",
   },
   {
-    path: "/billingchakra",
+    path: "/billing",
     name: "Billing",
     rtlName: "لوحة القيادة",
     icon: <CreditIcon color="inherit" />,
@@ -43,7 +43,7 @@ var dashRoutes = [
     layout: "/admin",
   },
   {
-    path: "/rtl-support-page-chakra",
+    path: "/rtl-page",
     name: "RTL Support",
     rtlName: "صودعم رتل",
     icon: <SupportIcon color="inherit" />,
@@ -57,7 +57,7 @@ var dashRoutes = [
     state: "pageCollapse",
     views: [
       {
-        path: "/profilechakra",
+        path: "/profile",
         name: "Profile",
         rtlName: "لوحة القيادة",
         icon: <PersonIcon color="inherit" />,
@@ -66,7 +66,7 @@ var dashRoutes = [
         layout: "/admin",
       },
       {
-        path: "/signinchakra",
+        path: "/signin",
         name: "Sign In",
         rtlName: "لوحة القيادة",
         icon: <DocumentIcon color="inherit" />,
@@ -74,7 +74,7 @@ var dashRoutes = [
         layout: "/auth",
       },
       {
-        path: "/signUpchakra",
+        path: "/signUp",
         name: "Sign Up",
         rtlName: "لوحة القيادة",
         icon: <RocketIcon color="inherit" />,

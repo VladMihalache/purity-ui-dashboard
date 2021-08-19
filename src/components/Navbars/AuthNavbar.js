@@ -1,39 +1,104 @@
 // @material-ui/core components
 import {
+  Box,
   Button,
   Flex,
-  Box,
+  Link,
+  Text,
   useColorMode,
   useColorModeValue,
-  Link,
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+  AccordionIcon,
 } from "@chakra-ui/react";
-import Drawer from "@material-ui/core/Drawer";
-import Hidden from "@material-ui/core/Hidden";
-import Menu from "@material-ui/icons/Menu";
+import {
+  HomeIcon,
+  PersonIcon,
+  DocumentIcon,
+  RocketIcon,
+  DashboardLogo,
+} from "components/Icons/Icons";
+import { SidebarResponsive } from "components/Sidebar/Sidebar";
 import PropTypes from "prop-types";
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { DashboardLogo } from "components/Icons/Icons";
-
+import routes from "routes.js";
 export default function AuthNavbar(props) {
   const [open, setOpen] = React.useState(false);
   const handleDrawerToggle = () => {
     setOpen(!open);
   };
-  const { logo, logoText, routes, rtlActive, sidebarVariant } = props;
+  const { logo, logoText, rtlActive, sidebarVariant, ...rest } = props;
   // verifies if routeName is the one active (in browser input)
   const activeRoute = (routeName) => {
     return window.location.href.indexOf(routeName) > -1 ? true : false;
   };
   const { color, brandText } = props;
-  var list = (
-    <Flex>
-      <NavLink to={"/admin/dashboard"}>
-        <Button></Button>
+  var linksAuth = (
+    <Flex display={{ sm: "none", lg: "flex" }}>
+      <NavLink to="/admin/dashboard">
+        <Button
+          fontSize="sm"
+          ms="0px"
+          me="0px"
+          px="0px"
+          me={{ sm: "2px", md: "16px" }}
+          color={navbarIcon}
+          variant="transparent-with-icon"
+          leftIcon={<HomeIcon color={navbarIcon} w="12px" h="12px" me="0px" />}
+        >
+          <Text>Dashboard</Text>
+        </Button>
       </NavLink>
-      <NavLink to={"/auth/profile"}></NavLink>
-      <NavLink to={"/auth/signIn"}></NavLink>
-      <NavLink to={"/auth/signUp"}></NavLink>
+      <NavLink to="/admin/profile">
+        <Button
+          fontSize="sm"
+          ms="0px"
+          me="0px"
+          px="0px"
+          me={{ sm: "2px", md: "16px" }}
+          color={navbarIcon}
+          variant="transparent-with-icon"
+          leftIcon={
+            <PersonIcon color={navbarIcon} w="12px" h="12px" me="0px" />
+          }
+        >
+          <Text>Profile</Text>
+        </Button>
+      </NavLink>
+      <NavLink to="/auth/signup">
+        <Button
+          fontSize="sm"
+          ms="0px"
+          me="0px"
+          px="0px"
+          me={{ sm: "2px", md: "16px" }}
+          color={navbarIcon}
+          variant="transparent-with-icon"
+          leftIcon={
+            <RocketIcon color={navbarIcon} w="12px" h="12px" me="0px" />
+          }
+        >
+          <Text>Sign Up</Text>
+        </Button>
+      </NavLink>
+      <NavLink to="/auth/signin">
+        <Button
+          fontSize="sm"
+          ms="0px"
+          px="0px"
+          me={{ sm: "2px", md: "16px" }}
+          color={navbarIcon}
+          variant="transparent-with-icon"
+          leftIcon={
+            <DocumentIcon color={navbarIcon} w="12px" h="12px" me="0px" />
+          }
+        >
+          <Text>Sign In</Text>
+        </Button>
+      </NavLink>
     </Flex>
   );
   const navbarIcon = useColorModeValue("gray.700", "gray.200");
@@ -55,6 +120,10 @@ export default function AuthNavbar(props) {
     "none",
     "drop-shadow(0px 7px 23px rgba(0, 0, 0, 0.05))"
   );
+  const bgButton = useColorModeValue(
+    "linear-gradient(81.62deg, #313860 2.25%, #151928 79.87%)",
+    "gray.800"
+  );
   return (
     <Flex
       position="fixed"
@@ -68,13 +137,13 @@ export default function AuthNavbar(props) {
       backdropFilter="blur(21px)"
       borderRadius="70px"
       px="16px"
-      py="8px"
+      py="22px"
       mx="auto"
       width="1044px"
-      maxW="100%"
+      maxW="90%"
       alignItems="center"
     >
-      <Flex>
+      <Flex w="100%" justifyContent="space-between">
         <Flex justifyContent="center" alignItems="center">
           <DashboardLogo w="83.5px" h="21.5px" />
           <Box w="1px" h="18px" mx="10px" backgroundColor={mainText}></Box>
@@ -90,8 +159,27 @@ export default function AuthNavbar(props) {
             {logoText}
           </Link>
         </Flex>
-        <Button onClick={toggleColorMode}>
-          Toggle {colorMode === "light" ? "Dark" : "Light"}
+        <SidebarResponsive
+          logoText={props.logoText}
+          secondary={props.secondary}
+          routes={routes}
+          // logo={logo}
+          {...rest}
+        />
+        {linksAuth}
+        <Button
+          bg={bgButton}
+          color="white"
+          fontSize="xs"
+          variant="no-hover"
+          borderRadius="35px"
+          px="30px"
+          display={{
+            sm: "none",
+            lg: "flex",
+          }}
+        >
+          FREE DOWNLOAD
         </Button>
       </Flex>
     </Flex>

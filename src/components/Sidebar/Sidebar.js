@@ -501,6 +501,8 @@ export function SidebarResponsive(props) {
         <DashboardLogo w="83.5px" h="21.5px" />
         <Box w="1px" h="18px" mx="10px" backgroundColor={mainText}></Box>
         <Link
+          _focus={{ boxShadow: "none" }}
+          _hover={{ boxShadow: "none" }}
           href="https://chakra-ui.com/"
           target="_blank"
           color={mainText}
@@ -551,7 +553,10 @@ export function SidebarResponsive(props) {
               }}
               borderRadius="16px"
             >
-              <DrawerCloseButton />
+              <DrawerCloseButton
+                _focus={{ boxShadow: "none" }}
+                _hover={{ boxShadow: "none" }}
+              />
               <DrawerBody maxW="250px" px="1rem">
                 <Box maxW="100%" h="100vh">
                   <Box>{brand}</Box>

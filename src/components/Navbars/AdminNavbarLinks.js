@@ -115,28 +115,16 @@ export default function HeaderLinks(props) {
         ms="0px"
         px="0px"
         me={{ sm: "2px", md: "16px" }}
-        bg="transparent"
         color={navbarIcon}
-        fontWeight="bold"
-        borderRadius="inherit"
-        cursor="pointer"
-        _hover="none"
-        _active={{
-          bg: "transparent",
-          transform: "none",
-          borderColor: "transparent",
-        }}
-        _focus={{
-          boxShadow: "none",
-        }}
+        variant="transparent-with-icon"
         leftIcon={<ProfileIcon color={navbarIcon} w="22px" h="22px" me="0px" />}
       >
         <Text display={{ sm: "none", md: "flex" }}>Sign In</Text>
       </Button>
       <SidebarResponsive
-        routes={routes}
         logoText={props.logoText}
         secondary={props.secondary}
+        routes={routes}
         // logo={logo}
         {...rest}
       />
