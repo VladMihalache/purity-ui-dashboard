@@ -92,44 +92,6 @@ export default function AuthNavbar(props) {
         <Button onClick={toggleColorMode}>
           Toggle {colorMode === "light" ? "Dark" : "Light"}
         </Button>
-        <Hidden smDown>
-          <div>
-            <Button href="#" color="transparent">
-              {brandText}
-            </Button>
-          </div>
-        </Hidden>
-        <Hidden mdUp>
-          <div>
-            <Button href="#" color="transparent">
-              MD Pro React
-            </Button>
-          </div>
-        </Hidden>
-        <Hidden smDown>{list}</Hidden>
-        <Hidden mdUp>
-          <Button
-            color="transparent"
-            justIcon
-            aria-label="open drawer"
-            onClick={handleDrawerToggle}
-          >
-            <Menu />
-          </Button>
-        </Hidden>
-        <Hidden mdUp>
-          <Hidden mdUp>
-            <Drawer
-              variant="temporary"
-              anchor={"right"}
-              open={open}
-              onClose={handleDrawerToggle}
-              ModalProps={{
-                keepMounted: true, // Better open performance on mobile.
-              }}
-            ></Drawer>
-          </Hidden>
-        </Hidden>
       </Flex>
     </Flex>
   );

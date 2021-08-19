@@ -14,9 +14,9 @@ import CardBody from "components/Card/CardBody.js";
 import CardHeader from "components/Card/CardHeader.js";
 import IconBox from "components/Icons/IconBox";
 import { MastercardIcon, VisaIcon } from "components/Icons/Icons";
-import BillingRow from "components/Other/BillingRow";
-import InvoicesRow from "components/Other/InvoicesRow";
-import TranzactionRow from "components/Other/TranzactionRow";
+import BillingRow from "components/Tables/BillingRow";
+import InvoicesRow from "components/Tables/InvoicesRow";
+import TranzactionRow from "components/Tables/TranzactionRow";
 import React from "react";
 import {
   FaPaypal,

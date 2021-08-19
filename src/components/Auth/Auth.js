@@ -28,13 +28,20 @@ export default function Auth() {
         w="445px"
         maxW="100%"
         background="transparent"
-        p={12}
-        rounded={6}
+        p="48px"
+        rounded="24px"
+        mb="44px"
       >
         <Heading color={titleColor} fontSize="32px">
           Welcome Back
         </Heading>
-        <Text mb={6} ms={1} color={textColor} fontWeight="bold" fontSize="14px">
+        <Text
+          mb="24px"
+          ms="4px"
+          color={textColor}
+          fontWeight="bold"
+          fontSize="14px"
+        >
           Enter your email and password to sign in
         </Text>
         <FormControl>
@@ -42,19 +49,19 @@ export default function Auth() {
           <Input
             type="email"
             placeholder="Your email address"
-            mb={4}
+            mb="16px"
             size="lg"
           />
           <FormLabel fontWeight="normal">Password</FormLabel>
-          <Input type="password" placeholder="Your password" mb={6} size="lg" />
+          <Input
+            type="password"
+            placeholder="Your password"
+            mb="24px"
+            size="lg"
+          />
           <FormControl display="flex" alignItems="center">
             <Switch id="remember-login" colorScheme="teal" />
-            <FormLabel
-              htmlFor="remember-login"
-              mb="0"
-              ms="1"
-              fontWeight="normal"
-            >
+            <FormLabel htmlFor="remember-login" fontWeight="normal">
               Remember me
             </FormLabel>
           </FormControl>
@@ -62,9 +69,9 @@ export default function Auth() {
             type="submit"
             colorScheme="teal"
             w="100%"
-            h="45"
-            mt={5}
-            mb={5}
+            h="45px"
+            mt="20px"
+            mb="20px"
           >
             Sign In
           </Button>
@@ -74,7 +81,7 @@ export default function Auth() {
           justifyContent="center"
           alignItems="center"
           maxWidth="100%"
-          mt={0}
+          mt="0px"
         >
           <Text color={textColor} fontWeight="medium">
             Don't have an account?

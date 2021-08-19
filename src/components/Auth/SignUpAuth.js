@@ -116,12 +116,12 @@ export default function SignUpAuth() {
         </Text>
         <FormControl>
           <FormLabel fontWeight="normal">Name</FormLabel>
-          <Input type="text" placeholder="Your full name" mb={4} size="lg" />
+          <Input type="text" placeholder="Your full name" mb="16px" size="lg" />
           <FormLabel fontWeight="normal">Email</FormLabel>
           <Input
             type="email"
             placeholder="Your email address"
-            mb={4}
+            mb="16px"
             size="lg"
           />
           <FormLabel fontWeight="normal">Password</FormLabel>
@@ -137,7 +137,15 @@ export default function SignUpAuth() {
               Remember me
             </FormLabel>
           </FormControl>
-          <Button type="submit" bg="teal.300" w="100%" h="45" mb={5} _hover="teal.300" color="white">
+          <Button
+            type="submit"
+            bg="teal.300"
+            w="100%"
+            h="45"
+            mb="20px"
+            _hover="teal.300"
+            color="white"
+          >
             Sign Up
           </Button>
         </FormControl>
@@ -146,7 +154,7 @@ export default function SignUpAuth() {
           justifyContent="center"
           alignItems="center"
           maxWidth="100%"
-          mt={0}
+          mt="0px"
         >
           <Text color={textColor} fontWeight="medium">
             Already have an account?

@@ -9,7 +9,7 @@ import {
   Input,
   useDisclosure,
 } from "@chakra-ui/react";
-import theme from "../theme/theme";
+import theme from "theme/theme.js";
 // creates a beautiful scrollbar
 import PerfectScrollbar from "perfect-scrollbar";
 import "perfect-scrollbar/css/perfect-scrollbar.css";

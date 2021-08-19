@@ -10,6 +10,7 @@ import AdminNavbar from "components/Navbars/AdminNavbar.js";
 import Sidebar from "components/Sidebar/Sidebar.js";
 import "perfect-scrollbar/css/perfect-scrollbar.css";
 import React from "react";
+import theme from "theme/theme.js";
 import { Redirect, Route, Switch } from "react-router-dom";
 import routes from "routes.js";
 
@@ -93,7 +94,7 @@ export default function RTL(props) {
     }
   };
   return (
-    <ChakraProvider>
+    <ChakraProvider theme={theme} resetCss={false}>
       <Sidebar
         routes={routes}
         logoText={"توقيت الإبداعية"}
