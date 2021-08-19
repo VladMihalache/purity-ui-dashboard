@@ -50,8 +50,7 @@ function Profile() {
   return (
     <Flex direction="column">
       <Box
-        h="350px"
-        mb={{ sm: "175px", md: "75px", xl: "60px" }}
+        mb={{ sm: "205px", md: "75px", xl: "70px" }}
         borderRadius="15px"
         px="0px"
         display="flex"
@@ -86,7 +85,7 @@ function Profile() {
             p="24px"
             borderRadius="20px"
             transform={{
-              sm: "translateY(35%)",
+              sm: "translateY(45%)",
               md: "translateY(110%)",
               lg: "translateY(160%)",
             }}

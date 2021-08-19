@@ -348,7 +348,7 @@ export function SidebarResponsive(props) {
   };
   // this function creates the links and collapses that appear in the sidebar (left menu)
   const createLinks = (routes) => {
-    const { rtlActive } = props;
+    const { rtlActive, secondary } = props;
     // Chakra Color Mode
     const activeBg = useColorModeValue("white", "gray.700");
     const inactiveBg = useColorModeValue("white", "gray.700");
@@ -491,7 +491,10 @@ export function SidebarResponsive(props) {
   //  BRAND
   //  Chakra Color Mode
   const mainText = useColorModeValue("gray.700", "gray.200");
-  const navbarIcon = useColorModeValue("gray.500", "gray.200");
+  let hamburgerColor = useColorModeValue("gray.500", "gray.200");
+  if (props.secondary === true) {
+    hamburgerColor = "white";
+  }
   var brand = (
     <Box pt={"25px"} mb="12px">
       <Flex mb="30px" justifyContent="center" alignItems="center">
@@ -522,7 +525,7 @@ export function SidebarResponsive(props) {
       <Box display={{ sm: "block", xl: "none" }}>
         <>
           <HamburgerIcon
-            color={navbarIcon}
+            color={hamburgerColor}
             w="18px"
             h="18px"
             me="16px"

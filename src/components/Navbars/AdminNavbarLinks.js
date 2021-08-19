@@ -42,6 +42,7 @@ export default function HeaderLinks(props) {
     variant,
     children,
     fixed,
+    secondary,
     ...rest
   } = props;
   const [fixedLinks, setFixedLinks] = useState(props.fixedNavbar);
@@ -49,11 +50,18 @@ export default function HeaderLinks(props) {
 
   const { isOpen, onOpen, onClose } = useDisclosure();
   // Chakra Color Mode
-  const mainTeal = useColorModeValue("teal.300", "teal.300");
-  const inputBg = useColorModeValue("white", "gray.800");
-  const navbarIcon = useColorModeValue("gray.500", "gray.200");
-  let mainTextGray = useColorModeValue("gray.700", "gray.200");
+  let mainTeal = useColorModeValue("teal.300", "teal.300");
+  let inputBg = useColorModeValue("white", "gray.800");
+  let mainText = useColorModeValue("gray.700", "gray.200");
+  let navbarIcon = useColorModeValue("gray.500", "gray.200");
+  let searchIcon = useColorModeValue("gray.700", "gray.200");
+  let fixedDisplay = "relative";
 
+  if (secondary) {
+    navbarIcon = "white";
+    mainText = "white";
+    fixedDisplay = "none";
+  }
   const settingsRef = React.useRef();
   return (
     <Flex
@@ -91,13 +99,14 @@ export default function HeaderLinks(props) {
               _focus={{
                 boxShadow: "none",
               }}
-              icon={<SearchIcon color={mainTextGray} w="15px" h="15px" />}
+              icon={<SearchIcon color={searchIcon} w="15px" h="15px" />}
             ></IconButton>
           }
         />
         <Input
           fontSize="xs"
           py="11px"
+          color={mainText}
           placeholder="Type here..."
           borderRadius="inherit"
         />
@@ -127,6 +136,7 @@ export default function HeaderLinks(props) {
       <SidebarResponsive
         routes={routes}
         logoText={props.logoText}
+        secondary={props.secondary}
         // logo={logo}
         {...rest}
       />
@@ -199,7 +209,7 @@ export default function HeaderLinks(props) {
                   </Button>
                 </Flex>
               </Box>
-              <Box>
+              <Box display={fixedDisplay}>
                 <Text fontSize="md" fontWeight="600" mb="4px">
                   Navbar Fixed
                 </Text>

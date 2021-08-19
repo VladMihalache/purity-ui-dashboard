@@ -61,6 +61,7 @@ var dashRoutes = [
         name: "Profile",
         rtlName: "لوحة القيادة",
         icon: <PersonIcon color="inherit" />,
+        secondaryNavbar: true,
         component: ProfileChakra,
         layout: "/admin",
       },

@@ -21,13 +21,16 @@ export default function AdminNavbar(props) {
   const [sidebarVariant, setSidebarVariant] = useState();
   const [fixed, setFixed] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const { rtlActive, brandText } = props;
-  const mainText = useColorModeValue("gray.700", "gray.200");
+  const { rtlActive, brandText, secondary } = props;
+  let mainText = useColorModeValue("gray.700", "gray.200");
+  let secondaryText = useColorModeValue("gray.400", "gray.200");
   let navbarPosition = "absolute";
   let navbarFilter = "none";
   let navbarShadow = "none";
   let navbarBg = "none";
   let navbarBorder = "transparent";
+  let secondaryMargin = "0px";
+  let paddingX = "15px";
   // let navbarWidth= "calc(100vw - 60px - 275px)";
   if (fixed === true)
     if (scrolled === true) {
@@ -47,6 +50,13 @@ export default function AdminNavbar(props) {
       );
       // navbarWidth= "calc(100vw - 60px";
     }
+  if (secondary) {
+    navbarPosition = "absolute";
+    mainText = "white";
+    secondaryText = "white";
+    secondaryMargin = "22px";
+    paddingX = "30px";
+  }
   const changeNavbar = () => {
     if (window.scrollY > 1) {
       setScrolled(true);
@@ -57,7 +67,6 @@ export default function AdminNavbar(props) {
   window.addEventListener("scroll", changeNavbar);
   return (
     <Flex
-      // position="fixed"
       position={navbarPosition}
       boxShadow={navbarShadow}
       bg={navbarBg}
@@ -76,14 +85,11 @@ export default function AdminNavbar(props) {
       justifyContent={{ xl: "center" }}
       lineHeight="25.6px"
       mx="auto"
+      mt={secondaryMargin}
       pb="8px"
       right={{ sm: "15px", xl: "30px" }}
-      paddingLeft={{
-        sm: "15px",
-        md: "30px",
-      }}
-      paddingRight={{
-        sm: "15px",
+      px={{
+        sm: paddingX,
         md: "30px",
       }}
       paddingTop="8px"
@@ -100,13 +106,13 @@ export default function AdminNavbar(props) {
       >
         <Box mb={{ sm: "8px", md: "0px" }}>
           <Breadcrumb>
-            <BreadcrumbItem>
-              <BreadcrumbLink href="#" color="gray.400">
+            <BreadcrumbItem color={mainText}>
+              <BreadcrumbLink href="#" color={secondaryText}>
                 Pages
               </BreadcrumbLink>
             </BreadcrumbItem>
 
-            <BreadcrumbItem>
+            <BreadcrumbItem color={mainText}>
               <BreadcrumbLink href="#" color={mainText}>
                 {brandText}
               </BreadcrumbLink>
@@ -114,6 +120,7 @@ export default function AdminNavbar(props) {
           </Breadcrumb>
           {/* Here we create navbar brand, based on route name */}
           <Link
+            color={mainText}
             href="#"
             bg="inherit"
             borderRadius="inherit"
@@ -133,14 +140,10 @@ export default function AdminNavbar(props) {
         </Box>
         <Hidden>
           <Box ms="auto" w={{ sm: "100%", md: "unset" }}>
-            {/* <Input
-              onChange={(event) => {
-                props.onChange("red");
-              }}
-            /> */}
             <AdminNavbarLinks
               rtlActive={rtlActive}
               logoText={props.logoText}
+              secondary={props.secondary}
               disclosureFunc={props.disclosureFunc}
               fixed={fixed}
               onChange={
