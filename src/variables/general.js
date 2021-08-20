@@ -1,3 +1,4 @@
+// Assets
 import {
   default as avatar1,
   default as avatar8,
@@ -9,6 +10,7 @@ import avatar4 from "assets/avatars/avatar4.png";
 import avatar5 from "assets/avatars/avatar5.png";
 import avatar7 from "assets/avatars/avatar7.png";
 import avatar9 from "assets/avatars/avatar9.png";
+// Custom icons
 import {
   AdobexdLogo,
   AtlassianLogo,

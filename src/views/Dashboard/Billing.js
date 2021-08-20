@@ -33,6 +33,7 @@ import {
 } from "variables/general";
 
 function Billing() {
+  // Chakra color mode
   const iconTeal = useColorModeValue("teal.300", "teal.300");
   const textColor = useColorModeValue("gray.700", "white");
   const borderColor = useColorModeValue("#dee2e6", "gray.500");

@@ -1,11 +1,4 @@
-import {
-  Box,
-  Flex,
-  Icon,
-  Text,
-  useColorMode,
-  useColorModeValue,
-} from "@chakra-ui/react";
+import { Box, Flex, Icon, Text, useColorModeValue } from "@chakra-ui/react";
 import React from "react";
 
 function TranzactionRow(props) {

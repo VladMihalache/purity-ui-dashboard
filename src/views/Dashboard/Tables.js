@@ -1,3 +1,5 @@
+import React from "react";
+// Chakra imports
 import {
   Flex,
   Table,
@@ -8,11 +10,11 @@ import {
   Tr,
   useColorModeValue,
 } from "@chakra-ui/react";
+// Custom components
 import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
 import TablesProjectRow from "components/Table/TablesProjectRow";
 import TablesTableRow from "components/Table/TablesTableRow";
-import React from "react";
 import { tablesProjectData, tablesTableData } from "variables/general";
 
 function Tables() {

@@ -1,7 +1,5 @@
 import React from "react";
-import Chart from "react-apexcharts";
 import ReactApexChart from "react-apexcharts";
-import { Box } from "@chakra-ui/react";
 import { lineChartData, lineChartOptions } from "variables/charts";
 
 class LineChart extends React.Component {

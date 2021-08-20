@@ -1,4 +1,5 @@
-// chakra imports
+import React from "react";
+// Chakra imports
 import {
   Box,
   Flex,
@@ -12,13 +13,11 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
-// images
+// Assets
 import signInImage from "assets/img/signInImage.png";
-// chakra imports
-import Auth from "components/Auth/Auth";
-import React from "react";
 
 function SignIn() {
+  // Chakra color mode
   const titleColor = useColorModeValue("teal.300", "teal.200");
   const textColor = useColorModeValue("gray.400", "white");
   return (

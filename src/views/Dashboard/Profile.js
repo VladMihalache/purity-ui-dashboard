@@ -1,3 +1,5 @@
+import React from "react";
+// Chakra imports
 import {
   Avatar,
   AvatarGroup,
@@ -12,6 +14,11 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
+// Custom components
+import Card from "components/Card/Card";
+import CardBody from "components/Card/CardBody";
+import CardHeader from "components/Card/CardHeader";
+// Assets
 import avatar2 from "assets/avatars/avatar2.png";
 import avatar3 from "assets/avatars/avatar3.png";
 import avatar4 from "assets/avatars/avatar4.png";
@@ -21,10 +28,6 @@ import ImageArchitect1 from "assets/img/ImageArchitect1.png";
 import ImageArchitect2 from "assets/img/ImageArchitect2.png";
 import ImageArchitect3 from "assets/img/ImageArchitect3.png";
 import ProfileBgImage from "assets/img/ProfileBackground.png";
-import Card from "components/Card/Card";
-import CardBody from "components/Card/CardBody";
-import CardHeader from "components/Card/CardHeader";
-import React from "react";
 import {
   FaCube,
   FaFacebook,
@@ -36,6 +39,7 @@ import {
 import { IoDocumentsSharp } from "react-icons/io5";
 
 function Profile() {
+  // Chakra color mode
   const textColor = useColorModeValue("gray.700", "white");
   const bgProfile = useColorModeValue(
     "hsla(0,0%,100%,.8)",

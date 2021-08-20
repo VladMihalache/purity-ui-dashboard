@@ -1,5 +1,4 @@
 import React from "react";
-// chakra imports
 import { Flex } from "@chakra-ui/react";
 
 export function Separator(props) {

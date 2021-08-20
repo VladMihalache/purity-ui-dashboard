@@ -1,6 +1,5 @@
-// chakra imports
-import { Flex } from "@chakra-ui/react";
 import React from "react";
+import { Flex } from "@chakra-ui/react";
 
 export default function IconBox(props) {
   const { children, ...rest } = props;

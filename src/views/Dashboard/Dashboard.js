@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// chakra imports
+// Chakra imports
 import {
   Box,
   Button,
@@ -20,7 +20,7 @@ import {
   useColorModeValue,
   Portal,
 } from "@chakra-ui/react";
-// custom components
+// Custom components
 import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
 import CardHeader from "components/Card/CardHeader.js";
@@ -29,7 +29,7 @@ import LineChart from "components/Charts/LineChart";
 import IconBox from "components/Icons/IconBox";
 import DashboardTableRow from "components/Table/DashboardTableRow";
 import TimelineRow from "components/Table/TimelineRow";
-// custom icons
+// Custom icons
 import {
   CartIcon,
   DocumentIcon,
@@ -46,7 +46,7 @@ import { dashboardTableData, timelineData } from "variables/general";
 import peopleImage from "assets/img/people-image.png";
 import logoChakra from "assets/svg/logo-white.svg";
 
-export default function DashboardChakra() {
+export default function Dashboard() {
   const value = "$100.000";
   // Chakra Color Mode
   const { colorMode, toggleColorMode } = useColorMode();

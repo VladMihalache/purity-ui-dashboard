@@ -1,20 +1,10 @@
-import React from "react";
+// Chakra imports
+import { Box, Flex, Text } from "@chakra-ui/react";
+// Custom components
 import SignUpAuth from "components/Auth/SignUpAuth";
-import {
-  Button,
-  Flex,
-  Heading,
-  Input,
-  useColorModeValue,
-  Text,
-  FormControl,
-  FormLabel,
-  Box,
-  Link,
-  Switch,
-} from "@chakra-ui/react";
-
+// Assets
 import BgSignUp from "assets/img/BgSignUp.png";
+import React from "react";
 
 function SignUp() {
   return (

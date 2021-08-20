@@ -1,64 +1,34 @@
-import React, { useState, useEffect } from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
-// Chakra-UI imports
+import React, { useState } from "react";
+import routes from "routes.js";
+// Chakra imports
 import {
   ChakraProvider,
-  useColorModeValue,
   Portal,
-  Button,
-  Input,
+  useColorModeValue,
   useDisclosure,
 } from "@chakra-ui/react";
-import theme from "theme/theme.js";
-// creates a beautiful scrollbar
-import PerfectScrollbar from "perfect-scrollbar";
-import "perfect-scrollbar/css/perfect-scrollbar.css";
-
-// Custom Components
-import { DashboardLogo } from "../components/Icons/Icons";
-// Layout
-import MainPanel from "../components/Layout/MainPanel";
-import PanelContent from "../components/Layout/PanelContent";
-import PanelContainer from "../components/Layout/PanelContainer";
+// Layout components
 import AdminNavbar from "components/Navbars/AdminNavbar.js";
 import Footer from "components/Footer/Footer.js";
-
 import Sidebar from "components/Sidebar/Sidebar.js";
-
-import routes from "routes.js";
+import { Redirect, Route, Switch } from "react-router-dom";
+// Custom Chakra theme
+import theme from "theme/theme.js";
+// Custom Components
+import { DashboardLogo } from "../components/Icons/Icons";
+// Custom components
+import MainPanel from "../components/Layout/MainPanel";
+import PanelContainer from "../components/Layout/PanelContainer";
+import PanelContent from "../components/Layout/PanelContent";
 
 var ps;
 export default function Dashboard(props) {
   const { ...rest } = props;
   // states and functions
-  const [mobileOpen, setMobileOpen] = React.useState(false);
-  const [miniActive, setMiniActive] = React.useState(false);
   const [sidebarVariant, setSidebarVariant] = useState("transparent");
   // ref for main panel div
   const mainPanel = React.createRef();
-  // effect instead of componentDidMount, componentDidUpdate and componentWillUnmount
-  // React.useEffect(() => {
-  //   if (navigator.platform.indexOf("Win") > -1) {
-  //     ps = new PerfectScrollbar(mainPanel.current, {
-  //       suppressScrollX: true,
-  //       suppressScrollY: false,
-  //     });
-  //     document.body.style.overflow = "hidden";
-  //   }
-  //   window.addEventListener("resize", resizeFunction);
-
-  //   // Specify how to clean up after this effect:
-  //   return function cleanup() {
-  //     if (navigator.platform.indexOf("Win") > -1) {
-  //       ps.destroy();
-  //     }
-  //     window.removeEventListener("resize", resizeFunction);
-  //   };
-  // });
-  // functions for changeing the states from components
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
+  // functions for changing the states from components
   const getRoute = () => {
     return window.location.pathname !== "/admin/full-screen-maps";
   };
@@ -85,6 +55,7 @@ export default function Dashboard(props) {
     }
     return activeRoute;
   };
+  // This changes navbar state(fixed or not)
   const getActiveNavbar = (routes) => {
     let activeNavbar = false;
     for (let i = 0; i < routes.length; i++) {
@@ -126,14 +97,6 @@ export default function Dashboard(props) {
       }
     });
   };
-  const sidebarMinimize = () => {
-    setMiniActive(!miniActive);
-  };
-  const resizeFunction = () => {
-    if (window.innerWidth >= 960) {
-      setMobileOpen(false);
-    }
-  };
   // Chakra Color Mode
   const mainText = useColorModeValue("gray.700", "gray.200");
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -144,16 +107,12 @@ export default function Dashboard(props) {
         routes={routes}
         logoText={"DASHBOARD"}
         logo={logo}
-        handleDrawerToggle={handleDrawerToggle}
-        open={mobileOpen}
-        miniActive={miniActive}
         display="none"
         {...rest}
-        opening={isOpen}
-        closing={onClose}
         sidebarVariant={sidebarVariant}
       />
       <MainPanel
+        ref={mainPanel}
         w={{
           base: "100%",
           xl: "calc(100% - 275px)",
@@ -161,13 +120,9 @@ export default function Dashboard(props) {
       >
         <Portal>
           <AdminNavbar
-            sidebarMinimize={sidebarMinimize.bind(this)}
-            miniActive={miniActive}
             logoText={"DASHBOARD"}
             brandText={getActiveRoute(routes)}
             secondary={getActiveNavbar(routes)}
-            handleDrawerToggle={handleDrawerToggle}
-            disclosureFunc={onOpen}
             onChange={(value) => setSidebarVariant(value)}
             {...rest}
           />
