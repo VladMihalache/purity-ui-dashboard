@@ -2,7 +2,6 @@
 import DashboardChakra from "views/Dashboard/Dashboard.js";
 import TablesChakra from "views/Dashboard/Tables.js";
 import BillingChakra from "views/Dashboard/Billing.js";
-import RTLChakra from "views/RTL/RTL.js";
 import ProfileChakra from "views/Dashboard/Profile.js";
 import SignInChakra from "views/Pages/SignIn.js";
 import SignUpChakra from "views/Pages/SignUp.js";
@@ -11,7 +10,6 @@ import {
   HomeIcon,
   StatsIcon,
   CreditIcon,
-  SupportIcon,
   PersonIcon,
   DocumentIcon,
   RocketIcon,
@@ -41,14 +39,6 @@ var dashRoutes = [
     icon: <CreditIcon color="inherit" />,
     component: BillingChakra,
     layout: "/admin",
-  },
-  {
-    path: "/rtl-page",
-    name: "RTL Support",
-    rtlName: "صودعم رتل",
-    icon: <SupportIcon color="inherit" />,
-    component: RTLChakra,
-    layout: "/rtl",
   },
   {
     name: "ACCOUNT PAGES",
