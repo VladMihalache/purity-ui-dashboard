@@ -8,20 +8,21 @@ gulp.task("licenses", async function () {
     .pipe(
       gap.prependText(`/*!
 
-=========================================================
-* Material Dashboard PRO React - v1.10.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-dashboard-pro-react
-* Copyright 2021 Creative Tim (http://www.creative-tim.com)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/`)
+      =========================================================
+      * Purity UI Dashboard - v1.0.0
+      =========================================================
+      
+      * Product Page: https://www.creative-tim.com/product/purity-ui-dashboard
+      * Copyright 2021 Creative Tim (https://www.creative-tim.com)
+      * Licensed under MIT (https://github.com/creativetimofficial/purity-ui-dashboard/blob/master/LICENSE.md)
+      
+      * Design by Creative Tim & Coded by Simmmple
+      
+      =========================================================
+      
+      * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+      
+      */`)
     )
     .pipe(gulp.dest("./", { overwrite: true }));
 
@@ -30,21 +31,24 @@ gulp.task("licenses", async function () {
     .src("build/index.html", { base: "./" })
     .pipe(
       gap.prependText(`<!--
-
-=========================================================
-* Material Dashboard PRO React - v1.10.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-dashboard-pro-react
-* Copyright 2021 Creative Tim (http://www.creative-tim.com)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
--->`)
+      /*!
+      
+      =========================================================
+      * Purity UI Dashboard - v1.0.0
+      =========================================================
+      
+      * Product Page: https://www.creative-tim.com/product/purity-ui-dashboard
+      * Copyright 2021 Creative Tim (https://www.creative-tim.com)
+      * Licensed under MIT (https://github.com/creativetimofficial/purity-ui-dashboard/blob/master/LICENSE.md)
+      
+      * Design by Creative Tim & Coded by Simmmple
+      
+      =========================================================
+      
+      * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+      
+      */
+      -->`)
     )
     .pipe(gulp.dest("./", { overwrite: true }));
 
@@ -54,20 +58,21 @@ gulp.task("licenses", async function () {
     .pipe(
       gap.prependText(`/*!
 
-=========================================================
-* Material Dashboard PRO React - v1.10.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-dashboard-pro-react
-* Copyright 2021 Creative Tim (http://www.creative-tim.com)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/`)
+      =========================================================
+      * Purity UI Dashboard - v1.0.0
+      =========================================================
+      
+      * Product Page: https://www.creative-tim.com/product/purity-ui-dashboard
+      * Copyright 2021 Creative Tim (https://www.creative-tim.com)
+      * Licensed under MIT (https://github.com/creativetimofficial/purity-ui-dashboard/blob/master/LICENSE.md)
+      
+      * Design by Creative Tim & Coded by Simmmple
+      
+      =========================================================
+      
+      * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+      
+      */`)
     )
     .pipe(gulp.dest("./", { overwrite: true }));
   return;
