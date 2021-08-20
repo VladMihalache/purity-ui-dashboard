@@ -281,7 +281,7 @@ export default function DashboardChakra() {
             bgPosition="center"
             bgRepeat="no-repeat"
             w="100%"
-            h="100%"
+            h={{ sm: "200px", md: "100%" }}
             bgSize="cover"
             position="relative"
             borderRadius="15px"
