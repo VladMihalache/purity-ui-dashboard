@@ -612,15 +612,6 @@ export default function DashboardChakra() {
           </CardBody>
         </Card>
       </Grid>
-
-      <Button
-        size="sm"
-        colorScheme="blue"
-        variant="with-shadow"
-        onClick={toggleColorMode}
-      >
-        Toggle Mode
-      </Button>
     </Flex>
   );
 }
