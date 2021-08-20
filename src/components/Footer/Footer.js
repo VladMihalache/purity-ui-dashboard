@@ -78,12 +78,20 @@ export default function Footer(props) {
             md: "44px",
           }}
         >
-          <Link color="gray.400" href="#blog">
+          <Link
+            color="gray.400"
+            href="#blog"
+            href="https://blog.creative-tim.com/"
+          >
             {rtlActive ? "مدونة" : "Blog"}
           </Link>
         </ListItem>
         <ListItem>
-          <Link color="gray.400" href="#license">
+          <Link
+            color="gray.400"
+            href="#license"
+            href="https://www.creative-tim.com/license"
+          >
             {rtlActive ? "رخصة" : "License"}
           </Link>
         </ListItem>

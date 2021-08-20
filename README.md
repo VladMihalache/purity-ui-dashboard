@@ -1,6 +1,7 @@
 # [Purity UI Dashboard](https://demos.creative-tim.com/material-kit/index.html) [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&logo=twitter)](https://twitter.com/home?status=Material%20Kit%20is%20a%20Free%20Bootstrap%204%20UI%20Kit%20%E2%9D%A4%EF%B8%8F%0Ahttps%3A//demos.creative-tim.com/material-kit/index.html%20%23bootstrap%20%23material%20%23design%20%23uikit%20%23freebie%20%20via%20%40CreativeTim)
 
-![version](https://img.shields.io/badge/version-1.0.0-blue.svg) ![license](https://img.shields.io/badge/license-MIT-blue.svg) [![GitHub issues open](https://img.shields.io/github/issues/creativetimofficial/material-kit.svg?maxAge=2592000)](https://github.com/creativetimofficial/material-kit/issues?q=is%3Aopen+is%3Aissue) [![GitHub issues closed](https://img.shields.io/github/issues-closed-raw/creativetimofficial/material-kit.svg?maxAge=2592000)](https://github.com/creativetimofficial/material-kit/issues?q=is%3Aissue+is%3Aclosed)
+
+ ![version](https://img.shields.io/badge/version-1.0.0-blue.svg)  ![license](https://img.shields.io/badge/license-MIT-blue.svg) [![GitHub issues open](https://img.shields.io/github/issues/creativetimofficial/material-kit.svg?maxAge=2592000)](https://github.com/creativetimofficial/material-kit/issues?q=is%3Aopen+is%3Aissue) [![GitHub issues closed](https://img.shields.io/github/issues-closed-raw/creativetimofficial/material-kit.svg?maxAge=2592000)](https://github.com/creativetimofficial/material-kit/issues?q=is%3Aissue+is%3Aclosed)
 
 ![Product Gif](https://i.ibb.co/7NXMZQS/Cover-Purity-Chakra-FREE-Thumbnail.png)
 
@@ -39,18 +40,17 @@ View <a href="https://demos.creative-tim.com/purity-ui-dashboard/admin/dashboard
 - Check <a href="https://www.creative-tim.com/faq" target="_blank">FAQ Page</a>
 
 #### Special thanks
-
 During the development of this dashboard, we have used many existing resources from awesome developers. We want to thank them for providing their tools open source:
-
 - [Chakra UI](https://www.chakra-ui.com) - Open source ReactJS framework
 - [ApexCharts.js](https://apexcharts.com/) - Modern & Interactive Open-source charts
 - [ReactJS](https://reactjs.org/) - A popular JavaScript library for building user interfaces
 
 Let us know your thoughts below. And good luck with development!
 
+
 ## Table of Contents
 
-- [Purity UI Dashboard] [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&logo=twitter)](https://twitter.com/home?status=Material%20Kit%20is%20a%20Free%20Bootstrap%204%20UI%20Kit%20%E2%9D%A4%EF%B8%8F%0Ahttps%3A//demos.creative-tim.com/material-kit/index.html%20%23bootstrap%20%23material%20%23design%20%23uikit%20%23freebie%20%20via%20%40CreativeTim)](#purity-ui-dashboard)
+ - [Purity UI Dashboard](http://demos.creative-tim.com/purity-ui-dashboard/admin/dashboard.html?ref=readme-pud)
   - [Table of Contents](#table-of-contents)
   - [Versions](#versions)
   - [Demo](#demo)
@@ -64,36 +64,39 @@ Let us know your thoughts below. And good luck with development!
   - [Useful Links](#useful-links)
   - [Social Media](#social-media)
 
+
 ## Versions
 
 [<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/react-logo.jpg?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/purity-ui-dashboard?ref=readme-pud)[<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/figma-logo.jpg?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/purity-ui-dashboard?ref=readme-pud)
 
-| React                                                                                                                                                                                        | Figma                                                                                                                                                                                   |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [![Purity Free ReactJS Chakra Dashboard](https://i.ibb.co/Ct9RvRZ/Cover-Purity-Chakra-FREE-Thumbnail-React-JS.png)](https://www.creative-tim.com/product/purity-ui-dashboard?ref=readme-pud) | [![Purity Free Figma Chakra Dashboard](https://i.ibb.co/wRK0jbK/Cover-Purity-Chakra-FREE-Thumbnail-Figma.png)](https://www.creative-tim.com/product/purity-ui-dashboard?ref=readme-pud) |
+
+| React | Figma |
+| --- | --- |
+| [![Purity Free ReactJS Chakra Dashboard](https://i.ibb.co/Ct9RvRZ/Cover-Purity-Chakra-FREE-Thumbnail-React-JS.png)](https://www.creative-tim.com/product/purity-ui-dashboard?ref=readme-pud) | [![Purity Free Figma Chakra Dashboard](https://i.ibb.co/wRK0jbK/Cover-Purity-Chakra-FREE-Thumbnail-Figma.png)](https://www.creative-tim.com/product/purity-ui-dashboard?ref=readme-pud)
+
 
 ## Demo
 
-- [Dashboard](http://demos.creative-tim.com/purity-ui-dashboard/admin/dashboard.html?ref=readme-sud?ref=readme-pud)
-- [Billing page](http://demos.creative-tim.com/purity-ui-dashboard/admin/billing.html?ref=readme-sud?ref=readme-pud)
-- [Profile page](http://demos.creative-tim.com/purity-ui-dashboard/admin/profile.html?ref=readme-sud?ref=readme-pud)
-- [Sign in page](http://demos.creative-tim.com/purity-ui-dashboard/auth/sign-in.html?ref=readme-sud?ref=readme-pud)
-- [Sign up page](https://demos.creative-tim.com/purity-ui-dashboard/auth/sign-up.html?ref=readme-sud?ref=readme-pud)
-- [RTL page](http://demos.creative-tim.com/purity-ui-dashboard/admin/rtl/rtl-page.html?ref=readme-sud?ref=readme-pud)
+- [Dashboard](http://demos.creative-tim.com/purity-ui-dashboard/admin/dashboard.html?ref=readme-pud)
+- [Billing page](http://demos.creative-tim.com/purity-ui-dashboard/admin/billing.html?ref=readme-pud)
+- [Profile page](http://demos.creative-tim.com/purity-ui-dashboard/admin/profile.html?ref=readme-pud)
+- [Sign in page](http://demos.creative-tim.com/purity-ui-dashboard/auth/sign-in.html?ref=readme-pud)
+- [Sign up page](https://demos.creative-tim.com/purity-ui-dashboard/auth/sign-up.html?ref=readme-pud)
+  
+[View More](https://demos.creative-tim.com/purity-ui-dashboard/admin/dashboard.html?ref=readme-pud).
 
-[View More](https://demos.creative-tim.com/purity-ui-dashboard/admin/dashboard.html?ref=readme-sud).
 
 ## Terminal Commands
 
 1. Download and Install NodeJs from [NodeJs Official Page](https://nodejs.org/en/download/).
 2. Navigate to the root / directory and run npm install to install our local dependencies
 
-## Documentation
 
-The documentation for the Material Kit is hosted at our [website](https://demos.creative-tim.com/purity-ui-dashboard/docs/1.0/getting-started/introduction.html?ref=readme-pud).
+## Documentation
+The documentation for the Purity UI Dashboard is hosted at [Chakra's Website](https://chakra-ui.com/docs/form/button).
+
 
 ## File Structure
-
 Within the download you'll find the following directories and files:
 
 ```
@@ -198,15 +201,14 @@ purity-ui-dashboard/
     │   │   ├── Dashboard.js
     │   │   ├── Profile.js
     │   │   └── Tables.js
-    │   ├── Pages
-    │   │   ├── SignIn.js
-    │   │   └── SignUp.js
-    │   └── RTL
-    │       └── RTL.js
+    │   └── Pages
+    │       ├── SignIn.js
+    │       └── SignUp.js
     ├── index.js
     └── routes.js
 
 ```
+
 
 ## Browser Support
 
@@ -214,14 +216,16 @@ At present, we officially aim to support the last two versions of the following 
 
 <img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/chrome-logo.png?raw=true" width="64" height="64"> <img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/firefox-logo.png" width="64" height="64"> <img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/edge-logo.png" width="64" height="64"> <img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/safari-logo.png" width="64" height="64"> <img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/opera-logo.png" width="64" height="64">
 
-## Resources
 
+
+## Resources
 - Demo: <https://demos.creative-tim.com/purity-ui-dashboard/dashboard.html?ref=readme-pud>
 - Download Page: <https://www.creative-tim.com/product/purity-ui-dashboard?ref=readme-pud>
 - Documentation: <https://demos.creative-tim.com/purity-ui-dashboard/docs/1.0/getting-started/introduction.html?ref=readme-pud>
 - License Agreement: <https://www.creative-tim.com/license?ref=readme-pud>
 - Support: <https://www.creative-tim.com/contact-us?ref=readme-pud>
 - Issues: [Github Issues Page](https://github.com/creativetimofficial/purity-ui-dashboard/issues)
+  
 
 ## Reporting Issues
 
@@ -261,7 +265,8 @@ Dribbble: <https://dribbble.com/creativetim>
 
 Instagram: <https://www.instagram.com/CreativeTimOfficial>
 
-### Social Media - Simmmple
+
+### Social Media -  Simmmple
 
 Twitter: <https://twitter.com/simmmple_web>
 

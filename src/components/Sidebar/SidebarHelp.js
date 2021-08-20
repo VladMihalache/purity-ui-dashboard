@@ -28,7 +28,7 @@ export function SidebarHelp(props) {
       <Text fontSize="xs" color="white" mb="10px">
         Please check our docs
       </Text>
-      <Link w="100%">
+      <Link w="100%" href="https://chakra-ui.com/docs/form/button">
         <Button
           fontSize="10px"
           fontWeight="bold"
