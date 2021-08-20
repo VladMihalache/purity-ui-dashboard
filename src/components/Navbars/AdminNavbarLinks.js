@@ -33,6 +33,7 @@ import { Separator } from "components/Separator/Separator";
 import { SidebarResponsive } from "components/Sidebar/Sidebar";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
+import { NavLink, useLocation } from "react-router-dom";
 import routes from "routes.js";
 
 export default function HeaderLinks(props) {
@@ -111,16 +112,20 @@ export default function HeaderLinks(props) {
           borderRadius="inherit"
         />
       </InputGroup>
-      <Button
-        ms="0px"
-        px="0px"
-        me={{ sm: "2px", md: "16px" }}
-        color={navbarIcon}
-        variant="transparent-with-icon"
-        leftIcon={<ProfileIcon color={navbarIcon} w="22px" h="22px" me="0px" />}
-      >
-        <Text display={{ sm: "none", md: "flex" }}>Sign In</Text>
-      </Button>
+      <NavLink to="/auth/signin">
+        <Button
+          ms="0px"
+          px="0px"
+          me={{ sm: "2px", md: "16px" }}
+          color={navbarIcon}
+          variant="transparent-with-icon"
+          leftIcon={
+            <ProfileIcon color={navbarIcon} w="22px" h="22px" me="0px" />
+          }
+        >
+          <Text display={{ sm: "none", md: "flex" }}>Sign In</Text>
+        </Button>
+      </NavLink>
       <SidebarResponsive
         logoText={props.logoText}
         secondary={props.secondary}

@@ -5,6 +5,7 @@ import {
   Flex,
   Link,
   Text,
+  HStack,
   useColorMode,
   useColorModeValue,
   Accordion,
@@ -19,7 +20,9 @@ import {
   DocumentIcon,
   RocketIcon,
   DashboardLogo,
+  DashboardLogoWhite,
 } from "components/Icons/Icons";
+import { Separator } from "components/Separator/Separator";
 import { SidebarResponsive } from "components/Sidebar/Sidebar";
 import PropTypes from "prop-types";
 import React from "react";
@@ -30,14 +33,73 @@ export default function AuthNavbar(props) {
   const handleDrawerToggle = () => {
     setOpen(!open);
   };
-  const { logo, logoText, rtlActive, sidebarVariant, ...rest } = props;
+  const { logo, logoText, rtlActive, secondary, ...rest } = props;
   // verifies if routeName is the one active (in browser input)
   const activeRoute = (routeName) => {
     return window.location.href.indexOf(routeName) > -1 ? true : false;
   };
-  const { color, brandText } = props;
+  // Chakra color mode
+  const { colorMode, toggleColorMode } = useColorMode();
+  let navbarIcon = useColorModeValue("gray.700", "gray.200");
+  let mainText = useColorModeValue("gray.700", "gray.200");
+  let navbarBg = useColorModeValue(
+    "linear-gradient(112.83deg, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0.8) 110.84%)",
+    "linear-gradient(112.83deg, rgba(255, 255, 255, 0.21) 0%, rgba(255, 255, 255, 0) 110.84%)"
+  );
+  let navbarBorder = useColorModeValue(
+    "1.5px solid #FFFFFF",
+    "1.5px solid rgba(255, 255, 255, 0.31)"
+  );
+  let navbarShadow = useColorModeValue(
+    "0px 7px 23px rgba(0, 0, 0, 0.05)",
+    "none"
+  );
+  let navbarFilter = useColorModeValue(
+    "none",
+    "drop-shadow(0px 7px 23px rgba(0, 0, 0, 0.05))"
+  );
+  let navbarBackdrop = "blur(21px)";
+  let bgButton = useColorModeValue(
+    "linear-gradient(81.62deg, #313860 2.25%, #151928 79.87%)",
+    "gray.800"
+  );
+  let navbarPosition = "fixed";
+  let colorButton = "white";
+  if (props.secondary === true) {
+    navbarIcon = "white";
+    navbarBg = "none";
+    navbarBorder = "none";
+    navbarShadow = "initial";
+    navbarFilter = "initial";
+    navbarBackdrop = "none";
+    bgButton = "white";
+    colorButton = "gray.700";
+    mainText = "white";
+    navbarPosition = "absolute";
+  }
+  var brand = (
+    <Link
+      href="/admin/dashboard"
+      target="_blank"
+      display="flex"
+      lineHeight="100%"
+      fontWeight="bold"
+      justifyContent="center"
+      alignItems="center"
+      fontSize="11px"
+      color={mainText}
+    >
+      {props.secondary === true ? (
+        <DashboardLogoWhite w="83.5px" h="22.5px" />
+      ) : (
+        <DashboardLogo w="83.5px" h="21.5px" />
+      )}
+      <Box w="1px" h="18px" mx="10px" backgroundColor={mainText}></Box>
+      <Text mt="3px">{logoText}</Text>
+    </Link>
+  );
   var linksAuth = (
-    <Flex display={{ sm: "none", lg: "flex" }}>
+    <HStack display={{ sm: "none", lg: "flex" }}>
       <NavLink to="/admin/dashboard">
         <Button
           fontSize="sm"
@@ -99,34 +161,11 @@ export default function AuthNavbar(props) {
           <Text>Sign In</Text>
         </Button>
       </NavLink>
-    </Flex>
-  );
-  const navbarIcon = useColorModeValue("gray.700", "gray.200");
-  const { colorMode, toggleColorMode } = useColorMode();
-  const mainText = useColorModeValue("gray.700", "gray.200");
-  const navbarBg = useColorModeValue(
-    "linear-gradient(112.83deg, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0.8) 110.84%)",
-    "linear-gradient(112.83deg, rgba(255, 255, 255, 0.21) 0%, rgba(255, 255, 255, 0) 110.84%)"
-  );
-  const navbarBorder = useColorModeValue(
-    "1.5px solid #FFFFFF",
-    "1.5px solid rgba(255, 255, 255, 0.31)"
-  );
-  const navbarShadow = useColorModeValue(
-    "0px 7px 23px rgba(0, 0, 0, 0.05)",
-    "none"
-  );
-  const navbarFilter = useColorModeValue(
-    "none",
-    "drop-shadow(0px 7px 23px rgba(0, 0, 0, 0.05))"
-  );
-  const bgButton = useColorModeValue(
-    "linear-gradient(81.62deg, #313860 2.25%, #151928 79.87%)",
-    "gray.800"
+    </HStack>
   );
   return (
     <Flex
-      position="fixed"
+      position={navbarPosition}
       top="16px"
       left="50%"
       transform="translate(-50%, 0px)"
@@ -134,7 +173,7 @@ export default function AuthNavbar(props) {
       border={navbarBorder}
       boxShadow={navbarShadow}
       filter={navbarFilter}
-      backdropFilter="blur(21px)"
+      backdropFilter={navbarBackdrop}
       borderRadius="70px"
       px="16px"
       py="22px"
@@ -144,23 +183,10 @@ export default function AuthNavbar(props) {
       alignItems="center"
     >
       <Flex w="100%" justifyContent="space-between">
-        <Flex justifyContent="center" alignItems="center">
-          <DashboardLogo w="83.5px" h="21.5px" />
-          <Box w="1px" h="18px" mx="10px" backgroundColor={mainText}></Box>
-          <Link
-            href="https://chakra-ui.com/"
-            target="_blank"
-            color={mainText}
-            lineHeight="100%"
-            mt="2px"
-            fontWeight="bold"
-            fontSize="11px"
-          >
-            {logoText}
-          </Link>
-        </Flex>
+        {brand}
         <SidebarResponsive
           logoText={props.logoText}
+          display={{ lg: "none" }}
           secondary={props.secondary}
           routes={routes}
           // logo={logo}
@@ -169,7 +195,7 @@ export default function AuthNavbar(props) {
         {linksAuth}
         <Button
           bg={bgButton}
-          color="white"
+          color={colorButton}
           fontSize="xs"
           variant="no-hover"
           borderRadius="35px"

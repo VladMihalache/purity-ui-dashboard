@@ -78,6 +78,7 @@ var dashRoutes = [
         name: "Sign Up",
         rtlName: "لوحة القيادة",
         icon: <RocketIcon color="inherit" />,
+        secondaryNavbar: true,
         component: SignUpChakra,
         layout: "/auth",
       },

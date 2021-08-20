@@ -80,19 +80,11 @@ function Sidebar(props) {
   const createLinks = (routes) => {
     const { sidebarVariant, rtlActive } = props;
     // Chakra Color Mode
-    // const activeBg = useColorModeValue("white", "gray.700");
-    // const inactiveBg = useColorModeValue("white", "gray.700");
-    // const activeColor = useColorModeValue("gray.700", "white");
-    // const inactiveColor = useColorModeValue("gray.400", "gray.400");
     let activeBg = useColorModeValue("white", "gray.700");
     let inactiveBg = useColorModeValue("white", "gray.700");
     let activeColor = useColorModeValue("gray.700", "white");
     let inactiveColor = useColorModeValue("gray.400", "gray.400");
     let sidebarActiveShadow = "0px 7px 11px rgba(0, 0, 0, 0.04)";
-    // let activeBg;
-    // let inactiveBg;
-    // let activeColor;
-    // let inactiveColor;
     if (sidebarVariant === "opaque") {
       activeBg = "transparent";
       inactiveBg = useColorModeValue("gray.100", "gray.600");
@@ -283,21 +275,21 @@ function Sidebar(props) {
   }
   var brand = (
     <Box pt={"25px"} mb="12px">
-      <Flex mb="30px" justifyContent="center" alignItems="center">
+      <Link
+        href="/admin/dashboard"
+        target="_blank"
+        display="flex"
+        lineHeight="100%"
+        mb="30px"
+        fontWeight="bold"
+        justifyContent="center"
+        alignItems="center"
+        fontSize="11px"
+      >
         <DashboardLogo w="83.5px" h="21.5px" />
         <Box w="1px" h="18px" mx="10px" backgroundColor={mainText}></Box>
-        <Link
-          href="https://chakra-ui.com/"
-          target="_blank"
-          // color={mainText}
-          lineHeight="100%"
-          mt="2px"
-          fontWeight="bold"
-          fontSize="11px"
-        >
-          {logoText}
-        </Link>
-      </Flex>
+        <Text mt="3px">{logoText}</Text>
+      </Link>
       <Separator></Separator>
     </Box>
   );
@@ -348,12 +340,13 @@ export function SidebarResponsive(props) {
   };
   // this function creates the links and collapses that appear in the sidebar (left menu)
   const createLinks = (routes) => {
-    const { rtlActive, secondary } = props;
+    const { rtlActive, secondary, display } = props;
     // Chakra Color Mode
     const activeBg = useColorModeValue("white", "gray.700");
     const inactiveBg = useColorModeValue("white", "gray.700");
     const activeColor = useColorModeValue("gray.700", "white");
     const inactiveColor = useColorModeValue("gray.400", "gray.400");
+
     return routes.map((prop, key) => {
       if (prop.redirect) {
         return null;
@@ -496,24 +489,22 @@ export function SidebarResponsive(props) {
     hamburgerColor = "white";
   }
   var brand = (
-    <Box pt={"25px"} mb="12px">
-      <Flex mb="30px" justifyContent="center" alignItems="center">
+    <Box pt={"35px"} mb="8px">
+      <Link
+        href="/admin/dashboard"
+        target="_blank"
+        display="flex"
+        lineHeight="100%"
+        mb="30px"
+        fontWeight="bold"
+        justifyContent="center"
+        alignItems="center"
+        fontSize="11px"
+      >
         <DashboardLogo w="83.5px" h="21.5px" />
         <Box w="1px" h="18px" mx="10px" backgroundColor={mainText}></Box>
-        <Link
-          _focus={{ boxShadow: "none" }}
-          _hover={{ boxShadow: "none" }}
-          href="https://chakra-ui.com/"
-          target="_blank"
-          color={mainText}
-          lineHeight="100%"
-          mt="2px"
-          fontWeight="bold"
-          fontSize="11px"
-        >
-          {logoText}
-        </Link>
-      </Flex>
+        <Text mt="3px">{logoText}</Text>
+      </Link>
       <Separator></Separator>
     </Box>
   );
@@ -523,7 +514,7 @@ export function SidebarResponsive(props) {
   const btnRef = React.useRef();
   // Color variables
   return (
-    <Box ref={mainPanel}>
+    <Box ref={mainPanel} display={props.display}>
       <Box display={{ sm: "block", xl: "none" }}>
         <>
           <HamburgerIcon
