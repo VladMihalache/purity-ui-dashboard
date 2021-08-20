@@ -26,6 +26,7 @@ export default function AdminNavbar(props) {
   let secondaryText = useColorModeValue("gray.400", "gray.200");
   let navbarPosition = "absolute";
   let navbarFilter = "none";
+  let navbarBackdrop = "blur(21px)";
   let navbarShadow = "none";
   let navbarBg = "none";
   let navbarBorder = "transparent";
@@ -74,6 +75,7 @@ export default function AdminNavbar(props) {
       borderStyle="solid"
       borderColor={navbarBorder}
       filter={navbarFilter}
+      backdropFilter={navbarBackdrop}
       transitionDelay="0s, 0s, 0s, 0s"
       transitionDuration=" 0.25s, 0.25s, 0.25s, 0s"
       transition-property="box-shadow, background-color, filter, border"

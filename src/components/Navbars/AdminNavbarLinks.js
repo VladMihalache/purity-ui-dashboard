@@ -20,6 +20,7 @@ import {
   MenuList,
   Switch,
   Text,
+  useColorMode,
   useColorModeValue,
   useDisclosure,
 } from "@chakra-ui/react";
@@ -49,6 +50,7 @@ export default function HeaderLinks(props) {
   const [fixedLinks, setFixedLinks] = useState(props.fixedNavbar);
   const [switched, setSwitched] = useState(false);
 
+  const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
   // Chakra Color Mode
   let mainTeal = useColorModeValue("teal.300", "teal.300");
@@ -56,7 +58,7 @@ export default function HeaderLinks(props) {
   let mainText = useColorModeValue("gray.700", "gray.200");
   let navbarIcon = useColorModeValue("gray.500", "gray.200");
   let searchIcon = useColorModeValue("gray.700", "gray.200");
-  let fixedDisplay = "relative";
+  let fixedDisplay = "flex";
 
   if (secondary) {
     navbarIcon = "white";
@@ -202,7 +204,11 @@ export default function HeaderLinks(props) {
                   </Button>
                 </Flex>
               </Box>
-              <Box display={fixedDisplay}>
+              <Box
+                display={fixedDisplay}
+                justifyContent="space-between "
+                mb="16px"
+              >
                 <Text fontSize="md" fontWeight="600" mb="4px">
                   Navbar Fixed
                 </Text>
@@ -222,6 +228,18 @@ export default function HeaderLinks(props) {
                   }}
                 />
               </Box>
+              <Flex
+                justifyContent="space-between"
+                alignItems="center"
+                mb="16px"
+              >
+                <Text fontSize="md" fontWeight="600" mb="4px">
+                  Dark/Light
+                </Text>
+                <Button onClick={toggleColorMode}>
+                  Toggle {colorMode === "light" ? "Dark" : "Light"}
+                </Button>
+              </Flex>
             </Flex>
           </DrawerBody>
         </DrawerContent>
