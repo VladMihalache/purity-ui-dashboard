@@ -18,6 +18,7 @@ import {
   Tr,
   useColorMode,
   useColorModeValue,
+  Portal,
 } from "@chakra-ui/react";
 // custom components
 import Card from "components/Card/Card.js";
@@ -64,6 +65,7 @@ export default function DashboardChakra() {
       data: [400, 291, 121, 117, 25, 133, 121, 211, 147, 25, 201, 203],
     },
   ]);
+  const overlayRef = React.useRef();
 
   return (
     <Flex flexDirection="column" pt={{ base: "120px", md: "75px" }}>
@@ -290,46 +292,48 @@ export default function DashboardChakra() {
               position="absolute"
               h="inherit"
               borderRadius="inherit"
+              ref={overlayRef}
             ></Box>
-            <Flex
-              flexDirection="column"
-              color="white"
-              p="1.5rem 1.2rem"
-              zIndex="3"
-              lineHeight="1.6"
-            >
-              <Text fontSize="xl" fontWeight="bold" pb=".3rem">
-                Work with the rockets
-              </Text>
-              <Text fontSize="sm" fontWeight="normal" w={{ lg: "67%" }}>
-                Wealth creation is a revolutionary recent positive-sum game. It
-                is all about who takes the opportunity first.
-              </Text>
-              <Spacer />
-              <Flex align="center">
-                <Button p="0px" variant="no-hover" bg="transparent" mt="12px">
-                  <Text
-                    fontSize="sm"
-                    fontWeight="bold"
-                    _hover={{ mr: "4px" }}
-                    transition="all .5s ease"
-                  >
-                    Read more
-                  </Text>
-                  <Icon
-                    as={BsArrowRight}
-                    w="20px"
-                    h="20px"
-                    fontSize="xl"
-                    transition="all .5s ease"
-                    mx=".3rem"
-                    cursor="pointer"
-                    _hover={{ transform: "translateX(20%)" }}
-                    pt="4px"
-                  />
-                </Button>
+            <Portal containerRef={overlayRef}>
+              <Flex
+                flexDirection="column"
+                color="white"
+                p="1.5rem 1.2rem"
+                lineHeight="1.6"
+              >
+                <Text fontSize="xl" fontWeight="bold" pb=".3rem">
+                  Work with the rockets
+                </Text>
+                <Text fontSize="sm" fontWeight="normal" w={{ lg: "67%" }}>
+                  Wealth creation is a revolutionary recent positive-sum game.
+                  It is all about who takes the opportunity first.
+                </Text>
+                <Spacer />
+                <Flex align="center">
+                  <Button p="0px" variant="no-hover" bg="transparent" mt="12px">
+                    <Text
+                      fontSize="sm"
+                      fontWeight="bold"
+                      _hover={{ mr: "4px" }}
+                      transition="all .5s ease"
+                    >
+                      Read more
+                    </Text>
+                    <Icon
+                      as={BsArrowRight}
+                      w="20px"
+                      h="20px"
+                      fontSize="xl"
+                      transition="all .5s ease"
+                      mx=".3rem"
+                      cursor="pointer"
+                      _hover={{ transform: "translateX(20%)" }}
+                      pt="4px"
+                    />
+                  </Button>
+                </Flex>
               </Flex>
-            </Flex>
+            </Portal>
           </CardBody>
         </Card>
       </Grid>
