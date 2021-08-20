@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+import React, { useState } from "react";
 // Chakra Imports
 import {
   Box,
@@ -8,14 +10,7 @@ import {
   Link,
   useColorModeValue,
 } from "@chakra-ui/react";
-import Hidden from "@material-ui/core/Hidden";
-// nodejs library to set properties for components
-import PropTypes from "prop-types";
-import React, { useState } from "react";
-// core components
 import AdminNavbarLinks from "./AdminNavbarLinks";
-
-// import Button from "components/CustomButtons/Button.js";
 
 export default function AdminNavbar(props) {
   const [sidebarVariant, setSidebarVariant] = useState();
@@ -49,7 +44,6 @@ export default function AdminNavbar(props) {
         "none",
         "drop-shadow(0px 7px 23px rgba(0, 0, 0, 0.05))"
       );
-      // navbarWidth= "calc(100vw - 60px";
     }
   if (secondary) {
     navbarPosition = "absolute";
@@ -140,26 +134,24 @@ export default function AdminNavbar(props) {
             {brandText}
           </Link>
         </Box>
-        <Hidden>
-          <Box ms="auto" w={{ sm: "100%", md: "unset" }}>
-            <AdminNavbarLinks
-              rtlActive={rtlActive}
-              logoText={props.logoText}
-              secondary={props.secondary}
-              disclosureFunc={props.disclosureFunc}
-              fixed={fixed}
-              onChange={
-                ((value) => setSidebarVariant(value),
-                (value) => {
-                  props.onChange(value);
-                })
-              }
-              onSwitch={(value) => {
-                setFixed(value);
-              }}
-            />
-          </Box>
-        </Hidden>
+        <Box ms="auto" w={{ sm: "100%", md: "unset" }}>
+          <AdminNavbarLinks
+            rtlActive={rtlActive}
+            logoText={props.logoText}
+            secondary={props.secondary}
+            disclosureFunc={props.disclosureFunc}
+            fixed={fixed}
+            onChange={
+              ((value) => setSidebarVariant(value),
+              (value) => {
+                props.onChange(value);
+              })
+            }
+            onSwitch={(value) => {
+              setFixed(value);
+            }}
+          />
+        </Box>
       </Flex>
     </Flex>
   );

@@ -1,5 +1,8 @@
-// Chakra Icons
-import { BellIcon, SearchIcon } from "@chakra-ui/icons";
+import PropTypes from "prop-types";
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
+import routes from "routes.js";
+
 // Chakra Imports
 import {
   Box,
@@ -24,18 +27,18 @@ import {
   useColorModeValue,
   useDisclosure,
 } from "@chakra-ui/react";
+// Chakra Icons
+import { BellIcon, SearchIcon } from "@chakra-ui/icons";
+// Assets
 import avatar1 from "assets/img/faces/avatars/avatar1.png";
 import avatar2 from "assets/img/faces/avatars/avatar2.png";
 import avatar3 from "assets/img/faces/avatars/avatar3.png";
 // Custom Icons
 import { ProfileIcon, SettingsIcon } from "components/Icons/Icons";
+// Custom Components
 import { ItemContent } from "components/Menu/ItemContent";
 import { Separator } from "components/Separator/Separator";
 import { SidebarResponsive } from "components/Sidebar/Sidebar";
-import PropTypes from "prop-types";
-import React, { useState } from "react";
-import { NavLink, useLocation } from "react-router-dom";
-import routes from "routes.js";
 
 export default function HeaderLinks(props) {
   const {

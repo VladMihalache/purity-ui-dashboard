@@ -23,42 +23,6 @@ import IconBox from "components/Icons/IconBox";
 import { DashboardLogo } from "components/Icons/Icons";
 import { Separator } from "components/Separator/Separator";
 import { SidebarHelp } from "components/Sidebar/SidebarHelp";
-// javascript plugin used to create scrollbars on windows
-import PerfectScrollbar from "perfect-scrollbar";
-
-// @material-ui/core components
-import Icon from "@material-ui/core/Icon";
-
-// core components
-
-var ps;
-
-// We've created this component so we can have a ref to the wrapper of the links that appears in our sidebar.
-// This was necessary so that we could initialize PerfectScrollbar on the links.
-// There might be something with the Hidden component from material-ui, and we didn't have access to
-// the links, and couldn't initialize the plugin.
-function SidebarWrapper({ className, headerLinks, links }) {
-  const sidebarWrapper = React.useRef();
-  // React.useEffect(() => {
-  //   if (navigator.platform.indexOf("Win") > -1) {
-  //     ps = new PerfectScrollbar(sidebarWrapper.current, {
-  //       suppressScrollX: true,
-  //       suppressScrollY: false,
-  //     });
-  //   }
-  //   return function cleanup() {
-  //     if (navigator.platform.indexOf("Win") > -1) {
-  //       ps.destroy();
-  //     }
-  //   };
-  // });
-  return (
-    <div className={className}>
-      {headerLinks}
-      {links}
-    </div>
-  );
-}
 
 // FUNCTIONS
 
@@ -97,37 +61,6 @@ function Sidebar(props) {
       if (prop.redirect) {
         return null;
       }
-      // if (prop.collapse) {
-      //   var st = {};
-      //   st[prop["state"]] = !state[prop.state];
-      //   return (
-      //     <ListItem key={key}>
-      //       <NavLink
-      //         to={"#"}
-      //         onClick={(e) => {
-      //           e.preventDefault();
-      //           setState(st);
-      //         }}
-      //       >
-      //         <Button w={"100%"} colorScheme={"blue"} mb={"30px"}>
-      //           {prop.icon !== undefined ? (
-      //             typeof prop.icon === "string" ? (
-      //               <Icon>{prop.icon}</Icon>
-      //             ) : (
-      //               <prop.icon />
-      //             )
-      //           ) : (
-      //             <span>{rtlActive ? prop.rtlMini : prop.mini}</span>
-      //           )}
-      //           <Text>{rtlActive ? prop.rtlName : prop.name}</Text>
-      //         </Button>
-      //       </NavLink>
-      //       <Collapse in={state[prop.state]} unmountOnExit>
-      //         <List>{createLinks(prop.views)}</List>
-      //       </Collapse>
-      //     </ListItem>
-      //   );
-      // }
       if (prop.category) {
         var st = {};
         st[prop["state"]] = !state[prop.state];
@@ -576,12 +509,6 @@ Sidebar.propTypes = {
   miniActive: PropTypes.bool,
   open: PropTypes.bool,
   handleDrawerToggle: PropTypes.func,
-};
-
-SidebarWrapper.propTypes = {
-  className: PropTypes.string,
-  headerLinks: PropTypes.object,
-  links: PropTypes.object,
 };
 
 export default Sidebar;

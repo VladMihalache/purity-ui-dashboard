@@ -1,28 +1,21 @@
-// @material-ui/core components
+// Chakra imports
 import {
   Box,
   Button,
   Flex,
+  HStack,
   Link,
   Text,
-  HStack,
-  useColorMode,
   useColorModeValue,
-  Accordion,
-  AccordionItem,
-  AccordionButton,
-  AccordionPanel,
-  AccordionIcon,
 } from "@chakra-ui/react";
 import {
-  HomeIcon,
-  PersonIcon,
-  DocumentIcon,
-  RocketIcon,
   DashboardLogo,
   DashboardLogoWhite,
+  DocumentIcon,
+  HomeIcon,
+  PersonIcon,
+  RocketIcon,
 } from "components/Icons/Icons";
-import { Separator } from "components/Separator/Separator";
 import { SidebarResponsive } from "components/Sidebar/Sidebar";
 import PropTypes from "prop-types";
 import React from "react";
@@ -39,7 +32,6 @@ export default function AuthNavbar(props) {
     return window.location.href.indexOf(routeName) > -1 ? true : false;
   };
   // Chakra color mode
-  const { colorMode, toggleColorMode } = useColorMode();
   let navbarIcon = useColorModeValue("gray.700", "gray.200");
   let mainText = useColorModeValue("gray.700", "gray.200");
   let navbarBg = useColorModeValue(

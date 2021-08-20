@@ -5,7 +5,6 @@ import {
   Icon,
   Spacer,
   Text,
-  useColorMode,
   useColorModeValue,
 } from "@chakra-ui/react";
 import React from "react";

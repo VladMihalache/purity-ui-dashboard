@@ -1,29 +1,12 @@
-import React from "react";
-
-import {
-  IconButton,
-  Button,
-  Link,
-  useColorModeValue,
-  Input,
-  InputGroup,
-  InputLeftElement,
-  Box,
-  Flex,
-  Text,
-} from "@chakra-ui/react";
 import { QuestionIcon } from "@chakra-ui/icons";
+import { Button, Flex, Link, Text } from "@chakra-ui/react";
 import SidebarHelpImage from "assets/img/SidebarHelpImage.png";
 import IconBox from "components/Icons/IconBox";
-import { DashboardLogo } from "components/Icons/Icons";
+import React from "react";
 
 export function SidebarHelp(props) {
   // Pass the computed styles into the `__css` prop
   const { variant, children, ...rest } = props;
-  // Chakra Color Mode
-  const mainTeal = useColorModeValue("teal.300", "teal.300");
-  const searchIconColor = useColorModeValue("gray.700", "gray.200");
-  const inputBg = useColorModeValue("white", "gray.800");
   return (
     <Flex
       borderRadius="15px"
